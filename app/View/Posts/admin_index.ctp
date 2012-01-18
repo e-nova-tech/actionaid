@@ -1,3 +1,14 @@
+<?php
+/**
+ * Posts Index View (Admin)
+ *
+ * @package     app.View.Posts.admin_index
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
+?>
   <h1>Blog posts</h1>
   <p><?php echo $this->Html->link('Add Post', array('action' => 'add')); ?></p>
   <table>

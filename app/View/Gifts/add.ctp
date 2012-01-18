@@ -1,7 +1,14 @@
 <?php
- $this->set('title_for_layout','ActionAid India - Make a gift!');
- //$states = array('IN-AP'=>'Andhra Pradesh','IN-AR'=>'Arunachal Pradesh','IN-AS'=>'Assam','IN-BR'=>'Bihar','IN-CT'=>'Chhattisgarh','IN-GA'=>'Goa','IN-GJ'=>'Gujarat','IN-HR'=>'Haryana','IN-HP'=>'Himachal Pradesh','IN-JK'=>'Jammu and Kashmir','IN-JH'=>'Jharkhand','IN-KA'=>'Karnataka','IN-KL'=>'Kerala','IN-MP'=>'Madhya Pradesh','IN-MH'=>'Maharashtra','IN-MN'=>'Manipur','IN-ML'=>'Meghalaya','IN-MZ'=>'Mizoram','IN-NL'=>'Nagaland','IN-OR'=>'Orissa','IN-PB'=>'Punjab','IN-RJ'=>'Rajasthan','IN-SK'=>'Sikkim','IN-TN'=>'Tamil Nadu','IN-TR'=>'Tripura','IN-UT'=>'Uttarakhand','IN-UP'=>'Uttar Pradesh','IN-WB'=>'West Bengal','IN-AN'=>'Andaman and Nicobar Islands','IN-CH'=>'Chandigarh','IN-DN'=>'Dadra and Nagar Haveli','IN-DD'=>'Daman and Diu','IN-DL'=>'Delhi','IN-LD'=>'Lakshadweep','IN-PY'=>'Pondicherry (Puducherry)');
-
+/**
+ * Default Donation Page
+ * 
+ * @package     app.Gift.View.add
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
+  $this->set('title_for_layout','Make a gift!');
 ?>
 <div class="gift form grid_8 alpha">
   <?php echo $this->MyForm->create('Gift')."\n"; ?>

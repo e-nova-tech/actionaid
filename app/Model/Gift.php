@@ -2,10 +2,11 @@
 /**
  * Gift Model
  * 
- * @copyright     Copyright 2012, ActionAid India 
- * @link          http://actionaid.org/india
- * @package       app.Model.Gift
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @package     app.Model.Gift
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class Gift extends AppModel {
   public $name = 'Gift';

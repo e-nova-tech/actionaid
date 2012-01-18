@@ -2,10 +2,11 @@
 /**
  * Appeal Model
  * 
- * @copyright     Copyright 2012, ActionAid India 
- * @link          http://actionaid.org/india
- * @package       app.Model.Appeal
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @package     app.Model.Appeal
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class Appeal extends AppModel {
   public $name = 'Appeal';

@@ -2,10 +2,11 @@
 /**
  * Users Controller
  * 
- * @copyright     Copyright 2012, ActionAid India 
- * @link          http://actionaid.org/india
- * @package       app.Controller.UsersController
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @package     app.Controller.UsersController
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class UsersController extends AppController {
   public $name = 'Users';

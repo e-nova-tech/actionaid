@@ -1,5 +1,13 @@
 <?php
-// app/Model/User.php
+/**
+ * User Model
+ *
+ * @package     app.Model.User
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
   public $name = 'User';

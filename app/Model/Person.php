@@ -1,11 +1,12 @@
 <?php
 /**
  * Person Model
- * 
- * @copyright     Copyright 2012, ActionAid India 
- * @link          http://actionaid.org/india
- * @package       app.Model.Person
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ *
+ * @package     app.Model.Person
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class Person extends AppModel {
   public $name = 'Person';

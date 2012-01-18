@@ -1,3 +1,14 @@
+<?php
+/**
+ * View a User (Admin)
+ *
+ * @package     app.View.Users.admin_add
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
+?>
 <div class="users form">
 <?php echo $this->Form->create('User');?>
   <fieldset>

@@ -2,10 +2,11 @@
 /**
  * Posts Controller
  * 
- * @copyright     Copyright 2012, ActionAid India 
- * @link          http://actionaid.org/india
- * @package       app.Controller.PostsController
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @package     app.Controller.PostsController
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class PostsController extends AppController {
   public $name = 'Posts';

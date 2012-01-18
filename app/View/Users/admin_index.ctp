@@ -1,11 +1,12 @@
 <?php
 /**
- * User Index View (Admin)
- * 
- * @copyright     Copyright 2012, ActionAid India 
- * @link          http://actionaid.org/india
- * @package       app.View.Users.AdminIndex
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * Users Index View (Admin)
+ *
+ * @package     app.View.Users.admin_index
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
     <h1>Users</h1>
