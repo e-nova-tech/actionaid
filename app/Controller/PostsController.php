@@ -11,8 +11,8 @@ class PostsController extends AppController {
   public $name = 'Posts';
 
   public function admin_index() {
-    $data = $this->paginate('Posts');
-    $this->set('data', $data);
+    $data = $this->paginate();
+    $this->set('posts', $data);
   }
 
   public function admin_view($id) {
