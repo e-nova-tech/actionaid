@@ -9,11 +9,12 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<h1>Edit Post</h1>
+<h1><?php echo __('Edit Post'); ?></h1>
 <?php
-echo $this->Form->create('Post', array('action' => 'edit'));
-echo $this->Form->input('title');
-echo $this->Form->input('body', array('rows' => '3'));
-echo $this->Form->input('id', array('type' => 'hidden'));
-echo $this->Form->end('Save Post');
+  echo $this->MyForm->create('Post', array('action' => 'edit'));
+  echo $this->MyForm->input('title', array('label'=>__('Title'), 'class'=> 'required'));
+  echo $this->MyForm->input('slug', array('label'=>__('Slug'), 'class'=> 'required'));
+  echo $this->MyForm->input('body', array('label'=>__('Body'), 'class'=> 'required','rows' => '3'));
+  echo $this->MyForm->input('id', array('type' => 'hidden'));
+  echo $this->Form->end('Save Post');
 ?>

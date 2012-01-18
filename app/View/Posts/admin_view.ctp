@@ -10,5 +10,7 @@
  */
 ?>
 <h1><?php echo $post['Post']['title']?></h1>
-<p><small>Created: <?php echo $post['Post']['created']?></small></p>
+<p>Slug: <?php echo $post['Post']['slug']?></p>
+<p>Created: <?php echo $post['Post']['created']?></p>
+<p>Modified: <?php echo $post['Post']['modified']?></p>
 <p><?php echo $post['Post']['body']?></p>
