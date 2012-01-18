@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <title><?php echo $title_for_layout; ?></title>
-  <?php echo $this->element('Head'); ?>
+<?php echo $this->element('Head'); ?>
   <link rel="stylesheet" href="css/admin.css">
   <meta meta name="robots" content="nofollow">
 </head>
