@@ -17,7 +17,7 @@ class AppController extends Controller {
     'Session', 'Paginator',
     'Auth' => array(
       'loginRedirect' => array('controller' => 'posts', 'action' => 'admin_index'),
-      'logoutRedirect' => array('controller' => 'gifts', 'action' => 'add')
+      'logoutRedirect' => '/gifts/add',
     )
   );
 
