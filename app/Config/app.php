@@ -21,8 +21,8 @@ $config = array(
     'name' => 'Chennai'
    ),
   'App.url' => array(
-     'dev'  => 'http://localhost/donate',
-     'prod' => 'https://actionaidindia.org/donate'
+     'dev'  => 'http://localhost/donate/',
+     'prod' => 'https://actionaidindia.org/donate/'
   ),
 
   // Cookie's settings
