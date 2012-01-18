@@ -261,19 +261,21 @@ form .input {
   padding:.5%;
 }
 form input[type="text"],
+form input[type="password"],
 form textarea {
   border:1px solid  #AAA;
   width:198px;
+  padding-left:3px;
 }
 form select {
-  width:200px;
+  width:203px;
   padding:.5%;
 }
 form .date select {
-  width:59px;
+  width:54px;
 }
-form .date select#PeopleDobYear {
-  width:70px;
+form .date select#PersonDobYear {
+  width:71px;
 }
 form .verify {
   float:left;
@@ -307,6 +309,9 @@ form .error-message {
   color:#ED1C24;
   padding:2px;
 }
+form .radiolist .error-message {
+  margin:3px 0;
+}
 form p.info {
   float:right;
   width:200px;
@@ -326,6 +331,91 @@ p.info {
   padding:5px;
   border:1px solid blue;
 }
+/* Tables */
+table {
+  background:#FFF;
+  border:1px solid #CCC;
+  /*border-right:0;*/
+  clear:both;
+  color:#333;
+  margin-bottom:10px;
+  width:100%;
+  border-collapse:collapse;
+}
+table tr th {
+  /*background:#f2f2f2;*/
+  border:1px solid #BBB;
+  text-align:center;
+  background: #d4d2d2 url(../img/layout/bg_table_header.png) right 0 repeat-x;
+  font-weight:bold;
+}
+table tr:hover {
+  background-color:#FAFAFA;
+}
+/* rows color alternance */
+table tr.altrow {
+  background:#FEFEFE;
+}
+table tr td {
+  border:1px solid #ccc;
+  padding:4px;
+  text-align:center;
+  vertical-align:top;
+}
+table tr th a {
+  display:block;
+  padding:2px 4px 2px 6px;
+  text-decoration:none;
+}
+table tr th a {
+  padding-right:20px;
+  background:transparent url(../img/layout/tablesort2.png) right center no-repeat;
+}
+table tr th a:hover {
+  background:transparent url(../img/layout/tablesort.png) right center no-repeat;
+}
+table tr th a.asc:hover,
+table tr th a.asc {
+  padding-right:20px;
+  background: #d4d2d2 url(../img/layout/tablesort_asc.png) right center no-repeat;
+}
+table tr th a.desc:hover,
+table tr th a.desc {
+  padding-right:20px;
+  background: #d4d2d2 url(../img/layout/tablesort_desc.png) right center no-repeat;
+}
+table tr td input[type=checkbox],
+table tr th input[type=checkbox] {
+  margin:2px;
+  padding:0;
+}
+/* generic tiny collumns */
+table .selection,
+table .status,
+table .fold,
+table .comments,
+table .attachments,
+table .favorites{
+  width:25px;
+}
+table .actions,
+table .date,
+table .datetime {
+  width:140px;
+}
+/*
+table .grab a{
+  width:6px;
+  height:16px;
+  display:block;
+  background:transparent url(../img/admin/layout/grab.png) 0 2px no-repeat;
+}
+table .notifications{
+  width:40px;
+  padding-left:10px;
+  padding-right:5px;
+}
+*/
 /* sidebar */
 .sidebar {
   margin-top:20px;
@@ -334,12 +424,10 @@ p.info {
 .footer .container_12{
   background:transparent url('../img/logo2.png') top right no-repeat;
 }
-/*
+
 .debug {
-  border-top:1px dotted #CCC;
   margin-top:50px;
-  padding:20px;
-}*/
+}
 
 /* =============================================================================
    Non-semantic helper classes

@@ -1,18 +1,26 @@
 <?php
-// app/Controller/UsersController.php
+/**
+ * Users Controller
+ * 
+ * @copyright     Copyright 2012, ActionAid India 
+ * @link          http://actionaid.org/india
+ * @package       app.Controller.UsersController
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 class UsersController extends AppController {
+  public $name = 'Users';
 
   public function beforeFilter() {
     parent::beforeFilter();
-    $this->Auth->allow(/*'add',*/ 'logout', 'login');
+    $this->Auth->allow('logout', 'login');
   }
 
-  public function index() {
+  public function admin_index() {
     $this->User->recursive = 0;
     $this->set('users', $this->paginate());
   }
 
-  public function view($id = null) {
+  public function admin_view($id = null) {
     $this->User->id = $id;
     if (!$this->User->exists()) {
       throw new NotFoundException(__('Invalid user'));
@@ -20,7 +28,7 @@ class UsersController extends AppController {
     $this->set('user', $this->User->read(null, $id));
   }
 
-  public function add() {
+  public function admin_add() {
     if ($this->request->is('post')) {
       $this->User->create();
       if ($this->User->save($this->request->data)) {
@@ -32,7 +40,7 @@ class UsersController extends AppController {
     }
   }
 
-  public function edit($id = null) {
+  public function admin_edit($id = null) {
     $this->User->id = $id;
     if (!$this->User->exists()) {
       throw new NotFoundException(__('Invalid user'));
@@ -50,7 +58,7 @@ class UsersController extends AppController {
     }
   }
 
-  public function delete($id = null) {
+  public function admin_delete($id = null) {
     if (!$this->request->is('post')) {
       throw new MethodNotAllowedException();
     }
@@ -67,7 +75,7 @@ class UsersController extends AppController {
   }
 
   // All about authentication
-  public function login() {
+  public function admin_login() {
     if ($this->Auth->login()) {
        $this->redirect($this->Auth->redirect());
     } else {
@@ -75,7 +83,7 @@ class UsersController extends AppController {
     }
   }
 
-  public function logout() {
+  public function admin_logout() {
     $this->redirect($this->Auth->logout());
   }
 }

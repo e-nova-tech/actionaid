@@ -5,17 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <title><?php echo $title_for_layout; ?></title>
-  <base href='http://localhost/donate/'/> 
+  <base href='http://localhost/donate/'> 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="Support ActionAid, donate now!">
-  <meta name="keywords" content="ActionAid,India,Donate,End Poverty,Make a gift,Sponsor a child" />
+  <meta name="description" content="ActionAid India, administration">
+  <meta name="keywords" content="ActionAid,India,Donate,End Poverty,Make a gift,Sponsor a child">
   <link href="favicon.ico" type="image/x-icon" rel="icon"> 
   <link href="favicon.ico" type="image/x-icon" rel="shortcut icon"> 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <meta meta name="robots" content="nofollow">
 </head>
 <body>
 <div class="container header clearfix">
@@ -26,7 +27,7 @@
       <h1 class="logo">
         <a href="http://www.actionaid.org/india" alt="ActionAid"><span>ActionAid<span></a>
       </h1>
-      <h2>End poverty together.</h2>
+      <h2>Administration</h2>
     </div>
   </header>
 </div>
@@ -35,8 +36,8 @@
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
-<?php echo $this->Session->flash(); ?>
-<?php echo $content_for_layout; ?>
+    <?php echo $this->Session->flash(); ?>
+    <?php echo $content_for_layout; ?>
   </div>
 </div>
 </div>
@@ -59,11 +60,5 @@
 <script type="text/javascript" src="http://fast.fonts.com/jsapi/cfd002b4-72bb-4e9d-9540-e28e1ddba02b.js"></script> 
 <script src="js/plugins.js"></script>
 <script src="js/script.js"></script>
-<script>
-  var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
-  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
 </body>
 </html>

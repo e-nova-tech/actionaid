@@ -9,8 +9,9 @@ class TidyHelper extends AppHelper {
   function __destruct() { 
     $output = ob_get_clean();
     $config = array(
-      'indent'         => true,
-      'wrap'           => 500);
+      'indent'  => true,
+      'wrap'    => 500,	
+    );
     // Tidy
     $tidy = new tidy;
     $tidy->parseString($output, $config, 'utf8');

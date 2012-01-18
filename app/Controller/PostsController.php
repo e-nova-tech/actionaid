@@ -1,21 +1,27 @@
 <?php
-// app/Controller/PostsController.php
+/**
+ * Posts Controller
+ * 
+ * @copyright     Copyright 2012, ActionAid India 
+ * @link          http://actionaid.org/india
+ * @package       app.Controller.PostsController
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 class PostsController extends AppController {
   public $name = 'Posts';
-  public $helpers = array('Html', 'Form');
-  public $components = array('Session');
 
-  public function index() {
-    $this->set('posts', $this->Post->find('all'));
+  public function admin_index() {
+    $data = $this->paginate('Posts');
+    $this->set('data', $data);
   }
 
-  public function view($id) {
+  public function admin_view($id) {
     $this->Post->id = $id;
     $this->set('post', $this->Post->read());
 
   }
 
-  public function add() {
+  public function admin_add() {
     if ($this->request->is('post')) {
       if ($this->Post->save($this->request->data)) {
         $this->Session->setFlash('Your post has been saved.');
@@ -26,7 +32,7 @@ class PostsController extends AppController {
     }
   }
 
-  function edit($id = null) {
+  public function admin_edit($id = null) {
     $this->Post->id = $id;
     if ($this->request->is('get')) {
       $this->request->data = $this->Post->read();
@@ -40,7 +46,7 @@ class PostsController extends AppController {
     }
   }
 
-  public function delete($id) {
+  public function admin_delete($id) {
     if ($this->request->is('get')) {
       throw new MethodNotAllowedException();
     }

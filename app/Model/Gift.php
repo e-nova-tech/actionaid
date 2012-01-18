@@ -1,7 +1,16 @@
 <?php
-// app/Model/Gift.php
+/**
+ * Gift Model
+ * 
+ * @copyright     Copyright 2012, ActionAid India 
+ * @link          http://actionaid.org/india
+ * @package       app.Model.Gift
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 class Gift extends AppModel {
   public $name = 'Gift';
+
+  // relationships
   public $hasOne = array(
     'Person' => array(
       'className'    => 'Person',
@@ -12,5 +21,25 @@ class Gift extends AppModel {
       'dependent'    => false
     )
   );
+
+  // valiation rules
+  var $validate = array(
+    'amount' => array(
+      'empty'   => array('rule' => array('notempty')),
+      'numeric' => array('rule' => array('numeric')),
+      'minimum' => array('rule' => array('checkMinimum')),
+      'maximum' => array('rule' => array('checkMaximum'))
+    )
+  );
+  
+  //TODO minimum amount?
+  function checkMinimum() {
+     return true;
+  }
+
+  //TODO maximum amount?
+  function checkMaximum() {
+     return true;
+  }
 }
 
