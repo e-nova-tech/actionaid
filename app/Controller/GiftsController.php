@@ -42,4 +42,8 @@ class GiftsController extends AppController {
       //echo "person validats<br/>";
     }
   }
+
+  public function admin_index() {
+    $this->set('gifts',$this->paginate());
+  }
 }

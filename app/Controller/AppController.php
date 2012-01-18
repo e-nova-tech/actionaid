@@ -24,11 +24,10 @@ class AppController extends Controller {
     $this->Auth->loginRedirect = Configure::read('App.auth.loginRedirect');
     $this->Auth->logoutRedirect = Configure::read('App.auth.logoutRedirect');
     $this->Cookie->name = Configure::read('App.cookie.name');
-  }
-
-  function beforeRender() {
-    if(isset($this->request->params['admin'])) {
-      $this->layout = "admin";
+    
+    // autoset layout if prefix in url
+    if(isset($this->request->params['admin'])  && $this->request->action != 'admin_login') {
+      $this->layout = 'admin';
     }
   }
 

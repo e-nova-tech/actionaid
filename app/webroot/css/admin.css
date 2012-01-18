@@ -1,0 +1,68 @@
+/* menu */
+.menu.tabs {
+  padding:10px 10px 5px 0px;
+  float:left;
+  clear:both;
+}
+.menu.tabs li {
+  float:left;
+  list-style-type:none;
+}
+.menu.tabs li a.selected, 
+.menu.tabs li a.selected:hover {
+  /*cursor:default;*/
+}
+
+/* top navigation (main menu)
+.menu.tabs.top {
+  padding:8px 0 5px 1%;
+  width:99%;
+}
+.menu.tabs.top li a {
+  font-size:1.2em;
+  color:#FFF;
+  background:#1d791d;
+  padding:6px 10px;
+  margin-left:8px;
+}
+.menu.tabs.top li a.unselected{
+  padding-bottom:1px;
+  border-bottom:5px solid #116411;
+  background:#1d791d;
+  color:#FFF;
+}
+.menu.tabs.top li a.selected, 
+.menu.tabs.top li a.selected:hover {
+  background:#FFF;
+  color:#003300;
+}
+.menu.tabs.top li a.unselected:hover{
+  background:#1d791d;
+  border-bottom:5px solid #116411;
+  color:#ee6600;
+} */
+
+/* navigation (content level) */
+.menu.tabs {
+  margin-top:20px;
+}
+.menu.tabs.sub li a {
+  color:#000;
+  font-size:1.1em;
+  padding:5px 10px;
+  margin-left:8px;
+}
+.menu.tabs.sub li a.selected, 
+.menu.tabs.sub li a.selected:hover {
+  background:#ED1C24;
+  color:#FFF;
+}
+.menu.tabs.sub li a.unselected{
+}
+.menu.tabs.sub li a.unselected:hover{
+}
+/*
+.content .menu.tabs.before_form {
+  margin-bottom:10px;
+}
+*/

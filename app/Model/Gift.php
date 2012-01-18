@@ -12,7 +12,7 @@ class Gift extends AppModel {
   public $name = 'Gift';
 
   // relationships
-  public $hasOne = array(
+  public $belongsTo = array(
     'Person' => array(
       'className'    => 'Person',
       'dependent'    => false

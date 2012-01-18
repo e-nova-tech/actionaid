@@ -26,6 +26,8 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'gifts', 'action' => 'add'));
+	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'Home','admin' => true, 'prefix'=>'admin'));
+	Router::connect('/admin/help', array('controller' => 'pages', 'action' => 'display', 'Help','admin' => true, 'prefix'=>'admin'));
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix' => 'admin'));

@@ -9,6 +9,5 @@
     </div>
   </footer>
   <div class="debug grid_12">
-  <?php echo $this->element('Footer' . DS . 'debug'); ?>
+  <?php echo $this->element('Footer' . DS . 'Debug'); ?>
   </div>
-

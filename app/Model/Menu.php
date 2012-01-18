@@ -21,13 +21,7 @@ class Menu extends AppModel{
   function get($section = null) {
     //$Session = Common::getComponent('Session');
     if($section == null) $section = 'main.admin';
-    $navigations = &Configure::read('App.menu.'.$section);
-
-    return $navigations;
-    if (isset($navigations[$section])) {
-      return $navigations[$section];
-    } else {
-      return array();
-    }
+    $menu = &Configure::read('App.menu.'.$section);
+    return $menu;
   }
 }

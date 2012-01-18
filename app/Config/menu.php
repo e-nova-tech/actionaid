@@ -20,7 +20,7 @@
  *         resource requested resource (for right management check)
  */
 $config = array(
-  'App.navigation' => array(
+  'App.menu' => array(
     // LEVEL 0 (MAIN TABS)
     'main' => array(
       'public' => array(
@@ -29,39 +29,45 @@ $config = array(
       'admin' => array(
         'home' => array(
           'name'    => __('Home', true),
-          'url'     => '/home',
-          'pattern' => '#/^(\/home.*|\/|\/pages\/home.*)$/iU',
+          'url'     => '/admin/home',
+          'pattern' => '#/\/home.*/iU',
           'resource' => 'pages:display'
         ),
         'appeals' => array(
           'name'    => __('Appeals', true),
-          'url'     => '/appeals/index',
+          'url'     => '/admin/appeals/index',
           'pattern' => '#/\/appeals.*/iU',
           'resource' => 'appeals:index',
         ),
         'posts' => array(
           'name'    => __('Posts', true),
-          'url'     => '/posts/index',
+          'url'     => '/admin/posts/index',
           'pattern' => '#/\/posts.*/iU',
           'resource' => 'posts:index',
         ),
         'gifts' => array(
           'name'    => __('Gifts', true),
-          'url'     => '/gifts/index',
+          'url'     => '/admin/gifts/index',
           'pattern' => '#/\/gifts.*/iU',
           'resource' => 'gifts:index',
         ),
         'users' => array(
           'name'    => __('Users', true),
-          'url'     => '/users/index',
+          'url'     => '/admin/users/index',
           'pattern' => '#/\/users.*/iU',
           'resource' => 'users:index', 
         ),
         'help' => array(
           'name'    => __('Help', true),
-          'url'     => '/help',
+          'url'     => '/admin/help',
           'pattern' => '#/\/help.*/iU',
           'resource' => 'pages:display'
+        ),
+        'Logout' => array(
+          'name'    => __('Logout', true),
+          'url'     => '/admin/logout',
+          'pattern' => '#/\/logout.*/iU',
+          'resource' => 'users:logout'
         )
       )
     ),
@@ -84,20 +90,20 @@ $config = array(
       'gifts:index' => array(
         'all' => array(
           'name'     => __('all', true),
-          'url'      => '/gifts/index/all',
+          'url'      => '/admin/gifts/index/all',
           'pattern'  => '#/^\/gifts((?!pending).)*$/iU',
           //'#/^\/projects\/(index(\/(all)?)?)?)?(\/(.)*)*$/iU',
           'resource' => 'gifts:index:all'
         ),
         'pending' => array(
           'name'     => __('Pending', true),
-          'url'      => '/gifts/index/pending',
+          'url'      => '/admin/gifts/index/pending',
           'pattern'  => '#/^\/gifts\/index\/pending(\/(.)*)*$/iU',
           'resource' => 'gifts:index:pending'
         ),
         'completed' => array(
           'name'     => __('Completed', true),
-          'url'      => '/gifts/index/completed',
+          'url'      => '/admin/gifts/index/completed',
           'pattern'  => '#/^\/gifts\/index\/completed(\/(.)*)*$/iU',
           'resource' => 'gifts:index:completed'
         )
@@ -105,7 +111,7 @@ $config = array(
       'user:edit' => array(
         'summary' => array(
           'name'     => __('User Edit', true),
-          'url'      => '/users/edit/summary',
+          'url'      => '/admin/users/edit/summary',
           'pattern'  => '#/^\/users\/edit(\/(.)*)*$/iU',
           //'#/^\/projects\/(index(\/(all)?)?)?)?(\/(.)*)*$/iU',
           'resource' => 'users:edit:summary'
