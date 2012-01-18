@@ -3,7 +3,7 @@
  * Application Controller
  * 
  * @package     app.Controller.AppController
- * @copyright   Copyright 2012, ActionAid India 
+ * @copyright   Copyright 2012, ActionAid Association India 
  * @link        http://actionaid.org/india
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
@@ -11,7 +11,8 @@
 class AppController extends Controller {
   var $helpers = array(
     'Html','Form','Paginator','Session',
-    'MyForm','MyPaginator',/*'Tidy',*/'Gift'
+    'MyForm','MyPaginator','Gift','Menu'
+    /*,'Tidy' // buggy with script! */
   );
 
   public $components = array(

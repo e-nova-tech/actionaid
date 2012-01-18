@@ -23,12 +23,15 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-// Setup a 'default' cache configuration for use in the application.
-Cache::config('default', array('engine' => 'File'));
+  // Setup a 'default' cache configuration for use in the application.
+  Cache::config('default', array('engine' => 'File'));
 
-// Additional Configuration Items
-Configure::load('app');  // Application
-Configure::load('menu'); // Navigation
+  // Additional Configuration Items
+  Configure::load('app');  // Application
+  Configure::load('menu'); // Navigation
+
+  // Special Classes
+  require_once(APP . 'Controller' . DS . 'Component' . DS .'Common.php');
 
 /**
  * The settings below can be used to set additional paths to models, views and controllers.

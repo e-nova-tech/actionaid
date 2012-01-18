@@ -11,6 +11,26 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class Common extends Object {
+  static function baseUrl() {
+    if(Configure::read('debug') < 1) {
+      return Configure::read('App.url.prod');
+    } else {
+      return Configure::read('App.url.dev');
+    }
+  }
+  /**
+   * Instanciate and return the reference to a model object
+   * @param string name $model
+   * @return model $ModelObj
+   */
+  static function &getModel($model,$create=false) {
+    if (ClassRegistry::isKeySet($model) && !$create) {
+      $ModelObj =& ClassRegistry::getObject($model);
+    } else {
+      $ModelObj =& ClassRegistry::init($model);
+    }
+    return $ModelObj;
+  }
 
   /**
    * Check if application cookie is set

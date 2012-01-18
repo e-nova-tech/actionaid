@@ -2,9 +2,9 @@
 /**
  * MyForm Helper - Overrides default Form helper
  * 
+ * @package       app.View.Helper.MyFormHelper
  * @copyright     Copyright 2012, ActionAid India 
  * @link          http://actionaid.org/india
- * @package       app.View.Helper.MyFormHelper
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class MyFormHelper extends FormHelper { 

@@ -20,6 +20,10 @@ $config = array(
     'number' => '0.1',
     'name' => 'Chennai'
    ),
+  'App.url' => array(
+     'dev'  => 'http://localhost/donate',
+     'prod' => 'https://actionaidindia.org/donate'
+  ),
 
   // Cookie's settings
   'App.cookie' => array(
