@@ -34,7 +34,7 @@
 </div>
 <div class="container footer clearfix">
 <div class="container_12 clearfix">
-<?php echo $this->element('footer'); ?>
+<?php echo $this->element('Footer'); ?>
 </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
