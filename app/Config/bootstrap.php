@@ -26,6 +26,10 @@
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
 
+// Additional Configuration Items
+Configure::load('app');  // Application
+Configure::load('menu'); // Navigation
+
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  *

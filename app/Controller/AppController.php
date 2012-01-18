@@ -15,12 +15,15 @@ class AppController extends Controller {
   );
 
   public $components = array(
-    'Session', 'Paginator',
-    'Auth' => array(
-      'loginRedirect' => array('controller' => 'posts', 'action' => 'admin_index'),
-      'logoutRedirect' => '/gifts/add',
-    )
+    'Session', 'Paginator', 'Auth', 'Cookie'
   );
+
+  public function beforeFilter() {
+    // components initilization
+    $this->Auth->loginRedirect = Configure::read('App.auth.loginRedirect');
+    $this->Auth->logoutRedirect = Configure::read('App.auth.logoutRedirect');
+    $this->Cookie->name = Configure::read('App.cookie.name');
+  }
 
   function beforeRender() {
     if(isset($this->request->params['admin'])) {

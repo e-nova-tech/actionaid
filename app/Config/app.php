@@ -18,16 +18,8 @@ $config = array(
   'App.browserTitle' => '%s | ActionAid Association India', // %s = context
   'App.version' => array(
     'number' => '0.1',
-    'name' => ' ~ White Rabbit'
+    'name' => 'Chennai'
    ),
-
-   // Environements Settings
-  'App.environment' => 'development', // || development, staging, production
-  'App.domain' => array(
-    'development' => 'http://localhost/donate',
-    'staging' => 'http://test.actionaidindia.org/donate',
-    'production' => 'http://actionaidindia.org/donate'
-  ),
 
   // Cookie's settings
   'App.cookie' => array(
