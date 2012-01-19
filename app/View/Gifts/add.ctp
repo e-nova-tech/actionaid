@@ -138,7 +138,8 @@
       'label'=>__('Date of birth'), 'class'=>'required', 'type'=>'date','separator'=>' / ',
       'dateFormat' => 'DMY','monthNames'=>false, 'minYear' => date('Y')-112, 'maxYear' => date('Y')-18,
       'error' => array(
-        'empty' => __('Please provide your birthdate')
+        'empty' => __('Please provide your birthdate'),
+        'format' => __('Please provide a valid birthdate')
       )
     )); ?>
     <div class="input text">
