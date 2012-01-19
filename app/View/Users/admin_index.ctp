@@ -13,9 +13,9 @@
     <p><?php echo $this->Html->link('Add User', array('action' => 'add')); ?></p>
     <table>
       <tr>
-        <th><?php echo $this->MyPaginator->sort(__('Username',true),'username');?></th>
-        <th class="datetime"><?php echo $this->MyPaginator->sort(__('Modified',true),'modified');?></th>
-        <th>Actions</th>
+        <th><?php echo $this->MyPaginator->sort('username',__('Username'));?></th>
+        <th class="datetime"><?php echo $this->MyPaginator->sort('modified',__('Modified'));?></th>
+        <th><?php echo __('Actions'); ?></th>
       </tr>
 <?php foreach ($users as $user): ?>
       <tr>

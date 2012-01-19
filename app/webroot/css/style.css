@@ -162,7 +162,7 @@ body {
   /* background:transparent url('../img/grid.png') center 0 repeat-y; //debug */
 }
 /* containers background */
-.container.header {
+.container.header { 
   -webkit-box-shadow: 0 8px 6px -6px #CCC;
   -moz-box-shadow: 0 8px 6px -6px #CCC;
   box-shadow: 0 8px 6px -6px #CCC;
@@ -424,7 +424,10 @@ table .notifications{
 .footer .container_12{
   background:transparent url('../img/logo2.png') top right no-repeat;
 }
-
+.footer .copyright {
+  font-weight:bold;
+  margin-top:5px;
+}
 .debug {
   margin-top:50px;
 }

@@ -14,8 +14,8 @@ if (!defined('FULL_BASE_URL')) {
 $config = array(
   // General App Details
   'App.name' => 'ActionAid International ',
-  'App.copyright' => '2012 &copy; ActionAid Association India',
-  'App.browserTitle' => '%s | ActionAid Association India', // %s = context
+  'App.copyright' => '2012 &copy; ActionAid Association',
+  'App.browserTitle' => '%s | ActionAid India', // %s = context
   'App.version' => array(
     'number' => '0.1',
     'name' => 'Chennai'

@@ -19,7 +19,6 @@ class PostsController extends AppController {
   public function admin_view($id) {
     $this->Post->id = $id;
     $this->set('post', $this->Post->read());
-
   }
 
   public function admin_add() {
@@ -39,10 +38,10 @@ class PostsController extends AppController {
       $this->request->data = $this->Post->read();
     } else {
       if ($this->Post->save($this->request->data)) {
-        $this->Session->setFlash('Your post has been updated.');
+        $this->Session->setFlash(__('Your post has been updated.'));
         $this->redirect(array('action' => 'index'));
       } else {
-        $this->Session->setFlash('Unable to update your post.');
+        $this->Session->setFlash(__('Unable to update your post.'));
       }
     }
   }
@@ -52,7 +51,7 @@ class PostsController extends AppController {
       throw new MethodNotAllowedException();
     }
     if ($this->Post->delete($id)) {
-      $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
+      $this->Session->setFlash(sprintf(__('The post with id: %s has been deleted.'), $id));
       $this->redirect(array('action' => 'index'));
     }
   }
