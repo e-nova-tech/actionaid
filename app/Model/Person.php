@@ -78,6 +78,10 @@ class Person extends AppModel {
       'empty'  => array('rule' => array('notempty')),
       'format' => array( 'rule' => array ('custom', '/^[0-9\-\+]{8,16}$/'))
     ),
+    'dob' => array(
+      'empty'  => array('rule' => array('notempty')),
+      'format' => array('rule' => array('date', 'ymd'))
+    ),
     'pan' => array(
       'empty'  => array('rule' => array('notempty')),
       'format' => array('rule' => array('custom', '/^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$/')),
