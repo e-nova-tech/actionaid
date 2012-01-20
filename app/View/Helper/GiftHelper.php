@@ -1,14 +1,13 @@
 <?php
 // app/View/Helper/GiftHelper.php
 class GiftHelper extends AppHelper {
-  var $allowed_amount = array('6000','10000','15000');
-  var $allow_other_amount = true;
-  var $default_amount = '6000';
+  var $allowed_amount;
+  var $allow_other_amount;
+  var $default_amount;
 
   function __construct(View $view, $settings = array()) {
-    if (isset($settings['Gift'])) {
-      $this->init(&$view->request->data, $settings['Gift']);
-    } else $this->init(&$view->request->data);
+    $settings = array_merge(Configure::read('App.gift'), $settings);
+    $this->init(&$view->request->data, $settings);
     parent::__construct($view, $settings);
   }
 

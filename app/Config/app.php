@@ -72,8 +72,19 @@ $config = array(
     'loginRedirect' => array('controller' => 'posts', 'action' => 'admin_index'),
     'logoutRedirect' => '/gifts/add'
   ),
+  // default gift configuration
   'App.gift' => array(
-  )
+    'allowed_amount' => array('3000','6000','12000'),
+    'allow_other_amount' => true,
+    'default_amount' => '6000'
+  ),
+  // payment gateway configuration
+  'App.payment_gateway' => array(
+    'default' => 'billdesk',
+    'billdesk' => array(
+
+    )
+  ),
   /*
   // 3rd Party - Recapcha
   'App.recaptcha' => array(
