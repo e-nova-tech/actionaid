@@ -9,6 +9,8 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
   $this->set('title_for_layout', __('Gifts index'));
-  $this->set('menu_for_layout', 'gifts:admin_index'));
+  $this->set('menu_for_layout', 'gifts:admin_index');
+pr($gifts);
 ?>
+
 

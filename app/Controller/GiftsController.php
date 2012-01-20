@@ -10,12 +10,23 @@
  */
 class GiftsController extends AppController {
 
-  function beforeFilter() {
-    $this->Auth->allow('add');
-  }
-
-  public function add($appeal=null) {
+  /**
+   * Add a gift
+   * Donation Form Processing Functionality
+   * @param $appeal string, appeal slug
+   * @return void
+   * @access public
+   */
+  public function add($appeal='default') {
+    // do a copy of the user given data 
+    // for pre-validation transformation purposes
     $data = $this->request->data;
+
+    // get the current appeal
+    $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => $appeal)));
+    if(empty($appeal)) {
+      $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => 'default')));
+    }
 
     // get the list of states & countries for the select lists
     //$states = $this->Gift->Person->State->find('list', array('fields' => array('code', 'name')));
@@ -45,6 +56,11 @@ class GiftsController extends AppController {
   	}
   }
 
+  /**
+   * Gifts Index (Admin)
+   * @return void
+   * @access public
+   */
   public function admin_index() {
     $this->set('gifts',$this->paginate('Gift'));
   }

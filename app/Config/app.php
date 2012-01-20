@@ -24,7 +24,6 @@ $config = array(
     'dev'  => 'http://localhost/donate/',
     'prod' => 'https://actionaidindia.org/donate/'
   ),
-
   // Cookie's settings
   'App.cookie' => array(
     'life' => '+1 month',

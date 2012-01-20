@@ -11,13 +11,18 @@
 class UsersController extends AppController {
   public $name = 'Users';
 
+  /**
+   * Before Filter Cake Hook
+   * @link http://api20.cakephp.org/class/controller#method-ControllerbeforeFilter
+   * @access protected
+   */
   public function beforeFilter() {
     parent::beforeFilter();
-    $this->Auth->allow('add', 'logout', 'login');
+    $this->Auth->allow('logout', 'login');
+    //$this->Auth->allow('add');
   }
 
   public function admin_index() {
-    $this->User->recursive = 0;
     $this->set('users', $this->paginate());
   }
 

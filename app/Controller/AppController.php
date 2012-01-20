@@ -19,6 +19,11 @@ class AppController extends Controller {
     'Session', 'Paginator', 'Auth', 'Cookie'
   );
 
+  /**
+   * Before Filter Cake Hook
+   * @link http://api20.cakephp.org/class/controller#method-ControllerbeforeFilter
+   * @access protected
+   */
   public function beforeFilter() {
     // components initilization
     $this->Auth->loginRedirect = Configure::read('App.auth.loginRedirect');
@@ -31,6 +36,13 @@ class AppController extends Controller {
     }
   }
 
+  /**
+   * Authorization check callback
+   * @link http://api20.cakephp.org/class/auth-component#method-AuthComponentisAuthorized
+   * @param mixed $user The user to check the authorization of. If empty the user in the session will be used.
+   * @return boolean True if $user is authorized, otherwise false
+   * @access protected
+   */
   function isAuthorized($user) {
     if (isset($this->request->params['admin'])) {
       return (bool)($user['role'] == 'admin');
