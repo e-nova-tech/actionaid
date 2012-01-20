@@ -28,62 +28,62 @@ class Person extends AppModel {
   // validation rules
   var $validate = array(
     'title' => array(
-      'empty' => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'exist' => array('rule' => array('validateTitle'))
     ),
     'firstname' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'alpha'  => array('rule' => array('alphanumeric')),
       'length' => array('rule' => array('maxLength', '64'))
     ),
     'lastname' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'alpha'  => array('rule' => array('alphanumeric')),
       'length' => array('rule' => array('maxLength', '64'))
     ),
     'address1' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'length' => array('rule' => array('maxLength', '128'))
     ),
     'address2' => array(
       'length' => array('rule' => array('maxLength', '128'))
     ),
     'city' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'alpha'  => array('rule' => array('alphanumeric')),
       'length' => array('rule' => array('maxLength', '128'))
     ),    
     'pincode' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'numeric'=> array('rule' => array('numeric')),
       'length' => array('rule' => array('between', '6', '6'))
     ),
     'state' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'length' => array('rule' => array('between', '5', '5')),
       'format' => array( 'rule' => array ('custom', '/^[A-Z]{2}[\-]{1}[A-Z]{2}$/')),
       'exist'  => array('rule' => array('validateState'))
     ),
     'country' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'length' => array('rule' => array('between', '2', '2')),
       'format' => array( 'rule' => array ('custom', '/^[A-Z]{2}$/')),
       'exist'  => array('rule' => array('validateCountry'))
     ),
     'email' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'email'  => array('rule' => array('email'))
     ),
     'phone' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'format' => array( 'rule' => array ('custom', '/^[0-9\-\+]{8,16}$/'))
     ),
     'dob' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'format' => array('rule' => array('date', 'ymd'))
     ),
     'pan' => array(
-      'empty'  => array('rule' => array('notempty')),
+      'empty'  => array('rule' => array('notEmpty'),'required' => true,'allowEmpty' => false),
       'format' => array('rule' => array('custom', '/^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$/')),
       'length' => array('rule' => array('between', '10', '10'))
     )
