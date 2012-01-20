@@ -9,6 +9,10 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class GiftsController extends AppController {
+  function beforeFilter() {
+    parent::beforeFilter();
+    $this->Auth->allow('add');
+  }
 
   /**
    * Add a gift
@@ -18,7 +22,6 @@ class GiftsController extends AppController {
    * @access public
    */
   public function add($appeal='default') {
-
     // get the current appeal
     $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => $appeal)));
     if(empty($appeal)) {

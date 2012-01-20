@@ -39,7 +39,7 @@
 	Router::connect('/admin/:controller/:action', array('admin' => true, 'prefix'=>'admin'));  
 	Router::connect('/admin/:controller/:action/*', array('admin' => true, 'prefix'=>'admin'));  
   // everything else is a donation form
-// Router::connect('/*', array('controller' => 'gifts', 'action' => 'add'));
+  Router::connect('/*', array('controller' => 'gifts', 'action' => 'add'));
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 
