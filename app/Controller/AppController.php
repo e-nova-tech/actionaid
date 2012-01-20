@@ -26,6 +26,7 @@ class AppController extends Controller {
    */
   public function beforeFilter() {
     // components initilization
+    $this->Auth->loginAction = Configure::read('App.auth.loginAction');
     $this->Auth->loginRedirect = Configure::read('App.auth.loginRedirect');
     $this->Auth->logoutRedirect = Configure::read('App.auth.logoutRedirect');
     $this->Cookie->name = Configure::read('App.cookie.name');
