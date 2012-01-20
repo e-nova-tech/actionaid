@@ -7,12 +7,13 @@
  * @link        http://actionaid.org/india
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
+ */  
+  $this->set('title_for_layout', __('Add a User'));
 ?>
 <div class="users form">
 <?php echo $this->Form->create('User');?>
   <fieldset>
-    <legend><?php echo __('Add User'); ?></legend>
+    <legend><?php echo __('User details'); ?></legend>
   <?php
     echo $this->Form->input('username');
     echo $this->Form->input('password');

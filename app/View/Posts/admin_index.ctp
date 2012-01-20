@@ -8,8 +8,8 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+ $title_for_layout = __('Posts');
 ?>
-    <h1><?php echo __('Blog posts'); ?></h1>
     <p><?php echo $this->Html->link('Add Post', array('action' => 'add')); ?></p>
     <table>
       <tr>

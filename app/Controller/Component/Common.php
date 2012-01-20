@@ -11,6 +11,7 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class Common extends Object {
+
   static function baseUrl() {
     if(Configure::read('debug') < 1) {
       return Configure::read('App.url.prod');
@@ -18,6 +19,7 @@ class Common extends Object {
       return Configure::read('App.url.dev');
     }
   }
+
   /**
    * Instanciate and return the reference to a model object
    * @param string name $model

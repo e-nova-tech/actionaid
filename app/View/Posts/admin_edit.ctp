@@ -8,8 +8,8 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+  $title_for_layout __('Edit Post');
 ?>
-<h1><?php echo __('Edit Post'); ?></h1>
 <?php
   echo $this->MyForm->create('Post', array('action' => 'edit'));
   echo $this->MyForm->input('title', array('label'=>__('Title'), 'class'=> 'required'));

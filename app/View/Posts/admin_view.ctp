@@ -8,8 +8,8 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+  $title_for_layout = $post['Post']['title'];
 ?>
-<h1><?php echo $post['Post']['title']?></h1>
 <p>Slug: <?php echo $post['Post']['slug']?></p>
 <p>Created: <?php echo $post['Post']['created']?></p>
 <p>Modified: <?php echo $post['Post']['modified']?></p>

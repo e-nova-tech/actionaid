@@ -36,7 +36,7 @@
         'numeric'=> __('Please provide a valid amount'),
         'maximum' =>  __('Please provide a valid amount'),
         'minimum' =>  sprintf(__('Sorry, the minimum gift amount is %s INR.'), 6000)
-      )); ?>
+      ))."\n"; ?>
     </div>
   </fieldset>
   <fieldset>
@@ -159,6 +159,7 @@
 <?php echo $this->MyForm->end(); ?>
 </div>
 <div class="sidebar grid_4 omega">
+   <img src="img/73407crop_c.jpg" width="300px"/>
    <img src="img/73407crop_c.jpg" width="300px"/>
    <blockquote>
       "This isn’t a selfless act, it’s rewarding. You could call me a donor, 

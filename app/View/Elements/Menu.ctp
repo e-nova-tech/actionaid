@@ -13,7 +13,6 @@
   if(!isset($this->Menu)) { // Fix stupid behavior for missing components, etc.
     return;                       // as it only loads default helpers on error
   }
-
   $id = isset($id) ? $id : null;
   $menu = $this->Menu->get($id);
 

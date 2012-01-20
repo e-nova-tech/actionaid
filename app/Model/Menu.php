@@ -12,7 +12,7 @@
  *
  */
 class Menu extends AppModel{
-  var $useTable = false; // content is not stored in DB
+  var $useTable = false; // content is not stored in DB but in config
 
   /**
    * Get the navigation for a given section
@@ -21,7 +21,10 @@ class Menu extends AppModel{
   function get($section = null) {
     //$Session = Common::getComponent('Session');
     if($section == null) $section = 'main.admin';
-    $menu = &Configure::read('App.menu.'.$section);
+    $section = 'App.menu.'.$section;
+    $menu = &Configure::read($section);
+    //@TODO filter out using User::isAllowed($menuItem)
     return $menu;
   }
+
 }

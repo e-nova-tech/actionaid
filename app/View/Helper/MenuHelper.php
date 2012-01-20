@@ -30,7 +30,9 @@ class MenuHelper extends Apphelper {
    */
   function isSelected($itemName,$itemList,$returnOptions='class') {
     $result = false;
-
+    if (!isset($itemList[$itemName]['pattern'])) {
+      return $result;
+    }
     $link = $itemList[$itemName]['pattern'];
     $currentLocation = substr($this->here, strlen($this->base));
 

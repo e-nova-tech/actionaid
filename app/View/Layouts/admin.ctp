@@ -22,8 +22,10 @@
   <!-- Header -->
   <header>
 <?php echo $this->element('Header'); ?>
-<?php echo $this->element('Header' . DS. 'Menu', array(
-  'options' => array('class' => 'sub menu tabs')));
+<?php 
+    echo $this->element('Menu', array(
+      'options' => array('class' => 'sub menu tabs'))
+    );
 ?>
   </header>
 </div>
@@ -32,6 +34,16 @@
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
+    <h1><?php echo $title_for_layout; ?></h1>
+<?php
+  if (isset($menu_for_layout)) {
+    echo $this->element('Menu', array(
+      'id' => 'actions.'.$menu_for_layout,
+      'options' => array('class' => 'action menu'))
+    );
+  }
+// echo $this->element('Body' . DS. 'Menu', array('options' => array('class' => 'sub menu tabs')));
+?>
 <?php echo $this->Session->flash(); ?>
 <?php echo $content_for_layout; ?>
   </div>

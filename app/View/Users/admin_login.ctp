@@ -8,6 +8,7 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+  $title_for_layout = __('Login');
 ?>
 <div class="users form">
 <?php echo $this->Session->flash('auth'); ?>

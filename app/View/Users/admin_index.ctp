@@ -8,9 +8,9 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+  $this->set('title_for_layout', __('Users Index'));
+  $this->set('menu_for_layout', 'users:admin_index');
 ?>
-    <h1>Users</h1>
-    <p><?php echo $this->Html->link('Add User', array('action' => 'add')); ?></p>
     <table>
       <tr>
         <th><?php echo $this->MyPaginator->sort('username',__('Username'));?></th>

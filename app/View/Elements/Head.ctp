@@ -1,3 +1,3 @@
 <?php echo $this->element('Head' . DS . 'Meta'); ?>
-<?php echo $this->element('Head' . DS . 'Css'); ?>
-<?php echo $this->element('Head' . DS . 'Js'); ?>
+<?php echo $this->element('Head' . DS . 'Css');
+   // echo $this->element('Head' . DS . 'Js'); ?>
