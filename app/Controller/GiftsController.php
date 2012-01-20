@@ -49,8 +49,17 @@ class GiftsController extends AppController {
     $success = $this->Gift->Person->validates();
     $success = ($this->Gift->validates() && $success);
     if($success) {
-      // TODO : Check if the person already exist in the db ? what criteria to use ? email id
-      $person = $this->Gift->Person->save($data);	
+      $conditions = array("Person.title"=>$data['Person']['title'], "Person.dob"=>$data['Person']['dob']['year'].'-'.$data['Person']['dob']['month'].'-'.$data['Person']['dob']['day'], "Person.firstname"=>$data['Person']['firstname'], "Person.lastname"=>$data['Person']['lastname'], "Person.address1"=>$data['Person']['address1'], "Person.address2"=>$data['Person']['address2'], "Person.city"=>$data['Person']['city'], "Person.pincode"=>$data['Person']['pincode'], "Person.state"=>$data['Person']['state'], "Person.country"=>$data['Person']['country'], "Person.email"=>$data['Person']['email'], "Person.pan"=>$data['Person']['pan']);
+      // count the number of people in the db with same info
+      $count = $this->Gift->Person->find("count", array("conditions"=>$conditions));
+      if($count){ // if person exists
+        // get the person id
+        $person = $this->Gift->Person->find("first", array("fields"=>array("Person.id"), "conditions"=>$conditions));
+      }
+      else{ // if person doesnt already exist
+        // save the person in db
+        $person = $this->Gift->Person->save($data);	
+      }
       $data['Gift']['person_id'] = $person['Person']['id'];
       $this->Gift->save($data);
   	}
