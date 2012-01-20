@@ -24,21 +24,21 @@
    
   CakePHP - the rapid development PHP framework
   http://www.cakephp.org
-  CakePHP is a rapid development framework for PHP which uses commonly known design patterns 
-  like Active Record, Association Data Mapping, Front Controller and MVC. 
+  CakePHP is a rapid development framework for PHP which uses commonly known design
+  patterns like Active Record, Association Data Mapping, Front Controller and MVC. 
   
   -- 
 
   JQuery - The Write Less, Do More, JavaScript Library
   http://www.jquery.com/
-  A fast, concise, library that simplifies how to traverse HTML documents, handle events, 
-  perform animations, and add AJAX.
+  A fast, concise, library that simplifies how to traverse HTML documents, handle
+  events, perform animations, and add AJAX.
 
   -- 
 
   HTML5 Boilerplate - A rock-solid default template for HTML5
   http://html5boilerplate.com/
-  HTML5 Boilerplate is the professional badass's base HTML/CSS/JS template for a fast, 
-  robust and future-proof site. 
+  HTML5 Boilerplate is the professional badass's base HTML/CSS/JS template for 
+  a fast, robust and future-proof site. 
 
 -->
