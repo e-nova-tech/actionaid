@@ -1,7 +1,7 @@
 <?php
 // app/View/Helper/GiftHelper.php
 class GiftHelper extends AppHelper {
-  var $allowed_amount;
+  var $preselected_amounts;
   var $allow_other_amount;
   var $default_amount;
 
@@ -12,8 +12,8 @@ class GiftHelper extends AppHelper {
   }
 
   function init(&$data, $settings = null) {
-    if (isset($settings['allowed_amount']) && is_array($settings['allowed_amount'])) {
-      $this->allowed_amount = $settings['allowed_amount'];
+    if (isset($settings['preselected_amounts']) && is_array($settings['preselected_amounts'])) {
+      $this->preselected_amounts = $settings['preselected_amounts'];
     }
     if (isset($settings['allow_other_amount']) && is_bool($settings['allow_other_amount'])) {
       $this->allow_other_amount = $settings['allow_other_amount'];
@@ -25,7 +25,7 @@ class GiftHelper extends AppHelper {
       if(isset($data['Gift']['amount']) && $data['Gift']['amount'] != 'other') {
         $data['Gift']['other_amount'] = '';
       }
-      elseif(in_array($data['Gift']['other_amount'], $this->allowed_amount)) {
+      elseif(in_array($data['Gift']['other_amount'], $this->preselected_amounts)) {
         $data['Gift']['amount'] = $data['Gift']['other_amount'];
         $data['Gift']['other_amount'] = '';
       }
@@ -43,19 +43,19 @@ class GiftHelper extends AppHelper {
     }
   }
 
-  function getOtherAmount() {
+  public function getAmounts() {
+    return $this->preselected_amounts;
+  }
+
+  public function allowOtherAmount() {
+    return $this->allow_other_amount;
+  }
+
+  public function getOtherAmount() {
     if (isset($this->request->data['Gift']['other_amount'])) {
       echo $this->request->data['Gift']['other_amount'];
     }
   }
 
-  function getMinimum() {
-    return $this->allowed_amount[0];
-  }
-/*
-  function getMaximum() {
-    return $this->allowed_amount[0];
-  }
-*/
 }
 

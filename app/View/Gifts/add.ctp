@@ -15,13 +15,13 @@
   <fieldset>
     <legend><?php echo __('Select a gift amount'); ?></legend>
     <div class="radiolist">
-<?php foreach ($this->Gift->allowed_amount as $key => $amount) : ?>
+<?php foreach ($this->Gift->getAmounts() as $key => $amount) : ?>
       <div class="input radio">
         <input type="radio" name="data[Gift][amount]" value="<?php echo $amount; ?>" id="giftamount<?php echo $key ?>" <?php $this->Gift->isAmountSelected($amount); ?> />
         <label for="giftamount<?php echo $key ?>" class="inr"><span class="inr">INR</span><?php echo $amount ?></label>
       </div>
 <?php endforeach; ?>
-<?php if ($this->Gift->allow_other_amount) : ?>
+<?php if ($this->Gift->allowOtherAmount()) : ?>
       <div class="input radiotext">
         <input type="radio" name="data[Gift][amount]" value="other" id="giftamount<?php echo ++$key; ?>" class="other gift radio" <?php $this->Gift->isAmountSelected('other'); ?>/>
         <label for="giftamount<?php echo $key; ?>" class="inr right">Other</label>

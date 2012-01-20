@@ -74,15 +74,18 @@ $config = array(
   ),
   // default gift configuration
   'App.gift' => array(
-    'allowed_amount' => array('3000','6000','12000'),
+    'preselected_amounts' => array('3000','6000','12000'),
     'allow_other_amount' => true,
-    'default_amount' => '6000'
+    'default_amount' => '6000',
+    'minimum_amount' => '1',
+    'maximum_amount' => '1'
   ),
   // payment gateway configuration
   'App.payment_gateway' => array(
     'default' => 'billdesk',
     'billdesk' => array(
-
+      'merchant_id' => '',
+      'checksum_key' => ''
     )
   ),
   /*

@@ -33,16 +33,16 @@ class GiftsController extends AppController {
 
     // validate and save
     $this->Gift->Person->set($data);
-	$person = null;
-    if($this->Gift->Person->validates()) {
-      // TODO : Check if the person already exist in the db ? what criteria to use ? email id ?
+    $this->Gift->set($data);
+    $person = null;
+    $success = $this->Gift->Person->validates();
+    $success = ($this->Gift->validates() && $success);
+    if($success) {
+      // TODO : Check if the person already exist in the db ? what criteria to use ? email id
       $person = $this->Gift->Person->save($data);	
-  	}
-	
-    $data['Gift']['person_id'] = $person['Person']['id'];
-    if($this->Gift->validates()) {
+      $data['Gift']['person_id'] = $person['Person']['id'];
       $this->Gift->save($data);
-    }
+  	}
   }
 
   public function admin_index() {
