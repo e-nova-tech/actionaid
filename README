@@ -1,28 +1,44 @@
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC. Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+<!--
 
-The Cake Software Foundation - promoting development related to CakePHP
-http://cakefoundation.org/
+                   __                                          __     
+                  /\ \__  __                            __    /\ \    
+       __      ___\ \ ,_\/\_\    ___     ___      __   /\_\   \_\ \   
+     /'__`\   /'___\ \ \/\/\ \  / __`\ /' _ `\  /'__`\ \/\ \  /'_` \  
+    /\ \_\.\_/\ \__/\ \ \_\ \ \/\ \_\ \/\ \/\ \/\ \_\.\_\ \ \/\ \_\ \ 
+    \ \__/.\_\ \____\\ \__\\ \_\ \____/\ \_\ \_\ \__/.\_\\ \_\ \___,_\     _♥)
+     \/__/\/_/\/____/ \/__/ \/_/\/___/  \/_/\/_/\/__/\/_/ \/_/\/__,_ /    _(/)
+                                                               
+  
+ <![[ Project Information ]]>
 
-CakePHP - the rapid development PHP framework
-http://www.cakephp.org
+  @project      Danish Pastry
+  @description  The simple donation pages management software
+  @version      v.0.1
+  @authors      Remy Bertot, Kevin Mull
+  @copyright    2012 (c) ActionAid Association India
+  @licence      MIT License (http://www.opensource.org/licenses/mit-license.php)
+  @tools        PHP5, Mysql, Cakephp, Jquery, Html5BoilerPlate
+  
 
-Cookbook - user documentation for learning about CakePHP
-http://book.cakephp.org
+ <![[ Tools ]]>
+   
+  CakePHP - the rapid development PHP framework
+  http://www.cakephp.org
+  CakePHP is a rapid development framework for PHP which uses commonly known design patterns 
+  like Active Record, Association Data Mapping, Front Controller and MVC. 
+  
+  -- 
 
-API - quick reference to CakePHP
-http://api.cakephp.org
+  JQuery - The Write Less, Do More, JavaScript Library
+  http://www.jquery.com/
+  A fast, concise, library that simplifies how to traverse HTML documents, handle events, 
+  perform animations, and add AJAX.
 
-The Bakery - everything CakePHP
-http://bakery.cakephp.org
+  -- 
 
-The Show - live and archived podcasts about CakePHP and more
-http://live.cakephp.org
+  HTML5 Boilerplate - A rock-solid default template for HTML5
+  http://html5boilerplate.com/
+  HTML5 Boilerplate is the professional badass's base HTML/CSS/JS template for a fast, 
+  robust and future-proof site. 
 
-CakePHP TV - screen casts from events and video tutorials
-http://tv.cakephp.org
-
-CakePHP Google Group - community mailing list and forum
-http://groups.google.com/group/cake-php
-
-#cakephp on irc.freenode.net - chat with CakePHP developers
-irc://irc.freenode.net/cakephp
+-->
