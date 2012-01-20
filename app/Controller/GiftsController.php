@@ -15,7 +15,6 @@ class GiftsController extends AppController {
   }
 
   public function add($appeal=null) {
-    //pr($this->request->data);
     $data = $this->request->data;
 
     // get the list of states & countries for the select lists
@@ -32,14 +31,17 @@ class GiftsController extends AppController {
       $data['Gift']['amount'] = $data['Gift']['other_amount'];
     }
 
-    // validate
-    $this->Gift->set($data);
-    if($this->Gift->validates()) {
-      //echo "gift validates<br/>";
-    }
+    // validate and save
     $this->Gift->Person->set($data);
+	$person = null;
     if($this->Gift->Person->validates()) {
-      //echo "person validats<br/>";
+      // TODO : Check if the person already exist in the db ? what criteria to use ? email id ?
+      $person = $this->Gift->Person->save($data);	
+  	}
+	
+    $data['Gift']['person_id'] = $person['Person']['id'];
+    if($this->Gift->validates()) {
+      $this->Gift->save($data);
     }
   }
 
