@@ -26,19 +26,20 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'gifts', 'action' => 'add'));
-	Router::connect('/admin/:controller', array('admin' => true, 'prefix'=>'admin'));
-	Router::connect('/admin/:controller/:action', array('admin' => true, 'prefix'=>'admin'));  
 	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'Home','admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/help', array('controller' => 'pages', 'action' => 'display', 'Help','admin' => true, 'prefix'=>'admin'));
+  // authentication
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
-	Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
+	Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix' => 'admin'));
-	Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true));
-	Router::connect('/*', array('controller' => 'gifts', 'action' => 'add'));
-/**
- * ...and connect the rest of 'Pages' controller's urls.
- */
+	Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+ // admin routing
+	Router::connect('/admin/:controller', array('admin' => true, 'prefix'=>'admin'));
+	Router::connect('/admin/:controller/:action', array('admin' => true, 'prefix'=>'admin'));  
+	Router::connect('/admin/:controller/:action/*', array('admin' => true, 'prefix'=>'admin'));  
+  // everything else is a donation form
+  Router::connect('/*', array('controller' => 'gifts', 'action' => 'add'));
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 

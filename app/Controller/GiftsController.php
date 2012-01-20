@@ -9,6 +9,10 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class GiftsController extends AppController {
+  function beforeFilter() {
+    parent::beforeFilter();
+    $this->Auth->allow('add');
+  }
 
   /**
    * Add a gift
@@ -18,10 +22,6 @@ class GiftsController extends AppController {
    * @access public
    */
   public function add($appeal='default') {
-    // do a copy of the user given data 
-    // for pre-validation transformation purposes
-    $data = $this->request->data;
-
     // get the current appeal
     $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => $appeal)));
     if(empty($appeal)) {
@@ -36,28 +36,36 @@ class GiftsController extends AppController {
     $countries = array('IN' => 'India');
     $this->set('countries', $countries);
 
+    // if no data is submited, render
+    if (empty($this->request->data)) {
+      return;
+    }
+
+    // do a copy of the user given data 
+    // for pre-validation transformation purposes
+    $data = $this->request->data;
     // format gift data
     if (isset($data['Gift']['other_amount']) && isset($data['Gift']['other_amount']) &&
         !empty($data['Gift']['other_amount']) && $data['Gift']['amount']=='other') {
       $data['Gift']['amount'] = $data['Gift']['other_amount'];
     }
-
-    // validate and save
     $this->Gift->Person->set($data);
     $this->Gift->set($data);
-    $person = null;
+
+    // validate and save
     $success = $this->Gift->Person->validates();
     $success = ($this->Gift->validates() && $success);
     if($success) {
+      $person = null;
       $conditions = array("Person.title"=>$data['Person']['title'], "Person.dob"=>$data['Person']['dob']['year'].'-'.$data['Person']['dob']['month'].'-'.$data['Person']['dob']['day'], "Person.firstname"=>$data['Person']['firstname'], "Person.lastname"=>$data['Person']['lastname'], "Person.address1"=>$data['Person']['address1'], "Person.address2"=>$data['Person']['address2'], "Person.city"=>$data['Person']['city'], "Person.pincode"=>$data['Person']['pincode'], "Person.state"=>$data['Person']['state'], "Person.country"=>$data['Person']['country'], "Person.email"=>$data['Person']['email'], "Person.pan"=>$data['Person']['pan']);
       // count the number of people in the db with same info
       $count = $this->Gift->Person->find("count", array("conditions"=>$conditions));
-      if($count){ // if person exists
-        // get the person id
+      if($count){ 
+        // if person exists get the person id
         $person = $this->Gift->Person->find("first", array("fields"=>array("Person.id"), "conditions"=>$conditions));
       }
-      else{ // if person doesnt already exist
-        // save the person in db
+      else{ 
+        // if person doesnt already exis save the person in db
         $person = $this->Gift->Person->save($data);	
       }
       $data['Gift']['person_id'] = $person['Person']['id'];
@@ -71,6 +79,26 @@ class GiftsController extends AppController {
    * @access public
    */
   public function admin_index() {
+    $this->paginate = array(
+      'fields' => array('id','amount','currency','serial','status','modified'),
+      'contain' => array(
+         'Person' => array('title','firstname','lastname'),
+         'Appeal' => array('name')
+      )
+    );
     $this->set('gifts',$this->paginate('Gift'));
+  }
+
+  public function admin_view($id) {
+    //TODO id = null
+    $param = array(
+      'fields' => array('id','amount','currency','serial','status','modified'),
+      'contain' => array(
+         'Person' => array('title','firstname','lastname','address1','address2','city','pincode','state','country','email','phone','pan','dob'),
+         'Appeal' => array('name','slug')
+      ),
+      'conditions' => array('Gift.id' => $id), //array of conditions
+    );
+    $this->set('gift', $this->Gift->find('first',$param));
   }
 }

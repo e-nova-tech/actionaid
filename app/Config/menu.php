@@ -135,6 +135,14 @@ $config = array(
           'resource' => 'posts:admin_add',
           'class'    => 'posts add'
         )
+      ),
+      'gifts:admin_view' => array(
+        'index' => array(
+          'name'     => __('Gifts index'),
+          'url'      => '/admin/gifts/index',
+          'resource' => 'gifts:admin_index',
+          'class'    => 'gifts back index'
+        )
       )
     ),
     // LEVEL 3 - Actions in tables
