@@ -124,8 +124,16 @@ $config = array(
         'add' => array(
           'name'     => __('Add an appeal'),
           'url'      => '/admin/appeals/add',
-          'resource' => 'apppeal:admin_add:completed',
+          'resource' => 'apppeal:admin_add',
           'class'    => 'appeal add'
+        )
+      ),
+      'posts:admin_index' => array(
+        'add' => array(
+          'name'     => __('Add a post'),
+          'url'      => '/admin/posts/add',
+          'resource' => 'posts:admin_add',
+          'class'    => 'posts add'
         )
       )
     ),

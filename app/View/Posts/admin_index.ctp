@@ -9,8 +9,8 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
   $this->set('title_for_layout', __('Post index'));
+  $this->set('menu_for_layout', 'posts:admin_index');
 ?>
-    <p><?php echo $this->Html->link('Add Post', array('action' => 'add')); ?></p>
     <table>
       <tr>
         <th><?php echo $this->MyPaginator->sort('serial',__('Serial'));?></th>
