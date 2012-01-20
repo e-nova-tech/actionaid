@@ -18,7 +18,7 @@ $config = array(
   'App.browserTitle' => '%s | ActionAid India', // %s = context
   'App.version' => array(
     'number' => '0.1',
-    'name' => 'Chennai'
+    'name' => 'Danish Pastry'
    ),
   'App.url' => array(
     'dev'  => 'http://localhost/donate/',
@@ -42,7 +42,7 @@ $config = array(
     ),
     'default' => array(
       'from' => 'ActionAid India <noreply@actionaidindia.org>',
-      'replyTo' => 'Greenpeace <noreply@actionaidindia.org>',
+      'replyTo' => 'ActionAid India <noreply@actionaidindia.org>',
       'format' => 'both', // html or text or both
       'subjectPrefix' => '[ActionAid] '
     )
@@ -68,8 +68,9 @@ $config = array(
   ),*/
   // AUTHENTICATION
   'App.auth' => array(
+    'loginAction' => array('controller' => 'users', 'action' => 'admin_login', 'admin' => true, 'prefix' => 'admin'),
     'loginRedirect' => array('controller' => 'posts', 'action' => 'admin_index'),
-    'logoutRedirect' => '/gifts/add'
+    'logoutRedirect' => '/gifts/add',
   ),
   // default gift configuration
   'App.gift' => array(
