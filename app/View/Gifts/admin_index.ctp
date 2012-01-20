@@ -27,7 +27,7 @@
         <td><?php echo $gift['Person']['title'].'. '.$gift['Person']['firstname'].' '.$gift['Person']['lastname']; ?></td>
         <td><?php echo $gift['Appeal']['name']; ?></td>
         <td><?php echo $gift['Gift']['modified']; ?></td>
-        <td><?php echo $this->Html->link(__('View'), array('Controller' => 'gift', 'action' => 'view', $gift['Gift']['id'], 'admin'=>true, 'prefix'=>'admin'));?></td>
+        <td><?php echo $this->Html->link(__('View'), array('action' => 'view', $gift['Gift']['id'], 'admin'=>true, 'prefix'=>'admin'));?></td>
       </tr>
 <?php endforeach; ?>
     </table>

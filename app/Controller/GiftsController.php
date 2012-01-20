@@ -88,4 +88,17 @@ class GiftsController extends AppController {
     );
     $this->set('gifts',$this->paginate('Gift'));
   }
+
+  public function admin_view($id) {
+    //TODO id = null
+    $param = array(
+      'fields' => array('id','amount','currency','serial','status','modified'),
+      'contain' => array(
+         'Person' => array('title','firstname','lastname','address1','address2','city','pincode','state','country','email','phone','pan','dob'),
+         'Appeal' => array('name','slug')
+      ),
+      'conditions' => array('Gift.id' => $id), //array of conditions
+    );
+    $this->set('gift', $this->Gift->find('first',$param));
+  }
 }
