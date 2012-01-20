@@ -301,15 +301,21 @@ form span.required {
 form .radiotext {
   padding-top:5px;
 }
-form .error.input input[type=text] {
+form .error.input input[type=text],
+form input[type=text].form-js-error {
   border:1px solid #ED1C24;
 }
-form .error-message {
+form .error-message,
+form label.form-js-error {
+  display:block;
+  width:auto;
+  text-align:left;
   margin-left:100px;
   color:#ED1C24;
   padding:2px;
 }
-form .radiolist .error-message {
+form .radiolist .error-message,
+form .radiolist label.form-js-error {
   margin:3px 0;
 }
 form p.info {
