@@ -8,8 +8,8 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-  $title_for_layout = __('Appeals');
-  $menu_for_layout = 'appeal:index';
+  $this->set('title_for_layout', __('Appeal index'));
+  $this->set('menu_for_layout', 'appeal:index');
 ?>
     <table>
       <tr>

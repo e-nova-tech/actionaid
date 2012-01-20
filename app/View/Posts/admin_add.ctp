@@ -8,7 +8,7 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-  $title_for_layout = __('Add a Post');
+  $this->set('title_for_layout', __('Add a Post'));
 ?>
 <?php
   echo $this->Form->create('Post');

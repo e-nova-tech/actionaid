@@ -8,7 +8,7 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-  $title_for_layout = $post['Post']['title'];
+  $this->set('title_for_layout', $post['Post']['title']);
 ?>
 <p>Slug: <?php echo $post['Post']['slug']?></p>
 <p>Created: <?php echo $post['Post']['created']?></p>
