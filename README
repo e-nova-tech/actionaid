@@ -14,7 +14,7 @@
   @project      Danish Pastry
   @description  The simple donation pages management software
   @version      v.0.1
-  @authors      Remy Bertot, Kevin Mull
+  @authors      Remy Bertot, Kevin Muller
   @copyright    2012 (c) ActionAid Association India
   @licence      MIT License (http://www.opensource.org/licenses/mit-license.php)
   @tools        PHP5, Mysql, Cakephp, Jquery, Html5BoilerPlate
