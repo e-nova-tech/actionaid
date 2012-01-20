@@ -62,6 +62,13 @@ class GiftsController extends AppController {
    * @access public
    */
   public function admin_index() {
+    $this->paginate = array(
+      'fields' => array('id','amount','currency','serial','status','modified'),
+      'contain' => array(
+         'Person' => array('title','firstname','lastname'),
+         'Appeal' => array('name')
+      )
+    );
     $this->set('gifts',$this->paginate('Gift'));
   }
 }
