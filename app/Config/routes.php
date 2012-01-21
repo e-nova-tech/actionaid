@@ -25,6 +25,9 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
+
+  Router::parseExtensions('json');
+
 	Router::connect('/', array('controller' => 'gifts', 'action' => 'add'));
 	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'Home','admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/help', array('controller' => 'pages', 'action' => 'display', 'Help','admin' => true, 'prefix'=>'admin'));
@@ -39,6 +42,7 @@
 	Router::connect('/admin/:controller/:action', array('admin' => true, 'prefix'=>'admin'));  
 	Router::connect('/admin/:controller/:action/*', array('admin' => true, 'prefix'=>'admin'));  
   // everything else is a donation form
+	Router::connect('/json/cities/index/*', array('controller'=>'cities', 'action'=>'json_index')); 
   Router::connect('/*', array('controller' => 'gifts', 'action' => 'add'));
 
 /**

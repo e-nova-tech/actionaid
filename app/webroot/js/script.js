@@ -7,9 +7,57 @@ $(function() {
   $('.radiolist .other.radio').click(function(){
     $('.radiolist .other.text').focus();
   });
-  
 
-  
+  var cache = {},lastXhr;
+  $( ".city.autocomplete" ).autocomplete({
+      minLength: 1,
+      source: function( request, response ) {
+				var term = request.term;
+				if ( term in cache ) {
+					response( cache[ term ] );
+					return;
+				}
+				lastXhr = $.getJSON( "json/cities/index/"+term, request, function( data, status, xhr ) {
+					cache[ term ] = data;
+					if ( xhr === lastXhr ) {
+						response( data );
+					}
+				});
+			},
+      focus: function( event, ui ) {
+				$( ".city.autocomplete" ).val( ui.item.name );
+				return false;
+			},
+			select: function( event, ui ) {
+				return false;
+			}
+   }).data( "autocomplete" )._renderItem = function( ul, item ) {
+			return $( "<li></li>" )
+				.data( "item.autocomplete", item )
+				.append( "<a>" + item.name + "</a>" )
+				.appendTo( ul );
+		};
+/*
+  $( ".city.autocomplete" ).autocomplete({
+    minLength: 2,
+    source: "json/cities/index/",
+    focus: function( event, ui ) {
+      $( "#test" ).val( ui.item.name );
+      return false;
+    },
+    select: function( event, ui ) {
+      //select value in state for ui.item.state
+      return false;
+    }
+  })
+  .data( "autocomplete" )._renderItem = function( ul, item ) {
+    return $( "<li></li>" )
+      .data( "item.autocomplete", item )
+      .append( "<a>" + item.name + "<br>" + item.state + "</a>" )
+      .appendTo( ul );
+  };*/
+
+  // Data Validation 
   jQuery.validator.addMethod("alphanumeric", function(value, element) {
     return this.optional(element) || /^\w+$/i.test(value);
   }, "Letters, numbers, spaces or underscores only please");

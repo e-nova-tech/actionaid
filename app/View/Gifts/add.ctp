@@ -54,7 +54,7 @@
       'label'=>__('Address (cont.)'),'class'=>''
     )); ?>
     <?php echo $this->MyForm->input('Person.city', array(
-      'label'=>__('City'), 'class'=>'required'
+      'label'=>__('City'), 'class'=>'required city autocomplete'
     )); ?>
     <?php echo $this->MyForm->input('Person.pincode', array(
       'label'=>__('Pincode'), 'class'=>'required'
