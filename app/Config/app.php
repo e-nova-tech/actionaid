@@ -8,23 +8,20 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-if (!defined('FULL_BASE_URL')) {
-  define('FULL_BASE_URL', '');
-}
 $config = array(
   // General App Details
-  'App.name' => 'ActionAid International ',
+  'App.name' => 'Danish Pastry',
+  'App.version' => '0.1',
+  'App.description' => 'The simple donation form management system',
   'App.copyright' => '2012 &copy; ActionAid Association',
-  'App.browserTitle' => '%s | ActionAid India', // %s = context
-  'App.version' => array(
-    'number' => '0.1',
-    'name' => 'Danish Pastry'
-   ),
+
+  'App.browserTitle' => '%s | ActionAid India', // %s = title_for_layout
+
   'App.url' => array(
-    //'dev'  => 'http://localhost/donate/',
-    'dev'  => 'http://stripthis/',
+    'dev'  => 'http://localhost/donate/',
     'prod' => 'https://actionaidindia.org/donate/'
   ),
+
   // Cookie's settings
   'App.cookie' => array(
     'life' => '+1 month',
@@ -67,6 +64,7 @@ $config = array(
       '/'
     )
   ),*/
+
   // AUTHENTICATION
   'App.auth' => array(
     'loginAction' => array('controller' => 'users', 'action' => 'admin_login', 'admin' => true, 'prefix' => 'admin'),

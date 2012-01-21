@@ -27,8 +27,9 @@
   Cache::config('default', array('engine' => 'File'));
 
   // Additional Configuration Items
-  Configure::load('app');  // Application
-  Configure::load('menu'); // Navigation
+  Configure::load('app');         // Application
+  Configure::load('preferences'); // Preferences
+  Configure::load('menu');        // Navigation
 
   // Special Classes
   require_once(APP . 'Controller' . DS . 'Component' . DS .'Common.php');
