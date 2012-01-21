@@ -1,5 +1,13 @@
+/**
+ * Jquery Awesomeness
+ *
+ * @package     app.webroot.js.script
+ * @copyright   Copyright 2012, ActionAid Association India 
+ * @link        http://actionaid.org/india
+ * @author      Remy Bertot / Kevin Muller
+ * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 $(function() {
-  /* DONATION FORM CANDIES */
   // Select "other" radio button when click on text input and vice versa
   $('.radiolist .other.text').click(function(){
     $('.radiolist .other.radio').attr('checked', 'checked');
@@ -41,7 +49,7 @@ $(function() {
 
   // Data Validation 
   jQuery.validator.addMethod("alphanumeric", function(value, element) {
-    return this.optional(element) || /^\w+$/i.test(value);
+    return this.optional(element) || /^(\w)+$/i.test(value);
   }, "Letters, numbers, spaces or underscores only please");
   
   jQuery.validator.addMethod("pattern", function(value, element, param) {
@@ -90,7 +98,9 @@ $(function() {
       "data[Gift][other_amount]" : {
         giftamount : true 
       },
-      "data[Person][title]": "required",
+      "data[Person][title]": {
+        required : true
+      },
       "data[Person][firstname]": {
         required : true,
         maxlength : 64,
@@ -153,7 +163,9 @@ $(function() {
       }
     },
     messages: {
-      "data[Person][title]": "Please select a title",
+      "data[Person][title]": {
+        required : Please select a title
+      },
       "data[Person][firstname]": {
         required : 'Please indicate your firstname',
         maxlength : 'Your firstname should not be longer than 64 characters',

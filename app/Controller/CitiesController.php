@@ -24,12 +24,6 @@ class CitiesController extends AppController {
     ));
     $json = array();
     foreach($cities as $city) $json[] = $city['City'];
-    echo json_encode($json);/*
-    if ($this->request->isAjax()) { 
-      header("Pragma: no-cache"); 
-      header("Cache-Control: no-store, no-cache, max-age=0, must-revalidate"); 
-      header('Content-Type: application/json'); 
-      header("X-JSON: ".json_encode($cities));
-    } else echo json_encode($cities);*/
+    echo json_encode($json); //TODO json headers?
   }
 }

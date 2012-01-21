@@ -9,9 +9,11 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class GiftsController extends AppController {
+  var $uses = array('Gift','Person');
+
   function beforeFilter() {
     parent::beforeFilter();
-    $this->Auth->allow('add');
+    $this->Auth->allow('add','json_validation');
   }
 
   /**
@@ -72,6 +74,21 @@ class GiftsController extends AppController {
     //$countries = $this->Gift->Person->Country->find('list',array('fields'=>array('code','name')));
     $countries = array('IN' => 'India');
     $this->set('countries', $countries);
+  }
+  
+  /**
+   * Provide the validation rules or messages in json_encode
+   */
+  function json_validation($type='rules') {
+    $this->autoRender = false;
+    if($type=='rules' || $type=='messages') {
+      $this->set('type',$type);
+      $validate = array_merge($this->Gift->validate, $this->Person->validate);
+      pr($validate);
+      $this->set('validate',$validate);
+    } else {
+      return;
+    }
   }
 
   /**
