@@ -11,6 +11,6 @@
 
 $config = array(
   'Preferences' => array(
-    'javascript' => true
+    'javascript' => false
   )
 );

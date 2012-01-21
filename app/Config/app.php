@@ -28,7 +28,7 @@ $config = array(
     'name' => 'ACTIONAIDINDIA_DONATE'
   ),
 
-  // Mailer settings
+  // Email settings
   'App.mailer' => array(
     'delivery' => 'debug', // mail, smtp or debug
     'smtpOptions' => array(
@@ -73,11 +73,13 @@ $config = array(
   ),
   // default gift configuration
   'App.gift' => array(
-    'preselected_amounts' => array('3000','6000','12000'),
+    'preselected_amounts' => array(3000,6000,12000),
     'allow_other_amount' => true,
-    'default_amount' => '6000',
-    'minimum_amount' => '1',
-    'maximum_amount' => '1'
+    'default_amount' => 6000,
+    'minimum_amount' => 1,
+    'maximum_amount' => 4294967295,
+    'minimum_age' => 18,
+    'maximum_age' => 115,
   ),
   // payment gateway configuration
   'App.payment_gateway' => array(
