@@ -1,6 +1,6 @@
 $(function() {
   /* DONATION FORM CANDIES */
-  // select "other" radio button when click on text input and vice versa
+  // Select "other" radio button when click on text input and vice versa
   $('.radiolist .other.text').click(function(){
     $('.radiolist .other.radio').attr('checked', 'checked');
   });
@@ -8,54 +8,36 @@ $(function() {
     $('.radiolist .other.text').focus();
   });
 
+  // Form autocomplete
   var cache = {},lastXhr;
   $( ".city.autocomplete" ).autocomplete({
-      minLength: 1,
-      source: function( request, response ) {
-				var term = request.term;
-				if ( term in cache ) {
-					response( cache[ term ] );
-					return;
-				}
-				lastXhr = $.getJSON( "json/cities/index/"+term, request, function( data, status, xhr ) {
-					cache[ term ] = data;
-					if ( xhr === lastXhr ) {
-						response( data );
-					}
-				});
-			},
-      focus: function( event, ui ) {
-				$( ".city.autocomplete" ).val( ui.item.name );
-				return false;
-			},
-			select: function( event, ui ) {
-				return false;
-			}
-   }).data( "autocomplete" )._renderItem = function( ul, item ) {
-			return $( "<li></li>" )
-				.data( "item.autocomplete", item )
-				.append( "<a>" + item.name + "</a>" )
-				.appendTo( ul );
-		};
-/*
-  $( ".city.autocomplete" ).autocomplete({
-    minLength: 2,
-    source: "json/cities/index/",
-    focus: function( event, ui ) {
-      $( "#test" ).val( ui.item.name );
-      return false;
+    minLength: 1,
+    source: function( request, response ) {
+      var term = request.term;
+      if (term in cache) {
+        response(cache[term]);
+        return;
+      }
+      lastXhr = $.getJSON( "json/cities/index/"+term, request, function( data, status, xhr ) {
+        cache[ term ] = data;
+        if (xhr === lastXhr) {
+          response(data);
+        }
+      });
     },
+    focus: function( event, ui ) {
+      $( ".city.autocomplete" ).val( ui.item.name );
+        return false;
+      },
     select: function( event, ui ) {
-      //select value in state for ui.item.state
       return false;
     }
-  })
-  .data( "autocomplete" )._renderItem = function( ul, item ) {
+  }).data( "autocomplete" )._renderItem = function( ul, item ) {
     return $( "<li></li>" )
       .data( "item.autocomplete", item )
-      .append( "<a>" + item.name + "<br>" + item.state + "</a>" )
+      .append( "<a>" + item.name + "</a>" )
       .appendTo( ul );
-  };*/
+  };
 
   // Data Validation 
   jQuery.validator.addMethod("alphanumeric", function(value, element) {
