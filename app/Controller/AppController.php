@@ -11,7 +11,7 @@
 class AppController extends Controller {
   var $helpers = array(
     'Html','Form','Paginator','Session',
-    'MyHtml','MyForm','MyPaginator','Gift','Menu'
+    'MyHtml','MyForm','MyPaginator','Gift','Menu', 'Js'
     /*,'Tidy' // buggy with script! */
   );
 
@@ -30,7 +30,6 @@ class AppController extends Controller {
     $this->Auth->loginRedirect = Configure::read('App.auth.loginRedirect');
     $this->Auth->logoutRedirect = Configure::read('App.auth.logoutRedirect');
     $this->Cookie->name = Configure::read('App.cookie.name');
-    
     // autoset layout if prefix in url
     if(isset($this->request->params['admin'])  && $this->request->action != 'admin_login') {
       $this->layout = 'admin';

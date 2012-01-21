@@ -89,6 +89,13 @@ $config = array(
       'checksum_key' => ''
     )
   ),
+  
+  // google analytics
+  'App.google_analytics' => array(
+     'UA' => 'UA-XXXXX-X',  //
+     'validation_token' => '',
+     'validate' => false 
+  ),
   /*
   // 3rd Party - Recapcha
   'App.recaptcha' => array(
