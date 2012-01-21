@@ -57,11 +57,11 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please indicate your firstname')
         ),
-        'alpha'  => array(
-          'rule' => array('alphanumeric'),
+        'pattern'  => array(
+          'rule' => array('custom' => '/[a-zA-Z\ \- ]+$/'),
           'message' => __('Your name should not contain special characters (ex: ! or ? or #)')
         ),
-        'length' => array(
+        'maxlength' => array(
           'rule' => array('maxLength', '64'),
           'message' => __('Your firstname should not be longer than 64 characters')
         )
@@ -73,11 +73,11 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please indicate your lastname')
         ),
-        'alpha'  => array(
+        'alphanumeric'  => array(
           'rule' => array('alphanumeric'),
           'message' => __('Your name should not contain special characters (ex: ! or ? or #)')
         ),
-        'length' => array(
+        'maxlength' => array(
           'rule' => array('maxLength', '64'),
           'message' => __('Your lastname should not be longer than 64 characters')
         )
@@ -89,13 +89,13 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please provide an address')
         ),
-        'length' => array(
+        'maxlength' => array(
           'rule' => array('maxLength', '128'),
           'message' => __('Your address first line should not be longer than 128 characters')
         )
       ),
       'address2' => array(
-        'length' => array(
+        'maxlength' => array(
           'rule' => array('maxLength', '128'),
           'message' => __('Your address second line should not be longer than 128 characters')
         )
@@ -107,11 +107,11 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please indicate a city')
         ),
-        'alpha'  => array(
+        'alphanumeric'  => array(
           'rule' => array('alphanumeric'),
           'message' => __('Your city name should not contain special characters (ex: ! or ? or #)')
         ),
-        'length' => array(
+        'maxlength' => array(
           'rule' => array('maxLength', '64'),
           'message' => __('Your city name should not be longer than 64 characters')
         )
@@ -123,7 +123,7 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please indicate your pincode')
         ),
-        'format'=> array(
+        'pattern'=> array(
           'rule' => array('custom', '/^[0-9]{6}$/'),
           'message' => __('Your pincode should be composed of 6 digits')
         )
@@ -135,7 +135,7 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please select a state')
         ),
-        'format' => array( 
+        'pattern' => array( 
           'rule' => array ('custom', '/^[A-Z]{2}[\-]{1}[A-Z]{2}$/'),
           'message' => __('Please select a valid state')
         ),
@@ -151,7 +151,7 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please select a country')
         ),
-        'format' => array( 
+        'pattern' => array( 
           'rule' => array ('custom', '/^[A-Z]{2}$/'),
           'message' => __('Please select a valid country')
         ),
@@ -179,7 +179,7 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please provide a phone number')
         ),
-        'format' => array( 
+        'pattern' => array( 
           'rule' => array ('custom', '/^[0-9\-\+]{8,16}$/'),
           'message' => __('Please provide a valid phone number')
         )
