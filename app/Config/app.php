@@ -21,7 +21,8 @@ $config = array(
     'name' => 'Danish Pastry'
    ),
   'App.url' => array(
-    'dev'  => 'http://localhost/donate/',
+    //'dev'  => 'http://localhost/donate/',
+    'dev'  => 'http://stripthis/',
     'prod' => 'https://actionaidindia.org/donate/'
   ),
   // Cookie's settings
