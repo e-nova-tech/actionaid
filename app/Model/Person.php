@@ -39,7 +39,7 @@ class Person extends AppModel {
   static function getValidationRules($context=null) {
      return array(
       'title' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
@@ -51,15 +51,15 @@ class Person extends AppModel {
         )
       ),
       'firstname' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your firstname')
         ),
-        'pattern'  => array(
-          'rule' => array('custom' => '/[a-zA-Z\ \- ]+$/'),
-          'message' => __('Your name should not contain special characters (ex: ! or ? or #)')
+        'alphaplus'  => array(
+          'rule' => array('alphaplus'),
+          'message' => __('Your firstname should not contain unecessary punctuation characters')
         ),
         'maxlength' => array(
           'rule' => array('maxLength', '64'),
@@ -67,15 +67,15 @@ class Person extends AppModel {
         )
       ),
       'lastname' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your lastname')
         ),
-        'alphanumeric'  => array(
-          'rule' => array('alphanumeric'),
-          'message' => __('Your name should not contain special characters (ex: ! or ? or #)')
+        'alphaplus'  => array(
+          'rule' => array('alphaplus'),
+          'message' => __('Your last name should not contain unecessary punctuation characters')
         ),
         'maxlength' => array(
           'rule' => array('maxLength', '64'),
@@ -83,7 +83,7 @@ class Person extends AppModel {
         )
       ),
       'address1' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
@@ -101,15 +101,15 @@ class Person extends AppModel {
         )
       ),
       'city' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate a city')
         ),
-        'alphanumeric'  => array(
-          'rule' => array('alphanumeric'),
-          'message' => __('Your city name should not contain special characters (ex: ! or ? or #)')
+        'alphaplus'  => array(
+          'rule' => array('alphaplus'),
+          'message' => __('Your city name should not contain unecessary punctuation characters')
         ),
         'maxlength' => array(
           'rule' => array('maxLength', '64'),
@@ -117,11 +117,15 @@ class Person extends AppModel {
         )
       ),    
       'pincode' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your pincode')
+        ),
+        'rangelength'=> array(
+          'rule' => array('between', 6, 6),
+          'message' => __('Your pincode should be composed of 6 digits')
         ),
         'pattern'=> array(
           'rule' => array('custom', '/^[0-9]{6}$/'),
@@ -129,7 +133,7 @@ class Person extends AppModel {
         )
       ),
       'state' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
@@ -145,7 +149,7 @@ class Person extends AppModel {
         )
       ),
       'country' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
@@ -161,7 +165,7 @@ class Person extends AppModel {
         )
       ),
       'email' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
@@ -173,7 +177,7 @@ class Person extends AppModel {
         )
       ),
       'phone' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
@@ -185,13 +189,13 @@ class Person extends AppModel {
         )
       ),
       'dob' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your date of birth')
         ),
-        'format' => array(
+        'dateOfBirth' => array(
           'rule' => array('date', 'ymd'),
           'message' => __('Please indicate a valid date of birth')
         ),
@@ -201,7 +205,7 @@ class Person extends AppModel {
         )
       ),
       'pan' => array(
-        'empty'  => array(
+        'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,

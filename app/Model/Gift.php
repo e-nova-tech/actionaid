@@ -38,7 +38,7 @@ class Gift extends AppModel {
   static function getValidationRules($context=null) {
     return array(
       'amount' => array(
-        'empty'   => array(
+        'required'   => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
