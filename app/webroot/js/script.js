@@ -35,8 +35,8 @@ $(function() {
     },
     focus: function( event, ui ) {
       $( ".city.autocomplete" ).val( ui.item.name );
-        return false;
-      },
+      return false;
+    },
     select: function( event, ui ) {
       return false;
     }
@@ -50,13 +50,17 @@ $(function() {
   // Data Validation 
   jQuery.validator.addMethod("alphanumeric", function(value, element) {
     return this.optional(element) || /^(\w)+$/i.test(value);
-  }, "Letters, numbers, spaces or underscores only please");
+  }, "Letters and numbers only please");
+  
+  jQuery.validator.addMethod("alphaplus", function(value, element) {
+    return this.optional(element) || /^((\w)+(\-|\s|'){1})+(\w)+$/i.test(value);
+  }, "Letters, numbers, spaces, dashes only please");
   
   jQuery.validator.addMethod("pattern", function(value, element, param) {
     return this.optional(element) || param.test(value);
   }, "Invalid format.");
   
-  jQuery.validator.addMethod("dateOfBirth", function() {
+  jQuery.validator.addMethod("dob", function() {
     var dob = $("#PersonDobDay").val() + "-" + $("#PersonDobMonth").val() + '-' + $("#PersonDobYear").val();
     return /^[0-9]{2}-[0-9]{2}-[0-9]{4}$/.test(dob);
   }, "Please specify a valid date of birth.");
@@ -104,12 +108,12 @@ $(function() {
       "data[Person][firstname]": {
         required : true,
         maxlength : 64,
-        alphanumeric : true
+        alphaplus : true
       },
       "data[Person][lastname]": {
         required : true,
         maxlength : 64,
-        alphanumeric : true
+        alphaplus : true
       },
       "data[Person][address1]": {
         required : true,
@@ -121,7 +125,7 @@ $(function() {
       "data[Person][city]": {
         required : true,
         maxlength : 128,
-        alphanumeric : true
+        alphaplus : true
       },
       "data[Person][pincode]": {
         required : true,
@@ -146,15 +150,15 @@ $(function() {
       },
       "data[Person][dob][day]": {
         required : true,
-        dateOfBirth : true
+        dob : true
       },
       "data[Person][dob][month]": {
         required : true,
-        dateOfBirth : true
+        dob : true
       },
       "data[Person][dob][year]": {
         required : true,
-        dateOfBirth : true
+        dob : true
       },
       "data[Person][pan]": {
         required : true,
@@ -164,17 +168,17 @@ $(function() {
     },
     messages: {
       "data[Person][title]": {
-        required : Please select a title
+        required : 'Please select a title'
       },
       "data[Person][firstname]": {
         required : 'Please indicate your firstname',
         maxlength : 'Your firstname should not be longer than 64 characters',
-        alphanumeric : 'Your name should not contain special characters (ex: ! or ? or #)'
+        alphaplus : 'Your name should not contain special characters (ex: ! or ? or #)'
       },
       "data[Person][lastname]": {
         required : 'Please indicate your lastname',
         maxlength : 'Your lastname should not be longer than 64 characters',
-        alphanumeric : 'Your name should not contain special characters'
+        alphaplus : 'Your name should not contain special characters'
       },
       "data[Person][address1]": {
         required : 'Please provide an adress',
@@ -186,7 +190,7 @@ $(function() {
       "data[Person][city]": {
         required : 'Please provide a city',
         maxlength : 'Your city name should not be longer than 64 characters',
-        alphanumeric : 'Your city name should not contain special characters (ex: ! or ? or #)'
+        alphaplus : 'Your city name should not contain unecessary punctuation characters'
       },
       "data[Person][pincode]": {
         required : 'Please indicate your pincode',
