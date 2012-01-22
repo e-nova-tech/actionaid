@@ -53,7 +53,7 @@ $(function() {
   }, "Letters and numbers only please");
   
   jQuery.validator.addMethod("alphaplus", function(value, element) {
-    return this.optional(element) || /^((\w)+(\-|\s|'){1})+(\w)+$/i.test(value);
+    return this.optional(element) || /^((\w)+(\-|\s|\'){1})+(\w)+$/i.test(value);
   }, "Letters, numbers, spaces, dashes only please");
   
   jQuery.validator.addMethod("pattern", function(value, element, param) {
