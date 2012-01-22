@@ -49,4 +49,63 @@ class AppController extends Controller {
     }
     return true;
   }
+
+  /**
+   * Render Validation Rules or messages in Json for js validation purposes
+   * @param array model names (must be accessible from current controller)
+   * @param string type, rules or messages
+   * @access public
+   */
+  public function json_validation($type='rules',$models=array()) {
+    $this->autoRender = false;
+    if($type=='rules' || $type=='messages' || empty($models)) {
+      $this->set('type',$type);
+      foreach ($models as $modelName) {
+        $validate[$modelName]= $this->{$modelName}->validate;
+      }
+
+      //pr($validate);
+      $supportedJsRules = array(
+        'required'     => true, 'numeric'     => true,
+        'alphaplus'    => true, 'rangelength' => true,
+        'maxlength'    => true, 'dob'         => true,
+        'giftamount'   => true, 'pattern'     => true,
+        'alphanumeric' => true
+      );
+
+      foreach ($validate as $modelName => $model) {
+        foreach ($model as $fieldName => $rules) {
+          foreach ($rules as $ruleName => $rule) {
+            if (!isset($supportedJsRules[$ruleName]) || !$supportedJsRules[$ruleName]) {
+              unset($validate[$modelName][$fieldName][$ruleName]);
+            } else {
+              $js_rule = array();
+              switch ($ruleName) {
+                case 'pattern':
+                case 'maxlength':
+                  $js_rule[$ruleName] = $validate[$modelName][$fieldName][$ruleName]['rule'][1];
+                  break;
+                case 'rangelength':
+                  $js_rule[$ruleName] = array(
+                     $validate[$modelName][$fieldName][$ruleName]['rule'][1],
+                     $validate[$modelName][$fieldName][$ruleName]['rule'][2]
+                  );
+                  break;
+                case 'dob':
+                  break 2;
+                default:
+                   $js_rule[$ruleName] = true;
+                break;
+              }
+              $js_rule['message'] = $validate[$modelName][$fieldName][$ruleName]['message'];
+              $results["data[$modelName][$fieldName]"][$ruleName] = $js_rule;
+            }
+          }
+        }
+      }
+      pr($results);
+      $this->set('validate',$results);
+    }
+  }
+
 }

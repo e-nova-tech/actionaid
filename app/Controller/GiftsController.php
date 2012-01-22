@@ -77,20 +77,12 @@ class GiftsController extends AppController {
   }
   
   /**
-   * Provide the validation rules or messages in json_encode
+   * Provide the validation rules or messages for donation form in json_encode
    */
-  function json_validation($type='rules') {
-    $this->autoRender = false;
-    if($type=='rules' || $type=='messages') {
-      $this->set('type',$type);
-      $validate = array_merge($this->Gift->validate, $this->Person->validate);
-      pr($validate);
-      $this->set('validate',$validate);
-    } else {
-      return;
-    }
+  function json_validation($type='rules',$models=array('Gift','Person')) {
+    parent::json_validation($type,$models);
   }
-
+  
   /**
    * Gifts Index (Admin)
    * @return void
