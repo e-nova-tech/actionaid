@@ -29,6 +29,6 @@ class AppModel extends Model {
     $value = array_values($check);
     $value = $value[0];
     // @TODO support unicode characters => pb in JS
-    return preg_match('/^((\w)+(\-|\s){1})+(\w)+$/', $value);
+    return preg_match("/^((\w)+(\-|\s|\'){1})+(\w)+$/", $value);
   }
 }//_EOF
