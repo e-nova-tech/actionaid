@@ -87,7 +87,7 @@ class AppController extends Controller {
               $js_rule = array();
               switch ($ruleName) {
                 case 'pattern':
-                  $js_rule[$ruleName] = '"'.$validate[$modelName][$fieldName][$ruleName]['rule'][1].'"';
+                  $js_rule[$ruleName] = '"'.str_replace('\\','\\\\',$validate[$modelName][$fieldName][$ruleName]['rule'][1]).'"';
                 break;
                 case 'maxlength':
                   $js_rule[$ruleName] = $validate[$modelName][$fieldName][$ruleName]['rule'][1];
