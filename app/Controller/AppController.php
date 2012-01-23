@@ -10,13 +10,14 @@
  */
 class AppController extends Controller {
   var $helpers = array(
-    'Html','Form','Paginator','Session',
-    'MyHtml','MyForm','MyPaginator','Gift','Menu', 'Js'
+    'Html','Form','Paginator','Session',                 // default
+    'MyHtml','MyForm','MyPaginator','Gift','Menu', 'Js'  // custom
     /*,'Tidy' // buggy with script! */
   );
 
   public $components = array(
-    'Session', 'Paginator', 'Auth', 'Cookie'
+    'Session', 'Paginator', 'Auth', 'Cookie', // default
+    'Message'                                 // custom
   );
 
   /**
@@ -63,8 +64,10 @@ class AppController extends Controller {
       foreach ($models as $modelName) {
         $validate[$modelName]= $this->{$modelName}->validate;
       }
-
-      //pr($validate);
+      
+      // All the validation rules are not supported in Javascript
+      // such as the one checking for referential integrity
+      // we use this table to filter out such rules
       $supportedJsRules = array(
         'required'     => true, 'numeric'     => true,
         'alphaplus'    => true, 'rangelength' => true,
@@ -79,6 +82,8 @@ class AppController extends Controller {
             if (!isset($supportedJsRules[$ruleName]) || !$supportedJsRules[$ruleName]) {
               unset($validate[$modelName][$fieldName][$ruleName]);
             } else {
+              // Some rules needs to be serialized in a special format
+              // in order to be use in javascript
               $js_rule = array();
               switch ($ruleName) {
                 case 'pattern':
@@ -86,12 +91,13 @@ class AppController extends Controller {
                   $js_rule[$ruleName] = $validate[$modelName][$fieldName][$ruleName]['rule'][1];
                   break;
                 case 'rangelength':
-                  $js_rule[$ruleName] = array(
-                     $validate[$modelName][$fieldName][$ruleName]['rule'][1],
-                     $validate[$modelName][$fieldName][$ruleName]['rule'][2]
-                  );
+                  $js_rule[$ruleName] = '['.
+                     $validate[$modelName][$fieldName][$ruleName]['rule'][1].','.
+                     $validate[$modelName][$fieldName][$ruleName]['rule'][2].']';
                   break;
                 case 'dob':
+              $js_rule['message'] = $validate[$modelName][$fieldName][$ruleName]['message'];
+                    $results["data[$modelName][$fieldName]"]['dob'] = $js_rule;
                   break 2;
                 default:
                    $js_rule[$ruleName] = true;
@@ -103,8 +109,10 @@ class AppController extends Controller {
           }
         }
       }
-      pr($results);
-      $this->set('validate',$results);
+      // render
+      $this->set('validates',$results);
+      $this->layout = 'json';
+      $this->render('/Validates/json_'.$type);
     }
   }
 

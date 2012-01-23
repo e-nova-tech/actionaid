@@ -38,14 +38,14 @@
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix' => 'admin'));
 	Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/users/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
+  // javascript stuffs
+	Router::connect('/json/gifts/validation/*', array('controller'=>'gifts','action'=>'json_validation')); 
+	Router::connect('/json/cities/index/*', array('controller'=>'cities', 'action'=>'json_index')); 
   // admin routing
 	Router::connect('/admin/:controller', array('admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/:controller/:action', array('admin' => true, 'prefix'=>'admin'));  
 	Router::connect('/admin/:controller/:action/*', array('admin' => true, 'prefix'=>'admin'));  
-  // javascript stuffs
-	Router::connect('/json/gifts/validation', array('controller'=>'gifts', 'action'=>'json_validation')); 
-	Router::connect('/json/cities/index/*', array('controller'=>'cities', 'action'=>'json_index')); 
-  // everything else is a donation form
+  // everything else is a donation forms
   Router::connect('/*', array('controller' => 'gifts', 'action' => 'add'));
 
 /**

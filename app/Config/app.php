@@ -86,13 +86,13 @@ $config = array(
     'default' => 'billdesk',
     'billdesk' => array(
       'merchant_id' => '',
-      'checksum_key' => ''
+      'checksum_key' => '',
+      'payment_url' => 'https://www.billdesk.com/pgidsk/pgmerc/ACTIONAIDPaymentoption.jsp'
     )
   ),
-  
   // google analytics
   'App.google_analytics' => array(
-     'UA' => 'UA-XXXXX-X',  //
+     'UA' => 'UA-XXXXX-X',  //  UA-20940239-1 ?
      'validation_token' => '',
      'validate' => false 
   ),
