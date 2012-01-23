@@ -10,7 +10,7 @@
  */
  $i = $j = 0;
 ?>
-[{
+{
 <?php foreach ($validates as $fieldName => $rules) : $i++; $coma1=($i<sizeof($validates)); $j=0; ?>
   "<?php echo $fieldName; ?>" : {
 <?php foreach ($rules as $ruleName => $rule) : $j++; $coma2=($j<sizeof($rules)); ?>
@@ -18,4 +18,4 @@
 <?php endforeach; ?>
   }<?php  if($coma1) echo ','; echo "\n"; ?>
 <?php endforeach; ?>
-}]
+}

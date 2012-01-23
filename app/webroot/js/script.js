@@ -53,7 +53,7 @@ $(function() {
   }, "Letters and numbers only please");
   
   jQuery.validator.addMethod("alphaplus", function(value, element) {
-    return this.optional(element) || /^((\w)+(\-|\s|\'){1})+(\w)+$/i.test(value);
+    return this.optional(element) || /^((\w)+(\-|\s|\'){1})?(\w)+$/i.test(value);
   }, "Letters, numbers, spaces, dashes only please");
   
   jQuery.validator.addMethod("pattern", function(value, element, param) {
@@ -97,143 +97,10 @@ $(function() {
       }
     },
     errorElement : 'label',
-    errorClass : 'form-js-error',
-    rules: {
-      "data[Gift][other_amount]" : {
-        giftamount : true 
-      },
-      "data[Person][title]": {
-        required : true
-      },
-      "data[Person][firstname]": {
-        required : true,
-        maxlength : 64,
-        alphaplus : true
-      },
-      "data[Person][lastname]": {
-        required : true,
-        maxlength : 64,
-        alphaplus : true
-      },
-      "data[Person][address1]": {
-        required : true,
-        maxlength : 128
-      },
-      "data[Person][address2]": {
-        maxlength : 128
-      },
-      "data[Person][city]": {
-        required : true,
-        maxlength : 128,
-        alphaplus : true
-      },
-      "data[Person][pincode]": {
-        required : true,
-        number : true,
-        rangelength : [6, 6]
-      },
-      "data[Person][state]": {
-        required : true,
-        pattern : /^[A-Z]{2}[\-]{1}[A-Z]{2}$/
-      },
-      "data[Person][country]": {
-        required : true,
-        pattern : /^[A-Z]{2}$/
-      },
-      "data[Person][email]": {
-        required : true,
-        email : true
-      },
-      "data[Person][phone]": {
-        required : true,
-        pattern : /^[0-9\-\+]{8,16}$/
-      },
-      "data[Person][dob][day]": {
-        required : true,
-        dob : true
-      },
-      "data[Person][dob][month]": {
-        required : true,
-        dob : true
-      },
-      "data[Person][dob][year]": {
-        required : true,
-        dob : true
-      },
-      "data[Person][pan]": {
-        required : true,
-        rangelength : [10, 10],
-        pattern : /^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$/
-      }
-    },
-    messages: {
-      "data[Person][title]": {
-        required : 'Please select a title'
-      },
-      "data[Person][firstname]": {
-        required : 'Please indicate your firstname',
-        maxlength : 'Your firstname should not be longer than 64 characters',
-        alphaplus : 'Your name should not contain special characters (ex: ! or ? or #)'
-      },
-      "data[Person][lastname]": {
-        required : 'Please indicate your lastname',
-        maxlength : 'Your lastname should not be longer than 64 characters',
-        alphaplus : 'Your name should not contain special characters'
-      },
-      "data[Person][address1]": {
-        required : 'Please provide an adress',
-        maxlength : 'Your address first line should not be longer than 128 characters'
-      },
-      "data[Person][address2]": {
-        maxlength : 'Your address second line should not be longer than 128 characters'
-      },
-      "data[Person][city]": {
-        required : 'Please provide a city',
-        maxlength : 'Your city name should not be longer than 64 characters',
-        alphaplus : 'Your city name should not contain unecessary punctuation characters'
-      },
-      "data[Person][pincode]": {
-        required : 'Please indicate your pincode',
-        number : 'Your pincode should be composed of 6 digits',
-        rangelength : 'Your pincode should be composed of 6 digits'
-      },
-      "data[Person][state]": {
-        required : 'Please select a state',
-        pattern : 'Please select a valid state pattern'
-      },
-      "data[Person][country]": {
-        required : 'Please select a country',
-        pattern : 'Please select a valid country'
-      },
-      "data[Person][email]": {
-        required : 'Please provide your email address',
-        email : 'Please provide a valid email address, ex: support@actionaid.org'
-      },
-      "data[Person][phone]": {
-        required : 'Please indicate your phone number',
-        pattern : 'Please provide a valid phone number'
-      },
-      "data[Person][dob][day]": {
-        required : 'Please provide your birthdate',
-        rangelength : 'Please provide your birthdate',
-        number:'Please provide your birthdate'
-      },
-      "data[Person][dob][month]": {
-        required : 'Please provide your birthdate',
-        rangelength : 'Please provide your birthdate',
-        number:'Please provide your birthdate'
-      },
-      "data[Person][dob][year]": {
-        required : 'Please provide your birthdate',
-        rangelength : 'Please provide your birthdate',
-        number:'Please provide your birthdate'
-      },
-      "data[Person][pan]": {
-        required : 'Please provide your PAN number',
-        rangelength : 'Please provide a valid PAN number',
-        pattern : 'Please provide a valid PAN number'
-      }
-    }
+    errorClass   : 'form-js-error',
+    rules        : { "data[Gift][amount]" : { required : 1, numeric : 1 }, "data[Person][title]" : { required : 1 }, "data[Person][firstname]" : { required : 1, alphaplus : 1, maxlength : 64 }, "data[Person][lastname]" : { required : 1, alphaplus : 1, maxlength : 64 }, "data[Person][address1]" : { required : 1, maxlength : 128 }, "data[Person][address2]" : { maxlength : 128 }, "data[Person][city]" : { required : 1, alphaplus : 1, maxlength : 64 }, "data[Person][pincode]" : { required : 1, rangelength : [6,6], pattern : /^[0-9]{6}$/ }, "data[Person][state]" : { required : 1, pattern : /^[A-Z]{2}[\-]{1}[A-Z]{2}$/ }, "data[Person][country]" : { required : 1, pattern : /^[A-Z]{2}$/ }, "data[Person][email]" : { required : 1 }, "data[Person][phone]" : { required : 1, pattern : /^[0-9\-\+]{8,16}$/ }, "data[Person][dob]" : { required : 1 }, "data[Person][pan]" : { required : 1 } },
+    messages     : { "data[Gift][amount]" : { required : "Please select a gift amount", numeric : "Please select a valid gift amount" }, "data[Person][title]" : { required : "Please select a title" }, "data[Person][firstname]" : { required : "Please indicate your firstname", alphaplus : "Your firstname should not contain unecessary punctuation characters", maxlength : "Your firstname should not be longer than 64 characters" }, "data[Person][lastname]" : { required : "Please indicate your lastname", alphaplus : "Your last name should not contain unecessary punctuation characters", maxlength : "Your lastname should not be longer than 64 characters" }, "data[Person][address1]" : { required : "Please provide an address", maxlength : "Your address first line should not be longer than 128 characters" }, "data[Person][address2]" : { maxlength : "Your address second line should not be longer than 128 characters" }, "data[Person][city]" : { required : "Please indicate a city", alphaplus : "Your city name should not contain unecessary punctuation characters", maxlength : "Your city name should not be longer than 64 characters" }, "data[Person][pincode]" : { required : "Please indicate your pincode", rangelength : "Your pincode should be composed of 6 digits", pattern : "Your pincode should be composed of 6 digits" }, "data[Person][state]" : { required : "Please select a state", pattern : "Please select a valid state" }, "data[Person][country]" : { required : "Please select a country", pattern : "Please select a valid country" }, "data[Person][email]" : { required : "Please provide an email address" }, "data[Person][phone]" : { required : "Please provide a phone number", pattern : "Please provide a valid phone number" }, "data[Person][dob]" : { required : "Please indicate your date of birth" }, "data[Person][pan]" : { required : "Please indicate your PAN number" } },
+
   });
 });
 
