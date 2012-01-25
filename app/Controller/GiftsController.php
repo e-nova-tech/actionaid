@@ -41,7 +41,7 @@ class GiftsController extends AppController {
       $success = $this->Gift->Person->validates();
       $success = ($this->Gift->validates() && $success);
       if (!$success) {
-          $this->Message->error(__('Please correct the errors bellow'));
+          $this->Message->error(__('There are errors in the form. Please correct the errors bellow'));
       } else {
         // if person doesnt already exist save the person in db
         $conditions = Person::getFindConditions('findDuplicates',$data);
@@ -50,15 +50,15 @@ class GiftsController extends AppController {
           $person = $this->Gift->Person->save($data);
         }
         if (!isset($person) || empty($person)) {
-          $this->Session->setFlash(__('Sorry something went wrong please try again later.'));
+          $this->Message->error(__('Sorry something went wrong please try again later.'));
         } else {
           $data['Gift']['person_id'] = $person['Person']['id'];
           $gift = $this->Gift->save($data);
           if(isset($gift) && !empty($gift)) {
-          $this->Session->setFlash(__('Thank you your gift was saved'));
-          } else  {
-            $this->Session->setFlash(__('Sorry something went wrong please try again later.'));
-          }  
+          $this->->Message->notice(__('Thank you your gift was saved'));
+          } else {
+            $this->Message->error(__('Sorry something went wrong please try again later.'));
+          }
         }
     	}  
     } 

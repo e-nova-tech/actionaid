@@ -27,7 +27,6 @@
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
-<?php echo $this->Session->flash(); ?>
 <?php echo $content_for_layout; ?>
   </div>
 </div>

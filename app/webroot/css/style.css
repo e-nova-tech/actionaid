@@ -235,7 +235,7 @@ form {
 }
 form fieldset {
   border:1px solid #DDD;
-  padding:2% 1% 3% 4%;
+  padding:2% 1% 4% 4%;
   margin:1% 0 2% 0;
 }
 form legend {
@@ -354,6 +354,23 @@ form .info:hover span:hover {
 }
 form .form-js-error + .info {
   margin-top: -38px;
+}
+/* messages */
+ul.messages {
+  padding:0;
+  margin:0;
+}
+.messages li {
+  list-style-type:none;
+  padding:8px;
+}
+.messages .error {
+  background:#FFDCDC;
+  border:1px solid #ED1C24;
+}
+.messages .title {
+  font-weight:bold;
+  display:none;
 }
 /* Tables */
 table {

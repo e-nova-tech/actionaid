@@ -11,6 +11,7 @@
   $this->set('title_for_layout','Make a gift!');
 ?>
 <div class="gift form grid_8 alpha">
+  <?php echo $this->element('messages'); ?>
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
   <fieldset>
     <legend><?php echo __('Select a gift amount'); ?></legend>
