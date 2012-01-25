@@ -2,7 +2,7 @@
 /**
  * Default Donation Page
  * 
- * @package     app.View.Forms.default
+ * @package     app.Gift.View.add
  * @copyright   Copyright 2012, ActionAid Association India 
  * @link        http://actionaid.org/india
  * @author      Remy Bertot / Kevin Muller
@@ -63,33 +63,26 @@
       'label'=>__('State'), 'class'=>'required',
       'options'=> $states
     )); ?>
-    <div class="input select">
     <?php echo $this->MyForm->input('Person.country', array(
-      'type'=>'select', 'div'=>false, 'label'=>__('Country'),
-      'options'=> $countries, 'class'=>'required'
+      'type'=>'select', 'label'=>__('Country'),
+      'options'=> $countries, 'class'=>'required',
+      'hint' => __('If you are not residing in India please donate to %s','<a href="#" target="_blank">ActionAid International</a>')
     )); ?>
-    <p class='info hint'><?php echo sprintf(__('If you are not residing in India please donate to %s'),'<a href="#" target="_blank">ActionAid International</a>'); ?>.</p>
-    </div>
     <?php echo $this->MyForm->input('Person.email', array(
       'label'=>__('Email'), 'class'=>'required'
     )); ?>    
     <?php echo $this->MyForm->input('Person.phone', array(
-      'label'=>__('Phone No.'), 'class'=>'required'
+      'label'=> __('Phone No.'), 'class'=>'required',
+      'hint' => __('We need this information in case we need to get touch with you concerning your donation.')
     )); ?>
-    <p class='info'>
-       <?php echo __('We need this information in case we need to get touch with you concerning your donation.'); ?>
-    </p>
     <?php echo $this->MyForm->input('Person.dob', array(
       'label'=>__('Date of birth'), 'class'=>'required', 'type'=>'date','separator'=>' / ',
       'dateFormat' => 'DMY','monthNames'=>false, 'minYear' => date('Y')-112, 'maxYear' => date('Y') - Configure::read('App.gift.minimum_age')
     )); ?>
-    <div class="input text">
     <?php echo $this->MyForm->input('Person.pan', array(
-      'label'=>__('Pan No.'), 'class'=>'required', 'div'=>false,
-      'after' => "<p class='info'>".__('The PAN number is mandatory for Indian Nationals for donation amounts of INR 5,000 & above.')."</p>"
-
+      'label'=>__('Pan No.'), 'class'=>'required',
+      'hint'=> __('The PAN number is mandatory for for donations above <span class="inr">INR</span> 5,000.')
     )); ?>
-    </div>
   </fieldset>
   <div class="verisign verify">
     <a href="#"><img src="img/verisign.png" alt="verify"></a>
@@ -99,9 +92,8 @@
 </div>
 <div class="sidebar grid_4 omega">
    <img src="img/73407crop_c.jpg" width="300px"/>
-   <img src="img/73407crop_c.jpg" width="300px"/>
    <blockquote>
-      "This isn’t a selfless act, it’s rewarding. You could call me a donor, 
-      but I know that I’m the real beneficiary" ~ <span class="author">an ActionAid donor</span>
+     "This isn’t a selfless act, it’s rewarding. You could call me a donor, 
+     but I know that I’m the real beneficiary" ~ <span class="author">an ActionAid donor</span>
    </blockquote>
 </div>
