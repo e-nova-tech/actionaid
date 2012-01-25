@@ -24,7 +24,7 @@ class MessageComponent extends Component {
   * @param object $controller Controller using this component
   * @return boolean Proceed with component usage (true), or fail (false)
   */
-  function initialize(&$controller,$settings=array()) {
+  function initialize(&$controller, $settings=array()) {
     $this->Controller = &$controller;
     if (isset($this->Controller->Session)) {
       $this->Session = &$controller->Session;
@@ -44,73 +44,71 @@ class MessageComponent extends Component {
    * Add an error message in the message queue
    * @param string $code error code
    * @param string $message
-   * @param mixed $redirect url, string or array
+   * @param mixed $options['redirect'] url, string or array
    * @param boolean $fatal
    * @return void
    * @access public
    */
-  function error($code, $message, $redirect=null, $fatal=false) {
-    $type = $fatal ? 'fatal' : 'error';
-    $this->__add($type,$message,$redirect,$code);
-  }
-  function warning($code,$message,$redirect=null) {
-    $this->__add('warning',$message,$redirect,$code);
-  }
-
-  /**
-   * Add a notice message to the queue
-   * @param string $message
-   * @param mixed $redirect url, string or array
-   */
-  function info($message, $redirect=null, $code=null) {
-    $this->__add('info',$message,$redirect,$code);
-  }
-  function debug($message, $redirect=null, $code=null) {
-    $this->__add('debug',$message,$redirect,$code);
-  }
-  function notice($message, $redirect=null, $code=null) {
-    $this->__add('notice',$message,$redirect,$code);
+  function error($message, $options=array()) {
+    $default_options = array(
+      'code' => null, 
+      'redirect' => null, 
+      'fatal' => false
+    );
+    $options = array_merge($default_options, $options);
+    $type = $options['fatal'] ? 'fatal' : 'error';
+    $this->__add($type,$message,$options);
   }
 
   /**
    * Add a notice message to the queue
    * @param string $message
-   * @param mixed $redirect url, string or array
+   * @param mixed $options['redirect'] url, string or array
    */
-  function success($message, $redirect=null) {
-    $this->__add('success',$message,$redirect);
+  function warning($message,$options=array()) {
+    $this->__add('warning', $message, $options);
+  }
+  function info($message,$options=array()) {
+    $this->__add('info', $message, $options);
+  }
+  function debug($message,$options=array()) {
+    $this->__add('debug', $message, $options);
+  }
+  function notice($message,$options=array()) {
+    $this->__add('notice', $message, $options);
+  }
+  function success($message,$options=array()) {
+    $this->__add('success',$message,$options);
   }
 
   /**
    * Add a message to the queue
    * @param mixed $message
    * @param string $type {error, notice, etc.}
-   * @param mixed $redirect array, or string, or bollean
+   * @param mixed $options['redirect'] array, or string, or bollean
    * @param bollean die
    * @access private
    */
-  function __add($type='error', $message=null, $redirect=null, $code=null) {
+  function __add($type='error', $message=null, $options=null) {
     $die = false;
     $title = '';
     $type = strtolower($type);
-    // i18n cosmetics
+    // Cosmetics
     switch($type) {
       case 'fatal' :
         $title = __('Fatal',true);
-        $this->Controller->Log->error = true;
         $die = true;
       break;
-      case 'error' :
-        $title = __('Error',true);
-        $this->Controller->Log->error = true;
-      break;
-      case 'info'   :
+      case 'error'  : $title = __('Error',true); break;
+      case 'info'   : case 'hint' :
       case 'notice' : $title = __('Notice',true); break;
       case 'warning': $title = __('Warning',true); break;
       case 'success': $title = __('Success',true); break;
       case 'debug'  : $title = __('Debug',true); break;
     }
-
+    if(!isset($options['code'])) {
+      $options['code'] = String::uuid($message);
+    }
     // message object for the view
     $this->messages[] = array(
       'id' => 'ctl'.Common::uuid(),
@@ -126,12 +124,12 @@ class MessageComponent extends Component {
     }
 
     // Need some directions?
-    if(!empty($redirect) || (is_bool($redirect) && $redirect) || $this->autoRedirect) {
-      if(!is_string($redirect) && !is_array($redirect)) {
-        $redirect = $this->Controller->referer();
+    if(!empty($options['redirect']) || (is_bool($options['redirect']) && $options['redirect']) || $this->autoRedirect) {
+      if(!is_string($options['redirect']) && !is_array($options['redirect'])) {
+        $options['redirect'] = $this->Controller->referer();
       }
       //TODO use history if no referrer
-      $this->Controller->redirect($redirect);
+      $this->Controller->redirect($options['redirect']);
       exit;
     }
   }

@@ -41,7 +41,7 @@ class GiftsController extends AppController {
       $success = $this->Gift->Person->validates();
       $success = ($this->Gift->validates() && $success);
       if (!$success) {
-          $this->Session->setFlash(__('Please correct the errors bellow'));
+          $this->Message->error(__('Please correct the errors bellow'));
       } else {
         // if person doesnt already exist save the person in db
         $conditions = Person::getFindConditions('findDuplicates',$data);
