@@ -60,14 +60,12 @@ class Gift extends AppModel {
     );
   }
 
-  //TODO minimum amount?
   function checkMinimum($check) {
-     return true;
+     return $check['amount'] >= Configure::read('App.gift.minimum_amount');
   }
 
-  //TODO maximum amount?
   function checkMaximum($check) {
-     return true;
+     return $check['amount'] < Configure::read('App.gift.maximum_amount');
   }
 }
 
