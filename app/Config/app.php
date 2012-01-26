@@ -21,7 +21,7 @@ $config = array(
     'name' => 'Danish Pastry'
    ),
   'App.url' => array(
-    'dev'  => 'http://localhost/donate/',
+    'dev'  => 'http://actionaid/',
     'prod' => 'https://actionaidindia.org/donate/'
   ),
   // Cookie's settings
@@ -85,7 +85,9 @@ $config = array(
     'default' => 'billdesk',
     'billdesk' => array(
       'merchant_id' => '',
-      'checksum_key' => ''
+      'checksum_key' => '',
+      'return_url' => '',
+      'target_url' => 'billDeskTest/simulatePayment'
     )
   ),
   /*

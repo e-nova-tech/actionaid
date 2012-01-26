@@ -34,6 +34,10 @@
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix' => 'admin'));
 	Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+  
+  Router::connect('/billDeskTest/:action', array('controller' => 'billDeskTest'));
+  Router::connect('/transactions/:action', array('controller' => 'transactions'));
+  
  // admin routing
 	Router::connect('/admin/:controller', array('admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/:controller/:action', array('admin' => true, 'prefix'=>'admin'));  
