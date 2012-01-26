@@ -93,15 +93,18 @@ $(function() {
           giftamount : "data[Gift][amount] data[Gift][other_amount]"
         },
         errorPlacement : function(error, element) {
+          var afterElt = element;
           if(element.attr("id") == "PersonDobDay" || element.attr("id") == "PersonDobMonth" || element.attr("id") == "PersonDobYear") {
-            error.insertAfter($("#PersonDobYear"));
+            afterElt = $("#PersonDobYear"); 
           }
           else if(element.attr("id") == "giftamount0" || element.attr("id") == "giftamount1" || element.attr("id") == "giftamount2" || element.attr("id") == "giftamount3" || element.attr("id") == "giftamount4") {
-            error.insertAfter($("#giftamount4")); 
+            afterElt = $("#giftamount4"); 
           }
-          else {
-            error.insertAfter(element);
-          }
+          // delete error messages left by cakephp (in case validation was not in js last round)
+          if(afterElt.next().hasClass('error-message')) 
+            afterElt.next().remove();
+          // insert error message
+          error.insertAfter(afterElt);
         },
         errorElement : 'label',
         errorClass   : 'form-js-error',
