@@ -64,7 +64,7 @@ class AppController extends Controller {
       foreach ($models as $modelName) {
         $validate[$modelName]= $this->{$modelName}->validate;
       }
-      
+
       // All the validation rules are not supported in Javascript
       // such as the one checking for referential integrity
       // we use this table to filter out such rules
