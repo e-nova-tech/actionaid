@@ -10,13 +10,14 @@
  */
   $this->set('title_for_layout', __('Gifts index'));
   $this->set('menu_for_layout', 'gifts:admin_index');
+  //pr($gifts);
 ?>
    <table>
       <tr>
         <th><?php echo $this->MyPaginator->sort('status',__('Status'));?></th>
         <th><?php echo $this->MyPaginator->sort('amount',__('Amount'));?></th>
         <th><?php echo $this->MyPaginator->sort('Person.lastname',__('Name'));?></th>
-        <th><?php echo $this->MyPaginator->sort('Apppeal.name',__('Name'));?></th>
+        <th><?php echo $this->MyPaginator->sort('Apppeal.name',__('Appeal'));?></th>
         <th class="datetime"><?php echo $this->MyPaginator->sort('modified',__('Modified'));?></th>
         <th><?php echo __('Actions'); ?></th>
       </tr>

@@ -11,6 +11,7 @@
   $this->set('title_for_layout','Make a gift!');
 ?>
 <div class="gift form grid_8 alpha">
+  <?php echo $this->element('messages'); ?>
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
   <fieldset>
     <legend><?php echo __('Select a gift amount'); ?></legend>
@@ -32,138 +33,68 @@
          <input type="text" name="data[Gift][currency]" value="INR" type="hidden"/>
       </div>
 <?php endif; ?>
-      <?php echo $this->Form->error('Gift.amount', array(
-        'numeric'=> __('Please provide a valid amount'),
-        'maximum' =>  __('Please provide a valid amount'),
-        'minimum' =>  sprintf(__('Sorry, the minimum gift amount is %s INR.'), 6000)
-      ))."\n"; ?>
+      <?php echo $this->Form->error('Gift.amount')."\n"; ?>
     </div>
   </fieldset>
   <fieldset>
     <legend><?php echo __('Enter your contact details'); ?></legend>
     <?php echo $this->MyForm->input('Person.title', array(
       'type'=>'select','label'=>__('Title'), 'class'=>'required',
-      'options' => array('ms'=>'Ms','mrs'=>'Mrs','mr'=>'Mr','dr'=>'Dr.','prof'=>'Prof.'),
-      'error' => array(
-        'empty' => __('Please select a title'),
-        'exist' => __('Please select a title from the list'),
-      )
+      'options' => array('ms'=>'Ms','mrs'=>'Mrs','mr'=>'Mr','dr'=>'Dr.','prof'=>'Prof.')
     )); ?>
     <?php echo $this->MyForm->input('Person.firstname', array(
-      'label'=>__('Firstname'),'class'=>'required',
-      'error' => array(
-        'empty' => __('Please indicate your firstname'),
-        'alpha' => __('Your name should not contain special characters (ex: ! or ? or #)'),
-        'length' => __('Your firstname should not be longer than 64 characters')
-      )
+      'label'=>__('Firstname'),'class'=>'required'
     )); ?>
     <?php echo $this->MyForm->input('Person.lastname', array(
-      'label'=>__('Lastname'),'class'=>'required',
-      'error' => array(
-        'empty' => __('Please indicate your lastname'),
-        'alpha' => __('Your name should not contain special characters'),
-        'length' => __('Your lastname should not be longer than 64 characters')
-      )
+      'label'=>__('Lastname'),'class'=>'required'
     )); ?>
     <?php echo $this->MyForm->input('Person.address1', array(
-      'label'=>__('Address'),'class'=>'required',
-      'error' => array(
-        'empty' => __('Please provide an adress'),
-        'length' => __('Your address first line should not be longer than 128 characters')
-      )
+      'label'=>__('Address'),'class'=>'required'
     )); ?>
     <?php echo $this->MyForm->input('Person.address2', array(
-      'label'=>__('Address (cont.)'),'class'=>'',
-      'error' => array(
-        'length' => __('Your address second line should not be longer than 128 characters')
-      )
+      'label'=>__('Address (cont.)'),'class'=>''
     )); ?>
     <?php echo $this->MyForm->input('Person.city', array(
-      'label'=>__('City'), 'class'=>'required',
-      'error' => array(
-        'empty' => __('Please provide a city'),
-        'alpha' => __('Your city name should not contain special characters (ex: ! or ? or #)'),
-        'length' => __('Your city name should not be longer than 64 characters')
-      )
+      'label'=>__('City'), 'class'=>'required city autocomplete'
     )); ?>
     <?php echo $this->MyForm->input('Person.pincode', array(
-      'label'=>__('Pincode'), 'class'=>'required',
-      'error' => array(
-        'empty' => __('Please indicate your pincode'),
-        'numeric' => __('Your pincode should be composed of 6 digits'),
-        'length' => __('Your pincode should be composed of 6 digits')
-      )
+      'label'=>__('Pincode'), 'class'=>'required'
     )); ?>
     <?php echo $this->MyForm->input('Person.state', array(
-      'label'=>__('State'), 'class'=>'required' ,
-      'options'=> $states,
-      'error' => array(
-        'empty' => __('Please select a state'),
-        'length' => __('Please select a valid state'),
-        'format' => __('Please select a valid state'),
-        'exist' => __('Please select a valid state'),
-      )
+      'label'=>__('State'), 'class'=>'required',
+      'options'=> $states
     )); ?>
-    <div class="input select">
     <?php echo $this->MyForm->input('Person.country', array(
-      'type'=>'select', 'div'=>false, 'label'=>__('Country'),
+      'type'=>'select', 'label'=>__('Country'),
       'options'=> $countries, 'class'=>'required',
-      'error' => array(
-        'empty' => __('Please select a country'),
-        'length' => __('Please select a valid country'),
-        'format' => __('Please select a valid country'),
-        'exist' => __('Please select a valid country')
-      )
+      'hint' => __('If you are not residing in India please donate to %s','<a href="#" target="_blank">ActionAid International</a>')
     )); ?>
-    <p class='info'><?php echo sprintf(__('If you are not residing in India please donate to %s'),'<a href="#" target="_blank">ActionAid International</a>'); ?>.</p>
-    </div>
     <?php echo $this->MyForm->input('Person.email', array(
-      'label'=>__('Email'), 'class'=>'required',
-      'error' => array(
-        'empty' => __('Please provide your email address'),
-        'email' => __('Please provide a valid email address, ex: support@actionaid.org')
-      )
+      'label'=>__('Email'), 'class'=>'required'
     )); ?>    
     <?php echo $this->MyForm->input('Person.phone', array(
-      'label'=>__('Phone No.'), 'class'=>'required',
-      'error' => array(
-        'empty' => __('Please indicate your phone number'),
-        'format' => __('Please provide a valid phone number'),
-      )
+      'label'=> __('Phone No.'), 'class'=>'required',
+      'hint' => __('We need this information in case we need to get touch with you concerning your donation.')
     )); ?>
-    <p class='info'>
-       <?php echo __('We need this information in case we need to get touch with you concerning your donation.'); ?>
-    </p>
     <?php echo $this->MyForm->input('Person.dob', array(
       'label'=>__('Date of birth'), 'class'=>'required', 'type'=>'date','separator'=>' / ',
-      'dateFormat' => 'DMY','monthNames'=>false, 'minYear' => date('Y')-112, 'maxYear' => date('Y')-18,
-      'error' => array(
-        'empty' => __('Please provide your birthdate'),
-        'format' => __('Please provide a valid birthdate')
-      )
+      'dateFormat' => 'DMY','monthNames'=>false, 'minYear' => date('Y')-112, 'maxYear' => date('Y') - Configure::read('App.gift.minimum_age')
     )); ?>
-    <div class="input text">
     <?php echo $this->MyForm->input('Person.pan', array(
-      'label'=>__('Pan No.'), 'class'=>'required', 'div'=>false,
-      'error' => array(
-        'empty' => __('Please provide your PAN number'),
-        'format' => __('Please provide a valid PAN number')
-      )
+      'label'=>__('Pan No.'), 'class'=>'required',
+      'hint'=> __('The PAN number is mandatory for for donations above <span class="inr">INR</span> 5,000.')
     )); ?>
-    <p class='info'><?php echo __('PAN N° is mandatory for Indian Nationals for donation amounts of INR 5,000 & above.'); ?></p>
-    </div>
   </fieldset>
   <div class="verisign verify">
     <a href="#"><img src="img/verisign.png" alt="verify"></a>
   </div>
-  <?php echo $this->MyForm->submit(__('Donate Now!  »'),array('class'=>'donate submit')); ?>
+  <?php echo $this->MyForm->submit(__('Donate Now!'),array('class'=>'donate submit')); ?>
 <?php echo $this->MyForm->end(); ?>
 </div>
 <div class="sidebar grid_4 omega">
    <img src="img/73407crop_c.jpg" width="300px"/>
-   <img src="img/73407crop_c.jpg" width="300px"/>
    <blockquote>
-      "This isn’t a selfless act, it’s rewarding. You could call me a donor, 
-      but I know that I’m the real beneficiary" ~ <span class="author">an ActionAid donor</span>
+     "This isn’t a selfless act, it’s rewarding. You could call me a donor, 
+     but I know that I’m the real beneficiary" ~ <span class="author">an ActionAid donor</span>
    </blockquote>
 </div>

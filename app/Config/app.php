@@ -8,29 +8,27 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-if (!defined('FULL_BASE_URL')) {
-  define('FULL_BASE_URL', '');
-}
 $config = array(
   // General App Details
-  'App.name' => 'ActionAid International ',
+  'App.name' => 'Danish Pastry',
+  'App.version' => '0.1',
+  'App.description' => 'The simple donation form management system',
   'App.copyright' => '2012 &copy; ActionAid Association',
-  'App.browserTitle' => '%s | ActionAid India', // %s = context
-  'App.version' => array(
-    'number' => '0.1',
-    'name' => 'Danish Pastry'
-   ),
+
+  'App.browserTitle' => '%s | ActionAid India', // %s = title_for_layout
+
   'App.url' => array(
     'dev'  => 'http://actionaid/',
     'prod' => 'https://actionaidindia.org/donate/'
   ),
+
   // Cookie's settings
   'App.cookie' => array(
     'life' => '+1 month',
     'name' => 'ACTIONAIDINDIA_DONATE'
   ),
 
-  // Mailer settings
+  // Email settings
   'App.mailer' => array(
     'delivery' => 'debug', // mail, smtp or debug
     'smtpOptions' => array(
@@ -66,6 +64,7 @@ $config = array(
       '/'
     )
   ),*/
+
   // AUTHENTICATION
   'App.auth' => array(
     'loginAction' => array('controller' => 'users', 'action' => 'admin_login', 'admin' => true, 'prefix' => 'admin'),
@@ -74,11 +73,13 @@ $config = array(
   ),
   // default gift configuration
   'App.gift' => array(
-    'preselected_amounts' => array('3000','6000','12000'),
+    'preselected_amounts' => array(3000,6000,12000),
     'allow_other_amount' => true,
-    'default_amount' => '6000',
-    'minimum_amount' => '1',
-    'maximum_amount' => '1'
+    'default_amount' => 6000,
+    'minimum_amount' => 1,
+    'maximum_amount' => 4294967295,
+    'minimum_age' => 18,
+    'maximum_age' => 115,
   ),
   // payment gateway configuration
   'App.payment_gateway' => array(
@@ -86,9 +87,14 @@ $config = array(
     'billdesk' => array(
       'merchant_id' => '',
       'checksum_key' => '',
-      'return_url' => '',
-      'target_url' => 'billDeskTest/simulatePayment'
+      'payment_url' => 'https://www.billdesk.com/pgidsk/pgmerc/ACTIONAIDPaymentoption.jsp'
     )
+  ),
+  // google analytics
+  'App.google_analytics' => array(
+     'UA' => 'UA-XXXXX-X',  //  UA-20940239-1 ?
+     'validation_token' => '',
+     'validate' => false 
   ),
   /*
   // 3rd Party - Recapcha

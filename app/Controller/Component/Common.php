@@ -92,4 +92,28 @@ class Common extends Object {
     return $allowed;
   }
 
+  /**
+   * Indicates if a given string is a UUID
+   * @param string $str
+   * @return boolean
+   */
+  static function isUuid($str) {
+    return is_string($str) && preg_match('/^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$/', $str);
+  }
+
+  /**
+   * Return a UUID - ref. String::uuid();
+   * @param string seed, used to create deterministic UUID
+   * @return uuid
+   */
+  static function uuid($seed=null){
+    if (isset($seed)) {
+      $pattern = '/^(.{8})(.{4})(.{4})(.{4})(.{12})$/';
+      $replacement = '${1}-${2}-${3}-${4}-${5}';
+      $string = md5($seed);
+      return preg_replace($pattern,$replacement,$string);
+    }
+    return String::uuid();
+  }
+
 }

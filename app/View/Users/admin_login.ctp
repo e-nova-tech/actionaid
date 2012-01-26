@@ -10,7 +10,7 @@
  */
   $this->set('title_for_layout', __('Login'));
 ?>
-<div class="users form">
+<div class="users form grid_8 alpha">
 <?php echo $this->Session->flash('auth'); ?>
 <?php echo $this->Form->create('User');?>
   <fieldset>
@@ -18,7 +18,7 @@
   <?php
     echo $this->Form->input('username');
     echo $this->Form->input('password');
-  ?>
+  ?><br/>
   </fieldset>
 <?php echo $this->Form->end(__('Login'));?>
 </div>

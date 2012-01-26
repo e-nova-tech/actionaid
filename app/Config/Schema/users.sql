@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 16, 2012 at 03:56 PM
+-- Generation Time: Jan 21, 2012 at 03:48 PM
 -- Server version: 5.1.49
 -- PHP Version: 5.3.3-7+squeeze3
 
@@ -32,12 +32,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `role`, `username`, `password`, `created`, `modified`) VALUES
-('4f02be7f-8db4-478a-9c1f-0b0c464531d2', 'admin', 'admin', '60b54330f756d78b18e87f85bd2eb7e2d60e6853', '2012-01-03 14:08:23', '2012-01-03 14:08:23');

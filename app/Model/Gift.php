@@ -23,23 +23,50 @@ class Gift extends AppModel {
     )
   );
 
-  // valiation rules
-  var $validate = array(
-    'amount' => array(
-      'empty'   => array('rule' => array('notempty')),
-      'numeric' => array('rule' => array('numeric')),
-      'minimum' => array('rule' => array('checkMinimum')),
-      'maximum' => array('rule' => array('checkMaximum'))
-    )
-  );
-  
+  // see _getValidationRules
+  var $validate = array();
+
+  /**
+   * Constructor
+   * @link http://api20.cakephp.org/class/app-model#method-AppModel__construct
+   */
+  public function __construct($id = false, $table = null, $ds = null) {
+    parent::__construct($id, $table, $ds);
+    $this->validate = Gift::getValidationRules();
+  }
+
+  static function getValidationRules($context=null) {
+    return array(
+      'amount' => array(
+        'required'   => array(
+          'rule' => array('notEmpty'),
+          'required' => true,
+          'allowEmpty' => false,
+          'message' => __('Please select a gift amount')
+        ),
+        'numeric' => array(
+          'rule' => array('numeric'),
+          'message' => __('Please select a valid gift amount')
+        ),
+        'minimum' => array(
+          'rule' => array('checkMinimum'),
+          'message' => __('Please select a valid gift amount')
+        ),
+        'maximum' => array(
+          'rule' => array('checkMaximum'),
+          'message' => __('Please select a valid gift amount')
+        )
+      )
+    );
+  }
+
   //TODO minimum amount?
-  function checkMinimum() {
+  function checkMinimum($check) {
      return true;
   }
 
   //TODO maximum amount?
-  function checkMaximum() {
+  function checkMaximum($check) {
      return true;
   }
 }

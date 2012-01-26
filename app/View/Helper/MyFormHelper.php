@@ -18,6 +18,10 @@ class MyFormHelper extends FormHelper {
     if(isset($options['class']) && !empty($options['class']) && strstr('required',$options['class'])) {
       $options['label'] .= $this->required();
     }
+    if(isset($options['hint'])) {
+      $options['after'] = $this->hint($options['hint']);
+      unset($options['hint']);
+    }
     return parent::input($fieldName, $options)."\n";
   }
 
@@ -28,6 +32,10 @@ class MyFormHelper extends FormHelper {
    */
   function required(){
     return ' <span class="required">*</span>';
+  }
+
+  function hint($message) {
+    return "<p class='info'><span>$message</span></p>";
   }
 }
 
