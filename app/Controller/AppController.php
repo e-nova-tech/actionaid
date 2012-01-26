@@ -97,6 +97,11 @@ class AppController extends Controller {
                      $validate[$modelName][$fieldName][$ruleName]['rule'][1].','.
                      $validate[$modelName][$fieldName][$ruleName]['rule'][2].']';
                   break;
+                case 'numeric':
+                  $ruleName = 'number';
+                  $js_rule[$ruleName] = true;
+                  $validate[$modelName][$fieldName][$ruleName] = true;
+                  break;
                 case 'dob':
                     $js_rule['message'] = $validate[$modelName][$fieldName][$ruleName]['message'];
                     $results["data[$modelName][$fieldName]"]['dob'] = $js_rule;
