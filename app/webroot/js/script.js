@@ -7,9 +7,7 @@ $(function() {
   $('.radiolist .other.radio').click(function(){
     $('.radiolist .other.text').focus();
   });
-  
 
-  
   jQuery.validator.addMethod("alphanumeric", function(value, element) {
     return this.optional(element) || /^\w+$/i.test(value);
   }, "Letters, numbers, spaces or underscores only please");
@@ -170,17 +168,20 @@ $(function() {
       "data[Person][dob][day]": {
         required : 'Please provide your birthdate',
         rangelength : 'Please provide your birthdate',
-        number:'Please provide your birthdate'
+        number:'Please provide your birthdate',
+        dateOfBirth: 'Please provide your birthdate'
       },
       "data[Person][dob][month]": {
         required : 'Please provide your birthdate',
         rangelength : 'Please provide your birthdate',
-        number:'Please provide your birthdate'
+        number:'Please provide your birthdate',
+        dateOfBirth: 'Please provide your birthdate'
       },
       "data[Person][dob][year]": {
         required : 'Please provide your birthdate',
         rangelength : 'Please provide your birthdate',
-        number:'Please provide your birthdate'
+        number:'Please provide your birthdate',
+        dateOfBirth: 'Please provide your birthdate'
       },
       "data[Person][pan]": {
         required : 'Please provide your PAN number',
