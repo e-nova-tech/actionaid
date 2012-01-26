@@ -18,7 +18,7 @@ $config = array(
   'App.browserTitle' => '%s | ActionAid India', // %s = title_for_layout
 
   'App.url' => array(
-    'dev'  => 'http://localhost/donate/',
+    'dev'  => 'http://actionaid/',
     'prod' => 'https://actionaidindia.org/donate/'
   ),
 

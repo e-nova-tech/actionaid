@@ -11,7 +11,7 @@
 class AppController extends Controller {
   var $helpers = array(
     'Html','Form','Paginator','Session',                 // default
-    'MyHtml','MyForm','MyPaginator','Gift','Menu', 'Js'  // custom
+    'MyHtml','MyForm','MyPaginator','Gift','Menu', 'Js', 'BillDesk'  // custom
     /*,'Tidy' // buggy with script! */
   );
 

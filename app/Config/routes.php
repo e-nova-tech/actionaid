@@ -44,7 +44,10 @@
   // admin routing
 	Router::connect('/admin/:controller', array('admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/:controller/:action', array('admin' => true, 'prefix'=>'admin'));  
-	Router::connect('/admin/:controller/:action/*', array('admin' => true, 'prefix'=>'admin'));  
+	Router::connect('/admin/:controller/:action/*', array('admin' => true, 'prefix'=>'admin')); 
+	// transactions stuffs
+	Router::connect('/billDeskTest/:action', array('controller' => 'billDeskTest'));
+  Router::connect('/transactions/:action', array('controller' => 'transactions')); 
   // everything else is a donation forms
   Router::connect('/*', array('controller' => 'gifts', 'action' => 'add'));
 
