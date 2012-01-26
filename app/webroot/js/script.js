@@ -8,6 +8,18 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 $(function() {
+  // function useful for debugging
+  var printObj = function(obj) {
+    var arr = [];
+    $.each(obj, function(key, val) {
+      var next = key + ": ";
+      next += $.isPlainObject(val) ? printObj(val) : val;
+      arr.push( next );
+    });
+    return "{ " +  arr.join(", ") + " }";
+  };
+
+  
   // Select "other" radio button when click on text input and vice versa
   $('.radiolist .other.text').click(function() {
     $('.radiolist .other.radio').attr('checked', 'checked');
@@ -61,22 +73,33 @@ $(function() {
     return this.optional(element) || param.test(value);
   }, "Invalid format.");
   
-  jQuery.validator.addMethod("dob", function() {
+  jQuery.validator.addMethod("dateOfBirth", function() {
     var dob = $("#PersonDobDay").val() + "-" + $("#PersonDobMonth").val() + '-' + $("#PersonDobYear").val();
     return /^[0-9]{2}-[0-9]{2}-[0-9]{4}$/.test(dob);
   }, "Please specify a valid date of birth.");
   
-  jQuery.validator.addMethod("numeric", function() {
-    return true;
-  }, "Please specify a valid number.");
-  
+
   jQuery.validator.addMethod("giftamount", function() {
     if($("#giftamount3").attr('checked') == 'checked') {
       return /^[0-9]{4,6}$/.test($("#giftamount4").val());
     }
     return true;
   }, "Please specify a valid amount");
-    
+  
+  // Add Below the rules and messages that CakePHP cannot return (compatibility problems)
+  var hardCodedRules = {
+    rules:{
+      "data[Gift][other_amount]" : {
+          giftamount : true
+      }
+    },
+    messages:{
+      "data[Gift][other_amount]" : {
+          giftamount : "Please specify an amount"
+      }
+    }
+  }
+  
   // client side validation of the donation form
   $.getJSON('json/gifts/validation/rules', function(rules) {  // 1) Get the rules
     $.getJSON('json/gifts/validation/messages', function(messages) { // 2) Get the messages
@@ -101,15 +124,15 @@ $(function() {
             afterElt = $("#giftamount4"); 
           }
           // delete error messages left by cakephp (in case validation was not in js last round)
-          if(afterElt.next().hasClass('error-message')) 
-            afterElt.next().remove();
+          if($('div:last', afterElt.parent()).hasClass('error-message')) 
+            $('div:last', afterElt.parent()).remove();
           // insert error message
           error.insertAfter(afterElt);
         },
         errorElement : 'label',
         errorClass   : 'form-js-error',
-        rules: rules,
-        messages: messages
+        rules: $.extend(true, rules, hardCodedRules.rules),
+        messages: $.extend(true, messages, hardCodedRules.messages)
       });
     });
   });

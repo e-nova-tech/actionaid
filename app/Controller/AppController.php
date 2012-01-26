@@ -72,7 +72,7 @@ class AppController extends Controller {
       $supportedJsRules = array(
         'required'     => true, 'numeric'     => true,
         'alphaplus'    => true, 'rangelength' => true,
-        'maxlength'    => true, 'dob'         => true,
+        'maxlength'    => true, 'dateOfBirth' => true,
         'giftamount'   => true, 'pattern'     => true,
         'alphanumeric' => true
       );
@@ -103,9 +103,12 @@ class AppController extends Controller {
                   $js_rule[$ruleName] = true;
                   $validate[$modelName][$fieldName][$ruleName] = true;
                   break;
-                case 'dob':
+                case 'dateOfBirth':
                     $js_rule['message'] = $validate[$modelName][$fieldName][$ruleName]['message'];
-                    $results["data[$modelName][$fieldName]"]['dob'] = $js_rule;
+                    $js_rule[$ruleName] = true;
+                    $results["data[$modelName][$fieldName][day]"][$ruleName] = $js_rule;
+                    $results["data[$modelName][$fieldName][month]"][$ruleName] = $js_rule;
+                    $results["data[$modelName][$fieldName][year]"][$ruleName] = $js_rule;
                   break 2;
                 default:
                    $js_rule[$ruleName] = true;
