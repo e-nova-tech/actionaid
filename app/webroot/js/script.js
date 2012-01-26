@@ -188,7 +188,7 @@ $(function() {
         alphaplus : 'Your name should not contain special characters'
       },
       "data[Person][address1]": {
-        required : 'Please provide an adress',
+        required : 'Please provide an address',
         maxlength : 'Your address first line should not be longer than 128 characters'
       },
       "data[Person][address2]": {
