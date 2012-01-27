@@ -55,7 +55,7 @@ class GiftsController extends AppController {
           $data['Gift']['person_id'] = $person['Person']['id'];
           $gift = $this->Gift->save($data);
           if(isset($gift) && !empty($gift)) {
-          $this->->Message->notice(__('Thank you your gift was saved'));
+          $this->Message->notice(__('Thank you your gift was saved'));
           } else {
             $this->Message->error(__('Sorry something went wrong please try again later.'));
           }
