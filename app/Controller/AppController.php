@@ -10,8 +10,9 @@
  */
 class AppController extends Controller {
   var $helpers = array(
-    'Html','Form','Paginator','Session',                 // default
-    'MyHtml','MyForm','MyPaginator','Gift','Menu', 'Js', 'BillDesk'  // custom
+    'Html','Form','Paginator','Session',  // default
+    'MyHtml','MyForm','MyPaginator',      // redefinitions
+    'Gift','Menu', 'Js', 'BillDesk'       // custom
     /*,'Tidy' // buggy with script! */
   );
 
@@ -64,7 +65,7 @@ class AppController extends Controller {
       foreach ($models as $modelName) {
         $validate[$modelName]= $this->{$modelName}->validate;
       }
-      
+
       // All the validation rules are not supported in Javascript
       // such as the one checking for referential integrity
       // we use this table to filter out such rules

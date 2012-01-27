@@ -111,9 +111,9 @@ class Person extends AppModel {
           'rule' => array('alphaplus'),
           'message' => __('Your city name should not contain unecessary punctuation characters')
         ),
-        'maxlength' => array(
-          'rule' => array('maxLength', '64'),
-          'message' => __('Your city name should not be longer than 64 characters')
+        'rangelength' => array(
+          'rule' => array('between','2', '64'),
+          'message' => __('Your city name should be between 2 and 64 characters long')
         )
       ),    
       'pincode' => array(
@@ -194,7 +194,7 @@ class Person extends AppModel {
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your date of birth')
-        ),
+        ),/*
         'dateOfBirth' => array(
           'rule' => array('date', 'ymd'),
           'message' => __('Please indicate a valid date of birth')
@@ -202,7 +202,7 @@ class Person extends AppModel {
         'legal' => array(
           'rule' => array('isAnAdult'),
           'message' => __('Sorry but you have to be at least 18 to donate.')
-        )
+        )*/
       ),
       'pan' => array(
         'required'  => array(
@@ -254,7 +254,7 @@ class Person extends AppModel {
     switch($context) {
       case 'findDuplicates':
         $conditions = array(
-          'Person.title' => $data['Person']['title'], 
+          'Person.title'     => $data['Person']['title'], 
           'Person.dob'       => $data['Person']['dob']['year'].'-'.$data['Person']['dob']['month'].'-'.$data['Person']['dob']['day'], 
           'Person.firstname' => $data['Person']['firstname'],
           'Person.lastname'  => $data['Person']['lastname'],
@@ -265,7 +265,8 @@ class Person extends AppModel {
           'Person.state'     => $data['Person']['state'],
           'Person.country'   => $data['Person']['country'],
           'Person.email'     => $data['Person']['email'],
-          'Person.pan'       => $data['Person']['pan']
+          'Person.pan'       => $data['Person']['pan'],
+          'Person.phone'     => $data['Person']['phone']
         );
       break;
     }
