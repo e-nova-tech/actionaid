@@ -9,11 +9,10 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
 class BillDeskTestController extends AppController {
   public $name = 'BillDeskTest';
   
-  function beforeFilter(){
+  function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->allow('simulatePayment');
   }
@@ -27,7 +26,7 @@ class BillDeskTestController extends AppController {
    *   4 => no response. the payment is received but nothing is returned
    *   5 => random response : mamamia... kepaso ?
    */
-  public function simulatePayment($mode = 1){
+  public function simulatePayment($mode = 1) {
     $post = $this->request->data;
 
     // the array below contains values that would be returned ideally in case of success
@@ -60,7 +59,7 @@ class BillDeskTestController extends AppController {
       "CheckSum" => "3734835005"
     );
 
-    if($mode == 1){
+    if ($mode == 1) {
        
     }
   }
