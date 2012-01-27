@@ -32,7 +32,7 @@ class BillDeskTestController extends AppController {
 
     // the array below contains values that would be returned ideally in case of success
     $resultTable = array(
-      "MerchantID" => "54321",
+      "MerchantID" => Configure::read('App.payment_gateway.billdesk.merchant_id'),
       "CustomerID" => "{$post['txtCustomerId']}",
       "TxnReferenceNo" => "MSBI0412001668",
       "BankReferenceNo" => "NA",

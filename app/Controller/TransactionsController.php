@@ -1,18 +1,17 @@
 <?php
 /**
- * PaymentGatewayTest Controller
+ * Transactions Controller
  *
- * @package     app.Controller.PaymentGatewayTestController
+ * @package     app.Controller.TransactionsController
  * @copyright   Copyright 2012, ActionAid Association India 
  * @link        http://actionaid.org/india
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
 class TransactionsController extends AppController {
   public $name = 'Transactions';
   
-  function beforeFilter(){
+  function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->allow('response', 'request');
   }
@@ -23,7 +22,7 @@ class TransactionsController extends AppController {
    * @param POST['amount'] = amount in rupees
    */
   public function request(){
-    $confPg = Configure::read('App.payment_gateway');
+    $confPg = &Configure::read('App.payment_gateway');
     
     $this->layout = false;
     $this->set("pg_params", array(
@@ -46,11 +45,11 @@ class TransactionsController extends AppController {
     $rspMsg = $this->Transaction->formatResponseString($rspMsg);
     
     // TODO : validate data
-       
+
     $authStatus = $this->Transaction->getAuthStatusDescription($rspMsg['AuthStatus']);
-    
+
     // TODO : Update transaction in DB
-   
+
     return array(
       "amount"=>$msg_array[4],
       "pcode"=>$msg_array[16],
