@@ -74,7 +74,7 @@ class AppController extends Controller {
         'alphaplus'    => true, 'rangelength' => true,
         'maxlength'    => true, 'dateOfBirth' => true,
         'giftamount'   => true, 'pattern'     => true,
-        'alphanumeric' => true
+        'alphanumeric' => true, 'email'       => true
       );
 
       foreach ($validate as $modelName => $model) {

@@ -7,6 +7,7 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+
 $(function() {
   // function useful for debugging
   var printObj = function(obj) {
@@ -68,9 +69,14 @@ $(function() {
     return this.optional(element) || /^((\w)+(\-|\s|\'){1})?(\w)+$/i.test(value);
   }, "Letters, numbers, spaces, dashes only please");
   
+  //var reg = new RegExp("^[0-9\-\+]{8,16}$");
+  //alert(reg.test('999950102d3'));
+  
   jQuery.validator.addMethod("pattern", function(value, element, param) {
-    param = new RegExp(param);
-    return this.optional(element) || param.test(value);
+    var regexpStr = param.replace("\\\\", "\\");  // remove double backslash
+    regexpStr = regexpStr.replace(/^\//, '').replace(/\/$/, ''); // remove delimiters
+    var regexp = new RegExp(regexpStr);
+    return this.optional(element) || regexp.test(value);
   }, "Invalid format.");
   
   jQuery.validator.addMethod("dateOfBirth", function() {
@@ -100,16 +106,16 @@ $(function() {
     }
   }
   
+  
   // client side validation of the donation form
   $.getJSON('json/gifts/validation/rules', function(rules) {  // 1) Get the rules
     $.getJSON('json/gifts/validation/messages', function(messages) { // 2) Get the messages
       $("#GiftAddForm").validate({   // 3) Call the validate function and set all the params
-        onsubmit:function() {
+        submitHandler:function(form) {
           // disable donate button once pressed
-          // TODO : make it work. Not working now. Probably onsubmit is not the right callback
           $('input.submit.donate').attr("disabled", true);
           $('input.submit.donate').addClass('disabled');
-          $('form').submit();
+          form.submit();
         },
         groups : {
           dob : "data[Person][dob][day] data[Person][dob][month] data[Person][dob][year]",
