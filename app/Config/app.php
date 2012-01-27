@@ -85,7 +85,7 @@ $config = array(
   'App.payment_gateway' => array(
     'default' => 'billdesk',
     'billdesk' => array(
-      'merchant_id' => '',
+      'merchant_id' => 'ACTIONAID',
       'checksum_key' => '',
       'payment_url' => 'https://www.billdesk.com/pgidsk/pgmerc/ACTIONAIDPaymentoption.jsp'
     )
