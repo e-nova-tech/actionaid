@@ -9,7 +9,7 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
   $this->set('title_for_layout', __('Appeal index'));
-  $this->set('menu_for_layout', 'appeal:index');
+  $this->set('menu_for_layout', 'appeals:admin_index');
 ?>
     <table>
       <tr>
