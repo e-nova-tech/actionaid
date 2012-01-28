@@ -22,9 +22,9 @@
   <!-- Header -->
   <header>
 <?php echo $this->element('Header'); ?>
-<?php 
+<?php
     echo $this->element('Menu', array(
-      'options' => array('class' => 'sub menu tabs'))
+      'options' => array('class' => 'main menu corner-all'))
     );
 ?>
   </header>
