@@ -19,29 +19,63 @@ class Appeal extends AppModel {
     )
   );
 
-  // validation
-  var $validate = array(
-    'name' => array(
-      'empty'  => array('rule' => array('notempty')),
-      'length' => array('rule' => array('maxLength',64)),
-    ),
-    'slug' => array(
-      'empty'  => array('rule' => array('notempty')),
-      'lenght' => array('rule' => array('maxLength',64)),
-      'format' => array( 'rule' => array ('custom', '/^[a-zA-Z0-9\-]{2,}$/')),
-    ),
-    'description' => array(
-      'empty'  => array('rule' => array('notempty')),
-      'length' => array('rule' => array('maxLength',128))
-    ),
-  );
-  
-  function checkMinimum() {
-     return false;
+  /**
+   * Constructor
+   * @link http://api20.cakephp.org/class/app-model#method-AppModel__construct
+   */
+  public function __construct($id = false, $table = null, $ds = null) {
+    parent::__construct($id, $table, $ds);
+    $this->validate = Appeal::getValidationRules();
   }
 
-  function checkMaximum() {
-     return false;
+  static function getValidationRules($context=null) {
+    return array(
+      'name' => array(
+        'required'  => array(
+          'rule' => array('notEmpty'),
+          'required' => true,
+          'allowEmpty' => false,
+          'message' => __('Please provide an appeal name')
+        ),
+        'maxlength' => array(
+          'rule' => array('maxLength', '64'),
+          'message' => __('Your appeal name should not be longer than 64 characters')
+        )
+      ),
+      'description' => array(
+        'required'  => array(
+          'rule' => array('notEmpty'),
+          'required' => true,
+          'allowEmpty' => false,
+          'message' => __('Please provide an appeal description')
+        ),
+        'maxlength' => array(
+          'rule' => array('maxLength', '128'),
+          'message' => __('Your appeal description should not be longer than 128 characters')
+        )
+      ),
+      'slug' => array(
+        'required'  => array(
+          'rule' => array('notEmpty'),
+          'required' => true,
+          'allowEmpty' => false,
+          'message' => __('Please provide an appeal description')
+        ),
+        'pattern' => array(
+          'rule' => array('custom','/^(([a-zA-Z0-9])+(\-){0,1}([a-zA-Z0-9])+)+$/'),
+          'message' => __('The appeal slug should not contain any spaces or special chars')
+        )
+      ),
+      'status' => array(
+        'required'  => array(
+          'rule' => array('notEmpty'),
+          'required' => true,
+          'allowEmpty' => false,
+          'message' => __('Please provide an appeal description')
+        )
+        // TODO status exist
+      ) 
+    );
   }
 
   public function getBySlug($slug='default') {
@@ -55,6 +89,11 @@ class Appeal extends AppModel {
       $appeal = $this->find('first', array('conditions' => $conditions));
     }
     return $appeal;
+  }
+
+  public function getStatusOptions() {
+    // todo from schema
+    return array('draft'=>'draft','published'=>'published','archived'=>'archived');
   }
 }
 

@@ -27,7 +27,8 @@
         <td><?php echo $appeal['Appeal']['description'];?></td>
         <td><?php echo $appeal['Appeal']['status'];?></td>
         <td><?php echo $appeal['Appeal']['modified']; ?></td>
-        <td><?php echo $this->Html->link(__('View'), Common::baseUrl() . $appeal['Appeal']['slug']);?></td>
+        <td><?php echo $this->Html->link(__('View'), Common::baseUrl() . $appeal['Appeal']['slug']);?> | 
+          <?php echo $this->Html->link('Edit', array('action' => 'edit',  $appeal['Appeal']['id']));?></td>
       </tr>
 <?php endforeach; ?>
     </table>
