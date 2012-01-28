@@ -24,10 +24,10 @@ class PostsController extends AppController {
   public function admin_add() {
     if ($this->request->is('post')) {
       if ($this->Post->save($this->request->data)) {
-        $this->Session->setFlash('Your post has been saved.');
+        $this->Message->notice('Your post has been saved.');
         $this->redirect(array('action' => 'index'));
       } else {
-        $this->Session->setFlash('Unable to add your post.');
+        $this->Message->error('Unable to add your post.');
       }
     }
   }
@@ -38,10 +38,10 @@ class PostsController extends AppController {
       $this->request->data = $this->Post->read();
     } else {
       if ($this->Post->save($this->request->data)) {
-        $this->Session->setFlash(__('Your post has been updated.'));
+        $this->Message->notice(__('Your post has been updated.'));
         $this->redirect(array('action' => 'index'));
       } else {
-        $this->Session->setFlash(__('Unable to update your post.'));
+        $this->Message->error(__('Unable to update your post.'));
       }
     }
   }
