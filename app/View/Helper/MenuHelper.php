@@ -52,9 +52,13 @@ class MenuHelper extends Apphelper {
    * @param $name link name
    * @param $itemList menu
    */
-  function link($name,$itemList){
+  function link($name,$itemList) {
+    $class = $this->isSelected($name,$itemList);
+    if (isset($itemList[$name]['class'])) {
+      $class = $itemList[$name]['class'];
+    }
     return $this->Html->link($itemList[$name]['name'],$itemList[$name]['url'], 
-      array('class' => $this->isSelected($name,$itemList)));
+      array('class' => $class));
   }
 
   /**
