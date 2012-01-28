@@ -63,14 +63,11 @@ class GiftsController extends AppController {
     	}
     }
 
-    //get the default appeal
-    // Set the default appeal id if none is selected
-    /*
-    if (isset($this->request->data['Gift']['appeal_id'])) {
-      $defaultAppeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => 'default')));
-      $this->request->data['Gift']['appeal_id'] = $defaultAppeal['Appeal']['appeal_id'];
-    }*/
-    $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => 'default')));
+    // Get the requested appeal based on the slug (or the default one)
+    $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => $appeal)));
+    if (empty($appeal)) {
+      $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => 'default')));
+    }
     $this->set('appeal',$appeal);
 
     // get the list of states & countries for the select lists
@@ -80,6 +77,9 @@ class GiftsController extends AppController {
     //$countries = $this->Gift->Person->Country->find('list',array('fields'=>array('code','name')));
     $countries = array('IN' => 'India');
     $this->set('countries', $countries);
+
+    // See /Views/Form/[slug]
+    $this->render('../Forms/'.$appeal['Appeal']['slug']);
   }
   
   /**

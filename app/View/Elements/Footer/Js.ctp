@@ -4,8 +4,8 @@
 <script type="text/javascript" src="http://fast.fonts.com/jsapi/cfd002b4-72bb-4e9d-9540-e28e1ddba02b.js"></script> 
 <script type="text/javascript" src="js/libs/jquery.validate-1.9.0.min.js"></script>
 <script type="text/javascript" src="js/libs/jquery-ui-1.8.17.custom.min.js"></script>
-<?php //<script src="js/plugins.js"></script> ?>
 <script src="js/script.js"></script>
+<?php if (isset($js_for_layout)): ?><script src="js/<?php echo $js_for_layout; ?>.js"></script> endif;?>
 <?php if ($this->layout != 'admin') : ?>
 <script>
   var _gaq=[['_setAccount','<?php echo Configure::read('App.google_analytics.UA'); ?>'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID

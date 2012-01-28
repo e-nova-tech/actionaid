@@ -163,6 +163,7 @@ body {
 }
 /* containers background */
 .container.header { 
+  background:#FFF;
   -webkit-box-shadow: 0 8px 6px -6px #CCC;
   -moz-box-shadow: 0 8px 6px -6px #CCC;
   box-shadow: 0 8px 6px -6px #CCC;
@@ -182,6 +183,7 @@ h1,h2,h3,h4 {
   font-weight:bold;
 }
 /* quotes */
+.excerpt,
 blockquote {
   font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;
   font-weight:bold;
@@ -271,6 +273,9 @@ form select {
   width:203px;
   padding:.5%;
 }
+form select.small {
+  width:auto;
+}
 form .date select {
   width:54px;
 }
@@ -318,13 +323,19 @@ form .radiolist .error-message,
 form .radiolist label.form-js-error {
   margin:3px 0;
 }
-
+/* icons */
+.icon {
+  padding-left:25px;
+}
+.icon.pdf {
+  background:transparent url('../img/icons/pdf.png') 0 0 no-repeat;
+}
 /* currency symbol */
-form label.inr {
+form .inr {
   background:transparent url('../img/inr.png') 0 0 no-repeat;
   padding-left:15px;
 }
-form span.inr {
+form .inr span {
   display:none;
 }
 form .info {
@@ -348,6 +359,7 @@ form .info:hover span {
 }
 form .info:hover span span {
   display: inline;
+  padding:1px;
 }
 form .info:hover span:hover {
   cursor:default;
@@ -460,6 +472,34 @@ table .notifications{
 /* sidebar */
 .sidebar {
   margin-top:20px;
+}
+.like.social.media ul{
+  padding-left:10px;
+}
+.like.social.media li{
+  list-style-type:none;
+  float:left;
+  padding-right:15px;
+  padding-left:0;
+  width:50px;
+}
+.like.social.media li.twitter{}
+.like.social.media li.facebook{
+  width:40px;
+}
+.like.social.media li.google{}
+.sidebar img {
+  text-align:center;
+}
+.how-is-money-spent img {
+  padding-left:20px;
+  padding-bottom:10px;
+  width:220px;
+}
+.how-is-money-spent .report {
+  font-size:1.1em;
+  margin-left:20px;
+  margin-top:15px;
 }
 /* footer */
 .footer .container_12{

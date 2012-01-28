@@ -10,16 +10,27 @@
  */
   $this->set('title_for_layout','Sponsor a child');
   $this->set('css_for_layout','sponsor-a-child');
+  $this->set('js_for_layout','sponsor-a-child');
 ?>
-<div class="gift form grid_6 push_6 omega">
-  <h1><?php echo __('Sponsor a child today!'); ?></h1>
+<div class="gift form grid_5 push_7">
+  <h1 class="clearfix"><?php echo __('Sponsor a child today!'); ?></h1>
   <?php echo $this->element('messages'); ?>
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
-  <fieldset>
-    <legend><?php echo __('Select a gift amount'); ?></legend>
-<?php echo $this->element('Forms/SelectGiftRadio'); ?>
+  <fieldset class="gift">
+    <strong>Yes! I would like to sponsor</strong>
+    <select name="data[Person][title]" class="small" id="GiftFactor"> 
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+    </select>
+    <strong>child!</strong><br/> (Sponsorship amount: <span class="inr"><span>INR</span>6000</span>)
+    <div class="input text hidden">
+      <input type="hidden" name="data[Gift][amount]" value="6000" id="giftamount"  /> 
+    </div>
   </fieldset>
-  <fieldset>
+  <fieldset class="contact">
     <legend><?php echo __('Enter your contact details'); ?></legend>
 <?php echo $this->element('Forms/ContactDetails'); ?>
   </fieldset>
