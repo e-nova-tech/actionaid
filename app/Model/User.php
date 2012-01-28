@@ -41,6 +41,14 @@ class User extends AppModel {
   }
 
   public static function get() {
-    pr(AuthComponent::user());
+    return AuthComponent::user();
+  }
+
+  public static function isAdmin() {
+    $user = User::get();
+    if (isset($user)) {
+      return $user['role'] == 'admin';
+    } 
+    return false;
   }
 }
