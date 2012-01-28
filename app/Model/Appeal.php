@@ -43,5 +43,18 @@ class Appeal extends AppModel {
   function checkMaximum() {
      return false;
   }
+
+  public function getBySlug($slug='default') {
+    $conditions = array('slug' => $slug, 'status' => array('published'));
+    if (User::isAdmin()) {
+      $conditions['status'][] = 'draft';
+    }
+    $appeal = $this->find('first', array('conditions' => $conditions));
+    if (empty($appeal)) {
+      $conditions['slug'] = 'default';
+      $appeal = $this->find('first', array('conditions' => $conditions));
+    }
+    return $appeal;
+  }
 }
 
