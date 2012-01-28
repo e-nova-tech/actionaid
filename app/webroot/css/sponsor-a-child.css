@@ -51,6 +51,7 @@ form .info:hover span span {
 }
 fieldset {
   background: transparent url(../img/FFF70.png) top center repeat;
+  border:0;
 }
 fieldset legend {
   background: #FAFAFA;
