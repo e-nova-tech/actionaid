@@ -136,6 +136,14 @@ $config = array(
           'class'    => 'posts add'
         )
       ),
+      'appeals:admin_index' => array(
+        'add' => array(
+          'name'     => __('Add an appeal'),
+          'url'      => '/admin/appeals/add',
+          'resource' => 'appeals:admin_add',
+          'class'    => 'appeals add'
+        )
+      ),
       'gifts:admin_view' => array(
         'index' => array(
           'name'     => __('Gifts index'),
