@@ -29,6 +29,7 @@
     <div class="input text hidden">
       <input type="hidden" name="data[Gift][amount]" value="6000" id="giftamount"  /> 
     </div>
+    <?php echo $this->Form->error('Gift.amount')."\n"; ?>
   </fieldset>
   <fieldset class="contact">
     <legend><?php echo __('Enter your contact details'); ?></legend>
