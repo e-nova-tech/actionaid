@@ -502,7 +502,7 @@ table .notifications{
 }
 /* footer */
 .footer .container_12{
-  background:transparent url('../img/logo2.png') top right no-repeat;
+  background:transparent url('../img/logo2.png') top 785px no-repeat;
 }
 .footer .copyright {
   font-weight:bold;
