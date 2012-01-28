@@ -23,14 +23,10 @@ class GiftsController extends AppController {
    * @return void
    * @access public
    */
-  public function add($appeal=null) {
+  public function add($appealSlug=null) {
     // Get the requested appeal based on the slug (or the default one)
-    $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => $appeal)));
-    if (empty($appeal)) {
-      $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => 'default')));
-    }
-    $this->set('appeal',$appeal);
-
+    $appeal = $this->Gift->Appeal->getBySlug($appealSlug);
+    
     //pr($this->request->data);
     // if some data is submited
     if (!empty($this->request->data)) {
@@ -73,15 +69,13 @@ class GiftsController extends AppController {
     	}
     }
 
-
     // get the list of states & countries for the select lists
     //$states = $this->Gift->Person->State->find('list', array('fields' => array('code', 'name')));
     $states = array('IN-AP'=>'Andhra Pradesh','IN-AR'=>'Arunachal Pradesh','IN-AS'=>'Assam','IN-BR'=>'Bihar','IN-CT'=>'Chhattisgarh','IN-GA'=>'Goa','IN-GJ'=>'Gujarat','IN-HR'=>'Haryana','IN-HP'=>'Himachal Pradesh','IN-JK'=>'Jammu and Kashmir','IN-JH'=>'Jharkhand','IN-KA'=>'Karnataka','IN-KL'=>'Kerala','IN-MP'=>'Madhya Pradesh','IN-MH'=>'Maharashtra','IN-MN'=>'Manipur','IN-ML'=>'Meghalaya','IN-MZ'=>'Mizoram','IN-NL'=>'Nagaland','IN-OR'=>'Orissa','IN-PB'=>'Punjab','IN-RJ'=>'Rajasthan','IN-SK'=>'Sikkim','IN-TN'=>'Tamil Nadu','IN-TR'=>'Tripura','IN-UT'=>'Uttarakhand','IN-UP'=>'Uttar Pradesh','IN-WB'=>'West Bengal','IN-AN'=>'Andaman and Nicobar Islands','IN-CH'=>'Chandigarh','IN-DN'=>'Dadra and Nagar Haveli','IN-DD'=>'Daman and Diu','IN-DL'=>'Delhi','IN-LD'=>'Lakshadweep','IN-PY'=>'Pondicherry (Puducherry)');
-    $this->set('states',$states);
     //$countries = $this->Gift->Person->Country->find('list',array('fields'=>array('code','name')));
     $countries = array('IN' => 'India');
-    $this->set('countries', $countries);
-
+    
+    $this->set(compact('countries','states','appeal'));
     // See /Views/Form/[slug]
     $this->render('../Forms/'.$appeal['Appeal']['slug']);
   }
