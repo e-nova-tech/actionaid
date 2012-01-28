@@ -7,7 +7,6 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
 $(function() {
   // function useful for debugging
   var printObj = function(obj) {

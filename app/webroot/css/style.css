@@ -335,9 +335,8 @@ form .inr {
   background:transparent url('../img/inr.png') 0 0 no-repeat;
   padding-left:15px;
 }
-form .inr span {
-  display:none;
-}
+form .inr span { display:none; }
+form .inr span.amount { display:inline; }
 form .info {
   background:transparent url('../img/icons/help.png') 0 0 no-repeat;
   position: absolute;

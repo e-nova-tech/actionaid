@@ -57,6 +57,11 @@ fieldset legend {
 }
 fieldset.gift {
   padding-top:15px;
+  padding-bottom:10px;
+}
+fieldset.gift p {
+  padding-top:0;
+  margin-top:2px;
 }
 fieldset.contact {
   padding-bottom:30px;
