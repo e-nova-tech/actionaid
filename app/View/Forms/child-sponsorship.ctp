@@ -8,17 +8,18 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-  $this->set('title_for_layout','Sponsor a child');
+  $this->set('title_for_layout','Sponsor a child today!');
+  $this->set('js_for_layout','sponsor-a-child');
 ?>
 <div class="gift form grid_8 alpha">
   <?php echo $this->element('messages'); ?>
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
   <fieldset class="gift">
     <legend><?php echo __('Select a gift amount'); ?></legend>
-<?php echo $this->element('Forms/SelectGiftRadio'); ?>
+<?php echo $this->element('Forms/ChildSponsorSelect'); ?>
   </fieldset>
   <fieldset class="contact">
-    <legend><?php echo __('Enter your contact details'); ?></legend>
+    <legend><?php echo __('Enter you contact details'); ?></legend>
 <?php echo $this->element('Forms/ContactDetails'); ?>
   </fieldset>
 <?php echo $this->element('Forms/SecuritySeal'); ?>
