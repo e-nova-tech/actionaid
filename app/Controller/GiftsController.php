@@ -24,6 +24,14 @@ class GiftsController extends AppController {
    * @access public
    */
   public function add($appeal=null) {
+    // Get the requested appeal based on the slug (or the default one)
+    $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => $appeal)));
+    if (empty($appeal)) {
+      $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => 'default')));
+    }
+    $this->set('appeal',$appeal);
+
+    //pr($this->request->data);
     // if some data is submited
     if (!empty($this->request->data)) {
       // do a copy of the user given data 
@@ -34,6 +42,8 @@ class GiftsController extends AppController {
           !empty($data['Gift']['other_amount']) && $data['Gift']['amount']=='other') {
         $data['Gift']['amount'] = $data['Gift']['other_amount'];
       }
+      $data['Gift']['appeal_id'] = $appeal['Appeal']['id'];
+      $data['Gift']['status'] = 'pending';
       $this->Gift->Person->set($data);
       $this->Gift->set($data);
 
@@ -63,12 +73,6 @@ class GiftsController extends AppController {
     	}
     }
 
-    // Get the requested appeal based on the slug (or the default one)
-    $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => $appeal)));
-    if (empty($appeal)) {
-      $appeal = $this->Gift->Appeal->find('first', array('conditions' => array('slug' => 'default')));
-    }
-    $this->set('appeal',$appeal);
 
     // get the list of states & countries for the select lists
     //$states = $this->Gift->Person->State->find('list', array('fields' => array('code', 'name')));
