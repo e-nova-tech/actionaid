@@ -8,6 +8,7 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+App::import('Model','User');
 class AppController extends Controller {
   var $helpers = array(
     'Html','Form','Paginator','Session',  // default
