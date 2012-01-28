@@ -66,3 +66,13 @@
   margin-bottom:10px;
 }
 */
+
+.action.menu li {
+  list-style-type:none;
+  display:inline;
+}
+.action.menu li a.add {
+  padding-left:25px;
+  background:transparent url(../img/icons/add.png) 0 0 no-repeat;
+}
+
