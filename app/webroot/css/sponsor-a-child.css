@@ -1,0 +1,42 @@
+body {
+  background: transparent url(../img/appeals/sponsor-a-child.jpg) top center no-repeat;
+}
+.container.header { 
+  -webkit-box-shadow: 0 8px 6px -6px #333;
+  -moz-box-shadow: 0 8px 6px -6px #333;
+  box-shadow: 0 8px 6px -6px #333;
+  height:70px;
+  margin-bottom:20px;
+}
+.form h1 {
+  background:#df0a24;
+  border:1px solid #e5364c;  
+  -webkit-box-shadow: 0 1px 5px 1px #333;
+  -moz-box-shadow: 0 5px 0px 0px #333;
+  box-shadow: 0 5px 0px 0px #333;
+  color:#FFF;
+  padding:5px 20px;
+  margin:-5px 0 20px 0;
+  float:left;
+}
+form .info {
+  width: 150px;
+}
+form .info span {
+  display:none;
+  background:#FFF;
+  padding:10px;
+}
+form .info:hover span {
+  display:block;
+  padding:10px;
+}
+form .info:hover span span {
+  display: inline;
+}
+fieldset {
+  background: transparent url(../img/FFF70.png) top center repeat;
+}
+fieldset legend {
+  background: #edebea;
+}
