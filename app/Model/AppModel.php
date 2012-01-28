@@ -8,6 +8,7 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+App::uses('Model', 'Model');
 class AppModel extends Model {
   var $actsAs = array('Containable');
 
