@@ -17,6 +17,7 @@
   <meta meta name="robots" content="nofollow">
 </head>
 <body>
+<?php echo $this->element('messages'); ?>
 <div class="container header clearfix">
 <div class="container_12">
   <!-- Header -->
