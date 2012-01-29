@@ -16,18 +16,18 @@ class AppealTestCase extends CakeTestCase {
     $this->Appeal = ClassRegistry::init('Appeal');
   }
 
-  public function testNameValidation() {
+  public function testTitleValidation() {
     $testcases = array(
       '' => false,       '?!#' => true, 
       'test' => true,    'test (1)' => true,
       'test 1' => true,  'test-test' => true
     );
     foreach($testcases as $testcase => $result) {      
-      $appeal = array('Appeal' => array('name' => $testcase));
+      $appeal = array('Appeal' => array('title' => $testcase));
       $this->Appeal->set($appeal);
-      if($result) $msg = 'validation of appeal name with '.$testcase.' should validate';
-      else $msg = 'validation of appeal name with '.$testcase.' should not validate';
-      $this->assertEqual($this->Appeal->validates(array('fieldList' => array('name'))), $result, $msg);
+      if($result) $msg = 'validation of appeal title with '.$testcase.' should validate';
+      else $msg = 'validation of appeal title with '.$testcase.' should not validate';
+      $this->assertEqual($this->Appeal->validates(array('fieldList' => array('title'))), $result, $msg);
     }
   }
 
@@ -35,7 +35,8 @@ class AppealTestCase extends CakeTestCase {
     $testcases = array(
       '' => false,       '?!#' => false, 
       'test' => true,    'test (1)' => false,
-      'test 1' => false,  'test-test' => true
+      'test 1' => false,  'test-test' => true,
+      'sponsor-a-child' => true, 't' => true
     );
     foreach($testcases as $testcase => $result) {      
       $appeal = array('Appeal' => array('slug' => $testcase));

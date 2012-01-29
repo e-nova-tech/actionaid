@@ -30,7 +30,7 @@ class Appeal extends AppModel {
 
   static function getValidationRules($context=null) {
     return array(
-      'name' => array(
+      'title' => array(
         'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
@@ -59,19 +59,20 @@ class Appeal extends AppModel {
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
-          'message' => __('Please provide an appeal description')
+          'message' => __('Please provide an appeal slug')
         ),
         'pattern' => array(
-          'rule' => array('custom','/^(([a-zA-Z0-9])+(\-){0,1}([a-zA-Z0-9])+)+$/'),
+          'rule' => array('custom','/^(([a-zA-Z0-9])+(\-){0,1}){0,}([a-zA-Z0-9])+$/'),
           'message' => __('The appeal slug should not contain any spaces or special chars')
         )
+        // todo unique
       ),
       'status' => array(
         'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
-          'message' => __('Please provide an appeal description')
+          'message' => __('What is the status of this appeal?')
         )
         // TODO status exist
       ) 
