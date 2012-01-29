@@ -48,4 +48,17 @@ class AppealTestCase extends CakeTestCase {
     }
   }
 
+  public function testStatusValidation() {
+    $testcases = array(
+      '' => false,       '?!#' => false,       'test' => false,
+      'published' => true, 'draft' => true, 'archived' => true
+    );
+    foreach($testcases as $testcase => $result) {      
+      $appeal = array('Appeal' => array('status' => $testcase));
+      $this->Appeal->set($appeal);
+      if($result) $msg = 'validation of appeal status with '.$testcase.' should validate';
+      else $msg = 'validation of appeal status with '.$testcase.' should not validate';
+      $this->assertEqual($this->Appeal->validates(array('fieldList' => array('status'))), $result, $msg);
+    }
+  }
 }

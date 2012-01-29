@@ -69,7 +69,6 @@ class Appeal extends AppModel {
           'rule' => array('custom','/^(([a-zA-Z0-9])+(\-){0,1}){0,}([a-zA-Z0-9])+$/'),
           'message' => __('The appeal slug should not contain any spaces or special chars')
         )
-        // todo unique
       ),
       'status' => array(
         'required'  => array(
@@ -77,8 +76,13 @@ class Appeal extends AppModel {
           'required' => true,
           'allowEmpty' => false,
           'message' => __('What is the status of this appeal?')
+        ),
+        'valid' => array(
+          'required' => true,
+          'allowEmpty' => false,
+          'rule' => array('inList', array('draft','published','archived')),
+          'message' => __('Please enter a appeal status')
         )
-        // TODO status exist
       ) 
     );
   }
