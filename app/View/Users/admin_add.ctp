@@ -10,17 +10,18 @@
  */  
   $this->set('title_for_layout', __('Add a User'));
 ?>
-<div class="users form">
-<?php echo $this->Form->create('User');?>
+<div class="users MyForm">
+<?php echo $this->MyForm->create('User');?>
   <fieldset>
     <legend><?php echo __('User details'); ?></legend>
   <?php
-    echo $this->Form->input('username');
-    echo $this->Form->input('password');
-    echo $this->Form->input('role', array(
+    echo $this->MyForm->input('User.username', array('label' => __('Username'), 'class' =>' required'));
+    echo $this->MyForm->input('User.password', array('label' => __('Password'), 'class' =>' required'));
+    echo $this->MyForm->input('User.role', array(
+      'label' => __('Role'), 'class' =>' required',
       'options' => array('admin' => 'Admin')
     ));
   ?>
   </fieldset>
-<?php echo $this->Form->end(__('Submit'));?>
+<?php echo $this->MyForm->end(__('Submit'));?>
 </div>

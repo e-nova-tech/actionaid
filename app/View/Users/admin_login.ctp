@@ -11,14 +11,14 @@
   $this->set('title_for_layout', __('Login'));
 ?>
 <div class="users form grid_8 alpha">
-<?php echo $this->Form->create('User');?>
+<?php echo $this->MyForm->create('User');?>
   <fieldset>
     <legend><?php echo __('Please enter your username and password'); ?></legend>
-  <?php
-    echo $this->Form->input('username');
-    echo $this->Form->input('password');
-  ?><br/>
+  <?php    
+    echo $this->MyForm->input('User.username', array('label' => __('Username'), 'class' =>' required'));
+    echo $this->MyForm->input('User.password', array('label' => __('Password'), 'class' =>' required'));
+  ?>
   </fieldset>
-<?php echo $this->Form->end(__('Login'));?>
+<?php echo $this->MyForm->end(__('Login'));?>
 </div>
 
