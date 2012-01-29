@@ -11,27 +11,52 @@
 App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel {
   public $name = 'User';
-  public $validate = array(
-    'username' => array(
-      'required' => array(
-        'rule' => array('notEmpty'),
-        'message' => 'A username is required'
+
+  /**
+   * Constructor
+   * @link http://api20.cakephp.org/class/app-model#method-AppModel__construct
+   */
+  public function __construct($id = false, $table = null, $ds = null) {
+    parent::__construct($id, $table, $ds);
+    $this->validate = User::getValidationRules();
+  }
+
+  static function getValidationRules($context=null) {
+    return array(
+      'username' => array(
+        'required' => array(
+          'required' => true,
+          'allowEmpty' => false,
+          'rule' => array('notEmpty'),
+          'message' => __('A username is required')
+        ),
+        'email' => array(
+          'rule' => array('email'),
+          'message' => __('The username should be a valid email address')
+        )
+      ),
+      'password' => array(
+        'required' => array(
+          'required' => true,
+          'allowEmpty' => false,
+          'rule' => array('notEmpty'),
+          'message' => __('A password is required')
+        ),
+        'minLength' => array(
+          'rule' => array('minLength',5),
+          'message' => __('Your password should be at least composed of 5 characters')
+        )
+      ),
+      'role' => array(
+        'valid' => array(
+          'required' => true,
+          'allowEmpty' => false,
+          'rule' => array('inList', array('admin')),
+          'message' => __('Please enter a valid role')
+        )
       )
-    ),
-    'password' => array(
-      'required' => array(
-        'rule' => array('notEmpty'),
-        'message' => 'A password is required'
-      )
-    ),
-    'role' => array(
-      'valid' => array(
-        'rule' => array('inList', array('admin', 'author')),
-        'message' => 'Please enter a valid role',
-          'allowEmpty' => false
-      )
-    )
-  );
+    );
+  }
 
   public function beforeSave() {
     if (isset($this->data[$this->alias]['password'])) {
