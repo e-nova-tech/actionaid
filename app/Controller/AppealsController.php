@@ -16,15 +16,18 @@ class AppealsController extends AppController {
   }
 
   public function admin_add() {
-    $this->set('appeal_status_options',$this->Appeal->getStatusOptions());
     if ($this->request->is('post')) {
+      $this->Appeal->create();
       if ($this->Appeal->save($this->request->data)) {
-        $this->Message->notice(__('Your appeal has been saved.'));
-        $this->redirect(array('action' => 'index'));
+        echo "save";
+        $this->Message->success(__('Your appeal has been saved.'));
+        $this->redirect(array('action' => 'admin_index'));
       } else {
+        echo "!save";
         $this->Message->error(__('Unable to add your appeal.'));
       }
     }
+    $this->set('appeal_status_options',$this->Appeal->getStatusOptions());
   }
 
   public function admin_edit($id = null) {
@@ -37,6 +40,8 @@ class AppealsController extends AppController {
         $this->Message->notice(__('Your appeal has been updated.'));
         $this->redirect(array('action' => 'index'));
       } else {
+        pr($this->request->data);
+        pr($this->Appeal->validationErrors);
         $this->Message->error(__('Unable to update your appeal.'));
       }
     }
