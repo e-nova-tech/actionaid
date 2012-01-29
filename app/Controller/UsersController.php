@@ -22,10 +22,18 @@ class UsersController extends AppController {
     //$this->Auth->allow('admin_add');
   }
 
+  /**
+   * Admin Index
+   * @access public
+   */
   public function admin_index() {
     $this->set('users', $this->paginate());
   }
 
+  /**
+   * Admin View
+   * @access public
+   */
   public function admin_view($id = null) {
     $this->User->id = $id;
     if (!$this->User->exists()) {
@@ -34,18 +42,26 @@ class UsersController extends AppController {
     $this->set('user', $this->User->read(null, $id));
   }
 
+  /**
+   * Admin Add
+   * @access public
+   */
   public function admin_add() {
     if ($this->request->is('post')) {
       $this->User->create();
       if ($this->User->save($this->request->data)) {
-        $this->Session->setFlash(__('The user has been saved'));
+        $this->Message->success(__('The user has been saved'));
         $this->redirect(array('action' => 'index'));
       } else {
-        $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+        $this->Message->error(__('The user could not be saved. Please, try again.'));
       }
     }
   }
 
+  /**
+   * Admin Edid
+   * @access public
+   */
   public function admin_edit($id = null) {
     $this->User->id = $id;
     if (!$this->User->exists()) {
@@ -53,10 +69,10 @@ class UsersController extends AppController {
     }
     if ($this->request->is('post') || $this->request->is('put')) {
       if ($this->User->save($this->request->data)) {
-        $this->Session->setFlash(__('The user has been saved'));
+        $this->Message->succes(__('The user has been saved'));
         $this->redirect(array('action' => 'index'));
       } else {
-        $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+        $this->Message->error(__('The user could not be saved. Please, try again.'));
       }
     } else {
       $this->request->data = $this->User->read(null, $id);
@@ -64,6 +80,10 @@ class UsersController extends AppController {
     }
   }
 
+  /**
+   * Admin Delete
+   * @access public
+   */
   public function admin_delete($id = null) {
     if (!$this->request->is('post')) {
       throw new MethodNotAllowedException();
@@ -73,22 +93,29 @@ class UsersController extends AppController {
       throw new NotFoundException(__('Invalid user'));
     }
     if ($this->User->delete()) {
-      $this->Session->setFlash(__('User deleted'));
+      $this->Message->success(__('User deleted'));
       $this->redirect(array('action' => 'index'));
     }
-    $this->Session->setFlash(__('User was not deleted'));
+    $this->Message->error(__('User was not deleted'));
     $this->redirect(array('action' => 'index'));
   }
 
-  // All about authentication
+  /**
+   * Admin Login
+   * @access public
+   */
   public function admin_login() {
     if ($this->Auth->login()) {
        $this->redirect($this->Auth->redirect());
     } else {
-      $this->Session->setFlash(__('Invalid username or password, try again'));
+      $this->Message->error(__('Invalid username or password, try again'));
     }
   }
 
+  /**
+   * Admin Logout
+   * @access public
+   */
   public function admin_logout() {
     $this->redirect($this->Auth->logout());
   }
