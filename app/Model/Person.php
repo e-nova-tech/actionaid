@@ -45,8 +45,8 @@ class Person extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please select a title')
         ),
-        'exist' => array(
-          'rule' => array('validateTitle'),
+        'inlist' => array(
+          'rule' => array('inList', array('Mr','Ms','Mrs','Dr','Prof')),
           'message' => __('Please select a valid title')
         )
       ),
@@ -194,7 +194,7 @@ class Person extends AppModel {
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your date of birth')
-        ),/*
+        ),
         'dateOfBirth' => array(
           'rule' => array('date', 'ymd'),
           'message' => __('Please indicate a valid date of birth')
@@ -202,7 +202,11 @@ class Person extends AppModel {
         'legal' => array(
           'rule' => array('isAnAdult'),
           'message' => __('Sorry but you have to be at least 18 to donate.')
-        )*/
+        ),
+        'tooOld' => array(
+          'rule' => array('isNotTooOld'),
+          'message' => __('Sorry, but it seems unlikely that your are that old...')
+        )
       ),
       'pan' => array(
         'required'  => array(
@@ -219,18 +223,18 @@ class Person extends AppModel {
     );
   }
 
-  // Custom validation rules
-  function validateTitle($check) {
-    // allowed titles are defined as enum values, described in the schema
-    preg_match_all("/\'([^\']+)\'/", $this->_schema['title']['type'], $strEnum);
-    return in_array(ucfirst($check['title']),$strEnum[1]);
-  }
-
   function isAnAdult($check) {
     $currentYear = new DateTime(date('Y-m-d'));
     $birthYear = new DateTime($check['dob']);
     $interval = $currentYear->diff($birthYear);
     return ($interval->y >= Configure::read('App.gift.minimum_age')) ;
+  }
+
+  function isNotTooOld($check) {
+    $currentYear = new DateTime(date('Y-m-d'));
+    $birthYear = new DateTime($check['dob']);
+    $interval = $currentYear->diff($birthYear);
+    return ($interval->y <= 130);
   }
 
   function validateState($check) {    

@@ -48,7 +48,7 @@ class User extends AppModel {
         )
       ),
       'role' => array(
-        'valid' => array(
+        'inlist' => array(
           'required' => true,
           'allowEmpty' => false,
           'rule' => array('inList', array('admin')),

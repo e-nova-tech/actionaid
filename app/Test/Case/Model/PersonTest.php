@@ -18,13 +18,15 @@ class GiftTestCase extends CakeTestCase {
 
   public function testDobValidation() {    
     $testcases = array(
-      '2000-01-01' => false, '1800-01-01'  => false,
+      '' => false,
+      '2000-01-01' => false, '1800-01-01'  => false, // too young or too old
       '1990-01-01' => true,  '1960-01-01'  => true
     );
     foreach($testcases as $testcase => $result) {      
       $person = array('Person' => array(
         'dob' => $testcase
       ));
+      $this->Person->set($person);
       if($result) {
         $msg = 'validation of person dob with '.$testcase.' should validate';
       } else {
@@ -36,20 +38,6 @@ class GiftTestCase extends CakeTestCase {
     }
   }
 
-  public function testAdultAgeValidation() {    
-    $testcases = array(
-      '2009-01-01' => false, '1800-01-01'  => true,
-      '1990-01-01' => true,  '1960-01-01'  => true
-    );
-    foreach($testcases as $testcase => $result) {  
-      if($result) {
-        $msg = 'validation of person age with '.$testcase.' should validate';
-      } else {
-        $msg = 'validation of person age with '.$testcase.' should not validate';
-      }
-      $this->assertEqual($this->Person->isAnAdult(array('dob' => $testcase)), $result, $msg);
-    }
-  }
 
   public function testStateValidation() {
     $testcases = array(
@@ -117,12 +105,12 @@ class GiftTestCase extends CakeTestCase {
 
   public function testPersonTitleValidation() {
     $testcases = array(
-      'Ms' => true,   'ms' => false,
-      'Mrs' => true,  'mrs' => false,
-      'Mr' => true,   'mr' => false,
-      'Dr' => true,   'dr' => false,
-      'Prof' => true, 'prof' => true,
-      '#' => false,   '1' => false,
+      'Ms'   => true,   'ms'   => false,
+      'Mrs'  => true,   'mrs'  => false,
+      'Mr'   => true,   'mr'   => false,
+      'Dr'   => true,   'dr'   => false,
+      'Prof' => true,   'prof' => false,
+      '#'    => false,  '1'    => false,
       'biloute' => false
     );
     foreach($testcases as $testcase => $result) {
