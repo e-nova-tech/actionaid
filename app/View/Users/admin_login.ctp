@@ -11,7 +11,6 @@
   $this->set('title_for_layout', __('Login'));
 ?>
 <div class="users form grid_8 alpha">
-<?php echo $this->Session->flash('auth'); ?>
 <?php echo $this->Form->create('User');?>
   <fieldset>
     <legend><?php echo __('Please enter your username and password'); ?></legend>
