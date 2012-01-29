@@ -10,12 +10,10 @@
  */
   $this->set('title_for_layout', __('Add an appeal'));
 ?>
-<?php
-  echo $this->Form->create('Appeal');
-  echo $this->MyForm->input('title', array('label'=>__('Title'), 'class'=> 'required'));
-  echo $this->MyForm->input('slug', array('label'=>__('Slug'), 'class'=> 'required'));
-  echo $this->MyForm->input('description', array('label'=>__('Description'), 'class'=> 'required','rows' => '3'));
-  echo $this->Form->input('status', array('options' => $appeal_status_options));
-  echo $this->MyForm->input('id', array('type' => 'hidden'));
-  echo $this->Form->end('Save appeal');
-?>
+<?php echo $this->MyForm->create('Appeal',array('action'=>'admin_add')); ?>
+<?php echo $this->MyForm->input('Appeal.title', array('label'=>__('Title'), 'class'=> 'required')); ?>
+<?php echo $this->MyForm->input('Appeal.slug', array('label'=>__('Slug'), 'class'=> 'required')); ?>
+<?php echo $this->MyForm->input('Appeal.description', array('label'=>__('Description'), 'class'=> 'required','rows' => '3')); ?>
+<?php echo $this->MyForm->input('Appeal.status', array('options' => $appeal_status_options)); ?>
+<?php echo $this->MyForm->end('Save appeal'); ?>
+
