@@ -47,4 +47,23 @@ class AppealsController extends AppController {
     }
   }
 
+  /**
+   * Admin Delete
+   * @access public
+   */
+  public function admin_delete($id = null) {
+    if (!$this->request->is('post')) {
+      throw new MethodNotAllowedException();
+    }
+    $this->Appeal->id = $id;
+    if (!$this->Appeal->exists()) {
+      throw new NotFoundException(__('Invalid appeal'));
+    }
+    if ($this->Appeal->delete()) {
+      $this->Message->success(__('The appeal was deleted'));
+      $this->redirect(array('action' => 'index'));
+    }
+    $this->Message->error(__('The appeal was not deleted'));
+    $this->redirect(array('action' => 'index'));
+  }
 }
