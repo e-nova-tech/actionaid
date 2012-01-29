@@ -9,7 +9,7 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 App::uses('Person', 'Model');
-class GiftTestCase extends CakeTestCase {
+class PersonTestCase extends CakeTestCase {
 
   public function setup() {
     parent::setUp();
