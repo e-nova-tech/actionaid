@@ -29,9 +29,9 @@
         <td><?php echo $appeal['Appeal']['modified']; ?></td>
         <td><?php echo $this->Html->link(__('View'), Common::baseUrl() . $appeal['Appeal']['slug']);?> | 
           <?php echo $this->Html->link('Edit', array('action' => 'edit',  $appeal['Appeal']['id']));?> |
-          <?php echo $this->Form->postLink(
+          <?php echo $this->MyForm->postLink(
             'Delete',
-            array('action' => 'delete', $user['Appeal']['id']),
+            array('action' => 'delete', $appeal['Appeal']['id']),
             array('confirm' => 'Are you sure?'));
           ?> 
         </td>
