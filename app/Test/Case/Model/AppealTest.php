@@ -9,11 +9,30 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 App::uses('Appeal', 'Model');
+App::uses('User', 'Model');
 class AppealTestCase extends CakeTestCase {
-
+ 
   public function setup() {
     parent::setUp();
     $this->Appeal = ClassRegistry::init('Appeal');
+  }
+
+  public function testGetBySlug() {
+    $appeal = $this->Appeal->getBySlug('default');
+    $this->assertEqual(count($appeal),1);
+
+    $appeal = $this->Appeal->getBySlug();
+    $this->assertEqual($appeal['Appeal']['slug'],'default');
+
+    $appeal = $this->Appeal->getBySlug('DDDdefault'); // wrong appeal = default
+    $this->assertEqual($appeal['Appeal']['slug'],'default');
+
+    // TODO test if admin & draft versus user & published
+  }
+
+  public function testGetStatusOptions() {
+    $options = $this->Appeal->getStatusOptions();
+    $this->assertEqual(count($options),3);
   }
 
   public function testTitleValidation() {
@@ -50,7 +69,7 @@ class AppealTestCase extends CakeTestCase {
 
   public function testStatusValidation() {
     $testcases = array(
-      '' => false,       '?!#' => false,       'test' => false,
+      '' => false, '?!#' => false, 'test' => false,
       'published' => true, 'draft' => true, 'archived' => true
     );
     foreach($testcases as $testcase => $result) {      
