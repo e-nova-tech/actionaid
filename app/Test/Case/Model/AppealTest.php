@@ -36,7 +36,8 @@ class AppealTestCase extends CakeTestCase {
       '' => false,       '?!#' => false, 
       'test' => true,    'test (1)' => false,
       'test 1' => false,  'test-test' => true,
-      'sponsor-a-child' => true, 't' => true
+      'sponsor-a-dhild' => true, 't' => true,
+      'default' => false
     );
     foreach($testcases as $testcase => $result) {      
       $appeal = array('Appeal' => array('slug' => $testcase));

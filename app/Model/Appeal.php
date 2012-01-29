@@ -61,6 +61,10 @@ class Appeal extends AppModel {
           'allowEmpty' => false,
           'message' => __('Please provide an appeal slug')
         ),
+        'unique' => array(
+          'rule' => array('isUnique'),
+          'message' => __('Sorry this appeal slug is already in use')
+        ),
         'pattern' => array(
           'rule' => array('custom','/^(([a-zA-Z0-9])+(\-){0,1}){0,}([a-zA-Z0-9])+$/'),
           'message' => __('The appeal slug should not contain any spaces or special chars')
