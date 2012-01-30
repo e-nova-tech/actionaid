@@ -18,7 +18,7 @@ class Country extends AppModel {
    */
   public function getListByCountryCode($codes) {
     $hash = md5(serialize($codes));;
-    $result = null; //Cache::read('countries_'.$hash, 'long');
+    $result = Cache::read('countries_'.$hash, 'long');
     if (!$result) {
       if(is_array($codes) && !empty($codes)) {
         $options['conditions'] = array('code' => $codes);
