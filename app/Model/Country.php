@@ -30,7 +30,7 @@ class Country extends AppModel {
         foreach($result as $code => $name) {
           $countries[strtoupper($code)] = ucfirst($name);
         }
-        Cache::write('countries'.$hash, $countries, 'long');
+        Cache::write('countries_'.$hash, $countries, 'long');
       }
     }
     return $countries;
