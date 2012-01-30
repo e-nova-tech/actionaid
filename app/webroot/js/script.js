@@ -19,7 +19,6 @@ $(function() {
     return "{ " +  arr.join(", ") + " }";
   };
 
-  
   // Select "other" radio button when click on text input and vice versa
   $('.radiolist .other.text').click(function() {
     $('.radiolist .other.radio').attr('checked', 'checked');
@@ -50,6 +49,7 @@ $(function() {
       return false;
     },
     select: function( event, ui ) {
+      jQuery("select#PersonState option[value='"+ui.item.state+"']").attr("selected", "selected");
       return false;
     }
   }).data( "autocomplete" )._renderItem = function( ul, item ) {

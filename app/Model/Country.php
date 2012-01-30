@@ -32,8 +32,9 @@ class Country extends AppModel {
         }
         Cache::write('countries_'.$hash, $countries, 'long');
       }
+      $result = &$countries;
     }
-    return $countries;
+    return $result;
   }
 
 }
