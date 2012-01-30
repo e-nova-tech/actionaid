@@ -59,7 +59,7 @@ $(function() {
       .appendTo( ul );
   };
 
-  // Data Validation 
+  // Data Validation
   jQuery.validator.addMethod("alphanumeric", function(value, element) {
     return this.optional(element) || /^(\w)+$/i.test(value);
   }, "Letters and numbers only please");
