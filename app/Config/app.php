@@ -68,7 +68,7 @@ $config = array(
   // AUTHENTICATION
   'App.auth' => array(
     'loginAction' => array('controller' => 'users', 'action' => 'admin_login', 'admin' => true, 'prefix' => 'admin'),
-    'loginRedirect' => array('controller' => 'posts', 'action' => 'admin_index'),
+    'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
     'logoutRedirect' => '/gifts/add',
   ),
   // default gift configuration
@@ -80,6 +80,8 @@ $config = array(
     'maximum_amount' => 4294967295,
     'minimum_age' => 18,
     'maximum_age' => 115,
+    'default_country' => 'IN',             // country ISO 3166-1 Alpha 2 code
+    'supported_countries' => array('IN')  // array of codes or *
   ),
   // payment gateway configuration
   'App.payment_gateway' => array(

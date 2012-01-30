@@ -70,16 +70,16 @@ class GiftsController extends AppController {
     }
 
     // get the list of states & countries for the select lists
-    //$states = $this->Gift->Person->State->find('list', array('fields' => array('code', 'name')));
-    $states = array('IN-AP'=>'Andhra Pradesh','IN-AR'=>'Arunachal Pradesh','IN-AS'=>'Assam','IN-BR'=>'Bihar','IN-CT'=>'Chhattisgarh','IN-GA'=>'Goa','IN-GJ'=>'Gujarat','IN-HR'=>'Haryana','IN-HP'=>'Himachal Pradesh','IN-JK'=>'Jammu and Kashmir','IN-JH'=>'Jharkhand','IN-KA'=>'Karnataka','IN-KL'=>'Kerala','IN-MP'=>'Madhya Pradesh','IN-MH'=>'Maharashtra','IN-MN'=>'Manipur','IN-ML'=>'Meghalaya','IN-MZ'=>'Mizoram','IN-NL'=>'Nagaland','IN-OR'=>'Orissa','IN-PB'=>'Punjab','IN-RJ'=>'Rajasthan','IN-SK'=>'Sikkim','IN-TN'=>'Tamil Nadu','IN-TR'=>'Tripura','IN-UT'=>'Uttarakhand','IN-UP'=>'Uttar Pradesh','IN-WB'=>'West Bengal','IN-AN'=>'Andaman and Nicobar Islands','IN-CH'=>'Chandigarh','IN-DN'=>'Dadra and Nagar Haveli','IN-DD'=>'Daman and Diu','IN-DL'=>'Delhi','IN-LD'=>'Lakshadweep','IN-PY'=>'Pondicherry (Puducherry)');
-    //$countries = $this->Gift->Person->Country->find('list',array('fields'=>array('code','name')));
-    $countries = array('IN' => 'India');
-    
+    $states = $this->Gift->Person->State->getListByCountryCode(
+      Configure::read('App.gift.default_country'));
+    $countries = $this->Gift->Person->Country->getListByCountryCode(
+      Configure::read('App.gift.supported_countries'));
+
     $this->set(compact('countries','states','appeal'));
     // See /Views/Form/[slug]
     $this->render('../Forms/'.$appeal['Appeal']['slug']);
   }
-  
+
   /**
    * Provide the validation rules or messages for donation form in json_encode
    */

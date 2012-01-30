@@ -64,7 +64,16 @@
 
  Inflector::rules('plural', array('irregular' => array('paymentGatewayTest' => 'paymentGatewayTest')));
  
- 
+/**
+ * Cache configuration for stuffs that don't really change
+ */
+Cache::config('long', array(
+  'engine' => 'File',
+  'duration' => '+1 month',
+  'probability' => 100,
+  'path' => CACHE . 'long' . DS,
+));
+
 /**
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
  * Uncomment one of the lines below, as you need. make sure you read the documentation on CakePlugin to use more
@@ -74,3 +83,4 @@
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
+
