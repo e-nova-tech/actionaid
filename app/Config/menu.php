@@ -22,10 +22,27 @@
  */
 $config = array(
   'App.menu' => array(
-    // LEVEL 0 (MAIN TABS)
+    // LEVEL 0 (Top Menu)
     'main' => array(
-      'public' => array(
-         // Get lost or die trying!
+      'public_default' => array(
+        'why' => array(
+          'name'    => __('Why donate?'),
+          'url'     => '/pages/faq',
+          'pattern' => '#/\/pages\/faq.*/iU',
+          'resource' => 'pages:faq'
+        ),
+        'faq' => array(
+          'name'    => __('Donation FAQ'),
+          'url'     => '/pages/faq',
+          'pattern' => '#/\/pages\/faq.*/iU',
+          'resource' => 'pages:faq'
+        ),
+        'contact' => array(
+          'name'    => __('Contact Us'),
+          'url'     => '/contact',
+          'pattern' => '#/\/contact.*/iU',
+          'resource' => 'contacts:index'
+        )
       ),
       'admin' => array(
         'home' => array(
