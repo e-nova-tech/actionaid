@@ -27,7 +27,6 @@
  */
   // home page is the donation form
 	Router::connect('/', array('controller' => 'gifts', 'action' => 'add'));
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
   // admin pages
 	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'Home','admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/help', array('controller' => 'pages', 'action' => 'display', 'Help','admin' => true, 'prefix'=>'admin'));
@@ -48,6 +47,9 @@
 	// transactions stuffs
 	Router::connect('/billDeskTest/:action', array('controller' => 'billDeskTest'));
   Router::connect('/transactions/:action', array('controller' => 'transactions')); 
+  // contact form & pages
+	Router::connect('/contact', array('controller' => 'contacts', 'action' => 'index'));
+	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));  
   // everything else is a donation forms
   Router::connect('/*', array('controller' => 'gifts', 'action' => 'add'));
 
