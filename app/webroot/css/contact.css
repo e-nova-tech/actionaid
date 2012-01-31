@@ -1,0 +1,36 @@
+.contact.form {
+  margin-bottom:40px;
+}
+.contact.form fieldset {
+  padding-top:15px;
+  padding-bottom:30px;
+}
+.contact.form input[type=text] {
+  padding:3px;
+  width:205px;
+  margin:2px 0px;
+}
+.contact.form input[type=submit] {
+  width:380px;
+}
+.contact.form textarea {
+  padding:5px;
+  width:200px;
+  margin:4px 0px;
+}
+.contact.form select {
+  padding:5px;
+  width:212px;
+  margin:2px 0px;
+}
+.contact.form p {
+  padding:10px;
+  border:1px solid blue;
+}
+body {
+  background: transparent url(../img/appeals/bg1.jpg) 0 0 repeat;
+}
+h3 {
+ margin-bottom:2px;
+ padding-bottom:0px;
+}
