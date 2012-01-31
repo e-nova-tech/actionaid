@@ -24,7 +24,7 @@ class Person extends AppModel {
 			'conditions' => 'Person.country = Country.code'
     )
   );
-  // see _getValidationRules
+  // see getValidationRules
   public $validate = array();
 
   /**

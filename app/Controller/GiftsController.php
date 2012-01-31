@@ -11,6 +11,11 @@
 class GiftsController extends AppController {
   var $uses = array('Gift','Person');
 
+  /**
+   * Before Filter cake callback
+   * @link http://api20.cakephp.org/class/controller#method-ControllerbeforeFilter
+   * @access protected
+   */
   function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->allow('add','json_validation');

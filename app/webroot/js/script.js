@@ -104,8 +104,7 @@ $(function() {
       }
     }
   }
-  
-  
+
   // client side validation of the donation form
   $.getJSON('json/gifts/validation/rules', function(rules) {  // 1) Get the rules
     $.getJSON('json/gifts/validation/messages', function(messages) { // 2) Get the messages

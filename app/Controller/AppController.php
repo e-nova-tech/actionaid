@@ -12,18 +12,20 @@ App::import('Model','User');
 class AppController extends Controller {
   var $helpers = array(
     'Html','Form','Paginator','Session',  // default
+    'Cache', 
     'MyHtml','MyForm','MyPaginator',      // redefinitions
-    'Gift','Menu', 'Js', 'BillDesk'       // custom
+    'Gift','Menu','Js','BillDesk'         // custom
     /*,'Tidy' // buggy with script! */
   );
 
   public $components = array(
-    'Session', 'Paginator', 'Auth', 'Cookie', // default
-    'Message'                                 // custom
+    'Session', 'Paginator', 'Auth',  // default
+    'Cookie', 'Email',
+    'Message'                        // custom
   );
 
   /**
-   * Before Filter Cake Hook
+   * Before Filter Cake Callback
    * @link http://api20.cakephp.org/class/controller#method-ControllerbeforeFilter
    * @access protected
    */
@@ -53,15 +55,21 @@ class AppController extends Controller {
     return true;
   }
 
+  public function json_validation_rules() {
+  }
   /**
    * Render Validation Rules or messages in Json for js validation purposes
    * @param array model names (must be accessible from current controller)
    * @param string type, rules or messages
-   * @access public
+   * @access protected
    */
-  public function json_validation($type='rules',$models=array()) {
+  function _json_validation($type='rules',$models=array()) {
     $this->autoRender = false;
-    if($type=='rules' || $type=='messages' || empty($models)) {
+    
+    // nothing to render
+    if (empty($models)) return; 
+
+    if ($type=='rules' || $type=='messages' ) {
       $this->set('type',$type);
       foreach ($models as $modelName) {
         $validate[$modelName]= $this->{$modelName}->validate;
