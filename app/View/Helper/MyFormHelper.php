@@ -25,6 +25,13 @@ class MyFormHelper extends FormHelper {
     return parent::input($fieldName, $options)."\n";
   }
 
+  function submit($label,$options=array()) {
+    return parent::submit($label, $options)."\n";
+  }
+  function end() {
+    return parent::end()."\n";
+  }
+
   /**
    * Required field special marker
    * @return string
