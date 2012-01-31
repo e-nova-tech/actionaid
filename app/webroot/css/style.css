@@ -155,6 +155,10 @@ table { border-collapse: collapse; border-spacing: 0; }
     #FFFFFF	White
     #000000	Black
 */
+.red-bg { background:#ED1C24; }
+.greylt-bg { background:#EFEFEF; }
+.grey-bg { background:#999999; }
+.greyer-bg { background:#666666; }
 
 /* font */
 body {
@@ -231,7 +235,24 @@ h1.logo span {
   font-size:1.15em;
   font-weight:bold;
 }
-/* donate form */
+/* top right menu */
+.top.right.menu {
+  list-style-type:none;
+  text-align:right;
+  margin:35px 15px 0 0;
+}
+.top.right.menu li{
+  display:inline;
+  border-left:1px dotted #000;
+  padding:0 5px;
+}
+.top.right.menu li:first-child{
+  border:0;
+}
+.top.right.menu a{
+  font-weight:normal;
+}
+/* form */
 form {
   font-size:1em;
 }
@@ -346,22 +367,6 @@ form .info {
   padding: 0px 0px 0px 23px;
   font-size:.9em;
   min-height:16px;
-  cursor:help;
-}
-form .info span {
-  display:none;
-  background:#FFF;
-}
-form .info:hover span {
-  display:block;
-  padding:1px;
-}
-form .info:hover span span {
-  display: inline;
-  padding:1px;
-}
-form .info:hover span:hover {
-  cursor:default;
 }
 form .form-js-error + .info {
   margin-top: -38px;
@@ -516,6 +521,7 @@ table .notifications{
    Non-semantic helper classes
    Please define your styles before this section.
    ========================================================================== */
+.padding5 { padding:5px; }
 /* how many corners...? */
 .corner-all li, .corner-all, .corner-top, .corner-left, .corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -khtml-border-top-left-radius: 4px; border-top-left-radius: 4px; }
 .corner-all li, .corner-all, .corner-top, .corner-right, .corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -khtml-border-top-right-radius: 4px; border-top-right-radius: 4px; }

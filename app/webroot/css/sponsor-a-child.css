@@ -20,6 +20,23 @@ body {
   width:300px;
 }
 form .info {
+  cursor:help;
+}
+form .info span {
+  display:none;
+}
+form .info:hover span {
+  display:block;
+  padding:1px;
+}
+form .info:hover span span {
+  display: inline;
+  padding:1px;
+}
+form .info:hover span:hover {
+  cursor:default;
+}
+form .info {
   background:transparent url('../img/icons/help.png') 5px 0 no-repeat;
   width:30px;
   left:325px;
