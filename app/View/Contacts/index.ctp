@@ -13,6 +13,7 @@
 ?>
   <div class="contact form grid_5 alpha">
     <h2><?php echo __('Please use the contact form bellow...'); ?></h2>
+    <?php echo $this->element('messages'); ?>
     <?php echo $this->MyForm->create(null, array('action' => 'index')); ?>
     <fieldset>
       <legend><?php echo __('With the following details'); ?></legend>

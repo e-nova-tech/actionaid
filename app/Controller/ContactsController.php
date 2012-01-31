@@ -29,7 +29,7 @@ class ContactsController extends AppController {
     if (!empty($this->request->data)) {
       $this->Contact->set($this->request->data);
       if ($this->Contact->validates()) {
-        $this->Email->to = Configure::read('App.email.contact');
+        $this->Email->to = Configure::read('App.emails.general.email');
         $this->Email->replyTo = $this->data['Contact']['email'];
         $this->Email->from = $this->data['Contact']['name'].' <'.$this->data['Contact']['email'].'>';
         $this->Email->subject = '[ActionAidIndia] '.$this->data['Contact']['subject'];

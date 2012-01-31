@@ -13,7 +13,7 @@
   </p>
   <p>
     <h3><?php echo __('Send us a postcard'); ?>!</h3>
-    Action Aid Association <br/>
+    ActionAid Association <br/>
     R-7. Hauz Khas Enclave  <br/>
     110016  <br/>
     New Delhi - India
