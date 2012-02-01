@@ -1,19 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 3.3.7deb6
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Jan 18, 2012 at 08:04 PM
--- Server version: 5.1.49
--- PHP Version: 5.3.3-7+squeeze3
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
---
--- Database: `actionaidindia_donate`
---
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `posts`
