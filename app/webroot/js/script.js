@@ -28,36 +28,38 @@ $(function() {
   });
 
   // Form autocomplete
-  var cache = {},lastXhr;
-  $( ".city.autocomplete" ).autocomplete({
-    minLength: 1,
-    source: function( request, response ) {
-      var term = request.term;
-      if (term in cache) {
-        response(cache[term]);
-        return;
-      }
-      lastXhr = $.getJSON( "json/cities/index/"+term, request, function( data, status, xhr ) {
-        cache[ term ] = data;
-        if (xhr === lastXhr) {
-          response(data);
+  if($( ".city.autocomplete" ).length){
+    var cache = {},lastXhr;
+    $( ".city.autocomplete" ).autocomplete({
+      minLength: 1,
+      source: function( request, response ) {
+        var term = request.term;
+        if (term in cache) {
+          response(cache[term]);
+          return;
         }
-      });
-    },
-    focus: function( event, ui ) {
-      $( ".city.autocomplete" ).val( ui.item.name );
-      return false;
-    },
-    select: function( event, ui ) {
-      jQuery("select#PersonState option[value='"+ui.item.state+"']").attr("selected", "selected");
-      return false;
-    }
-  }).data( "autocomplete" )._renderItem = function( ul, item ) {
-    return $( "<li></li>" )
-      .data( "item.autocomplete", item )
-      .append( "<a>" + item.name + "</a>" )
-      .appendTo( ul );
-  };
+        lastXhr = $.getJSON( "json/cities/index/"+term, request, function( data, status, xhr ) {
+          cache[ term ] = data;
+          if (xhr === lastXhr) {
+            response(data);
+          }
+        });
+      },
+      focus: function( event, ui ) {
+        $( ".city.autocomplete" ).val( ui.item.name );
+        return false;
+      },
+      select: function( event, ui ) {
+        jQuery("select#PersonState option[value='"+ui.item.state+"']").attr("selected", "selected");
+        return false;
+      }
+    }).data( "autocomplete" )._renderItem = function( ul, item ) {
+      return $( "<li></li>" )
+        .data( "item.autocomplete", item )
+        .append( "<a>" + item.name + "</a>" )
+        .appendTo( ul );
+    };
+  }
 
   // Data Validation
   jQuery.validator.addMethod("alphanumeric", function(value, element) {
