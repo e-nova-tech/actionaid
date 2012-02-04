@@ -16,7 +16,7 @@
     <h2>Frequently Asked Questions</h2>
     <div class="accordion">
       <ul class="questions">
-<li>
+        <li>
           <h3>What does ActionAid do?</h3>
           <div>
           <p>
@@ -46,6 +46,7 @@
           <h3>How does ActionAid use donations?</h3>
           <div>
             <p>
+            <img src="http://actionaid/img/appeals/piechart.png" style="float:right; margin:-10px 10px 10px 30px;" width="200"/>
               ActionAid finance a wide range of long term and short term projects all over India working
               with marginalized communities such Dalit and indigenous people, rural and urban poor, women, children and minorities. 
               The details of ActionAid results and expenses are detailed in our annual report.
