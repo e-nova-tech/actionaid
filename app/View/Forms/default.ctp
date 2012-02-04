@@ -18,7 +18,7 @@
     <legend><?php echo __('Select a gift amount'); ?></legend>
     <p class="info" style="margin-top:0px">
       <?php echo __('Contributions to ActionAid Association are exempted from Tax under section 80G of Income TaxAct 1961.'); ?>
-   </p>
+    </p>
 <?php echo $this->element('Forms/SelectGiftRadio'); ?>
   </fieldset>
   <fieldset class="contact">
@@ -30,7 +30,8 @@
 <?php echo $this->MyForm->end(); ?>
 </div>
 <div class="sidebar grid_4 omega">
-<img src="img/appeals/88507scr.jpg" width="300"/>
+<img src="img/appeals/88082scr.jpg" width="300"/>
 <?php echo $this->element('Forms/BudgetBreakdown'); ?>
+<h3><?php echo __('Tell your friends!'); ?></h3>
 <?php echo $this->element('Forms/SocialMedia'); ?>
 </div>

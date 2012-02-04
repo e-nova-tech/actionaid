@@ -1,3 +1,6 @@
+body {
+  background:#FFF;
+}
 /* generic for menus */
 .menu li {
   float:left;

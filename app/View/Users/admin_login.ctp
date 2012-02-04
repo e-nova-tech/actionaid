@@ -19,6 +19,7 @@
     echo $this->MyForm->input('User.password', array('label' => __('Password'), 'class' =>' required'));
   ?>
   </fieldset>
-<?php echo $this->MyForm->end(__('Login'));?>
+<?php echo $this->MyForm->submit(__('Login'));?>
+<?php echo $this->MyForm->end();?>
 </div>
 

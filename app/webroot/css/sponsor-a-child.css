@@ -8,7 +8,7 @@ body {
   height:70px;
   margin-bottom:20px;
 }
-.form h1 {
+.form h2 {
   background:#df0a24;
   border:1px solid #e5364c;  
   -webkit-box-shadow: 0 1px 5px 1px #333;
@@ -17,7 +17,14 @@ body {
   color:#FFF;
   padding:5px 20px;
   margin:0 0 15px 0;
-  width:300px;
+  text-shadow: 1px 1px 1px #000;
+  text-align:center;
+  background-image: linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, rgb(192,5,27)),color-stop(0.8, rgb(223,10,35)),color-stop(1, rgb(223,10,35)));
 }
 form .info {
   cursor:help;
@@ -67,7 +74,7 @@ form .info:hover span span {
   box-shadow: none;
 }
 fieldset {
-  background: transparent url(../img/FFF70.png) top center repeat;
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
   border:0;
 }
 fieldset legend {
@@ -87,4 +94,27 @@ fieldset.contact {
 form .icon.inr {
   background:transparent url('../img/inr.png') 0 0 no-repeat;
   padding-left:15px;
+}
+form .tax.note {
+  float:left;
+  font-size:.8em;
+  text-shadow: 1px 1px 0px #FFF;
+  margin:0 5px 5px 10px;
+}
+/* thank you page */
+.thank-you {
+  float:left;
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  font-size:1.3em;
+  padding:10px;
+  margin-bottom:30px;
+}
+.like.social.media ul{
+  padding-left:10px;
+  float:left;
+  width:360px;
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  padding:10px;
+  margin-top:0;
+  margin-bottom:170px;
 }

@@ -163,6 +163,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* font */
 body {
   font-family:Verdana,Arial,sans-serif;
+  background: transparent url(../img/appeals/bg1.jpg) 0 0 repeat;
   /* background:transparent url('../img/grid.png') center 0 repeat-y; //debug */
 }
 /* containers background */
@@ -371,6 +372,32 @@ form .info {
 form .form-js-error + .info {
   margin-top: -38px;
 }
+/* donate button */
+a.button.donate:hover {
+  text-decoration:none;
+}
+a.button.donate {
+  width:245px;
+  font-size:1.4em;
+  display:block;
+  float:left;
+  background:#df0a24;
+  border:1px solid #e5364c;  
+  -webkit-box-shadow: 0 1px 5px 1px #AAA;
+  -moz-box-shadow: 0 1px 5px 1px #AAA;
+  box-shadow: 0 1px 5px 1px #AAA;
+  color:#FFF;
+  padding:5px 20px;
+  margin:0 0 15px 0;
+  text-shadow: 1px 1px 1px #000;
+  text-align:center;
+  background-image: linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, rgb(192,5,27)),color-stop(0.8, rgb(223,10,35)),color-stop(1, rgb(223,10,35)));
+}
 /* messages */
 ul.messages {
   padding:0;
@@ -516,7 +543,9 @@ table .notifications{
 .debug {
   margin-top:50px;
 }
-
+.footer a{
+  color:#FFF;
+}
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.

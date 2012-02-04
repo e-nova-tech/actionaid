@@ -30,35 +30,20 @@ App::uses('AppController', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
 class PagesController extends AppController {
-
-/**
- * Controller name
- *
- * @var string
- */
 	public $name = 'Pages';
-
-/**
- * Default helper
- *
- * @var array
- */
 	public $helpers = array('Html', 'Session');
-
-/**
- * This controller does not use a model
- *
- * @var array
- */
 	public $uses = array();
 
-/**
- * Displays a view
- *
- * @param mixed What page to display
- * @return void
- */
+  /**
+   * Displays a view
+   *
+   * @param mixed What page to display
+   * @return void
+   */
 	public function admin_display() {
+    $this->display();
+	}
+  public function display() {
 		$path = func_get_args();
 
 		$count = count($path);

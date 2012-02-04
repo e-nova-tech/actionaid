@@ -38,6 +38,8 @@ class AppController extends Controller {
     // autoset layout if prefix in url
     if(isset($this->request->params['admin'])  && $this->request->action != 'admin_login') {
       $this->layout = 'admin';
+    } else {
+      $this->Auth->allow($this->action);
     }
   }
 
