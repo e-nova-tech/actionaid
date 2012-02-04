@@ -27,6 +27,22 @@ $(function() {
     $('.radiolist .other.text').focus();
   });
 
+  // Select behavior for child sponsorship
+  var factor = 6000; // cost per children
+  $('select#NumberOfChildren').change(function() {
+    var str = "";
+    $("select#NumberOfChildren option:selected").each(function () {
+      str = $(this).text();
+    });
+    if (str == 1) {
+       $(".gift .inflect").text('child!');
+    } else {
+       $(".gift .inflect").text('children!');
+    }
+    $(".gift .amount").text(str*factor);
+    $("#giftamount").attr('value',str*factor);
+  });
+
   // Form autocomplete
   if($( ".city.autocomplete" ).length){
     var cache = {},lastXhr;

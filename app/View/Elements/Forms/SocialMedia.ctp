@@ -1,6 +1,7 @@
-<?php $here = Router::url(null,true); ?>
+<?php 
+  $here = (isset($url)) ? Router::url($url,true) : Router::url(null,true); 
+?>
   <div class="social media like">
-    <h3><?php echo __('Tell your friends!'); ?></h3>
     <ul>
       <li class="twitter">
         <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="actionaidindia" data-text="<?php echo $title_for_layout; ?>" data-url="<?php echo $here; ?>">Tweet</a>

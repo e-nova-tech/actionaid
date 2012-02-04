@@ -13,7 +13,7 @@
   $this->set('js_for_layout','sponsor-a-child');
 ?>
 <div class="gift form grid_5 push_7">
-  <h1 class="clearfix"><?php echo __('Sponsor a child today!'); ?></h1>
+  <h2><?php echo __('Sponsor a child today!'); ?></h2>
   <?php echo $this->element('messages'); ?>
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
   <fieldset class="gift">
@@ -23,7 +23,8 @@
     <legend><?php echo __('Enter your contact details'); ?></legend>
 <?php echo $this->element('Forms/ContactDetails'); ?>
   </fieldset>
-<?php echo $this->element('Forms/SecuritySeal'); ?>
+<p class="tax note"><?php echo __('Contributions to ActionAid Association are exempted from Tax under section 80G of Income TaxAct 1961.'); ?></p>
+<?php echo $this->element('Forms/SecuritySeal'); ?>    
   <?php echo $this->MyForm->submit(__('Donate Now!'),array('class'=>'donate submit')); ?>
 <?php echo $this->MyForm->end(); ?>
 </div>

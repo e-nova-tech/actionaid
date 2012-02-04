@@ -26,10 +26,9 @@ $config = array(
     'main' => array(
       'public_default' => array(
         'why' => array(
-          'name'    => __('Why donate?'),
-          'url'     => '/pages/faq',
-          'pattern' => '#/\/pages\/faq.*/iU',
-          'resource' => 'pages:faq'
+          'name'    => __('Home Page'),
+          'url'     => 'http://www.actionaid.org/india',
+          'resource' => 'external'
         ),
         'faq' => array(
           'name'    => __('Donation FAQ'),

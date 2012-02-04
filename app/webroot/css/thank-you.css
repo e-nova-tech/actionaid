@@ -1,0 +1,45 @@
+body {
+  background: transparent url(../img/appeals/sponsor-a-child.jpg) center 20px no-repeat;
+}
+.container.header { 
+  -webkit-box-shadow: 0 8px 6px -6px #333;
+  -moz-box-shadow: 0 8px 6px -6px #333;
+  box-shadow: 0 8px 6px -6px #333;
+  height:70px;
+  margin-bottom:20px;
+}
+/* thank you page */
+.thank-you h2 {
+ background:#df0a24;
+  border:1px solid #e5364c;  
+  -webkit-box-shadow: 0 1px 5px 1px #333;
+  -moz-box-shadow: 0 1px 5px 1px #333;
+  box-shadow: 0 1px 5px 1px #333;
+  color:#FFF;
+  padding:5px 20px;
+  margin:0 0 0 0;
+  text-shadow: 1px 1px 1px #000;
+  text-align:center;
+  background-image: linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, rgb(192,5,27)),color-stop(0.8, rgb(223,10,35)),color-stop(1, rgb(223,10,35)));
+}
+.thank-you p {
+  float:left;
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  font-size:1.3em;
+  padding:10px;
+  margin-bottom:30px;
+}
+.like.social.media ul{
+  padding-left:10px;
+  float:left;
+  width:360px;
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  padding:10px;
+  margin-top:15px;
+  margin-bottom:170px;
+}
