@@ -101,20 +101,3 @@ form .tax.note {
   text-shadow: 1px 1px 0px #FFF;
   margin:0 5px 5px 10px;
 }
-/* thank you page */
-.thank-you {
-  float:left;
-  background: transparent url(../img/layout/FFF70.png) top center repeat;
-  font-size:1.3em;
-  padding:10px;
-  margin-bottom:30px;
-}
-.like.social.media ul{
-  padding-left:10px;
-  float:left;
-  width:360px;
-  background: transparent url(../img/layout/FFF70.png) top center repeat;
-  padding:10px;
-  margin-top:0;
-  margin-bottom:170px;
-}
