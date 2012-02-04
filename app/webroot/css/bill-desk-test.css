@@ -1,0 +1,30 @@
+.response table,
+.response table tr td
+{
+  border:1px solid #fff;
+}
+
+.response table thead tr td{
+  background-color:#ccc;
+  font-weight:bold;
+}
+
+.response table tr td.alignRight{
+  text-align:right;
+}
+
+.response table tr td.alignLeft{
+  text-align:left;
+}
+
+.response table tr.odd{
+  background-color:#eee;
+}
+
+.scenario-number{
+  font-size:25px;
+  font-weight:bold;
+}
+
+
+
