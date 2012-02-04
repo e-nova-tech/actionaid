@@ -104,7 +104,6 @@ class BillDeskTestController extends AppController {
     // default : doesnt return any result
     switch($rand){
       case 0:
-        //shuffle($responses[5]['rsp']);
         $keys = array_keys( $responses[5]['rsp'] );
         shuffle( $keys );
         $responses[5]['rsp'] = array_merge( array_flip( $keys ) , $responses[5]['rsp'] ); 
@@ -120,9 +119,7 @@ class BillDeskTestController extends AppController {
         $responses[5]['rsp'] = array(); // empty array
         break;
     }
-    
     $this->set("responses", $responses);
     $this->set("help", $help);
-    
   }
 }
