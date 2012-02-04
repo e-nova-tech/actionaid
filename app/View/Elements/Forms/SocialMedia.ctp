@@ -1,4 +1,6 @@
-<?php $here = Router::url(null,true); ?>
+<?php 
+  $here = (isset($url)) ? Router::url($url,true) : Router::url(null,true); 
+?>
   <div class="social media like">
     <ul>
       <li class="twitter">
