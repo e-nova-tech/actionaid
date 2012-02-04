@@ -96,14 +96,18 @@ class BillDeskTestController extends AppController {
     $responses[5]['rsp'] = $response;
     $responses[5]['ru'] = $post['RU'];
     
-    $rand = rand(0, 5);
+    $rand = rand(0, 3);
+
     // 0 : shuffle the result array
     // 1 : return an unknown code
     // 2 : forget the merchant id and the customer id
     // default : doesnt return any result
     switch($rand){
       case 0:
-        shuffle($responses[5]['rsp']);
+        //shuffle($responses[5]['rsp']);
+        $keys = array_keys( $responses[5]['rsp'] );
+        shuffle( $keys );
+        $responses[5]['rsp'] = array_merge( array_flip( $keys ) , $responses[5]['rsp'] ); 
         break;
       case 1:
         $responses[5]['rsp']['AuthStatus'] = "AWormInTheSteack";
