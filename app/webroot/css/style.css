@@ -377,6 +377,7 @@ a.button.donate:hover {
   text-decoration:none;
 }
 a.button.donate {
+  font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;
   width:245px;
   font-size:1.4em;
   display:block;
