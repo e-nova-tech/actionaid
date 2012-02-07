@@ -68,8 +68,8 @@ $config = array(
   // AUTHENTICATION
   'App.auth' => array(
     'loginAction' => array('controller' => 'users', 'action' => 'admin_login', 'admin' => true, 'prefix' => 'admin'),
-    'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
-    'logoutRedirect' => '/gifts/add',
+    'loginRedirect' => '/admin/home',
+    'logoutRedirect' => '/',
   ),
   // default gift configuration
   'App.gift' => array(
@@ -99,7 +99,8 @@ $config = array(
   ),
   // google analytics
   'App.google_analytics' => array(
-     'UA' => 'UA-XXXXX-X',  //  UA-20940239-1 ?
+     'enable' => true,
+     'UA' => 'UA-20940239-1',
      'validation_token' => '',
      'validate' => false 
   ),

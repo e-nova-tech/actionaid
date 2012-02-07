@@ -10,7 +10,6 @@
  */
   $this->set('title_for_layout','Sponsor a child today!');
   $this->set('css_for_layout','sponsor-a-child');
-  $this->set('js_for_layout','sponsor-a-child');
 ?>
 <div class="gift form grid_5 push_7">
   <h2><?php echo __('Sponsor a child today!'); ?></h2>
