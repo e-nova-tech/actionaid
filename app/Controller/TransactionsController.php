@@ -38,7 +38,7 @@ class TransactionsController extends AppController {
       ));
       $error = (!isset($gift) || empty($gift));
     }
-    if ($error) {      
+    if ($error) { 
       $this->Message->error(__('Sorry something went wrong, please try again later'), array(
         'code' => 'INVALID_GIFT',
         //'redirect' => '/'
