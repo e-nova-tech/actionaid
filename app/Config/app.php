@@ -85,11 +85,16 @@ $config = array(
   ),
   // payment gateway configuration
   'App.payment_gateway' => array(
-    'default' => 'billdesk',
+    'default' => 'debug',
     'billdesk' => array(
       'merchant_id' => 'ACTIONAID',
       'checksum_key' => '',
       'payment_url' => 'https://www.billdesk.com/pgidsk/pgmerc/ACTIONAIDPaymentoption.jsp'
+    ),
+    'debug'=> array(
+      'merchant_id' => 'merchantIdDebug',
+      'checksum_key' => 'TESTCHECKSUM',
+      'payment_url' => 'billDeskTest/simulatePayment'
     )
   ),
   // google analytics
