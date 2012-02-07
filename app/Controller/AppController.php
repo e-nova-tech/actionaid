@@ -57,15 +57,13 @@ class AppController extends Controller {
     return true;
   }
 
-  public function json_validation_rules() {
-  }
   /**
    * Render Validation Rules or messages in Json for js validation purposes
    * @param array model names (must be accessible from current controller)
    * @param string type, rules or messages
    * @access protected
    */
-  function _json_validation($type='rules',$models=array()) {
+  function json_validation($type='rules',$models=array()) {
     $this->autoRender = false;
     
     // nothing to render

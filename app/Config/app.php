@@ -68,8 +68,8 @@ $config = array(
   // AUTHENTICATION
   'App.auth' => array(
     'loginAction' => array('controller' => 'users', 'action' => 'admin_login', 'admin' => true, 'prefix' => 'admin'),
-    'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
-    'logoutRedirect' => '/gifts/add',
+    'loginRedirect' => '/admin/home',
+    'logoutRedirect' => '/',
   ),
   // default gift configuration
   'App.gift' => array(

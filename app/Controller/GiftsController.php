@@ -91,7 +91,7 @@ class GiftsController extends AppController {
   function json_validation($type='rules',$models=array('Gift','Person')) {
     parent::json_validation($type,$models);
   }
-  
+
   /**
    * Gifts Index (Admin)
    * @return void
@@ -102,7 +102,7 @@ class GiftsController extends AppController {
       'fields' => array('id','amount','currency','serial','status','modified'),
       'contain' => array(
          'Person' => array('title','firstname','lastname'),
-         'Appeal' => array('name')
+         'Appeal' => array('title')
       )
     );
     $this->set('gifts',$this->paginate('Gift'));
@@ -114,7 +114,7 @@ class GiftsController extends AppController {
       'fields' => array('id','amount','currency','serial','status','modified'),
       'contain' => array(
          'Person' => array('title','firstname','lastname','address1','address2','city','pincode','state','country','email','phone','pan','dob'),
-         'Appeal' => array('name','slug')
+         'Appeal' => array('title','slug')
       ),
       'conditions' => array('Gift.id' => $id), //array of conditions
     );

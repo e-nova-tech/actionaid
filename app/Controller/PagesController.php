@@ -41,8 +41,21 @@ class PagesController extends AppController {
    * @return void
    */
 	public function admin_display() {
-    $this->display();
+		$path = func_get_args();
+
+		$count = count($path);
+		if (!$count) {
+			$this->redirect('/');
+		}
+		$page = $title_for_layout = null;
+
+		if (!empty($path[0])) {
+			$page = 'admin'.$path[0];
+		}
+		$this->set(compact('page', 'subpage', 'title_for_layout'));
+		$this->render($page);
 	}
+
   public function display() {
 		$path = func_get_args();
 
