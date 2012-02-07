@@ -61,11 +61,11 @@ class Gift extends AppModel {
   }
 
   function checkMinimum($check) {
-     return $check['amount'] >= Configure::read('App.gift.minimum_amount');
+     return $check['amount'] >= Configure::read('App.gift.minimumAmount');
   }
 
   function checkMaximum($check) {
-     return $check['amount'] < Configure::read('App.gift.maximum_amount');
+     return $check['amount'] < Configure::read('App.gift.maximumAmount');
   }
 }
 

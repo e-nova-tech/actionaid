@@ -39,9 +39,9 @@ class GiftsController extends AppController {
       // for pre-validation transformation purposes
       $data = $this->request->data;
       // format gift data
-      if (isset($data['Gift']['other_amount']) && isset($data['Gift']['other_amount']) &&
-          !empty($data['Gift']['other_amount']) && $data['Gift']['amount']=='other') {
-        $data['Gift']['amount'] = $data['Gift']['other_amount'];
+      if (isset($data['Gift']['otherAmount']) && isset($data['Gift']['otherAmount']) &&
+          !empty($data['Gift']['otherAmount']) && $data['Gift']['amount']=='other') {
+        $data['Gift']['amount'] = $data['Gift']['otherAmount'];
       }
       $data['Gift']['appeal_id'] = $appeal['Appeal']['id'];
       $data['Gift']['status'] = 'pending';
@@ -66,7 +66,8 @@ class GiftsController extends AppController {
           $data['Gift']['person_id'] = $person['Person']['id'];
           $gift = $this->Gift->save($data);
           if(isset($gift) && !empty($gift)) {
-          $this->Message->notice(__('Thank you your gift was saved'));
+            //$this->Message->notice(__('Thank you your gift was saved'));
+            $this->redirect('');
           } else {
             $this->Message->error(__('Sorry something went wrong please try again later.'));
           }
@@ -76,9 +77,9 @@ class GiftsController extends AppController {
 
     // get the list of states & countries for the select lists
     $states = $this->Gift->Person->State->getListByCountryCode(
-      Configure::read('App.gift.default_country'));
+      Configure::read('App.gift.defaultCountry'));
     $countries = $this->Gift->Person->Country->getListByCountryCode(
-      Configure::read('App.gift.supported_countries'));
+      Configure::read('App.gift.supportedCountries'));
 
     $this->set(compact('countries','states','appeal'));
     // See /Views/Form/[slug]

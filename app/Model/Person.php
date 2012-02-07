@@ -227,7 +227,7 @@ class Person extends AppModel {
     $currentYear = new DateTime(date('Y-m-d'));
     $birthYear = new DateTime($check['dob']);
     $interval = $currentYear->diff($birthYear);
-    return ($interval->y >= Configure::read('App.gift.minimum_age')) ;
+    return ($interval->y >= Configure::read('App.gift.minimumAge')) ;
   }
 
   function isNotTooOld($check) {
