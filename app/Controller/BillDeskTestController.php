@@ -29,9 +29,11 @@ class BillDeskTestController extends AppController {
    */
   public function simulatePayment() {
     $post = $this->request->data;
-    $post['txtCustomerId'] = 'test';
+    
+    // Debug Data
+    /*$post['txtCustomerId'] = 'test';
     $post['txtTxnAmount'] = '3000';
-    $post['RU'] = 'transactions/response';
+    $post['RU'] = 'transactions/response';*/
     
     // build the help
     $help = array();
@@ -44,7 +46,7 @@ class BillDeskTestController extends AppController {
     // the array below contains values that would be returned ideally in case of success
     $response = array(
       "MerchantID" => Configure::read('App.payment_gateway.billdesk.merchant_id'),
-      "CustomerID" => "{$post['txtCustomerId']}",
+      "CustomerID" => "{$post['txtCustomerID']}",
       "TxnReferenceNo" => "MSBI0412001668",
       "BankReferenceNo" => "NA",
       "TxnAmount" => "{$post['txtTxnAmount']}",

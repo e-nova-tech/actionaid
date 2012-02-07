@@ -19,7 +19,7 @@
       <tr>
          <td width="10%"><span class="scenario-number"><?php echo $n ?></span></td>
          <td width="20%">
-          <form method="post" action="<?php echo $response['ru'] ?>">
+          <form method="get" action="<?php echo $response['ru'] ?>">
             <input type="hidden" name="msg" value="<?php echo implode("|", $response['rsp']); ?>" />
             <input type="submit" value="scenario <?php echo $n ?>">
           </form>

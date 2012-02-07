@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Transactions Controller
  *
@@ -66,15 +67,31 @@ class TransactionsController extends AppController {
    * Gets the response from the payment gateway, analyzes and update db tables accordingly
    */
   public function response(){
-    $rspMsg = null; // TODO : get the string from the response (post or get, we dont know yet)
+    $rspMsgTxt = $this->request->query['msg'];
     
-    // Test
-    $rspMsg = "MERCHANTID|1073234|MSBI0412001668|NA|00002400.30|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-200416:08:56|0300|NA|DA01017224|AXPIY|NA|NA|NA|NA|NA|NA|NA|3734835005";
-    $rspMsg = $this->Transaction->formatResponseString($rspMsg);
+    // The line below is used for debugging
+    //$rspMsgTxt = "MERCHANTID|1073234|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56|0300|NA|DA01017224|AXPIY|NA|NA|NA|NA|NA|NA|NA|3734835005";
+    //$rspMsgTxt = "MERCHANTID|1073234|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56";
+    $rspMsg = $this->Transaction->formatResponseString($rspMsgTxt);
+    pr($rspMsg);
+
     
-    // TODO : validate data
+    // TODO : validate data format
+    $regexp = "/^[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[0-9]{3,8}\|[A-Z]{3}\|[A-Z0-9]+\|[a-zA-Z0-9]+\|[A-Z]{3}\|.+\|.+\|.+\|.+\|[0-9]{1,2}[-][0-9]{1,2}[-][0-9]{4} [0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}\|[0-9A-Z]{2,4}\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+$/";
+    //$regexp = "/^[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[a-zA-Z0-9]+\|[0-9]{3,8}\|[A-Z]{3}\|[A-Z0-9]+\|[a-zA-Z0-9]+\|[A-Z]{3}\|.+\|.+\|.+\|.+\|[0-9]{1,2}[-][0-9]{1,2}[-][0-9]{4} [0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/";
+    if(preg_match($regexp, $rspMsgTxt)){
+      echo "validate";
+      // TODO : Check if the Gift id is valid
+      $this->Transaction->Gift->findAll();
+      
+    }
+    else{
+      echo "doesnt validate";
+    }
 
     $authStatus = $this->Transaction->getAuthStatusDescription($rspMsg['AuthStatus']);
+    pr($authStatus);
+    
 
     // TODO : Update transaction in DB
 
