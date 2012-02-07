@@ -73,31 +73,41 @@ $config = array(
   ),
   // default gift configuration
   'App.gift' => array(
-    'preselected_amounts' => array(3000,6000,12000),
-    'allow_other_amount' => true,
-    'default_amount' => 6000,
-    'minimum_amount' => 1,
-    'maximum_amount' => 4294967295,
-    'minimum_age' => 18,
-    'maximum_age' => 115,
-    'default_country' => 'IN',             // country ISO 3166-1 Alpha 2 code
-    'supported_countries' => array('IN')  // array of codes or *
+    'preselectedAmounts' => array(3000,6000,12000),
+    'allowOtherAmount' => true,
+    'defaultAmount' => 6000,
+    'minimumAmount' => 1,
+    'maximumAmount' => 4294967295,
+    'minimumAge' => 18,
+    'maximumAge' => 115,
+    'defaultCountry' => 'IN',             // country ISO 3166-1 Alpha 2 code
+    'supportedCountries' => array('IN')  // array of codes or *
   ),
   // payment gateway configuration
   'App.payment_gateway' => array(
-    'default' => 'billdesk',
-    'billdesk' => array(
-      'merchant_id' => 'ACTIONAID',
-      'checksum_key' => '',
-      'payment_url' => 'https://www.billdesk.com/pgidsk/pgmerc/ACTIONAIDPaymentoption.jsp'
+    'default' => 'billdesk_debug',
+    'billdesk' => array (
+      'merchantId' => 'ACTIONAID',
+      'checksumKey' => 'xiwLsj9pytFv',
+      'paymentUrl' => 'https://www.billdesk.com/pgidsk/pgmerc/ACTIONAIDPaymentoption.jsp',
+      'returnUrl' => '/transactions/response'
+    ),
+    'billdesk_debug' => array (
+      'merchantId' => 'ACTIONAID',
+      'checksumKey' => 'xiwLsj9pytFv',
+      'paymentUrl' => '/BillDeskTest/simulatePayment',
+      'returnUrl' => '/transactions/response'
     )
   ),
   // google analytics
-  'App.google_analytics' => array(
+  'App.analytics' => array(
      'enable' => true,
-     'UA' => 'UA-20940239-1',
-     'validation_token' => '',
-     'validate' => false 
+     'default' => 'google',
+     'google' => array(
+       'UA' => 'UA-20940239-1',
+       'validationToken' => '',
+       'validate' => false 
+     )
   ),
   /*
   // 3rd Party - Recapcha
