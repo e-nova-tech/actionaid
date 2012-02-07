@@ -41,6 +41,8 @@ class AppController extends Controller {
     } else {
       $this->Auth->allow($this->action);
     }
+    // Hidding PHP version number
+    $this->response->header('X-Powered-By', 'PHP'); 
   }
 
   /**
@@ -132,6 +134,7 @@ class AppController extends Controller {
       // render
       $this->set('validates',$results);
       $this->layout = 'json';
+      $this->response->header('Content-Type', 'application/json'); 
       $this->render('/Validates/json_'.$type);
     }
   }
