@@ -68,7 +68,7 @@ class TransactionsController extends AppController {
         'pincode' => $gift['Person']['pincode']
       )
     );
-    $this->layout = false;
+    $this->layout = 'redirect';
     $this->set('transaction', $t);
   }
 
