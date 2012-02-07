@@ -14,7 +14,7 @@ class AppController extends Controller {
     'Html','Form','Paginator','Session',  // default
     'Cache', 
     'MyHtml','MyForm','MyPaginator',      // redefinitions
-    'Gift','Menu','Js','BillDesk'         // custom
+    'Gift','Menu','Js'//,'BillDesk'         // custom
     /*,'Tidy' // buggy with script! */
   );
 

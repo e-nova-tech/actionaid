@@ -38,7 +38,7 @@
     )); ?>
     <?php echo $this->MyForm->input('Person.dob', array(
       'label'=>__('Date of birth'), 'class'=>'required', 'type'=>'date','separator'=>' / ',
-      'dateFormat' => 'DMY','monthNames'=>false, 'minYear' => date('Y')-112, 'maxYear' => date('Y') - Configure::read('App.gift.minimum_age')
+      'dateFormat' => 'DMY','monthNames'=>false, 'minYear' => date('Y')-112, 'maxYear' => date('Y') - Configure::read('App.gift.minimumAge')
     )); ?>
     <?php echo $this->MyForm->input('Person.pan', array(
       'label'=>__('Pan No.'), 'class'=>'required',

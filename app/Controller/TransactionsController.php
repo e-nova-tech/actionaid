@@ -10,7 +10,7 @@
  */
 class TransactionsController extends AppController {
   public $name = 'Transactions';
-  
+
   function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->allow('response', 'request');
@@ -21,19 +21,47 @@ class TransactionsController extends AppController {
    * @param POST['orderId'] = order id : must be unique
    * @param POST['amount'] = amount in rupees
    */
-  public function request(){
-    $confPg = &Configure::read('App.payment_gateway');
-    
+  public function request($giftId=null){
+    // check if the gift is valid
+    $error = false;
+    if (Common::isUuid($giftId)) {
+      $this->Gift = Common::getModel('Gift');
+      $gift = $this->Gift->find('first', array('conditions' => array(
+        'id' => $giftId
+        // todo check status
+      )));
+      $error = (!isset($gift) || empty($gift));
+    }
+    if ($error) {      
+      $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+        'code' => 'INVALID_GIFT',
+        //'redirect' => '/'
+      ));
+    }
+
+    // get payment gateway config
+    $pg = &Configure::read('App.payment_gateway.default');
+    $pg = &Configure::read('App.payment_gateway.'.$pg);
+    if (!empty($pg)) {
+      $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+        'code' => 'MISSING_PAYMENT_GATEWAY',
+        //'redirect' => '/'
+      ));
+    }
+
+    // define the transaction
+    $t['Transaction'] = array(
+      'orderId'    => $gift['Gift']['serial'],
+      'amount'     => $gift['Gift']['amount'],
+      'currency'   => $gift['Gift']['currency'],
+      'paymentUrl' => $pg['paymentUrl'],
+      'returnUrl'  => $pg['returnUrl'],
+      'extraInfo'  => array()
+    );
     $this->layout = false;
-    $this->set("pg_params", array(
-      'targetUrl' => $confPg['billdesk']['target_url'],
-      'orderId'   => '123',
-      'amount'    => '5000',
-      'returnUrl' => 'transactions/response',
-      'extraInfo' => array()
-    ));
+    $this->set('transaction', $t);
   }
-  
+
   /**
    * Gets the response from the payment gateway, analyzes and update db tables accordingly
    */

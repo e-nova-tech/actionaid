@@ -19,12 +19,12 @@ class BillDeskHelper extends AppHelper {
       }
     }
     $form .= "</form>\n\n";
-    $form .= "<script language=\"javascript\">\n"
+/*    $form .= "<script language=\"javascript\">\n"
              .'//$(function(){'."\n"
                 .'document.billDeskTransactionForm.submit();'."\n"
              .'//});'."\n"
              .'</script>';
-             
+*/             
     return $form;
   }
 }

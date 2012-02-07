@@ -16,8 +16,7 @@ class BillDeskTestController extends AppController {
     parent::beforeFilter();
     $this->Auth->allow('simulatePayment');
   }
-  
-  
+
   /**
    * Simulate a payment on the payment gateway system
    * return a form with buttons to simluate the different scenarios
