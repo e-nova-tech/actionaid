@@ -1,7 +1,7 @@
 <?php
 // app/View/Helper/BillDeskHelper.php
 class BillDeskHelper extends AppHelper { 
-
+  
   /**
    * Generate an autosubmitted form with the info given as params
    * 
