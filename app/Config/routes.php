@@ -45,8 +45,8 @@
 	Router::connect('/admin/:controller/:action', array('admin' => true, 'prefix'=>'admin'));  
 	Router::connect('/admin/:controller/:action/*', array('admin' => true, 'prefix'=>'admin')); 
 	// transactions stuffs
-	Router::connect('/billDeskTest/:action', array('controller' => 'billDeskTest'));
-  Router::connect('/transactions/:action', array('controller' => 'transactions')); 
+	Router::connect('/billDeskTest/:action/*', array('controller' => 'billDeskTest'));
+  Router::connect('/transactions/:action/*', array('controller' => 'transactions')); 
   // contact form & pages
 	Router::connect('/contact', array('controller' => 'contacts', 'action' => 'index'));
 	Router::connect('/p/*', array('controller' => 'pages', 'action' => 'display'));  
