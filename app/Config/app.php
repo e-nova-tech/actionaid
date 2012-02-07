@@ -94,7 +94,8 @@ $config = array(
   ),
   // google analytics
   'App.google_analytics' => array(
-     'UA' => 'UA-XXXXX-X',  //  UA-20940239-1 ?
+     'enable' => true,
+     'UA' => 'UA-20940239-1',
      'validation_token' => '',
      'validate' => false 
   ),
