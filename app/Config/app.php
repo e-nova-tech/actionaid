@@ -95,7 +95,7 @@ $config = array(
     'billdesk_debug' => array (
       'merchantId' => 'ACTIONAID',
       'checksumKey' => 'xiwLsj9pytFv',
-      'paymentUrl' => '/BillDeskTest/simulatePayment',
+      'paymentUrl' => '/billdesktest/simulatePayment',
       'returnUrl' => '/transactions/response'
     )
   ),

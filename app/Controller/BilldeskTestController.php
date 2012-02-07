@@ -9,8 +9,7 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-class BillDeskTestController extends AppController {
-  public $name = 'BillDeskTest';
+class BilldeskTestController extends AppController {
   
   function beforeFilter() {
     parent::beforeFilter();
@@ -45,7 +44,7 @@ class BillDeskTestController extends AppController {
 
     // the array below contains values that would be returned ideally in case of success
     $response = array(
-      "MerchantID" => Configure::read('App.payment_gateway.billdesk.merchant_id'),
+      "MerchantID" => Configure::read('App.payment_gateway.billdesk_debug.merchantId'),
       "CustomerID" => "{$post['txtCustomerID']}",
       "TxnReferenceNo" => "MSBI0412001668",
       "BankReferenceNo" => "NA",

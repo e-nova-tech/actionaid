@@ -27,10 +27,15 @@ class TransactionsController extends AppController {
     $error = false;
     if (Common::isUuid($giftId)) {
       $this->Gift = Common::getModel('Gift');
-      $gift = $this->Gift->find('first', array('conditions' => array(
-        'id' => $giftId
-        // todo check status
-      )));
+      $gift = $this->Gift->find('first', array(
+        'contain' => array(
+          'Person' => array('id','firstname','lastname','city','pincode')
+        ),  
+        'conditions' => array(
+          'Gift.id' => $giftId
+          // todo check status
+        )
+      ));
       $error = (!isset($gift) || empty($gift));
     }
     if ($error) {      
@@ -57,7 +62,11 @@ class TransactionsController extends AppController {
       'currency'   => $gift['Gift']['currency'],
       'paymentUrl' => $pg['paymentUrl'],
       'returnUrl'  => $pg['returnUrl'],
-      'extraInfo'  => array()
+      'extraInfo'  => array(
+        'name' => $gift['Person']['firstname'].' '.$gift['Person']['lastname'],
+        'city' => $gift['Person']['city'],
+        'pincode' => $gift['Person']['pincode']
+      )
     );
     $this->layout = false;
     $this->set('transaction', $t);
