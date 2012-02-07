@@ -20,28 +20,32 @@ $(function() {
   };
 
   // Select "other" radio button when click on text input and vice versa
-  $('.radiolist .other.text').click(function() {
-    $('.radiolist .other.radio').attr('checked', 'checked');
-  });
-  $('.radiolist .other.radio').click(function() {
-    $('.radiolist .other.text').focus();
-  });
+  if($('.radiolist .other.text').length){
+    $('.radiolist .other.text').click(function() {
+      $('.radiolist .other.radio').attr('checked', 'checked');
+    });
+    $('.radiolist .other.radio').click(function() {
+      $('.radiolist .other.text').focus();
+    });
+  }
 
   // Select behavior for child sponsorship
-  var factor = 6000; // cost per children
-  $('select#NumberOfChildren').change(function() {
-    var str = "";
-    $("select#NumberOfChildren option:selected").each(function () {
-      str = $(this).text();
+  if($('select#NumberOfChildren').length){
+    var factor = 6000; // cost per children
+    $('select#NumberOfChildren').change(function() {
+      var str = "";
+      $("select#NumberOfChildren option:selected").each(function () {
+        str = $(this).text();
+      });
+      if (str == 1) {
+         $(".gift .inflect").text('child!');
+      } else {
+         $(".gift .inflect").text('children!');
+      }
+      $(".gift .amount").text(str*factor);
+      $("#giftamount").attr('value',str*factor);
     });
-    if (str == 1) {
-       $(".gift .inflect").text('child!');
-    } else {
-       $(".gift .inflect").text('children!');
-    }
-    $(".gift .amount").text(str*factor);
-    $("#giftamount").attr('value',str*factor);
-  });
+  }
 
   // Form autocomplete
   if($( ".city.autocomplete" ).length){
