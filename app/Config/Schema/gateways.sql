@@ -1,14 +1,7 @@
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `actionaidindia_donate`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `gateway`
+-- Table structure for table `gateways`
 --
 
 CREATE TABLE IF NOT EXISTS `gateways` (
