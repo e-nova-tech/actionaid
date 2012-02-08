@@ -1,0 +1,26 @@
+/* font */
+body {
+  font-family:Verdana,Arial,sans-serif;
+}
+.spinner-wrapper {
+  width:400px;
+  margin:auto;
+}
+.spinner {
+  margin-top:200px;
+  background:transparent url(../img/layout/spinner.gif) 0 2px no-repeat;
+  padding-left:50px;
+  font-size:1.1em;
+}
+input[type=submit] {
+  color:#ED1C24;
+  background:#FFF;
+  border:0;
+  font-size:1.1em;
+  padding:5px 0 0 0;
+  margin:0;
+}
+input[type=submit]:hover {
+  cursor:pointer;
+  border-bottom:1px solid #ED1C24;
+}
