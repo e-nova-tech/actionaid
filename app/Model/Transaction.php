@@ -10,78 +10,69 @@
  */
 class Transaction extends AppModel {
   public $name = 'Transaction';
-  var $useTable = false;
   
-  public function formatResponseString($string){
-    $rsp=explode("|", trim($string));
-    $mappingTable = array(
-      "MerchantID",
-      "CustomerID",
-      "TxnReferenceNo",
-      "BankReferenceNo",
-      "TxnAmount",
-      "BankID",
-      "BankMerchantID",
-      "TxnType",
-      "CurrencyName",
-      "ItemCode",
-      "SecurityType",
-      "SecurityID",
-      "SecurityPassword",
-      "TxnDate",
-      "AuthStatus",
-      "SettlementType",
-      "AdditionalInfo1",
-      "AdditionalInfo2",
-      "AdditionalInfo3",
-      "AdditionalInfo4",
-      "AdditionalInfo5",
-      "AdditionalInfo6",
-      "AdditionalInfo7",
-      "ErrorStatus",
-      "ErrorDescription",
-      "CheckSum"
+  // see _getValidationRules
+  var $validate = array();
+  
+  var $hasOne = "BilldeskTransactionResponse";
+  var $belongsTo = "Gift";
+  
+  /**
+   * Constructor
+   * @link http://api20.cakephp.org/class/app-model#method-AppModel__construct
+   */
+  public function __construct($id = false, $table = null, $ds = null) {
+    parent::__construct($id, $table, $ds);
+    $this->validate = Transaction::getValidationRules();
+  }
+
+  static function getValidationRules($context=null) {
+    return array(
+      'type' => array(
+        'required'   => array(
+          'rule' => array('notEmpty'),
+          'required' => true,
+          'allowEmpty' => false,
+          'message' => __('Please select a type')
+        ),
+        'enum' => array(
+          'rule' => array('custom', '/^(request|response)$/'),
+          'message' => __('type should be either request or response')
+        )
+      ),
+      'status' => array(
+        'required'   => array(
+          'rule' => array('notEmpty'),
+          'required' => true,
+          'allowEmpty' => false,
+          'message' => __('Please select a status')
+        ),
+        'enum' => array(
+          'rule' => array('custom', '/^(success|error)$/'),
+          'message' => __('status should be either success or error')
+        )
+      ),
+      'status_code' => array(
+        'pattern' => array( 
+          'rule' => array ('custom', '/^[A-Z0-9]{1,4}$/'),
+          'message' => __('Please enter a valid status code : only digits are allowed')
+        )
+      ),
+      'ip' => array(
+        'pattern' => array( 
+          'rule' => array ('custom', '/^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:[.](?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$/'),
+          'message' => __('Please enter a valid ip address')
+        )
+      ),
+      'data' => array(
+        'required'   => array(
+          'rule' => array('notEmpty'),
+          'required' => true,
+          'allowEmpty' => false,
+          'message' => __('Please select a status')
+        )
+      )
     );
-    
-    // Replace the numeric keys with associative keys
-    foreach($rsp as $key=>$value){
-      $newKey = $mappingTable[$key];
-      unset($rsp[$key]);
-      $rsp[$newKey] = $value;
-    }
-    
-    return $rsp;
   }
-  
-  public function getAuthStatusDescription($status){
-    $authStatuses = array(
-      "0300" => array(
-          "status" => "success",
-          "description" => "Success"
-          ),
-      "0399" => array(
-          "status" => "rejected",
-          "description" => "Invalid Authentication at Bank"
-          ),
-      "NA" => array(
-          "status" => "rejected",
-          "description" => "Invalid Input in the Request Message"
-          ),
-      "0002" => array(
-          "status" => "pending",
-          "description" => "BillDesk is waiting for Response from Bank"
-          ),
-      "0001" => array(
-          "status" => "rejected",
-          "description" => "Error at BillDesk"
-          )
-       );
-     
-     if(key_exists($status, $authStatuses))
-        return $authStatuses[$status];
-     
-     return null;
-  }
-  
 }
 

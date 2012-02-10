@@ -18,7 +18,8 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `created_by` char(36) CHARACTER SET utf8 DEFAULT NULL,
   `modified` datetime NOT NULL,
   `modified_by` char(36) CHARACTER SET utf8 DEFAULT NULL,
-  `IP` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `ip` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `data` TEXT CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`serial`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
