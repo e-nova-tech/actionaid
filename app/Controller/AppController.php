@@ -20,7 +20,8 @@ class AppController extends Controller {
 
   public $components = array(
     'Session', 'Paginator', 'Auth',  // default
-    'Cookie', 
+    'Cookie',
+    'RequestHandler', 
     'Message', 'Mailer'           // custom
   );
 
