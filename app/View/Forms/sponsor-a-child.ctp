@@ -13,7 +13,6 @@
 ?>
 <div class="gift form grid_5 push_7">
   <h2><?php echo __('Sponsor a child today!'); ?></h2>
-  <?php echo $this->element('messages'); ?>
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
   <fieldset class="gift">
 <?php echo $this->element('Forms/ChildSponsorSelect'); ?>

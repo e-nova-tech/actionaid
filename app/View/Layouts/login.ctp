@@ -11,11 +11,18 @@
 ?>
 <?php echo $this->element('Head' . DS . 'Doctype'); ?>
 <head>
+  <base href='<?php echo Router::url('/',true); ?>'> 
   <title><?php echo $title_for_layout; ?></title>
-<?php echo $this->element('Head'); ?>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> 
+  <meta name="robots" content="noindex,nofollow"> 
+  <link href="favicon.ico" type="image/x-icon" rel="icon"> 
+  <link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link rel="stylesheet" href="css/grid.css"> 
+  <link rel="stylesheet" href="css/style.css"> 
+  <link rel="stylesheet" href="css/login.css"> 
 </head>
 <body>
-<?php echo $this->element('messages',array('class' => 'inline')); ?>
 <div class="container header clearfix">
 <div class="container_12">
   <!-- Header -->
@@ -28,6 +35,10 @@
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
+<?php echo $this->element('Menu', array(
+  'id' => 'sub.admin_authentication',
+  'options'=> array('class'=>'menu with_tabs top')
+)); ?>
 <?php echo $content_for_layout; ?>
   </div>
 </div>

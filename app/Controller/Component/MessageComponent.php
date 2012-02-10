@@ -51,8 +51,6 @@ class MessageComponent extends Component {
    */
   function error($message, $options=array()) {
     $default_options = array(
-      'code' => null, 
-      'redirect' => null, 
       'fatal' => false
     );
     $options = array_merge($default_options, $options);
@@ -124,13 +122,14 @@ class MessageComponent extends Component {
     }
 
     // Need some directions?
-    if(!empty($options['redirect']) || (is_bool($options['redirect']) && $options['redirect']) || $this->autoRedirect) {
-      if(!is_string($options['redirect']) && !is_array($options['redirect'])) {
+    if(isset($options['redirect'])) {
+      if(is_bool($options['redirect'])) {
         $options['redirect'] = $this->Controller->referer();
+      } elseif(is_string($options['redirect']) || is_array($options['redirect'])) {
+        //TODO use history if no referrer
+        $this->Controller->redirect($options['redirect']);
+        exit;
       }
-      //TODO use history if no referrer
-      $this->Controller->redirect($options['redirect']);
-      exit;
     }
   }
 

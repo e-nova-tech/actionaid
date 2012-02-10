@@ -9,6 +9,7 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+App::uses('CakeEmail', 'Network/Email');
 class ContactsController extends AppController {
   var $name = 'Contacts';
 
@@ -29,14 +30,25 @@ class ContactsController extends AppController {
     if (!empty($this->request->data)) {
       $this->Contact->set($this->request->data);
       if ($this->Contact->validates()) {
-        $this->Email->to = Configure::read('App.emails.general.email');
-        $this->Email->replyTo = $this->data['Contact']['email'];
-        $this->Email->from = $this->data['Contact']['name'].' <'.$this->data['Contact']['email'].'>';
-        $this->Email->subject = '[ActionAidIndia] '.$this->data['Contact']['subject'];
-        if (Configure::read('Debug') > 1) {
-          $this->Email->delivery = 'debug';
+        $this->Mailer->email = new CakeEmail(Configure::read('App.emails.delivery'));
+        $this->Mailer->email->from(array($this->data['Contact']['email'] => $this->data['Contact']['name']));
+        switch ($this->data['Contact']['subject']) {
+          case "child sponsorship":
+          case "about my donation": 
+            $this->Mailer->email->to(Configure::read('App.emails.fundraising.email'));
+          break;
+          case "general inquiry":
+          case "technical issue":
+          case "others":
+            $this->Mailer->email->to(Configure::read('App.emails.general.email'));
+          break;
         }
-        if ($this->Email->send($this->data['Contact']['message'])) {
+        $this->Mailer->email->subject('[ActionAidIndia] '.$this->data['Contact']['subject']);
+        $this->Mailer->email->template('enquiry');
+        $this->Mailer->email->emailFormat('text');
+        $this->Mailer->email->viewVars(array('contact' => $this->data));
+        //pr($this->Mailer->send()); //die;
+        if ($this->Mailer->send()) {
           $this->Message->success(
             __('Thank you for contacting us. We will get in touch with you shortly.'));
         } else {

@@ -14,14 +14,14 @@ class AppController extends Controller {
     'Html','Form','Paginator','Session',  // default
     'Cache', 
     'MyHtml','MyForm','MyPaginator',      // redefinitions
-    'Gift','Menu','Js'//,'BillDesk'         // custom
+    'Gift','Menu','Js'//,'BillDesk'       // custom
     /*,'Tidy' // buggy with script! */
   );
 
   public $components = array(
     'Session', 'Paginator', 'Auth',  // default
-    'Cookie', 'Email',
-    'Message'                        // custom
+    'Cookie', 
+    'Message', 'Mailer'           // custom
   );
 
   /**

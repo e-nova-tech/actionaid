@@ -12,7 +12,6 @@
   $this->set('js_for_layout','sponsor-a-child');
 ?>
 <div class="gift form grid_8 alpha">
-  <?php echo $this->element('messages'); ?>
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
   <fieldset class="gift">
     <legend><?php echo __('Select a gift amount'); ?></legend>
