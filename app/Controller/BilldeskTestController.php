@@ -69,7 +69,7 @@ class BilldeskTestController extends AppController {
       "AdditionalInfo7" => (isset($post['txtAdditionalInfo7']) ? $post['txtAdditionalInfo7'] : 'NA'),
       "ErrorStatus" => "NA",
       "ErrorDescription" => "NA",
-      "CheckSum" => "3734835005"
+      "CheckSum" => Configure::read('App.payment_gateway.billdesk_debug.checksumKey')
     );
 
     $responses = array();
