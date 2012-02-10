@@ -8,14 +8,22 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+
+ 
 class Transaction extends AppModel {
   public $name = 'Transaction';
   
   // see _getValidationRules
   var $validate = array();
   
-  var $hasOne = "BilldeskTransactionResponse";
-  var $belongsTo = "Gift";
+  var $hasOne = array("BilldeskTransactionResponse");
+  var $belongsTo = array("Gateway", "Gift");
+  
+  // Constants
+  const SUCCESS = "success";
+  const ERROR = "error";
+  const REQUEST = "request";
+  const RESPONSE = "response";
   
   /**
    * Constructor

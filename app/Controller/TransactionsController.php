@@ -49,16 +49,53 @@ class TransactionsController extends AppController {
     // get payment gateway config
     $pg = &Configure::read('App.payment_gateway.default');
     $pg = &Configure::read('App.payment_gateway.'.$pg);
-    if (!empty($pg)) {
+    if (empty($pg)) {
       $this->Message->error(__('Sorry something went wrong, please try again later'), array(
         'code' => 'MISSING_PAYMENT_GATEWAY',
         //'redirect' => '/'
       ));
     }
+    
+    // get the payment gateway id
+    $gateway = $this->Transaction->Gateway->find('first', array(
+      'fields' => array(
+        'Gateway.id'
+      ),
+      'conditions' => array(
+        'Gateway.name' => /*$pg['dbName']*/ 'Billdesk (Debug)' // TODO : get the real name
+      )
+    ));
+    $error = (!isset($gateway) || empty($gateway));
+    if($error){
+      $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+        'code' => 'INVALID_GATEWAY'
+      ));
+    }
 
-    // define the transaction
+
+    // save the transaction
+    $request = array(
+      "parent_id" => null,
+      "gift_id" => $gift['Gift']['id'],
+      "gateway_id" => $gateway['Gateway']['id'], 
+      "batch_id" => null, 
+      "type" => Transaction::REQUEST, 
+      "status" => Transaction::SUCCESS, 
+      "status_code" => 1,  // TODO : shall we keep 1 or put null instead
+      "ip" => $this->RequestHandler->getClientIp(),
+      "data" => "dummy data" // TODO : serialize data
+    );
+    if(!$this->Transaction->save($request)){
+       $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+        'code' => 'TRANSACTION_NOT_SAVED'
+      ));
+    }
+    // get the serial for the corresponding transaction
+    $request  = $this->Transaction->read();
+    
+    // define the transaction for the view
     $t['Transaction'] = array(
-      'orderId'    => $gift['Gift']['serial'],
+      'orderId'    => $request['Transaction']['serial'], // orderId is the transaction serial
       'amount'     => $gift['Gift']['amount'],
       'currency'   => $gift['Gift']['currency'],
       'paymentUrl' => $pg['paymentUrl'],
@@ -78,67 +115,66 @@ class TransactionsController extends AppController {
    */
   public function response(){
     $rspMsgTxt = $this->request->query['msg'];
-    
     // The line below is used for debugging
-    $rspMsgTxt = "ACTIONAID|123|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56|0300|NA|DA01017224|AXPIY|NA|NA|NA|NA|NA|NA|NA|xiwLsj9pytFv";
-    
-    // AAAAAAAAAAACCCCHHHHHHHHTTTTUUUUUUUUUUNNNNNGGGGGG !!!!!!!!!!!!!
-    // REMY, JE SUIS LOIN D'AVOIR FINI, alors ne vas meme pas plus loin. Tu regarderas plus tard !!!!
-    // Allez, maintenant, travaille sur la fonction d'oubli du password.
+    //$rspMsgTxt = "ACTIONAID|123|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56|0300|NA|DA01017224|AXPIY|NA|NA|NA|NA|NA|NA|NA|xiwLsj9pytFv";
     
     Controller::loadModel('BilldeskTransactionResponse');
     $rsp = new BilldeskTransactionResponse();
     $deserialized = $rsp->deserialize($rspMsgTxt);
-    pr($deserialized);
     if(!$deserialized){
-       echo "does not deserialize";
+       $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+        'code' => 'WRONG_RESPONSE'
+      ));
     }
     $rsp->set($deserialized);
     if(!$rsp->validates()){
-      $errors = $rsp->invalidFields();
-      pr($errors);
-      echo "doesnt validate";
+      //$errors = $rsp->invalidFields();
+      //pr($errors);
+      $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+        'code' => 'WRONG_RESPONSE'
+      ));
     }
     else{
-      echo "validates";
       // Get the corresponding transaction request
-      $requestM = $this->Transaction->findBySerial($deserialized['CustomerID']);
+      $requestM = $this->Transaction->find('first', array(
+        'contain' => array(
+          'Gift' => array('id'),
+          'Gateway' => array('id')
+        ),  
+        'conditions' => array(
+          'Transaction.serial' => $deserialized['CustomerID']
+        )
+      ));
+      
+      $status = BilldeskTransactionResponse::getTransactionStatus($deserialized['AuthStatus']); // Status of the transaction
       $response = array(
         "parent_id" => $requestM['Transaction']['id'],
         "gift_id" => $requestM['Gift']['id'],
-        "gateway_id" => 1, // TODO : enter the proper gateway id
+        "gateway_id" => $requestM['Gateway']['id'],
         "batch_id" => null, // TODO : enter the proper batch id
-        "type" => "response", // TODO : call constant
-        "status" => BilldeskTransactionResponse::getTransactionStatus($serialized['AuthStatus']), // TODO : call constant + map with transaction result
-        "status_code" => $serialized['AuthStatus'], // TODO : enter status code
-        "ip" => "127.0.0.1", // TODO : enter proper ip (and detection script)
+        "type" => Transaction::RESPONSE, 
+        "status" => $status, 
+        "status_code" => $deserialized['AuthStatus'], 
+        "ip" => $this->RequestHandler->getClientIp(),
         "data" => $rspMsgTxt 
       );
       $this->Transaction->create();
       $this->Transaction->set($response);
       if(!$this->Transaction->save()){
-        echo "cannot save Transaction";
+        //$errors = $rsp->invalidFields();
+        //pr($errors);
+        $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+          'code' => 'CANNOT_SAVE_TRANSACTION'
+        ));
       }
-      pr($requestM);
     }
-    exit(0);
-    
-    //$rspMsgTxt = "MERCHANTID|1073234|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56";
-    //$rspMsg = $this->Transaction->formatResponseString($rspMsgTxt);
-    //pr($rspMsg);
-
-    // TODO : Check if the Gift id is valid
-    $this->Transaction->Gift->findAll();
-      
-    $authStatus = $this->Transaction->getAuthStatusDescription($rspMsg['AuthStatus']);
-    pr($authStatus);
-    
-    // TODO : Update transaction in DB
-
-    return array(
-      "amount"=>$msg_array[4],
-      "pcode"=>$msg_array[16],
-      "payment_id"=>$msg_array[1]
-    );
+    if($status == Transaction::SUCCESS){
+      // Redirect to thank you page
+      $this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
+    }
+    else{
+      // Redirect to error page
+      $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
+    }
   }
 }
