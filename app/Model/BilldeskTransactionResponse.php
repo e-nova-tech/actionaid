@@ -293,7 +293,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('AdditionalInfo1 has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'), // TODO : this validation rule will not work in case of special characters (if an address or whatever)
           'message' => __('AdditionalInfo1 wrong format.')
         )
       ),
@@ -443,8 +443,8 @@ class BilldeskTransactionResponse extends AppModel {
   
   public static function getTransactionStatus($authStatus){
     if($authStatus == "0300")
-      return "success"; // TODO : implement constant
-    return "error";
+      return Transaction::SUCCESS; 
+    return Transaction::ERROR;
   }
   
   function transactionExists($serialId){
