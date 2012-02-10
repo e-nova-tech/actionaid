@@ -6,7 +6,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `transactions` (
   `id` char(36) CHARACTER SET utf8 NOT NULL,
-  `parent_id` char(36) CHARACTER SET utf8 NOT NULL,
+  `parent_id` char(36) CHARACTER SET utf8 DEFAULT NULL,
   `gift_id` char(36) CHARACTER SET utf8 NOT NULL,
   `gateway_id` char(36) CHARACTER SET utf8 NOT NULL,
   `batch_id` char(36) CHARACTER SET utf8 DEFAULT NULL,
