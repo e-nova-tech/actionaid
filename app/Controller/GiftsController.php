@@ -67,7 +67,7 @@ class GiftsController extends AppController {
           $gift = $this->Gift->save($data);
           if(isset($gift) && !empty($gift)) {
             //$this->Message->notice(__('Thank you your gift was saved'));
-            $this->redirect('');
+            $this->redirect('/transactions/request/'.$gift['Gift']['id']);
           } else {
             $this->Message->error(__('Sorry something went wrong please try again later.'));
           }

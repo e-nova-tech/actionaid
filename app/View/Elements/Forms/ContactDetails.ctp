@@ -1,6 +1,6 @@
     <?php echo $this->MyForm->input('Person.title', array(
       'type'=>'select','label'=>__('Title'), 'class'=>'required',
-      'options' => array('ms'=>'Ms','mrs'=>'Mrs','mr'=>'Mr','dr'=>'Dr.','prof'=>'Prof.')
+      'options' => array('Ms'=>'Ms','Mrs'=>'Mrs','Mr'=>'Mr','Dr'=>'Dr.','Prof'=>'Prof.')
     )); ?>
     <?php echo $this->MyForm->input('Person.firstname', array(
       'label'=>__('Firstname'),'class'=>'required'
