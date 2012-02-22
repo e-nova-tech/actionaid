@@ -20,6 +20,10 @@ class Gift extends AppModel {
     'Appeal' => array(
       'className'    => 'Appeal',
       'dependent'    => false
+    ),
+    'Transaction' => array(
+      'className'    => 'Transaction',
+      'dependent'    => false
     )
   );
 
