@@ -20,7 +20,10 @@ class Gift extends AppModel {
     'Appeal' => array(
       'className'    => 'Appeal',
       'dependent'    => false
-    ),
+    )
+  );
+  
+  public $hasMany = array(
     'Transaction' => array(
       'className'    => 'Transaction',
       'dependent'    => false

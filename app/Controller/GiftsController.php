@@ -9,7 +9,7 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class GiftsController extends AppController {
-  var $uses = array('Gift','Person');
+  var $uses = array('Gift','Person', 'Transaction');
 
   /**
    * Before Filter cake callback
@@ -119,6 +119,16 @@ class GiftsController extends AppController {
       ),
       'conditions' => array('Gift.id' => $id), //array of conditions
     );
+    
+    $this->paginate = array(
+      'fields' => array('status', 'type', 'gateway_id', 'created', 'modified', 'ip', 'data'),
+      'contain' => array(
+         'Gateway' => array('name')
+      ),
+      'conditions' => array('Transaction.gift_id' => $id), //array of conditions
+    );
+
     $this->set('gift', $this->Gift->find('first',$param));
+    $this->set('transactions',$this->paginate('Transaction'));
   }
 }
