@@ -44,3 +44,37 @@ body {
   background:transparent url(../img/icons/add.png) 0 0 no-repeat;
 }
 
+/*** gifts admin view customs ***/
+.gifts_admin_view table tr.success td{
+  background-color:#E8FFE8;
+}
+
+.gifts_admin_view table tr.success td.type.request span{
+  background:transparent url(../img/icons/arrow_right.png) left center no-repeat;
+  padding:0 0 0 20px;
+}
+
+.gifts_admin_view table tr.success td.type.response span{
+  background:transparent url(../img/icons/arrow_left.png) left center no-repeat;
+  padding:0 0 0 20px;
+}
+.gifts_admin_view table tr.success td.status{
+  color:#008000;
+  font-weight:bold;
+}
+.gifts_admin_view table tr.error td.status{
+  color:#CC0000;
+  font-weight:bold;
+}
+
+
+
+/** misc **/
+hr.spacer{
+  line-height:0;
+  height:0;
+  clear:both;
+  visibility:hidden;
+  padding:0;
+  margin:0;
+}
