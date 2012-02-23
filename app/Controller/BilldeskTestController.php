@@ -44,7 +44,7 @@ class BilldeskTestController extends AppController {
 
     // the array below contains values that would be returned ideally in case of success
     $response = array(
-      "MerchantID" => Configure::read('App.payment_gateway.billdesk_debug.merchantId'),
+      "MerchantID" => Configure::read('App.payment_gateway.billdesk.merchantId'),
       "CustomerID" => "{$post['txtCustomerID']}",
       "TxnReferenceNo" => "MSBI0412001668",
       "BankReferenceNo" => "NA",
@@ -69,9 +69,10 @@ class BilldeskTestController extends AppController {
       "AdditionalInfo7" => (isset($post['txtAdditionalInfo7']) ? $post['txtAdditionalInfo7'] : 'NA'),
       "ErrorStatus" => "NA",
       "ErrorDescription" => "NA",
-      "CheckSum" => Configure::read('App.payment_gateway.billdesk_debug.checksumKey')
+      "CheckSum" => Configure::read('App.payment_gateway.billdesk.checksumKey')
     );
-
+    
+    
     $responses = array();
     // Scenario 1
     $responses[1]['rsp'] = $response;
@@ -86,6 +87,7 @@ class BilldeskTestController extends AppController {
     $responses[3]['rsp'] = $response;
     $possible_auth_status = array("NA", "002", "001");
     $responses[3]['rsp']['AuthStatus'] = $possible_auth_status[rand(0,2)];
+    $responses[3]['rsp']['CheckSum'] = crc32(implode("|", $responses[3]['rsp']));
     $responses[3]['ru'] = $post['RU'];
     
     // Scenario 4
@@ -110,6 +112,7 @@ class BilldeskTestController extends AppController {
         break;
       case 1:
         $responses[5]['rsp']['AuthStatus'] = "AWormInTheSteack";
+        $responses[5]['rsp']['CheckSum'] = crc32(implode("|", $responses[5]['rsp']));
         break;
       case 2:
         $responses[5]['rsp']['MerchantID'] = "";
@@ -119,6 +122,12 @@ class BilldeskTestController extends AppController {
         $responses[5]['rsp'] = array(); // empty array
         break;
     }
+    
+    // Update CheckSum
+    foreach($responses as $key=>$response){
+      $responses[$key]['rsp']['CheckSum'] = crc32(implode("|", $responses[$key]['rsp']));
+    }
+
     $this->set("responses", $responses);
     $this->set("help", $help);
   }
