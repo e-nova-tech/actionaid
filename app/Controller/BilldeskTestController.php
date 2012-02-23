@@ -87,7 +87,6 @@ class BilldeskTestController extends AppController {
     $responses[3]['rsp'] = $response;
     $possible_auth_status = array("NA", "002", "001");
     $responses[3]['rsp']['AuthStatus'] = $possible_auth_status[rand(0,2)];
-    $responses[3]['rsp']['CheckSum'] = crc32(implode("|", $responses[3]['rsp']));
     $responses[3]['ru'] = $post['RU'];
     
     // Scenario 4
@@ -112,7 +111,6 @@ class BilldeskTestController extends AppController {
         break;
       case 1:
         $responses[5]['rsp']['AuthStatus'] = "AWormInTheSteack";
-        $responses[5]['rsp']['CheckSum'] = crc32(implode("|", $responses[5]['rsp']));
         break;
       case 2:
         $responses[5]['rsp']['MerchantID'] = "";
