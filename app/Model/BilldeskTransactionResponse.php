@@ -400,12 +400,31 @@ class BilldeskTransactionResponse extends AppModel {
           'allowEmpty' => false,
           'message' => __('CheckSum has to be provided')
         ),
-        'pattern' => array(
+        /*'pattern' => array(
           'rule' => array('custom', '/^('. Configure::read('App.payment_gateway.billdesk.checksumKey') .')$/'),
           'message' => __('wrong checksum.')
+        ),*/
+        'valid' => array(
+          'rule'=> array('validateChecksum'),
+          'message' => __('wrong checksum')
         )
       )
     );
+  }
+  
+  function validateChecksum($check){
+    $response = $this->data['BilldeskTransactionResponse'];
+    $receivedChecksum = $response['CheckSum'];
+    pr($response);
+    $response['CheckSum'] = Configure::read('App.payment_gateway.billdesk.checksumKey');
+    $calculatedChecksum = crc32($this->serialize($response));
+    echo "<br/>received = $receivedChecksum | calculated= $calculatedChecksum";
+      
+    if($calculatedChecksum == $receivedChecksum){
+      echo "validated";
+    }
+    exit(0);
+    return false;
   }
   
   /**
@@ -428,6 +447,15 @@ class BilldeskTransactionResponse extends AppModel {
       $rsp[$newKey] = $value;
     }
     return $rsp;
+  }
+  
+  /**
+   * Serialize a response array into a response string
+   * @param $response_array, the response array
+   * @return the serialized string
+   */
+  public function serialize($response_array){
+    return implode("|", $response_array);
   }
   
   /**
