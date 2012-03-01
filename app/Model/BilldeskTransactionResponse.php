@@ -470,7 +470,7 @@ class BilldeskTransactionResponse extends AppModel {
   public static function getTransactionStatus($authStatus){
     if($authStatus == "0300")
       return Transaction::SUCCESS; 
-    return Transaction::ERROR;
+    return Transaction::FAILURE;
   }
   
   function transactionExists($serialId){
