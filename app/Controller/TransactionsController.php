@@ -160,7 +160,6 @@ class TransactionsController extends AppController {
         "ip" => $this->RequestHandler->getClientIp(),
         "data" => $rspMsgTxt 
       );
-      pr($response);
       $this->Transaction->create();
       $this->Transaction->set($response);
       if(!$this->Transaction->save()){
