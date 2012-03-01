@@ -131,7 +131,7 @@ class TransactionsController extends AppController {
     if(!$rsp->validates()){
       $errors = $rsp->invalidFields();
       pr($errors);
-      exit(0);
+      exit(0); // TODO : remove this debugging
       $this->Message->error(__('Sorry something went wrong, please try again later'), array(
         'code' => 'WRONG_RESPONSE'
       ));
@@ -144,7 +144,7 @@ class TransactionsController extends AppController {
           'Gateway' => array('id')
         ),  
         'conditions' => array(
-          'Transaction.serial' => $deserialized['CustomerID']
+          'Transaction.serial' => str_replace('IPG', '', $deserialized['CustomerID']) // Remove prefix IPG from order Id
         )
       ));
       
@@ -160,6 +160,7 @@ class TransactionsController extends AppController {
         "ip" => $this->RequestHandler->getClientIp(),
         "data" => $rspMsgTxt 
       );
+      pr($response);
       $this->Transaction->create();
       $this->Transaction->set($response);
       if(!$this->Transaction->save()){
