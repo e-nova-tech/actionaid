@@ -95,7 +95,7 @@ class TransactionsController extends AppController {
     
     // define the transaction for the view
     $t['Transaction'] = array(
-      'orderId'    => $request['Transaction']['serial'], // orderId is the transaction serial
+      'orderId'    => 'IPG'.$request['Transaction']['serial'], // orderId is the transaction serial
       'amount'     => $gift['Gift']['amount'],
       'currency'   => $gift['Gift']['currency'],
       'paymentUrl' => $pg['paymentUrl'],
