@@ -171,27 +171,26 @@ class TransactionsController extends AppController {
       
       // Update Gift status with transaction status
       $gift = $this->Transaction->Gift->findById($requestM['Gift']['id']);
-      $gift['Gift']['status'] = 'failure';
       if(!$this->Transaction->Gift->save($gift['Gift'], array('fieldList'=>array('status')))){
         $this->Message->error(__('Sorry something went wrong, please try again later'), array(
           'code' => 'CANNOT_UPDATE_GIFT'
         ));
-        $errors = $this->Transaction->Gift->invalidFields();
-        pr($errors);
+        //$errors = $this->Transaction->Gift->invalidFields();
+        //pr($errors);  // Debug
       }
       
       if($status == Transaction::SUCCESS){
         // Redirect to thank you page
-        //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
+        $this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
       }
       else{
         // Redirect to error page
-        //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
+        $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
       }
     }
 
     // The line below will happen only if the response doesn't validate
     // TODO : log it somewhere in a file
-    //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
+    $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
   }
 }
