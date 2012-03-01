@@ -125,7 +125,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('BankReferenceNo has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9\-]+$/'),
           'message' => __('BankReferenceNo wrong format')
         )
       ),
@@ -137,7 +137,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('TxnAmount has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[0-9]{3,8}$/'),
+          'rule' => array('custom', '/^[0-9]{8}\.[0-9]{2}$/'),
           'message' => __('TxnAmount wrong format. Must be a number')
         )
       ),
@@ -389,7 +389,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('ErrorDescription has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
           'message' => __('ErrorDescription wrong format.')
         )
       ),
@@ -415,16 +415,14 @@ class BilldeskTransactionResponse extends AppModel {
   function validateChecksum($check){
     $response = $this->data['BilldeskTransactionResponse'];
     $receivedChecksum = $response['CheckSum'];
-    pr($response);
     $response['CheckSum'] = Configure::read('App.payment_gateway.billdesk.checksumKey');
     $calculatedChecksum = crc32($this->serialize($response));
-    echo "<br/>received = $receivedChecksum | calculated= $calculatedChecksum";
+    //echo "<br/>received = $receivedChecksum | calculated= $calculatedChecksum";
       
     if($calculatedChecksum == $receivedChecksum){
-      echo "validated";
+      return true;
     }
-    exit(0);
-    return false;
+    return false; 
   }
   
   /**
@@ -476,8 +474,8 @@ class BilldeskTransactionResponse extends AppModel {
   }
   
   function transactionExists($serialId){
-    $serialId = str_replace('IPG', '', $serialId); // Remove the prefix IPG from the string (was added to be compliant with BillDesk format)
-    return $this->Transaction->findBySerial($serialId);
+    $serialId['CustomerID'] = str_replace('IPG', '', $serialId['CustomerID']); // Remove the prefix IPG from the string (was added to be compliant with BillDesk format)
+    return $this->Transaction->findBySerial($serialId['CustomerID']);
   }
 }
 ?>

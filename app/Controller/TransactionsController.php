@@ -129,8 +129,9 @@ class TransactionsController extends AppController {
     }
     $rsp->set($deserialized);
     if(!$rsp->validates()){
-      //$errors = $rsp->invalidFields();
-      //pr($errors);
+      $errors = $rsp->invalidFields();
+      pr($errors);
+      exit(0);
       $this->Message->error(__('Sorry something went wrong, please try again later'), array(
         'code' => 'WRONG_RESPONSE'
       ));
