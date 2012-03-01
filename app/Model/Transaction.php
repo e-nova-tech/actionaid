@@ -57,7 +57,7 @@ class Transaction extends AppModel {
         ),
         'enum' => array(
           'rule' => array('custom', '/^(success|failure)$/'),
-          'message' => __('status should be either success or error')
+          'message' => __('status should be either success or failure')
         )
       ),
       'status_code' => array(
