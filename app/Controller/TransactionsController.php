@@ -114,7 +114,8 @@ class TransactionsController extends AppController {
    * Gets the response from the payment gateway, analyzes and update db tables accordingly
    */
   public function response(){
-    $rspMsgTxt = $this->request->query['msg'];
+    $rspMsgTxt = $this->request->data['msg'];
+
     // The line below is used for debugging
     //$rspMsgTxt = "ACTIONAID|123|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56|0300|NA|DA01017224|AXPIY|NA|NA|NA|NA|NA|NA|NA|xiwLsj9pytFv";
     
