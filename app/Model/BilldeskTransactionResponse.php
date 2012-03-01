@@ -476,6 +476,7 @@ class BilldeskTransactionResponse extends AppModel {
   }
   
   function transactionExists($serialId){
+    $serialId = str_replace('IPG', '', $serialId); // Remove the prefix IPG from the string (was added to be compliant with BillDesk format)
     return $this->Transaction->findBySerial($serialId);
   }
 }
