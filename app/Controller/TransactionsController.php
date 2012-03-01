@@ -115,7 +115,6 @@ class TransactionsController extends AppController {
    */
   public function response(){
     $rspMsgTxt = $this->request->data['msg'];
-
     // The line below is used for debugging
     //$rspMsgTxt = "ACTIONAID|123|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56|0300|NA|DA01017224|AXPIY|NA|NA|NA|NA|NA|NA|NA|xiwLsj9pytFv";
     
@@ -169,14 +168,30 @@ class TransactionsController extends AppController {
           'code' => 'CANNOT_SAVE_TRANSACTION'
         ));
       }
+      
+      // Update Gift status with transaction status
+      $gift = $this->Transaction->Gift->findById($requestM['Gift']['id']);
+      $gift['Gift']['status'] = 'failure';
+      if(!$this->Transaction->Gift->save($gift['Gift'], array('fieldList'=>array('status')))){
+        $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+          'code' => 'CANNOT_UPDATE_GIFT'
+        ));
+        $errors = $this->Transaction->Gift->invalidFields();
+        pr($errors);
+      }
+      
+      if($status == Transaction::SUCCESS){
+        // Redirect to thank you page
+        //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
+      }
+      else{
+        // Redirect to error page
+        //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
+      }
     }
-    if($status == Transaction::SUCCESS){
-      // Redirect to thank you page
-      $this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
-    }
-    else{
-      // Redirect to error page
-      $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
-    }
+
+    // The line below will happen only if the response doesn't validate
+    // TODO : log it somewhere in a file
+    //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
   }
 }
