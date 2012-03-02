@@ -175,8 +175,8 @@ class TransactionsController extends AppController {
         $this->Message->error(__('Sorry something went wrong, please try again later'), array(
           'code' => 'CANNOT_UPDATE_GIFT'
         ));
-        //$errors = $this->Transaction->Gift->invalidFields();
-        //pr($errors);  // Debug
+        $errors = $this->Transaction->Gift->invalidFields();
+        pr($errors);  // Debug
       }
       pr($gift);
       
