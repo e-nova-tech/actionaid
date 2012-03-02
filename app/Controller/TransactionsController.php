@@ -171,6 +171,7 @@ class TransactionsController extends AppController {
       
       // Update Gift status with transaction status
       $gift = $this->Transaction->Gift->findById($requestM['Gift']['id']);
+      $gift['Gift']['status'] = $status;
       if(!$this->Transaction->Gift->save($gift['Gift'], array('fieldList'=>array('status')))){
         $this->Message->error(__('Sorry something went wrong, please try again later'), array(
           'code' => 'CANNOT_UPDATE_GIFT'
