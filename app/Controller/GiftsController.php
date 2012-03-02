@@ -104,7 +104,8 @@ class GiftsController extends AppController {
       'contain' => array(
          'Person' => array('title','firstname','lastname'),
          'Appeal' => array('title')
-      )
+      ),
+      'order' => array('Gift.modified' => 'desc')
     );
     $this->set('gifts',$this->paginate('Gift'));
   }
