@@ -178,19 +178,20 @@ class TransactionsController extends AppController {
         //$errors = $this->Transaction->Gift->invalidFields();
         //pr($errors);  // Debug
       }
+      pr($gift);
       
       if($status == Transaction::SUCCESS){
         // Redirect to thank you page
-        $this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
+        //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
       }
       else{
         // Redirect to error page
-        $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
+        //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
       }
     }
 
     // The line below will happen only if the response doesn't validate
     // TODO : log it somewhere in a file
-    $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
+    //$this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
   }
 }
