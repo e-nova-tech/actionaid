@@ -11,6 +11,6 @@
   </footer>
 <?php if (Configure::read('debug')): ?>
   <div class="debug grid_12">
-<?php echo $this->element('Footer' . DS . 'Debug'); ?>
+<?php echo $this->element('Debug'); ?>
   </div>
 <?php endif; ?>

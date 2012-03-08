@@ -16,12 +16,9 @@
       <h2>End poverty together.</h2>
     </div>
     <div class="grid_5 omega">
-<?php
-  if (!User::isAdmin()) {
-    echo $this->element('Menu', array(
+<?php echo $this->element('Menu', array(
       'id' => 'main.public_default',
       'options' => array('class' => 'menu top right'))
-    );
-  }
+    ); 
 ?>
     </div>

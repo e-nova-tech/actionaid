@@ -9,7 +9,6 @@
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
   if(!isset($this->Menu)) { // Fix stupid behavior for missing components, etc.
     return;                       // as it only loads default helpers on error
   }
