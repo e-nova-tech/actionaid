@@ -90,16 +90,16 @@ $config = array(
     ),
     // LEVEL 1 - Content Filters
     'sub' => array(
-      'authentication' => array(
+      'admin_auth' => array(
         'login' => array(
           'name'     => __('Login'),
-          'url'      => '/login',
+          'url'      => '/admin/login',
           'pattern'  => '#/^(.*\/login|\/users\/login).*$/iU',
           'resource' => 'users:login'
         ),
         'lostPassword' => array(
           'name'     => __('Lost password?'),
-          'url'      => '/password/forgot',
+          'url'      => '/admin/password/forgot',
           'pattern'  => '#/^(.*\/password\/(forgot|reset)|\/users\/forgot_password).*$/iU',
           'resource' => 'users:forgot_password'
         )

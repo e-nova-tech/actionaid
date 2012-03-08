@@ -32,4 +32,15 @@ class AppModel extends Model {
     // @TODO support unicode characters => pb in JS
     return preg_match("/^(([a-zA-Z])+(\-|\s|\'){1}){0,}([a-zA-Z])+$/", $value);
   }
+
+  /**
+   * Check if two field values are equal (as in password confirmation)
+   * @param array $field check
+   * @param string $field2 as in 'User.password_confirm'
+   * return boolean
+   */
+  function isConfirmed($field, $field2) {
+    list($model,$field3) = (preg_split('/\./',$field2));
+    return($this->data[$model][$field3] == current($field));
+  }
 }//_EOF

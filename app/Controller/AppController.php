@@ -31,44 +31,67 @@ class AppController extends Controller {
    * @access protected
    */
   public function beforeFilter() {
-    // components initilization
+    // Cookie component initilization
+    $this->Cookie->name = Configure::read('App.cookie.name');
+
+    // Auth component initilization
     $this->Auth->loginAction = Configure::read('App.auth.loginAction');
     $this->Auth->loginRedirect = Configure::read('App.auth.loginRedirect');
     $this->Auth->logoutRedirect = Configure::read('App.auth.logoutRedirect');
-    $this->Cookie->name = Configure::read('App.cookie.name');
+    $this->Auth->authenticate = array('Form');
+    $this->Auth->authorize = array('Controller');
+
     // autoset layout if prefix in url
-    if(isset($this->request->params['admin'])  && $this->request->action != 'admin_login') {
+    if(isset($this->request->params['admin']) /*&& !$this->isWhitelisted()*/) {
       $this->layout = 'admin';
-    } else {
-      $this->Auth->allow($this->action);
     }
+
     // Hidding PHP version number
     $this->response->header('X-Powered-By', 'PHP'); 
   }
 
   /**
-   * Authorization check callback
+   * Authorization check main callback
    * @link http://api20.cakephp.org/class/auth-component#method-AuthComponentisAuthorized
    * @param mixed $user The user to check the authorization of. If empty the user in the session will be used.
    * @return boolean True if $user is authorized, otherwise false
-   * @access protected
+   * @access public
    */
   function isAuthorized($user) {
+    if($this->isWhitelisted()) {
+      return true;
+    }
     if (isset($this->request->params['admin'])) {
-      return (bool)($user['role'] == 'admin');
+      return User::isAdmin();
     }
     return true;
+  }
+
+  /**
+   * Is the controller:action pair whitelisted in config? (see. App.auth.whitelist) 
+   * @param string $controller, current is used if null
+   * @param string $action, current is used if null
+   * @return bool true if the controller action pair is whitelisted
+   */
+  function isWhitelisted($controller=null, $action=null) {
+    if ($controller == null) {
+      $controller = strtolower($this->name);
+    }
+    if ($action == null) {
+      $action = $this->action;
+    }
+    return Common::requestAllowed($controller,$action, Configure::read('App.auth.whitelist'));
   }
 
   /**
    * Render Validation Rules or messages in Json for js validation purposes
    * @param array model names (must be accessible from current controller)
    * @param string type, rules or messages
-   * @access protected
+   * @access public
    */
-  function json_validation($type='rules',$models=array()) {
+  public function json_validation($type='rules',$models=array()) {
     $this->autoRender = false;
-    
+
     // nothing to render
     if (empty($models)) return; 
 

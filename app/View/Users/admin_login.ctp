@@ -11,6 +11,10 @@
   $this->set('title_for_layout', __('Login'));
 ?>
 <div class="users form grid_8 alpha">
+<?php echo $this->element('Menu', array(
+        'id' => 'sub.admin_auth',
+        'options'=> array('class'=>'menu with_tabs')
+)); ?>
 <?php echo $this->MyForm->create('User');?>
   <fieldset>
     <legend><?php echo __('Please enter your username and password'); ?></legend>
