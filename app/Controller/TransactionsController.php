@@ -95,7 +95,7 @@ class TransactionsController extends AppController {
     
     // define the transaction for the view
     $t['Transaction'] = array(
-      'orderId'    => $request['Transaction']['serial'], // orderId is the transaction serial
+      'orderId'    => 'IPG'.$request['Transaction']['serial'], // orderId is the transaction serial
       'amount'     => $gift['Gift']['amount'],
       'currency'   => $gift['Gift']['currency'],
       'paymentUrl' => $pg['paymentUrl'],
@@ -114,7 +114,7 @@ class TransactionsController extends AppController {
    * Gets the response from the payment gateway, analyzes and update db tables accordingly
    */
   public function response(){
-    $rspMsgTxt = $this->request->query['msg'];
+    $rspMsgTxt = $this->request->data['msg'];
     // The line below is used for debugging
     //$rspMsgTxt = "ACTIONAID|123|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56|0300|NA|DA01017224|AXPIY|NA|NA|NA|NA|NA|NA|NA|xiwLsj9pytFv";
     
@@ -128,8 +128,9 @@ class TransactionsController extends AppController {
     }
     $rsp->set($deserialized);
     if(!$rsp->validates()){
-      //$errors = $rsp->invalidFields();
-      //pr($errors);
+      /*$errors = $rsp->invalidFields();
+      pr($errors);
+      exit(0); // Debug */
       $this->Message->error(__('Sorry something went wrong, please try again later'), array(
         'code' => 'WRONG_RESPONSE'
       ));
@@ -142,7 +143,7 @@ class TransactionsController extends AppController {
           'Gateway' => array('id')
         ),  
         'conditions' => array(
-          'Transaction.serial' => $deserialized['CustomerID']
+          'Transaction.serial' => str_replace('IPG', '', $deserialized['CustomerID']) // Remove prefix IPG from order Id
         )
       ));
       
@@ -167,14 +168,30 @@ class TransactionsController extends AppController {
           'code' => 'CANNOT_SAVE_TRANSACTION'
         ));
       }
+      
+      // Update Gift status with transaction status
+      $gift = $this->Transaction->Gift->findById($requestM['Gift']['id']);
+      $gift['Gift']['status'] = $status;
+      if(!$this->Transaction->Gift->save($gift['Gift'], array('fieldList'=>array('status')))){
+        $this->Message->error(__('Sorry something went wrong, please try again later'), array(
+          'code' => 'CANNOT_UPDATE_GIFT'
+        ));
+        //$errors = $this->Transaction->Gift->invalidFields();
+        //pr($errors);  // Debug
+      }
+      
+      if($status == Transaction::SUCCESS){
+        // Redirect to thank you page
+        $this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
+      }
+      else{
+        // Redirect to error page
+        $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
+      }
     }
-    if($status == Transaction::SUCCESS){
-      // Redirect to thank you page
-      $this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
-    }
-    else{
-      // Redirect to error page
-      $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
-    }
+
+    // The line below will happen only if the response doesn't validate
+    // TODO : log it somewhere in a file
+    $this->redirect(array('controller' => 'pages', 'action' => 'thank-you')); // TODO : error page ?
   }
 }

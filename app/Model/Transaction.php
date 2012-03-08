@@ -21,7 +21,7 @@ class Transaction extends AppModel {
   
   // Constants
   const SUCCESS = "success";
-  const ERROR = "error";
+  const FAILURE = "failure";
   const REQUEST = "request";
   const RESPONSE = "response";
   
@@ -56,8 +56,8 @@ class Transaction extends AppModel {
           'message' => __('Please select a status')
         ),
         'enum' => array(
-          'rule' => array('custom', '/^(success|error)$/'),
-          'message' => __('status should be either success or error')
+          'rule' => array('custom', '/^(success|failure)$/'),
+          'message' => __('status should be either success or failure')
         )
       ),
       'status_code' => array(

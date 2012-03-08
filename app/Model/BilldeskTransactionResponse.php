@@ -125,7 +125,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('BankReferenceNo has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9\-]+$/'),
           'message' => __('BankReferenceNo wrong format')
         )
       ),
@@ -137,7 +137,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('TxnAmount has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[0-9]{3,8}$/'),
+          'rule' => array('custom', '/^[0-9]{8}\.[0-9]{2}$/'),
           'message' => __('TxnAmount wrong format. Must be a number')
         )
       ),
@@ -389,7 +389,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('ErrorDescription has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
           'message' => __('ErrorDescription wrong format.')
         )
       ),
@@ -400,12 +400,29 @@ class BilldeskTransactionResponse extends AppModel {
           'allowEmpty' => false,
           'message' => __('CheckSum has to be provided')
         ),
-        'pattern' => array(
+        /*'pattern' => array(
           'rule' => array('custom', '/^('. Configure::read('App.payment_gateway.billdesk.checksumKey') .')$/'),
           'message' => __('wrong checksum.')
+        ),*/
+        'valid' => array(
+          'rule'=> array('validateChecksum'),
+          'message' => __('wrong checksum')
         )
       )
     );
+  }
+  
+  function validateChecksum($check){
+    $response = $this->data['BilldeskTransactionResponse'];
+    $receivedChecksum = $response['CheckSum'];
+    $response['CheckSum'] = Configure::read('App.payment_gateway.billdesk.checksumKey');
+    $calculatedChecksum = crc32($this->serialize($response));
+    //echo "<br/>received = $receivedChecksum | calculated= $calculatedChecksum";
+      
+    if($calculatedChecksum == $receivedChecksum){
+      return true;
+    }
+    return false; 
   }
   
   /**
@@ -431,6 +448,15 @@ class BilldeskTransactionResponse extends AppModel {
   }
   
   /**
+   * Serialize a response array into a response string
+   * @param $response_array, the response array
+   * @return the serialized string
+   */
+  public function serialize($response_array){
+    return implode("|", $response_array);
+  }
+  
+  /**
    * Get the description related to the Auth Status
    * @param $authStatus : the status
    * @return the description if any, otherwise null
@@ -444,11 +470,12 @@ class BilldeskTransactionResponse extends AppModel {
   public static function getTransactionStatus($authStatus){
     if($authStatus == "0300")
       return Transaction::SUCCESS; 
-    return Transaction::ERROR;
+    return Transaction::FAILURE;
   }
   
   function transactionExists($serialId){
-    return $this->Transaction->findBySerial($serialId);
+    $serialId['CustomerID'] = str_replace('IPG', '', $serialId['CustomerID']); // Remove the prefix IPG from the string (was added to be compliant with BillDesk format)
+    return $this->Transaction->findBySerial($serialId['CustomerID']);
   }
 }
 ?>

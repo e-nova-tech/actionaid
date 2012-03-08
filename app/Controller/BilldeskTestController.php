@@ -48,7 +48,7 @@ class BilldeskTestController extends AppController {
       "CustomerID" => "{$post['txtCustomerID']}",
       "TxnReferenceNo" => "MSBI0412001668",
       "BankReferenceNo" => "NA",
-      "TxnAmount" => "{$post['txtTxnAmount']}",
+      "TxnAmount" => (str_pad($post['txtTxnAmount'], 8, "0", STR_PAD_LEFT) . ".00"),
       "BankID" => "SBI",
       "BankMerchantID" => "22270726",
       "TxnType" => "NA",

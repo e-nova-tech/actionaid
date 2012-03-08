@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `batch_id` char(36) CHARACTER SET utf8 DEFAULT NULL,
   `serial` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `type` enum('request','response') CHARACTER SET utf8 NOT NULL,
-  `status` enum('success','error') CHARACTER SET utf8 NOT NULL,
+  `status` enum('success','failure') CHARACTER SET utf8 NOT NULL,
   `status_code` varchar(32) CHARACTER SET utf8 DEFAULT NULL,
   `created` datetime NOT NULL,
   `created_by` char(36) CHARACTER SET utf8 DEFAULT NULL,

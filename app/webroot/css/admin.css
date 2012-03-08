@@ -49,12 +49,14 @@ body {
   background-color:#E8FFE8;
 }
 
-.gifts_admin_view table tr.success td.type.request span{
+.gifts_admin_view table tr.success td.type.request span,
+.gifts_admin_view table tr.failure td.type.request span{
   background:transparent url(../img/icons/arrow_right.png) left center no-repeat;
   padding:0 0 0 20px;
 }
 
-.gifts_admin_view table tr.success td.type.response span{
+.gifts_admin_view table tr.success td.type.response span,
+.gifts_admin_view table tr.failure td.type.response span{
   background:transparent url(../img/icons/arrow_left.png) left center no-repeat;
   padding:0 0 0 20px;
 }
@@ -62,7 +64,7 @@ body {
   color:#008000;
   font-weight:bold;
 }
-.gifts_admin_view table tr.error td.status{
+.gifts_admin_view table tr.failure td.status{
   color:#CC0000;
   font-weight:bold;
 }
