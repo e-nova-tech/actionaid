@@ -17,12 +17,13 @@ body {
   color:#000;
   font-size:1.1em;
   padding:5px 10px;
-  margin-left:8px;
+  margin-right:8px;
 }
 .main.menu li a.selected, 
 .main.menu li a.selected:hover {
   background:#ED1C24;
   color:#FFF;
+  border-radius:3px;
 }
 .menu.tabs.sub li a.unselected{
 }
@@ -46,7 +47,8 @@ body {
 
 /* view content */
 .icon.view ul {
-  padding:0;
+  padding:0 0 20px 0;
+  float:left;
 }
 .icon.view ul li{
   list-style-type:none;

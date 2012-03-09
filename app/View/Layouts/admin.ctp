@@ -22,11 +22,6 @@
   <!-- Header -->
   <header>
 <?php echo $this->element('Admin'.DS.'Header'); ?>
-<?php
-    echo $this->element('Menu', array(
-      'options' => array('class' => 'main menu corner-all'))
-    );
-?>
   </header>
 </div>
 </div>

@@ -214,10 +214,19 @@ a:hover {
 h1.logo {
   background:transparent url('../img/logo.png') 0 0 no-repeat;
 }
+h1.logo.small {
+  background:transparent url('../img/logo-small.png') 0 0 no-repeat;
+}
 h1.logo,
 h1.logo a {
   width:220px;
   height:30px;
+  display:block;
+  text-decoration:none;
+}
+h1.logo.small a {
+  width:183px;
+  height:25px;
   display:block;
   text-decoration:none;
 }
@@ -230,6 +239,9 @@ h1.logo span {
 }
 .header h1 {
   margin:18px 0 0 0;
+}
+.header h1.small {
+  margin:22px 0 0 10px;
 }
 .header h2 {
   padding:22px 0px 0px 28px;
@@ -567,6 +579,7 @@ table .notifications{
 .how-is-money-spent img {
   padding-left:20px;
   padding-bottom:10px;
+
   width:220px;
 }
 .how-is-money-spent .report {
@@ -583,7 +596,7 @@ table .notifications{
   margin-top:5px;
 }
 .footer .debug {
-  margin-top:50px;
+  margin-top:40px;
 }
 .footer a{
   color:#FFF;
