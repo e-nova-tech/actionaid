@@ -350,19 +350,19 @@ form .radiolist label.form-js-error {
   padding-left:25px;
 }
 .icon.pdf {
-  background:transparent url('../img/icons/pdf.png') 0 0 no-repeat;
+  background:transparent url('../img/icons/s/pdf.png') 0 0 no-repeat;
 }
 .icon.error {
-  background:transparent url('../img/icons/error.png') 0 0 no-repeat;
+  background:transparent url('../img/icons/s/error.png') 0 0 no-repeat;
 }
 .icon.success {
-  background:transparent url('../img/icons/accept.png') 0 0 no-repeat;
+  background:transparent url('../img/icons/s/accept.png') 0 0 no-repeat;
 }
 .icon.notice {
-  background:transparent url('../img/icons/information.png') 0 0 no-repeat;
+  background:transparent url('../img/icons/s/information.png') 0 0 no-repeat;
 }
 .icon.warning {
-  background:transparent url('../img/icons/warning.png') 0 0 no-repeat;
+  background:transparent url('../img/icons/s/warning.png') 0 0 no-repeat;
 }
 /* currency symbol */
 form .inr {
@@ -372,7 +372,7 @@ form .inr {
 form .inr span { display:none; }
 form .inr span.amount { display:inline; }
 form .info {
-  background:transparent url('../img/icons/help.png') 0 0 no-repeat;
+  background:transparent url('../img/icons/s/help.png') 0 0 no-repeat;
   position: absolute;
   width: 250px;
   left: 335px;

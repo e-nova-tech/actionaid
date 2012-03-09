@@ -55,13 +55,13 @@ $config = array(
           'url'     => '/admin/appeals/index',
           'pattern' => '#/\/appeals.*/iU',
           'resource' => 'appeals:admin_index',
-        ),
+        ),/*
         'posts' => array(
           'name'    => __('Posts'),
           'url'     => '/admin/posts/index',
-          'pattern' => '#/\/posts.*/iU',
+          'pattern' => '#/\/posts.* /iU',
           'resource' => 'posts:admin_index',
-        ),
+        ),*/
         'gifts' => array(
           'name'    => __('Gifts'),
           'url'     => '/admin/gifts/index',

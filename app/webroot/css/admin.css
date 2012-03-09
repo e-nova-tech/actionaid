@@ -41,23 +41,47 @@ body {
 }
 .action.menu li a.add {
   padding-left:25px;
-  background:transparent url(../img/icons/add.png) 0 0 no-repeat;
+  background:transparent url(../img/icons/s/add.png) 0 0 no-repeat;
 }
 
+/* view content */
+.icon.view ul {
+  padding:0;
+}
+.icon.view ul li{
+  list-style-type:none;
+  float:left;
+  width:80px;
+  margin:0 40px 0 0;
+}
+.icon.view ul li img{
+  border:1px solid #CCC;
+  padding:10px;
+  border-radius:3px;
+}
+.icon.view ul li:hover img{
+  border:1px solid #ED1C24;
+}
+.icon.view ul li a{
+  display: block;
+  text-align:center;
+}
+.icon.view ul li a:hover{
+  text-decoration:none;
+}
 /*** gifts admin view customs ***/
 .gifts_admin_view table tr.success td{
   background-color:#E8FFE8;
 }
-
 .gifts_admin_view table tr.success td.type.request span,
 .gifts_admin_view table tr.failure td.type.request span{
-  background:transparent url(../img/icons/arrow_right.png) left center no-repeat;
+  background:transparent url(../img/icons/s/arrow_right.png) left center no-repeat;
   padding:0 0 0 20px;
 }
 
 .gifts_admin_view table tr.success td.type.response span,
 .gifts_admin_view table tr.failure td.type.response span{
-  background:transparent url(../img/icons/arrow_left.png) left center no-repeat;
+  background:transparent url(../img/icons/s/arrow_left.png) left center no-repeat;
   padding:0 0 0 20px;
 }
 .gifts_admin_view table tr.success td.status{

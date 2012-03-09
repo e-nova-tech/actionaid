@@ -44,7 +44,7 @@ form .info:hover span:hover {
   cursor:default;
 }
 form .info {
-  background:transparent url('../img/icons/help.png') 5px 0 no-repeat;
+  background:transparent url('../img/icons/s/help.png') 5px 0 no-repeat;
   width:30px;
   left:325px;
   margin-left:-8px;

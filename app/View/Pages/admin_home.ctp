@@ -9,5 +9,17 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
   $title_for_layout = __('What do you feel like doing?');
+  $this->set('title_for_layout',$title_for_layout);
 ?>
-<p> Comming soon</p>
+  <div class='view icon'>
+    <ul>
+      <li><?php echo $this->Html->link( $this->Html->image('icons/xl/help.png',array('alt'=>'help')).'Help me get started...',
+	         array('admin'=>true,'controller'=>'help'), array('escape' => false)); ?></li>
+      <li><?php echo $this->Html->link( $this->Html->image('icons/xl/appeals.png', array('alt'=>'appeals')).' Manage appeals',
+           array('admin'=>true,'controller'=>'appeals', 'all'), array('escape' => false)); ?></li>
+      <li><?php echo $this->Html->link( $this->Html->image('icons/xl/gifts.png', array('alt'=>'help')).'Browse Transactions',
+           array('admin'=>true,'controller'=>'gifts', 'all'), array('escape' => false)); ?></li>
+      <li><?php echo $this->Html->link( $this->Html->image('icons/xl/users.png', array('alt'=>'users')).' Manage Users',
+           array('admin'=>true,'controller'=>'users'), array('escape' => false)); ?></li>
+    </ul>
+  </div>
