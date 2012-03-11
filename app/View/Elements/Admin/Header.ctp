@@ -9,12 +9,12 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-    <div class="grid_3 alpha">
+    <div class="grid_2 alpha">
       <h1 class="logo small">
         <a href="/admin/home" alt="ActionAid"><span>ActionAid</span></a>
       </h1>
     </div>
-    <div class="grid_7 omega">
+    <div class="grid_10 omega">
 <?php
     echo $this->element('Menu', array(
       'options' => array('class' => 'main menu'))

@@ -1,77 +1,8 @@
 body {
   background:#FFF;
 }
-/* generic for menus */
-.menu li {
-  float:left;
-  list-style-type:none;
-}
-/* main menu */
-.main.menu {
-  margin-top:20px;  
-  padding:10px 10px 5px 0px;
-  float:left;
-  clear:both;
-}
-.main.menu li a {
-  color:#000;
-  font-size:1.1em;
-  padding:5px 10px;
-  margin-right:8px;
-}
-.main.menu li a.selected, 
-.main.menu li a.selected:hover {
-  background:#ED1C24;
-  color:#FFF;
-  border-radius:3px;
-}
-.menu.tabs.sub li a.unselected{
-}
-.menu.tabs.sub li a.unselected:hover{
-}
-/* action menu */
-.action.menu {
-  margin:5px 0 10px 0;
-  padding:0;
-  float:left; 
-  clear:both;
-}
-.action.menu li {
-  list-style-type:none;
-  display:inline;
-}
-.action.menu li a.add {
-  padding-left:25px;
-  background:transparent url(../img/icons/s/add.png) 0 0 no-repeat;
-}
 
-/* view content */
-.icon.view ul {
-  padding:0 0 20px 0;
-  float:left;
-}
-.icon.view ul li{
-  list-style-type:none;
-  float:left;
-  width:80px;
-  margin:0 40px 0 0;
-}
-.icon.view ul li img{
-  border:1px solid #CCC;
-  padding:10px;
-  border-radius:3px;
-}
-.icon.view ul li:hover img{
-  border:1px solid #ED1C24;
-}
-.icon.view ul li a{
-  display: block;
-  text-align:center;
-}
-.icon.view ul li a:hover{
-  text-decoration:none;
-}
-/*** gifts admin view customs ***/
+/* gifts admin view customs */
 .gifts_admin_view table tr.success td{
   background-color:#E8FFE8;
 }
@@ -95,10 +26,9 @@ body {
   font-weight:bold;
 }
 
-
-
-/** misc **/
-hr.spacer{
+/* misc */
+hr.spacer,
+.spacer {
   line-height:0;
   height:0;
   clear:both;

@@ -29,6 +29,7 @@
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
+    <div class="grid_9 alpha">
     <h1><?php echo $title_for_layout; ?></h1>
 <?php
   if (isset($menu_for_layout)) {
@@ -40,6 +41,10 @@
 // echo $this->element('Body' . DS. 'Menu', array('options' => array('class' => 'sub menu tabs')));
 ?>
 <?php echo $content_for_layout; ?>
+    </div>
+    <div class="grid_3 omega" style="background:#CCC">
+      <!--Sidebar -->
+    </div>
   </div>
 </div>
 </div>

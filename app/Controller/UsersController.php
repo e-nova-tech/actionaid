@@ -105,11 +105,11 @@ class UsersController extends AppController {
    * @access public
    */
   public function admin_login() {
-    $this->layout = 'default';
     if ($this->Auth->login() && User::isAdmin()) {
        $this->redirect($this->Auth->redirect());
     } else {
       if ($this->request->is('post')) {
+        $this->request->data['User']['password'] = null;
         $this->Message->error(__('Invalid username or password, try again'));
       }
     }
@@ -130,7 +130,6 @@ class UsersController extends AppController {
    * @access public
    */
   public function admin_forgot_password() {
-    $this->layout = 'default';
     // only apply when the user is not already logged in
     if (User::isAdmin()) {
       $this->redirect('/admin/home');

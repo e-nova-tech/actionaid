@@ -16,7 +16,7 @@
         'id' => 'sub.admin_auth',
         'options'=> array('class'=>'menu with_tabs top')
 )); ?>
-<div class="users form grid_8 alpha">
+<div class="users admin_forgot_password form">
   <?php echo $this->MyForm->create('User', array('action' => 'forgot_password'))."\n"; ?>
     <fieldset>
       <legend><?php echo __('Please enter your email address'); ?></legend>
