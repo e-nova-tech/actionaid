@@ -100,7 +100,7 @@ $(function() {
       .animate({'opacity' : '1'},fade_interval * 5);;
 
     // bind click events on arrow
-    $("#slide-ctrl-left").click(function(c){
+    $("#js_ctrl-next").click(function(c){
        // switch old image from front to back for better visual effect
        $("#slideshow_container")
          .css({'background-image' : 'url('+content[slide_current].image+')'});
@@ -109,16 +109,18 @@ $(function() {
        } else {
          slide_current = slide_max;
        }
-       switchSlide(slide_current);
+       switchSlide();
        return false;
     });
-    $("#slide-ctrl-right").click(function(c){
+    $("#js_ctrl-prev").click(function(c){
+       $("#slideshow_container")
+         .css({'background-image' : 'url('+content[slide_current].image+')'});
        if (slide_current < slide_max) {
          slide_current = slide_current + 1;
        } else {
          slide_current = slide_min;
        }
-       switchSlide(slide_current);
+       switchSlide();
        return false;
     });
   });
