@@ -9,26 +9,21 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
   $this->set('title_for_layout','Sponsor a child today!');
-  $this->set('js_for_layout','sponsor-a-child');
+  $this->set('css_for_layout','child-sponsorship');
 ?>
-<div class="gift form grid_8 alpha">
+<div class="gift form grid_5 push_7">
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
   <fieldset class="gift">
-    <legend><?php echo __('Select a gift amount'); ?></legend>
-<?php echo $this->element('Forms/ChildSponsorSelect'); ?>
+    <legend><?php echo __('Your gift details'); ?></legend>
+<?php echo $this->element('Public/GiftSelect'); ?>
   </fieldset>
   <fieldset class="contact">
-    <legend><?php echo __('Enter you contact details'); ?></legend>
-<?php echo $this->element('Forms/ContactDetails'); ?>
+    <legend><?php echo __('Your contact details'); ?></legend>
+<?php echo $this->element('Public/ContactDetails'); ?>
   </fieldset>
-<?php echo $this->element('Forms/SecuritySeal'); ?>
+<p class="tax note"><?php echo __('Contributions to ActionAid Association are exempted from Tax under section 80G of Income TaxAct 1961.'); ?></p>
+<?php echo $this->element('Public/SecuritySeal'); ?>    
   <?php echo $this->MyForm->submit(__('Donate Now!'),array('class'=>'donate submit')); ?>
 <?php echo $this->MyForm->end(); ?>
 </div>
-<div class="sidebar grid_4 omega">
-   <img src="img/appeals/100741scr.jpg" width="300px"/>
-   <blockquote>
-     "You are very special to me because... you can change my life, my family's and the whole community I belong to."
-   </blockquote>
-<?php echo $this->element('Forms/SocialMedia'); ?>
-</div>
+

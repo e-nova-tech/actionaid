@@ -1,0 +1,103 @@
+body {
+  background: transparent url(../img/appeals/sponsor-a-child.jpg) center 20px no-repeat;
+}
+.container.header { 
+  -webkit-box-shadow: 0 8px 6px -6px #333;
+  -moz-box-shadow: 0 8px 6px -6px #333;
+  box-shadow: 0 8px 6px -6px #333;
+  height:70px;
+  margin-bottom:20px;
+}
+.form h2 {
+  background:#df0a24;
+  border:1px solid #e5364c;  
+  -webkit-box-shadow: 0 1px 5px 1px #333;
+  -moz-box-shadow: 0 1px 5px 1px #333;
+  box-shadow: 0 1px 5px 1px #333;
+  color:#FFF;
+  padding:5px 20px;
+  margin:0 0 15px 0;
+  text-shadow: 1px 1px 1px #000;
+  text-align:center;
+  background-image: linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(192,5,27) 15%, rgb(223,10,35) 80%, rgb(223,10,35) 100%);
+  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, rgb(192,5,27)),color-stop(0.8, rgb(223,10,35)),color-stop(1, rgb(223,10,35)));
+}
+form .info {
+  cursor:help;
+}
+form .info span {
+  display:none;
+}
+form .info:hover span {
+  display:block;
+  padding:1px;
+}
+form .info:hover span span {
+  display: inline;
+  padding:1px;
+}
+form .info:hover span:hover {
+  cursor:default;
+}
+form .info {
+  background:transparent url('../img/icons/s/help.png') 5px 0 no-repeat;
+  width:30px;
+  left:325px;
+  margin-left:-8px;
+}
+form .info:hover span {
+  margin-left: -188px;
+  width: 150px;
+  -webkit-box-shadow: 0 1px 5px 1px #333;
+  -moz-box-shadow: 0 1px 5px 1px #333;
+  box-shadow: 0 1px 5px 1px #333;
+}
+form .info span {
+  display:none;
+  background:#FFF;
+  padding:10px;
+}
+form .info:hover span {
+  display:block;
+  padding:10px;
+}
+form .info:hover span span {
+  display: inline;
+  margin-left: 0px;
+  width: auto;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+fieldset {
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  border:0;
+}
+fieldset legend {
+  background: #FAFAFA;
+}
+fieldset.gift {
+  padding-top:15px;
+  padding-bottom:10px;
+}
+fieldset.gift p {
+  padding-top:0;
+  margin-top:2px;
+}
+fieldset.contact {
+  padding-bottom:30px;
+}
+form .icon.inr {
+  background:transparent url('../img/inr.png') 0 0 no-repeat;
+  padding-left:15px;
+}
+form .tax.note {
+  float:left;
+  font-size:.8em;
+  text-shadow: 1px 1px 0px #FFF;
+  margin:0 5px 5px 10px;
+}
