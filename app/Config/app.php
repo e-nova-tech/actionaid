@@ -49,6 +49,11 @@ $config = array(
       '/'
     )
   ),*/
+  // CACHE configs see Core.php
+  'App.cache' => array(
+    'elements' => 'long',
+    'validation' => 'long',
+  ),
 
   // AUTHENTICATION
   'App.auth' => array(
