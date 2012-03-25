@@ -50,6 +50,6 @@
 <div class="grid_5 sidebar">
 <?php echo $this->element('Public/OfflineForm', array(), $options); ?>
 <?php echo $this->element('Public/BudgetBreakdown', array(), $options); ?>
-<?php echo $this->element('Public/SocialMedia', array(), $options); ?>
+<?php echo $this->element('Public/SocialMedia'); // don't cache it use php setters ?>
 </div>
 </div>
