@@ -51,6 +51,7 @@
   Router::connect('/transactions/:action/*', array('controller' => 'transactions')); 
   // contact form & pages
 	Router::connect('/contact', array('controller' => 'contacts', 'action' => 'index'));
+	Router::connect('/faq', array('controller' => 'pages', 'action' => 'display', 'faq'));  
 	Router::connect('/p/*', array('controller' => 'pages', 'action' => 'display'));  
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));  
   // everything else is a donation forms
