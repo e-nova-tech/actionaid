@@ -10,6 +10,7 @@
  */
 ?>
 <!doctype html>
+<html>
 <head>
   <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->element('Admin'.DS.'Head'); ?>

@@ -10,6 +10,7 @@
  */
 ?>
 <!doctype html>
+<html>
 <head>
   <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->element('Head'); ?>
@@ -25,6 +26,7 @@
   </header>
 </div>
 </div>
+<?php if(!isset($no_container)) : ?>
 <div class="container main clearfix">
 <div class="container_12">
   <!-- Main Content -->
@@ -33,6 +35,9 @@
   </div>
 </div>
 </div>
+<?php else: ?>
+<?php echo $content_for_layout; ?>
+<?php endif; ?>
 <div class="container footer clearfix">
 <div class="container_12 clearfix">
 <?php echo $this->element('Footer'); ?>
