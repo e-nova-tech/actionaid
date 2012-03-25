@@ -12,8 +12,7 @@
   if(Configure::read('Preferences.javascript')) : ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-<script type="text/javascript" src="js/libs/jquery.validate-1.9.0.min.js"></script>
-<script type="text/javascript" src="js/libs/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/libs/jquery.extralibs.min.js"></script>
 <?php 
   if (isset($js_for_layout)): 
     if (is_array($js_for_layout)):
