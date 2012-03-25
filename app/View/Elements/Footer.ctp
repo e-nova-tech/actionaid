@@ -9,7 +9,7 @@
       <?php echo $this->MyHtml->link(__('Privacy Policy'),array('privacy-policy'))."\n"; ?>
     </div>
   </footer>
-<?php if (Configure::read('debug')): ?>
+<?php if (Configure::read('debug') > 1): ?>
   <div class="debug grid_12">
 <?php echo $this->element('Debug'); ?>
   </div>

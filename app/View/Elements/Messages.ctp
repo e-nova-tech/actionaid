@@ -9,9 +9,12 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
  $class = isset($class) ? ' '.$class : '';
+ $display_empty = isset($display_empty) ? $display_empty : false;
 ?>
 <?php if (!isset($flashMessages) || empty($flashMessages)): ?>
+<?php if ($display_empty) : ?>
 <div class="messages empty"></div>
+<?php endif; ?>
 <?php else : ?>
 <div class="messages_wrapper">
   <ul class="messages">
