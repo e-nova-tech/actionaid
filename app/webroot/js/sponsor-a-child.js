@@ -124,4 +124,10 @@ $(function() {
        return false;
     });
   });
+
+  // faq accordion
+	$('.accordion h4').click(function() {
+		$(this).next().toggle();
+		return false;
+	}).next().hide();
 });

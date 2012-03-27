@@ -41,15 +41,18 @@
 </div>
 </div>
 <div class="container_12 container fold clearfix">
-<div class="grid_7 content">
 <?php $options = array('cache'=> array('config' => Configure::Read('App.cache.elements'))); ?>
+<div class="grid_12 impact">
+<?php echo $this->element('Public/ImpactWide', array(), $options); ?>
+</div>
+<div class="grid_7 content">
 <?php echo $this->element('Public/Testimonials', array(), $options); ?>
-<?php echo $this->element('Public/Impact', array(), $options); ?>
-<?php echo $this->element('Public/FaqShort', array(), $options); ?>
+<?php echo $this->element('Public/TaxInfo'); ?>
+<?php echo $this->element('Public/Faq'); ?>
 </div>
 <div class="grid_5 sidebar">
-<?php echo $this->element('Public/OfflineForm', array(), $options); ?>
 <?php echo $this->element('Public/BudgetBreakdown', array(), $options); ?>
+<?php echo $this->element('Public/OfflineForm', array(), $options); ?>
 <?php echo $this->element('Public/SocialMedia'); // don't cache it use php setters ?>
 </div>
 </div>
