@@ -34,6 +34,10 @@ class PagesController extends AppController {
 	public $helpers = array('Html', 'Session');
 	public $uses = array();
 
+  var $cacheAction = array (
+    'display' => '+1 hour'
+  );
+
   /**
    * Displays a view
    *

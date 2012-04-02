@@ -26,22 +26,20 @@ $config = array(
     'main' => array(
       'public_default' => array(
         'why' => array(
-          'name'    => __('Home Page'),
+          'name'    => __('Home'),
           'url'     => 'http://www.actionaid.org/india',
-          'resource' => 'external'
+          'resource' => '/'
         ),
-        'faq' => array(
-          'name'    => __('Donation FAQ'),
-          'url'     => '/pages/faq',
-          'pattern' => '#/\/pages\/faq.*/iU',
-          'resource' => 'pages:faq'
+        'donate' => array(
+          'name'    => __('Donate'),
+          'url'     => '/',
+          'resource' => 'gifts:add'
         ),
         'contact' => array(
           'name'    => __('Contact Us'),
           'url'     => '/contact',
-          'pattern' => '#/\/contact.*/iU',
           'resource' => 'contacts:index'
-        )
+        ),
       ),
       'admin' => array(
         'home' => array(
@@ -55,13 +53,13 @@ $config = array(
           'url'     => '/admin/appeals/index',
           'pattern' => '#/\/appeals.*/iU',
           'resource' => 'appeals:admin_index',
-        ),
+        ),/*
         'posts' => array(
           'name'    => __('Posts'),
           'url'     => '/admin/posts/index',
-          'pattern' => '#/\/posts.*/iU',
+          'pattern' => '#/\/posts.* /iU',
           'resource' => 'posts:admin_index',
-        ),
+        ),*/
         'gifts' => array(
           'name'    => __('Gifts'),
           'url'     => '/admin/gifts/index',
@@ -90,16 +88,16 @@ $config = array(
     ),
     // LEVEL 1 - Content Filters
     'sub' => array(
-      'authentication' => array(
+      'admin_auth' => array(
         'login' => array(
           'name'     => __('Login'),
-          'url'      => '/login',
+          'url'      => '/admin/login',
           'pattern'  => '#/^(.*\/login|\/users\/login).*$/iU',
           'resource' => 'users:login'
         ),
         'lostPassword' => array(
           'name'     => __('Lost password?'),
-          'url'      => '/password/forgot',
+          'url'      => '/admin/password/forgot',
           'pattern'  => '#/^(.*\/password\/(forgot|reset)|\/users\/forgot_password).*$/iU',
           'resource' => 'users:forgot_password'
         )

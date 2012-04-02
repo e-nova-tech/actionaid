@@ -34,4 +34,4 @@
       </tr>
 <?php endforeach; ?>
     </table>
-
+<?php echo $this->element('Paging'); ?>

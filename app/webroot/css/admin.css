@@ -1,63 +1,20 @@
 body {
   background:#FFF;
 }
-/* generic for menus */
-.menu li {
-  float:left;
-  list-style-type:none;
-}
-/* main menu */
-.main.menu {
-  margin-top:20px;  
-  padding:10px 10px 5px 0px;
-  float:left;
-  clear:both;
-}
-.main.menu li a {
-  color:#000;
-  font-size:1.1em;
-  padding:5px 10px;
-  margin-left:8px;
-}
-.main.menu li a.selected, 
-.main.menu li a.selected:hover {
-  background:#ED1C24;
-  color:#FFF;
-}
-.menu.tabs.sub li a.unselected{
-}
-.menu.tabs.sub li a.unselected:hover{
-}
-/* action menu */
-.action.menu {
-  margin:5px 0 10px 0;
-  padding:0;
-  float:left; 
-  clear:both;
-}
-.action.menu li {
-  list-style-type:none;
-  display:inline;
-}
-.action.menu li a.add {
-  padding-left:25px;
-  background:transparent url(../img/icons/add.png) 0 0 no-repeat;
-}
 
-/*** gifts admin view customs ***/
+/* gifts admin view customs */
 .gifts_admin_view table tr.success td{
   background-color:#E8FFE8;
 }
-
 .gifts_admin_view table tr.success td.type.request span,
 .gifts_admin_view table tr.failure td.type.request span{
-  background:transparent url(../img/icons/arrow_right.png) left center no-repeat;
+  background:transparent url(../img/icons/s/arrow_right.png) left center no-repeat;
   padding:0 0 0 20px;
 }
 
 .gifts_admin_view table tr.success td.type.response span,
 .gifts_admin_view table tr.failure td.type.response span{
-  background:transparent url(../img/icons/arrow_left.png) left center no-repeat;
+  background:transparent url(../img/icons/s/arrow_left.png) left center no-repeat;
   padding:0 0 0 20px;
 }
 
@@ -65,10 +22,9 @@ table tr.success td.status{ color:#008000; }
 table tr.failure td.status{ color:#CC0000; }
 table tr.pending td.status{ color:#ff9110; }
 
-
-
-/** misc **/
-hr.spacer{
+/* misc */
+hr.spacer,
+.spacer {
   line-height:0;
   height:0;
   clear:both;

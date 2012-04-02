@@ -1,6 +1,8 @@
 <?php
 /**
- * MyPaginator Helper - Overrides default paginator helper
+ * MyPaginator Helper 
+ * Extends paginator helper to set default numbers options and 
+ * also allow the user to choose a limit
  * 
  * @copyright     Copyright 2012, ActionAid India 
  * @link          http://actionaid.org/india
@@ -17,7 +19,7 @@ class MyPaginatorHelper extends PaginatorHelper {
    */
   function numbers($options = array()) {
     $defaults = array(
-      'tag' => 'span', 'before' => null, 'after' => null, 'model' => $this->defaultModel(),
+      'tag' => 'span', 'before' => null, 'after' => null,
       'modulus' => '8', 'separator' => '', 'first' => null, 'last' => null,
     );
     $options += $defaults;
@@ -42,27 +44,15 @@ class MyPaginatorHelper extends PaginatorHelper {
     }
     return $out;
   }
-  
-  /**
-   * Indicates if numbers are needed or not
-   * @return bool
-   * @access public
-   */
-  function hasNumber(){
-    if(isset($this->__defaultModel) && $this->__currentLimit()) {
-      return (($this->params['paging'][$this->__defaultModel]['count'] / $this->__currentLimit()) > 1);
-    } return false;
-  }
-  
+
   /**
    * Getter: current limit of paginated set
    * @return int limit
    * @access public
    */
   function __currentLimit($options = array()){
-    $model = (isset($options['model'])) ? $options['model'] : $this->defaultModel();
-    $paging = $this->params($model);
-    return (isset($paging['options']['limit'])) ? $paging['options']['limit'] : 0;
+    $paging = $this->params();
+    return (isset($paging['limit'])) ? $paging['limit'] : 0;
   }
 }
 ?>
