@@ -60,14 +60,10 @@ body {
   background:transparent url(../img/icons/arrow_left.png) left center no-repeat;
   padding:0 0 0 20px;
 }
-.gifts_admin_view table tr.success td.status{
-  color:#008000;
-  font-weight:bold;
-}
-.gifts_admin_view table tr.failure td.status{
-  color:#CC0000;
-  font-weight:bold;
-}
+
+table tr.success td.status{ color:#008000; }
+table tr.failure td.status{ color:#CC0000; }
+table tr.pending td.status{ color:#ff9110; }
 
 
 

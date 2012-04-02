@@ -22,8 +22,8 @@
         <th><?php echo __('Actions'); ?></th>
       </tr>
 <?php foreach ($gifts as $gift): ?>
-      <tr>
-        <td><?php echo $gift['Gift']['status']; ?></td>
+      <tr class="<?php echo $gift['Gift']['status']; ?>">
+        <td class="status"><?php echo $gift['Gift']['status']; ?></td>
         <td><?php echo $gift['Gift']['amount']; ?> <?php echo $gift['Gift']['currency']; ?></td>
         <td><?php echo $gift['Person']['title'].'. '.$gift['Person']['firstname'].' '.$gift['Person']['lastname']; ?></td>
         <td><?php echo $gift['Appeal']['title']; ?></td>
