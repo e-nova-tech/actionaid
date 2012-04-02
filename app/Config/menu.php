@@ -26,22 +26,20 @@ $config = array(
     'main' => array(
       'public_default' => array(
         'why' => array(
-          'name'    => __('Home Page'),
+          'name'    => __('Home'),
           'url'     => 'http://www.actionaid.org/india',
-          'resource' => 'external'
+          'resource' => '/'
         ),
-        'faq' => array(
-          'name'    => __('Donation FAQ'),
-          'url'     => '/pages/faq',
-          'pattern' => '#/\/pages\/faq.*/iU',
-          'resource' => 'pages:faq'
+        'donate' => array(
+          'name'    => __('Donate'),
+          'url'     => '/',
+          'resource' => 'gifts:add'
         ),
         'contact' => array(
           'name'    => __('Contact Us'),
           'url'     => '/contact',
-          'pattern' => '#/\/contact.*/iU',
           'resource' => 'contacts:index'
-        )
+        ),
       ),
       'admin' => array(
         'home' => array(

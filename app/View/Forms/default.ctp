@@ -35,7 +35,7 @@
       </span>
     </div>
     <h2><a href="child-sponsorship" class="button donate dark-shadow"><?php echo __('Sponsor a child today!'); ?> ›</a></h2>
-    <h3><a href="donors/login"><?php echo __('Are you a regular donor? Please login!'); ?></a></h3>
+    <h3 class="tax note">Contributions to ActionAid are exempted from Tax under Sec 80 G of Income Tax Act 1961</h3>
   </div>
 </div>
 </div>
@@ -47,7 +47,6 @@
 </div>
 <div class="grid_7 content">
 <?php echo $this->element('Public/Testimonials', array(), $options); ?>
-<?php echo $this->element('Public/TaxInfo'); ?>
 <?php echo $this->element('Public/Faq'); ?>
 </div>
 <div class="grid_5 sidebar">

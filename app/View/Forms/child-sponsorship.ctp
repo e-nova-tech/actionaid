@@ -9,8 +9,13 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
   $this->set('title_for_layout','Sponsor a child today!');
-  $this->set('css_for_layout','child-sponsorship');
+  $this->set('css_for_layout','sponsor-a-child');
+  $this->set('js_for_layout','sponsor-a-child');
+  $this->set('no_container', true);
 ?>
+<div id="slideshow_container" class="slideshow_container container ">
+<div id="slideshow" role="main" class="container slideshow clearfix">
+<div class="container_12">
 <div class="gift form grid_5 push_7">
   <?php echo $this->MyForm->create('Gift')."\n"; ?>
   <fieldset class="gift">
@@ -26,4 +31,21 @@
   <?php echo $this->MyForm->submit(__('Donate Now!'),array('class'=>'donate submit')); ?>
 <?php echo $this->MyForm->end(); ?>
 </div>
-
+</div>
+</div>
+</div>
+<div class="container_12 container fold clearfix">
+<?php $options = array('cache'=> array('config' => Configure::Read('App.cache.elements'))); ?>
+<div class="grid_12 impact">
+<?php echo $this->element('Public/ImpactWide', array(), $options); ?>
+</div>
+<div class="grid_7 content">
+<?php echo $this->element('Public/Testimonials', array(), $options); ?>
+<?php echo $this->element('Public/Faq', array(), $options); ?>
+</div>
+<div class="grid_5 sidebar">
+<?php echo $this->element('Public/BudgetBreakdown', array(), $options); ?>
+<?php echo $this->element('Public/OfflineForm', array(), $options); ?>
+<?php echo $this->element('Public/SocialMedia'); // don't cache it use php setters ?>
+</div>
+</div>

@@ -13,7 +13,7 @@
       <h1 class="logo">
         <a href="http://www.actionaid.org/india" alt="ActionAid"><span>ActionAid</span></a>
       </h1>
-      <h2 style="width:170px;margin-top:0;line-height:1.1em;font-size:1em;">Working since 40 years with the poor in India</h2>
+      <h2 style="width:270px;margin-top:0;line-height:1.1em;font-size:1em;">Celebrating 40 years of working with the poor and marginalised of India</h2>
     </div>
     <div class="grid_5 omega">
 <?php echo $this->element('Menu', array(

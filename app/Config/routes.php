@@ -31,13 +31,15 @@
 	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'Home','admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/help', array('controller' => 'pages', 'action' => 'display', 'Help','admin' => true, 'prefix'=>'admin'));
   // authentication
-	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
+	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'donor' => true, 'prefix'=>'donor'));
+	Router::connect('/donor/login', array('controller' => 'users', 'action' => 'login', 'donor' => true, 'prefix'=>'donor'));
 	Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
-	//Router::connect('/admin/users/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
+
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix' => 'admin'));
 	Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/password/forgot', array('controller' => 'users', 'action' => 'forgot_password', 'admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/password/reset/*', array('controller' => 'users', 'action' => 'reset_password', 'admin' => true, 'prefix'=>'admin'));
+
 	//Router::connect('/admin/users/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
   // javascript stuffs
 	Router::connect('/json/gifts/validation/*', array('controller'=>'gifts','action'=>'json_validation')); 

@@ -13,12 +13,11 @@
 .slideshow_container, 
 .slideshow {
   margin-top:70px;
-  min-height:560px;
-  background:#000;
+  min-height:580px;
+  background: #FFF;
 }
 .slideshow {
-  background: transparent url(../img/appeals/sponsor-a-child/slide0.jpg) 0 top no-repeat;
-  border-bottom:1px solid #FFF;
+  background: transparent url(../img/appeals/sponsor-a-child/slide0.jpg) 0 0 no-repeat;
   padding-top:10px;
 }
 .container.fold {
@@ -76,6 +75,91 @@
   text-shadow: 1px 1px 1px #000;
   color:#FFF;
   padding-left:5px;
+}
+/* form */
+form .info {
+  cursor:help;
+}
+form .info span {
+  display:none;
+}
+form .info:hover span {
+  display:block;
+  padding:1px;
+}
+form .info:hover span span {
+  display: inline;
+  padding:1px;
+}
+form .info:hover span:hover {
+  cursor:default;
+}
+form .info {
+  background:transparent url('../img/icons/s/help.png') 5px 0 no-repeat;
+  width:30px;
+  left:325px;
+  margin-left:-8px;
+}
+form .info:hover span {
+  margin-left: -188px;
+  width: 150px;
+  -webkit-box-shadow: 0 1px 5px 1px #333;
+  -moz-box-shadow: 0 1px 5px 1px #333;
+  box-shadow: 0 1px 5px 1px #333;
+}
+form .info span {
+  display:none;
+  background:#FFF;
+  padding:10px;
+}
+form .info:hover span {
+  display:block;
+  padding:10px;
+}
+form .info:hover span span {
+  display: inline;
+  margin-left: 0px;
+  width: auto;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+fieldset {
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  border:0;
+}
+fieldset legend {
+  background: #FAFAFA;
+}/*
+fieldset.gift {
+  padding-top:15px;
+  padding-bottom:10px;
+}*/
+fieldset.gift p {
+  padding-top:0;
+  margin-top:2px;
+}
+fieldset.contact {
+  padding-bottom:30px;
+}
+fieldset.gift .info {
+  padding-top:0;
+  margin-top:2px;
+}
+form .icon.inr {
+  background:transparent url('../img/inr.png') 0 0 no-repeat;
+  padding-left:15px;
+}
+.tax.note {
+  float:left;
+  font-size:.8em;
+  color:#FFF;
+  text-shadow: 1px 1px 0px #000;
+  margin:0 20px 5px 10px;
+}
+h3.tax.note {
+  font-size:1.1em;
+  width:330px;
 }
 /* fold */
 .fold {
@@ -147,7 +231,7 @@
   margin-right:10px;
 }
 .fold .social.media {
-  padding:5px 0;
+  padding:0;
 }
 /* faq */
 .accordion ul {

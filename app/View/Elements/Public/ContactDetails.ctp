@@ -1,4 +1,4 @@
-    <?php echo $this->MyForm->input('Person.title', array(
+    <?php /* echo $this->MyForm->input('Person.title', array(
       'type'=>'select','label'=>__('Title'), 'class'=>'required',
       'options' => array('Ms'=>'Ms','Mrs'=>'Mrs','Mr'=>'Mr','Dr'=>'Dr.','Prof'=>'Prof.')
     )); ?>
@@ -19,34 +19,37 @@
     )); ?>
     <?php echo $this->MyForm->input('Person.pincode', array(
       'label'=>__('Pincode'), 'class'=>'required'
-    )); ?>
+    )); /* ?>
     <?php echo $this->MyForm->input('Person.state', array(
       'label'=>__('State'), 'class'=>'required',
       'options'=> $states
-    )); ?>
+    ));*/ ?>
     <?php echo $this->MyForm->input('Person.country', array(
       'type'=>'select', 'label'=>__('Country'),
       'options'=> $countries, 'class'=>'required',
       'hint' => 'Sorry we do not support international online donations yet. If you are not residing in India please use our <a href="#">offline donation form</a> or donate <a href="http://www.actionaid.org/donate" target="_blank">ActionAid International</a>'
     )); ?>
     <?php echo $this->MyForm->input('Person.email', array(
-      'label'=>__('Email'), 'class'=> 'required'
+      'label'=>__('Email'), 'class'=> '',
+      'hint' => __('We need this information in case we need to get touch with you concerning your donation.')
     )); ?>
     <?php /*echo $this->MyForm->input('Person.phone', array(
       'type'=>'select', 'label'=> 'Phone','div' => array('class'=>'hidden-label') ,
       'options'=> array('Mobile','Home','Work')
      )); ?>
-    <?php*/ echo $this->MyForm->input('Person.phone', array(
+    <?php */ echo $this->MyForm->input('Person.phone', array(
       'label'=> __('Phone'), 'class'=>'',
-      'hint' => __('We need this information in case we need to get touch with you concerning your donation.')
     )); ?>
-    <?php /*echo $this->MyForm->input('Gift.source', array(
-      'type'=>'select', 'label'=> 'Source', 'div' => array('class' => 'hidden-label'),
+    <?php echo $this->MyForm->input('Person.agerange', array(
+      'type'=>'select', 'label'=> 'Age',
+      'options'=> array('How old are you?','between 18 - 24','between 25 - 34','between 35 - 50','more than 50'),
+    )); ?>
+    <?php echo $this->MyForm->input('Gift.source', array(
+      'type'=>'select', 'label'=> 'Source',
       'options'=> array('Where did you hear from us?','Friends','Search Engine','Newspaper','Website','Promotional Message','ActionAid Employee','I am already a donor','Other'),
     )); ?>
-    <?php */echo $this->MyForm->input('Person.contact allowed', array(
-      'type'=>'checkbox', 'label'=> 'Yes, you can use my contact details to get in touch with me.',
-      //'hint'=> __('An account will allow you to see your past transactions and download your tax receipts. We will send you instructions by email on how to activate your account. <a href="faq">Learn more</a>'),
+    <?php echo $this->MyForm->input('Person.cancontact', array(
+      'type'=>'checkbox', 'label'=> 'Send me a confirmation email of my transaction (recommended).',
     )); ?>
     <?php /* echo $this->MyForm->input('Person.dob', array(
       'label'=>__('Date of birth'), 'class'=>'', 'type'=>'date','separator'=>' / ',
