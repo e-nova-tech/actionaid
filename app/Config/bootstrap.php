@@ -30,7 +30,6 @@
   Configure::load('app');         // Application
   Configure::load('preferences'); // Preferences
   Configure::load('menu');        // Navigation
-
   // Special Classes
   require_once(APP . 'Controller' . DS . 'Component' . DS .'Common.php');
 

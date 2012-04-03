@@ -10,9 +10,8 @@
  */
   $this->set('title_for_layout', __('Gifts index'));
   $this->set('menu_for_layout', 'gifts:admin_index');
-  //pr($gifts);
 ?>
-   <table>
+    <table>
       <tr>
         <th><?php echo $this->MyPaginator->sort('status',__('Status'));?></th>
         <th><?php echo $this->MyPaginator->sort('amount',__('Amount'));?></th>
@@ -32,4 +31,4 @@
       </tr>
 <?php endforeach; ?>
     </table>
-
+<?php echo $this->element('Paging'); ?>

@@ -87,7 +87,7 @@ $(function() {
   }, "Letters and numbers only please");
   
   jQuery.validator.addMethod("alphaplus", function(value, element) {
-    return this.optional(element) || /^(([a-zA-Z])+(\-|\s|\'){1}){0,}([a-zA-Z])+$/i.test(value);
+    return this.optional(element) || /^(([a-zA-Zéèêàüöôø])+(\-|\s|\'){1}){0,}([a-zA-Zéèêàüöôø])+$/i.test(value);
   }, "Letters, numbers, spaces, dashes only please");
   
   //var reg = new RegExp("^[0-9\-\+]{8,16}$");

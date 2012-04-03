@@ -31,12 +31,16 @@
 	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'Home','admin' => true, 'prefix'=>'admin'));
 	Router::connect('/admin/help', array('controller' => 'pages', 'action' => 'display', 'Help','admin' => true, 'prefix'=>'admin'));
   // authentication
-	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
+	Router::connect('/login', array('controller' => 'users', 'action' => 'login', 'donor' => true, 'prefix'=>'donor'));
+	Router::connect('/donor/login', array('controller' => 'users', 'action' => 'login', 'donor' => true, 'prefix'=>'donor'));
 	Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
-	Router::connect('/admin/users/login', array('controller' => 'users', 'action' => 'login', 'admin' => true, 'prefix'=>'admin'));
+
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix' => 'admin'));
 	Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
-	Router::connect('/admin/users/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
+	Router::connect('/admin/password/forgot', array('controller' => 'users', 'action' => 'forgot_password', 'admin' => true, 'prefix'=>'admin'));
+	Router::connect('/admin/password/reset/*', array('controller' => 'users', 'action' => 'reset_password', 'admin' => true, 'prefix'=>'admin'));
+
+	//Router::connect('/admin/users/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true, 'prefix'=>'admin'));
   // javascript stuffs
 	Router::connect('/json/gifts/validation/*', array('controller'=>'gifts','action'=>'json_validation')); 
 	Router::connect('/json/cities/index/*', array('controller'=>'cities', 'action'=>'json_index')); 
@@ -49,6 +53,7 @@
   Router::connect('/transactions/:action/*', array('controller' => 'transactions')); 
   // contact form & pages
 	Router::connect('/contact', array('controller' => 'contacts', 'action' => 'index'));
+	Router::connect('/faq', array('controller' => 'pages', 'action' => 'display', 'faq'));  
 	Router::connect('/p/*', array('controller' => 'pages', 'action' => 'display'));  
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));  
   // everything else is a donation forms

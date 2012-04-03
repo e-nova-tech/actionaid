@@ -16,9 +16,36 @@ class PersonTestCase extends CakeTestCase {
     $this->Person = ClassRegistry::init('Person');
   }
 
-  public function testDobValidation() {    
+  public function testPersonTitleValidation() {
     $testcases = array(
       '' => false,
+      'Ms'   => true,   'ms'   => false,
+      'Mrs'  => true,   'mrs'  => false,
+      'Mr'   => true,   'mr'   => false,
+      'Dr'   => true,   'dr'   => false,
+      'Prof' => true,   'prof' => false,
+      '#'    => false,  '1'    => false,
+      'biloute' => false
+    );
+    foreach($testcases as $testcase => $result) {
+      $person = array('Person' => array(
+        'title' => $testcase
+      ));
+      $this->Person->set($person);
+      if($result) {
+        $msg = 'validation of person title with '.$testcase.' should validate';
+      } else {
+        $msg = 'validation of person title with '.$testcase.' should not validate';
+      }
+      $this->assertEqual(
+        $this->Person->validates(array('fieldList' => array('title'))), $result, $msg
+      );
+    }
+  }
+
+  public function testDobValidation() {    
+    $testcases = array(
+      '' => true,
       '2000-01-01' => false, '1800-01-01'  => false, // too young or too old
       '1990-01-01' => true,  '1960-01-01'  => true
     );
@@ -38,6 +65,104 @@ class PersonTestCase extends CakeTestCase {
     }
   }
 
+  public function testFirstnameValidation() {    
+    $testcases = array(
+      '' => true,
+      'rémy' => true, 'kevin'  => true,
+      '!rémy' => false, 'kevin-metha'  => true,
+      'kev du getho' => true, "kevin d'la haute" => true
+    );
+    foreach($testcases as $testcase => $result) {      
+      $person = array('Person' => array(
+        'firstname' => $testcase
+      ));
+      $this->Person->set($person);
+      if($result) {
+        $msg = 'validation of person firstname with '.$testcase.' should validate';
+      } else {
+        $msg = 'validation of person firstname with '.$testcase.' should not validate';
+      }
+      $this->assertEqual(
+        $this->Person->validates(array('fieldList' => array('firstname'))), $result, $msg
+      );
+    }
+  }
+
+  public function testLastnameValidation() {    
+    $testcases = array(
+      '' => false,
+      'muller' => true, 'müller'  => true,
+      'rémy' => true, 'kevin-metha'  => true,
+      'kev du getho' => true, "kevin d'la haute" => true
+    );
+    foreach($testcases as $testcase => $result) {      
+      $person = array('Person' => array(
+        'lastname' => $testcase
+      ));
+      $this->Person->set($person);
+      if($result) {
+        $msg = 'validation of person lastname with '.$testcase.' should validate';
+      } else {
+        $msg = 'validation of person lastname with '.$testcase.' should not validate';
+      }
+      $this->assertEqual(
+        $this->Person->validates(array('fieldList' => array('lastname'))), $result, $msg
+      );
+    }
+  }
+
+  public function testCityValidation() {    
+    $testcases = array(
+      '' => false,               'a' => false,
+      '#' => false,              'd2' => false,
+      'as' => true,              'delhi' => true,
+      'rémy' => true,            'delhi-ji' => true,
+      "delhi'ji" => true,        'Dehri-on-Sone' => true,
+      "delhi'ji-ji" => true,     'Dehri-on-Sone-' => false,
+      '-Dehri-on-Sone' => false, 'Dehri-on--Sone' => false,
+      'saint-émilion' => true
+    );
+    foreach($testcases as $testcase => $result) {      
+      $person = array('Person' => array(
+        'city' => $testcase
+      ));
+      $this->Person->set($person);
+      if($result) {
+        $msg = 'validation of city with '.$testcase.' should validate';
+      } else {
+        $msg = 'validation of city with '.$testcase.' should not validate';
+      }
+      $this->assertEqual(
+        $this->Person->validates(array('fieldList' => array('city'))), $result, $msg
+      );
+    }
+  }
+
+  public function testPincodeValidation() {    
+    $testcases = array(
+      '' => false,
+      '1' => false,
+      '111 ss' => false,
+      'ssssss' => false,
+      '123456' => true,
+      '123 45' => false,
+      '1234567' => false
+    );
+    foreach($testcases as $testcase => $result) {      
+      $person = array('Person' => array(
+        'pincode' => $testcase
+      ));
+      $this->Person->set($person);
+      if($result) {
+        $msg = 'validation of pincode with '.$testcase.' should validate';
+      } else {
+        $msg = 'validation of pincode with '.$testcase.' should not validate';
+      }
+      $this->assertEqual(
+        $this->Person->validates(array('fieldList' => array('pincode'))), $result, $msg
+      );
+    }
+  }
 
   public function testStateValidation() {
     $testcases = array(
@@ -81,6 +206,64 @@ class PersonTestCase extends CakeTestCase {
     }
   }
 
+  public function testPhoneValidation() {    
+    $testcases = array(
+      '' => true,
+      'dddddddddd' => false,
+      '+91' => false,
+      '1' => false,
+      '12345' => false,
+      '1234567890' => true,
+      '00911234567890' => true,
+      '+911234567890' => true,
+      '12-34567890' => true, // trimed in beforeValidate
+      '123-4567890' => true,
+      '1234-567890' => true,
+      '12.35.56.68.90' => true,
+      '12 35 56 68 90' => true,
+      '12345678' => true,  // without area code is also ok
+      '1234567' => true,
+      '123456' => true
+    );
+    foreach($testcases as $testcase => $result) {      
+      $person = array('Person' => array(
+        'phone' => $testcase
+      ));
+      $this->Person->set($person);
+      if($result) {
+        $msg = 'validation of person phone with '.$testcase.' should validate';
+      } else {
+        $msg = 'validation of person phone with '.$testcase.' should not validate';
+      }
+      $this->assertEqual(
+        $this->Person->validates(array('fieldList' => array('phone'))), $result, $msg
+      );
+    }
+  }
+
+  public function testBeforeValidate() {
+    $testcases = array(
+      '12-34567890' => false,
+      '12-34-56-78-90' => false, 
+      '12.35.56.68.90' => false,
+      '12 35 56 68 90' => false
+    );
+    foreach($testcases as $testcase => $result) {      
+      $person = array('Person' => array(
+        'phone' => $testcase
+      ));
+      $this->Person->set($person);
+      $this->Person->beforeValidate(array());
+      $trims = array('-',' ','.');
+      foreach($trims as $trim) {
+        $msg = $trim.' in phone '.$testcase.' should be removed';
+        $this->assertEqual(
+          strpos($this->Person->data['Person']['phone'],$trim), $result, $msg
+        );    
+      }
+    }
+  }
+
   public function testGetFindConditions() {
     $testcase = array( 
       'Person' => array(
@@ -103,61 +286,4 @@ class PersonTestCase extends CakeTestCase {
     $this->assertEqual(sizeof($results),sizeof($testcase['Person']));
   }
 
-  public function testPersonTitleValidation() {
-    $testcases = array(
-      'Ms'   => true,   'ms'   => false,
-      'Mrs'  => true,   'mrs'  => false,
-      'Mr'   => true,   'mr'   => false,
-      'Dr'   => true,   'dr'   => false,
-      'Prof' => true,   'prof' => false,
-      '#'    => false,  '1'    => false,
-      'biloute' => false
-    );
-    foreach($testcases as $testcase => $result) {
-      $person = array('Person' => array(
-        'title' => $testcase
-      ));
-      $this->Person->set($person);
-      if($result) {
-        $msg = 'validation of person title with '.$testcase.' should validate';
-      } else {
-        $msg = 'validation of person title with '.$testcase.' should not validate';
-      }
-      $this->assertEqual(
-        $this->Person->validates(array('fieldList' => array('title'))), $result, $msg
-      );
-    }
-  }
-
-  public function testPersonCityValidation() {
-    $testcases = array(
-      '#' => false,
-      'd' => false,
-      '22' => false,
-      'd22' => false,
-      'delhi' => true,
-      'rémy' => false,
-      'delhi-ji' => true,
-      "delhi'ji" => true,
-      'Dehri-on-Sone' => true,
-      "delhi'ji-ji" => true,
-      'Dehri-on-Sone-' => false,
-      '-Dehri-on-Sone' => false,
-      'Dehri-on--Sone' => false
-    );
-    foreach($testcases as $testcase => $result) {
-      $person = array('Person' => array(
-        'city' => $testcase
-      ));
-      $this->Person->set($person);
-      if($result) {
-        $msg = 'validation of city name with '.$testcase.' should validate';
-      } else {
-        $msg = 'validation of city name with '.$testcase.' should not validate';
-      }
-      $this->assertEqual(
-        $this->Person->validates(array('fieldList' => array('city'))), $result, $msg
-      );
-    }
-  }
 }

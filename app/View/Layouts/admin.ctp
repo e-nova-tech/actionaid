@@ -9,25 +9,20 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<?php echo $this->element('Head' . DS . 'Doctype'); ?>
+<!doctype html>
+<html>
 <head>
   <title><?php echo $title_for_layout; ?></title>
-<?php echo $this->element('Head'); ?>
-  <link rel="stylesheet" href="css/admin.css">
-  <meta meta name="robots" content="nofollow">
+<?php echo $this->element('Admin'.DS.'Head'); ?>
+<?php echo $this->element('Admin'.DS.'Css'); ?>
 </head>
 <body>
-<?php echo $this->element('messages'); ?>
+<?php echo $this->element('Messages'); ?>
 <div class="container header clearfix">
 <div class="container_12">
   <!-- Header -->
   <header>
-<?php echo $this->element('Header'); ?>
-<?php
-    echo $this->element('Menu', array(
-      'options' => array('class' => 'main menu corner-all'))
-    );
-?>
+<?php echo $this->element('Admin'.DS.'Header'); ?>
   </header>
 </div>
 </div>
@@ -35,6 +30,7 @@
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
+    <div class="grid_9 alpha">
     <h1><?php echo $title_for_layout; ?></h1>
 <?php
   if (isset($menu_for_layout)) {
@@ -45,8 +41,11 @@
   }
 // echo $this->element('Body' . DS. 'Menu', array('options' => array('class' => 'sub menu tabs')));
 ?>
-<?php echo $this->Session->flash(); ?>
 <?php echo $content_for_layout; ?>
+    </div>
+    <div class="grid_3 omega" style="background:#CCC">
+      <!--Sidebar -->
+    </div>
   </div>
 </div>
 </div>
@@ -55,6 +54,6 @@
 <?php echo $this->element('Footer'); ?>
 </div>
 </div>
-<?php echo $this->element('Footer' . DS . 'Js'); ?>
+<?php echo $this->element('Admin' . DS . 'Js'); ?>
 </body>
 </html>

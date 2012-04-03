@@ -45,8 +45,7 @@ class Common extends Object {
       if($warn) {
         //TODO add javascript / css trick
         $this->Controller->Message->warning(
-          'WARNING_COOKIES_MUST_BE_ENABLED',
-          __('Cookies must be enabled past this point.',true)
+          __('Cookies must be enabled past this point.')
         );
       }
       return false;

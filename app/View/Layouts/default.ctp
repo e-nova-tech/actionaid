@@ -9,13 +9,14 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<?php echo $this->element('Head' . DS . 'Doctype'); ?>
+<!doctype html>
+<html>
 <head>
   <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->element('Head'); ?>
+<?php echo $this->element('Css'); ?>
 </head>
 <body>
-<?php echo $this->element('messages',array('class' => 'inline')); ?>
 <div class="container header clearfix">
 <div class="container_12">
   <!-- Header -->
@@ -24,6 +25,8 @@
   </header>
 </div>
 </div>
+<?php if(!isset($no_container_for_layout)) : ?>
+<div class="container texture header_push">
 <div class="container main clearfix">
 <div class="container_12">
   <!-- Main Content -->
@@ -32,11 +35,15 @@
   </div>
 </div>
 </div>
+</div>
+<?php else: ?>
+<?php echo $content_for_layout; ?>
+<?php endif; ?>
 <div class="container footer clearfix">
 <div class="container_12 clearfix">
 <?php echo $this->element('Footer'); ?>
 </div>
 </div>
-<?php echo $this->element('Footer' . DS . 'Js'); ?>
+<?php echo $this->element('Js'); ?>
 </body>
 </html>

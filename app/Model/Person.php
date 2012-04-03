@@ -51,13 +51,15 @@ class Person extends AppModel {
         )
       ),
       'firstname' => array(
-        'required'  => array(
+        /*'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your firstname')
-        ),
+        ),*/
         'alphaplus'  => array(
+          'required' => false,   // remove if required
+          'allowEmpty' => true,  // remove if required 
           'rule' => array('alphaplus'),
           'message' => __('Your firstname should not contain unecessary punctuation characters')
         ),
@@ -71,15 +73,15 @@ class Person extends AppModel {
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
-          'message' => __('Please indicate your lastname')
+          'message' => __('Please indicate your name')
         ),
         'alphaplus'  => array(
           'rule' => array('alphaplus'),
-          'message' => __('Your last name should not contain unecessary punctuation characters')
+          'message' => __('Your name should not contain unecessary punctuation characters')
         ),
         'maxlength' => array(
           'rule' => array('maxLength', '64'),
-          'message' => __('Your lastname should not be longer than 64 characters')
+          'message' => __('Your name should not be longer than 64 characters')
         )
       ),
       'address1' => array(
@@ -112,10 +114,12 @@ class Person extends AppModel {
           'message' => __('Your city name should not contain unecessary punctuation characters')
         ),
         'rangelength' => array(
+          'required' => true,
+          'allowEmpty' => false,
           'rule' => array('between','2', '64'),
           'message' => __('Your city name should be between 2 and 64 characters long')
         )
-      ),    
+      ),
       'pincode' => array(
         'required'  => array(
           'rule' => array('notEmpty'),
@@ -125,11 +129,11 @@ class Person extends AppModel {
         ),
         'rangelength'=> array(
           'rule' => array('between', 6, 6),
-          'message' => __('Your pincode should be composed of 6 digits')
+          'message' => __('A pincode should be composed of 6 digits')
         ),
         'pattern'=> array(
           'rule' => array('custom', '/^[0-9]{6}$/'),
-          'message' => __('Your pincode should be composed of 6 digits')
+          'message' => __('A pincode should be composed of 6 digits')
         )
       ),
       'state' => array(
@@ -165,37 +169,47 @@ class Person extends AppModel {
         )
       ),
       'email' => array(
+        /* uncomment if required
         'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please provide an email address')
-        ),
+        ),*/
         'email'  => array(
+          'required' => false,   // remove if required
+          'allowEmpty' => true,  // remove if required 
           'rule' => array('email'),
           'message' => __('Please provide a valid email address')
         )
+        // TODO required if creating user account
       ),
       'phone' => array(
+        /* uncomment if required
         'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
-          'message' => __('Please provide a phone number')
-        ),
-        'pattern' => array( 
-          'rule' => array ('custom', '/^[0-9\-\+]{8,16}$/'),
+          'message' => __('Please provide an email address')
+        ),*/
+        'pattern' => array(
+          'required' => false,   // remove if required
+          'allowEmpty' => true,  // remove if required 
+          'rule' => array ('custom', '/^(((00){1}|(\+){1})[0-9]{2,3}){0,1}[0-9]{6,11}$/'),
           'message' => __('Please provide a valid phone number')
         )
       ),
       'dob' => array(
+        /* uncomment if required
         'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your date of birth')
-        ),
+        ),*/
         'dateOfBirth' => array(
+          'required' => false,   // remove if required
+          'allowEmpty' => true,  // remove if required 
           'rule' => array('date', 'ymd'),
           'message' => __('Please indicate a valid date of birth')
         ),
@@ -209,18 +223,32 @@ class Person extends AppModel {
         )
       ),
       'pan' => array(
-        'required'  => array(
+        /*'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
           'allowEmpty' => false,
           'message' => __('Please indicate your PAN number')
-        ),
+        ),*/
         'format' => array(
+          'required' => false,   // remove if required
+          'allowEmpty' => true,  // remove if required 
           'rule' => array('custom', '/^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$/'),
           'message' => __('Please indicate a valid PAN number (ex: AAAAA9999A')
         )
       )
     );
+  }
+
+  /**
+   * Before Validate
+   * @see http://api20.cakephp.org/class/model#method-ModelbeforeValidate
+   */
+  function beforeValidate($options) {
+    //TODO cleanup phone
+    if (isset($this->data['Person']['phone'])) {
+      $this->data['Person']['phone'] = str_replace(array('.',' ','-'),'', $this->data['Person']['phone']);
+    }
+    return true;
   }
 
   function isAnAdult($check) {

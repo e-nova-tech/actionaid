@@ -7,7 +7,7 @@
  * @link        http://actionaid.org/india
  * @author      Remy Bertot / Kevin Muller
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
- */  
+ */
   $this->set('title_for_layout', __('Add a User'));
 ?>
 <div class="users MyForm">
@@ -23,5 +23,6 @@
     ));
   ?>
   </fieldset>
-<?php echo $this->MyForm->end(__('Submit'));?>
+<?php echo $this->MyForm->submit(__('save'));?>
+<?php echo $this->MyForm->end();?>
 </div>

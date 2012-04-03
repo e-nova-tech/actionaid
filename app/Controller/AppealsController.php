@@ -11,10 +11,18 @@
 class AppealsController extends AppController {
   public $name = 'Appeals';
 
+  /**
+   * Admin Index
+   * @access public
+   */
   public function admin_index() {
     $this->set('appeals',$this->paginate());
   }
 
+  /**
+   * Admin Add
+   * @access public
+   */
   public function admin_add() {
     if ($this->request->is('post')) {
       $this->Appeal->create();
@@ -30,6 +38,11 @@ class AppealsController extends AppController {
     $this->set('appeal_status_options',$this->Appeal->getStatusOptions());
   }
 
+  /**
+   * Admin Edit
+   * @param $id appeal UUID
+   * @access public
+   */
   public function admin_edit($id = null) {
     $this->Appeal->id = $id;
     $this->set('appeal_status_options',$this->Appeal->getStatusOptions());
@@ -49,6 +62,7 @@ class AppealsController extends AppController {
 
   /**
    * Admin Delete
+   * @param $id appeal UUID
    * @access public
    */
   public function admin_delete($id = null) {

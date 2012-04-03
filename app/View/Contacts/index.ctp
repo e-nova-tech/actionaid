@@ -37,8 +37,8 @@
   </div>
   <div class="grid_3">
     <h2><?php echo __('Or you can also...'); ?></h2>
-<?php echo $this->element('Forms/ActionAidContactInfo'); ?>
+<?php echo $this->element('Public/ActionAidContactInfo'); ?>
   </div>
   <div class="grid_4 omega">
-<?php echo $this->element('Forms/OfficesMap'); ?>
+<?php echo $this->element('Public/OfficesMap'); ?>
   </div>

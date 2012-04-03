@@ -9,7 +9,8 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<?php echo $this->element('Head' . DS . 'Doctype'); ?>
+<!doctype html>
+<html>
 <head>
   <base href='<?php echo Router::url('/',true); ?>'> 
   <title><?php echo $title_for_layout; ?></title>
