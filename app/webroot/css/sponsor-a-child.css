@@ -1,14 +1,15 @@
 /* Layout & main zones */
 .slideshow_container, 
 .slideshow {
-  min-height:580px;
+  min-height:480px;
   background: #FFF;
   margin:auto;
-  max-width:1280px;
+  max-width:960px;
 }
 .slideshow {
-  background: transparent url(../img/appeals/sponsor-a-child/slide0.jpg) 0 0 no-repeat;
+  background: transparent url(../img/appeals/sponsor-a-child/960/slide0.jpg) top center no-repeat;
   padding-top:10px;
+  font-size:.9em;
 }
 /* slideshow */
 .slideshow .arrow {
