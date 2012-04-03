@@ -32,7 +32,7 @@ $(function() {
   // Select behavior for child sponsorship
   if($('select#NumberOfChildren').length){
     var factor = 6000; // cost per children
-    $('select#NumberOfChildren').change(function() {
+    $('select#NumberOfChildren,select#GiftFrequency').change(function() {
       var str = "";
       $("select#NumberOfChildren option:selected").each(function () {
         str = $(this).text();
@@ -42,8 +42,10 @@ $(function() {
       } else {
          $(".gift .inflect").text('children!');
       }
-      $(".gift .amount").text(str*factor);
-      $("#giftamount").attr('value',str*factor);
+      var frequency = $("#GiftFrequency").val();
+      var amount = str*factor*frequency;
+      $(".gift .amount").text(amount);
+      $("#giftamount").attr('value',amount);
     });
   }
 
