@@ -13,6 +13,7 @@
   $this->set('js_for_layout','sponsor-a-child');
   $this->set('no_container_for_layout', true);
 ?>
+
 <div class="container texture dark header_push">
 <div id="slideshow_container" class="slideshow_container">
 <div id="slideshow" role="main" class="container slideshow clearfix">
@@ -42,7 +43,7 @@
 </div>
 </div>
 </div>
-<div class="container texture">
+<div class="container texture clearfix">
 <div class="container_12 container fold clearfix">
 <?php $options = array('cache'=> array('config' => Configure::Read('App.cache.elements'))); ?>
   <div class="grid_12 impact">
