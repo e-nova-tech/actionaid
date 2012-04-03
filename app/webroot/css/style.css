@@ -164,23 +164,35 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* font */
 body {
   font-family:Verdana,Arial,sans-serif;
-  background: transparent url(../img/layout/bg1.jpg) 0 0 repeat;
+  background:#FFF;
   /* background:transparent url('../img/grid.png') center 0 repeat-y; //debug */
 }
 /* containers background */
 .header { 
   background:#FFF;
-  -webkit-box-shadow: 0 8px 6px -6px #CCC;
-  -moz-box-shadow: 0 8px 6px -6px #CCC;
-  box-shadow: 0 8px 6px -6px #CCC;
+  width:100%;
+  position:absolute;
+  top:0;
+  z-index:99;
+  -webkit-box-shadow: 0 8px 6px -6px #333;
+  -moz-box-shadow: 0 8px 6px -6px #333;
+  box-shadow: 0 8px 6px -6px #333;
   height:70px;
-  margin-bottom:10px;
+  margin-bottom:0;
+}
+.container.header_push {
+  margin-top:70px;
+}
+.texture {
+  background: #FFF url(../img/layout/bg1.jpg) 0 0 repeat;
+}
+.texture.dark {
+  background: #38312d url(../img/layout/bg2.jpg) 0 0 repeat;
 }
 .footer {
   background:#DF0A24;
   border-top:1px solid #E95466;
   color:#FFF;
-  margin-top:20px;
   padding:20px 0 20px 0;
 }
 /* titles */
@@ -449,7 +461,7 @@ a.button.donate {
   display:block;
   text-align:center;
   float:left;*/
-  font-size:1.4em;
+  font-size:1.35em;
   background:#df0a24;
   border:1px solid #e5364c;
   color:#FFF;

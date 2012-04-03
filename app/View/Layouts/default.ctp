@@ -17,7 +17,6 @@
 <?php echo $this->element('Css'); ?>
 </head>
 <body>
-<?php echo $this->element('Messages',array('class' => 'inline')); ?>
 <div class="container header clearfix">
 <div class="container_12">
   <!-- Header -->
@@ -26,13 +25,15 @@
   </header>
 </div>
 </div>
-<?php if(!isset($no_container)) : ?>
+<?php if(!isset($no_container_for_layout)) : ?>
+<div class="container texture header_push">
 <div class="container main clearfix">
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
 <?php echo $content_for_layout; ?>
   </div>
+</div>
 </div>
 </div>
 <?php else: ?>
