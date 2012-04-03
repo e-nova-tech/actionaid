@@ -13,7 +13,7 @@ $(function() {
   var slide_max = 4;
   var fade_interval = 500;
   var DS = "/";
-  var url_base = "/img/appeals/sponsor-a-child";
+  var url_base = "img/appeals/sponsor-a-child";
   var resolution = "960";
 
   var content = [

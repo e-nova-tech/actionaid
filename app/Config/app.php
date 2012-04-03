@@ -18,7 +18,7 @@ $config = array(
   'App.browserTitle' => '%s | ActionAid India', // %s = title_for_layout
 
   'App.url' => array(
-    'dev'  => 'http://actionaid/',
+    'dev'  => 'http://182.18.157.247/donate/',
     'prod' => 'https://actionaidindia.org/donate/'
   ),
 
@@ -29,8 +29,23 @@ $config = array(
   ),
 
   // Email settings
+  'App.mailer' => array(
+    'delivery' => 'debug', // mail, smtp or debug
+    'smtpOptions' => array(
+      'port' => '25',
+      'timeout' => '30',
+      'host' => 'smtp.actionaidindia.org',
+      'username' => 'noreply@actionaidindia.org',
+      'password' => ''
+    ),
+    'default' => array(
+      'from' => 'ActionAid India <noreply@actionaidindia.org>',
+      'replyTo' => 'ActionAid India <noreply@actionaidindia.org>',
+      'format' => 'both', // html or text or both
+      'subjectPrefix' => '[ActionAid] '
+    )
+  ),
   'App.emails' => array(
-    'delivery' => 'debug', // mail, smtp or debug, see config/email
     'general' => array(
       'name'  => 'General support enquiries',
       'email' => 'Indiasite@actionaid.org'
@@ -49,22 +64,12 @@ $config = array(
       '/'
     )
   ),*/
-  // CACHE configs see Core.php
-  'App.cache' => array(
-    'elements' => 'long',
-    'validation' => 'long',
-  ),
 
   // AUTHENTICATION
   'App.auth' => array(
     'loginAction' => array('controller' => 'users', 'action' => 'admin_login', 'admin' => true, 'prefix' => 'admin'),
     'loginRedirect' => '/admin/home',
     'logoutRedirect' => '/',
-    'whitelist' => 'users:admin_login,users:admin_forgot_password,users:admin_reset_password',
-    'keys' => array(
-      'cookie' => array('expire' => '+1 month'),
-      'reset' => array('expire' => '+3 day')
-    )
   ),
   // default gift configuration
   'App.gift' => array(
@@ -90,7 +95,7 @@ $config = array(
     'billdesk_debug' => array (
       'merchantId' => 'ACTIONAID',
       'checksumKey' => 'xiwLsj9pytFv',
-      'paymentUrl' => '/billdesktest/simulatePayment',
+      'paymentUrl' => '/donate/billdesktest/simulatePayment',
       'returnUrl' => '/transactions/response'
     )
   ),

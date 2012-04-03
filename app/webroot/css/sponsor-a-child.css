@@ -13,7 +13,7 @@
 }
 /* slideshow */
 .slideshow .arrow {
-  margin-top:220px;
+  margin-top:200px;
   display:none;
   opacity:0;
 }
@@ -22,11 +22,11 @@
 }
 .slideshow .arrow.left {
   float:left;
-  margin-left:-75px;
+  margin-left:-60px;
 }
 .slideshow .arrow.right {
   float:right;
-  margin-right:-75px;
+  margin-right:-60px;
 }
 .slideshow .arrow a {
   opacity:.7;
