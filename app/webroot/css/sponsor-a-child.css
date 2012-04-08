@@ -1,7 +1,7 @@
 /* Layout & main zones */
 .slideshow_container, 
 .slideshow {
-  min-height:480px;
+  min-height:430px;
   background: #FFF;
   margin:auto;
   max-width:960px;
@@ -44,12 +44,13 @@
   opacity:1;
 }
 .slideshow .slide {
-  margin-top:30px;
+  margin-top:10px;
 }
 .slideshow .caption blockquote {
-  font-size:2.5em;
+  font-size:1.8em;
   padding:5px;
   background:#FFF;
+  line-height:1.4em;
 }
 .slideshow .caption .context {
   display:inline;
@@ -65,6 +66,10 @@
   color:#FFF;
   padding-left:5px;
 }
+.slideshow h2{
+  margin-top:25px;
+}
+
 /* form */
 form .info {
   cursor:help;
@@ -161,7 +166,7 @@ h3.tax.note {
 }
 .fold h3 {
   font-size:1.4em;
-  margin-top:30px;
+  margin-top:15px;
   text-shadow: 2px 2px 2px #FFF;
 }
 .fold .redbg a {
@@ -177,7 +182,7 @@ h3.tax.note {
 .fold .impact .figure {
   margin-top:10px;
   margin-bottom:10px;
-  padding:15px 20px 0 0;
+  padding:5px 20px 0 0;
   border-right:1px dotted #CCC;
 }
 .fold .impact .omega .figure {
@@ -190,11 +195,11 @@ h3.tax.note {
   text-shadow: 2px 2px 2px #FFF;
 }
 .fold .impact .big {
-  font-size:2em;
+  font-size:1.6em;
   font-weight:bold;
 }
 .fold .impact .small {
-  font-size:1.2em;
+  font-size:1em;
   font-weight:bold;
   color:#333;
 }
