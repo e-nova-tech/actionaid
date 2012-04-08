@@ -1,4 +1,5 @@
-    <strong>Yes! I would like to sponsor</strong>
+    <strong>Yes, I want to enrich their lives!</strong><br/>
+    
     <select name="data[Children][number]" class="small" id="NumberOfChildren"> 
       <option value="1">1</option>
       <option value="2">2</option>
