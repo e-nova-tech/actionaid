@@ -12,15 +12,16 @@
     <div class="radiolist">
       <div class="input radiolist-item">
         <input type="radio" name="data[Gift][appeal]" value="child-sponsorship" id="child-sponsorship" class=" gift radio" checked="checked" />
-        <label for="child-sponsorship" class="right"><strong>Yes I want to enrich the life of the children</strong></label>
-        <select name="data[Children][number]" class="small" id="NumberOfChildren" style="margin-left:20px">
+        <label for="child-sponsorship" class="right"><strong>Yes I want to enrich their lives!</strong></label><br/>
+        I will sponsor <select name="data[Children][number]" class="small" id="NumberOfChildren" style="margin-left:20px">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
+          <option value="4">4</option>
           <option value="5">5</option>
-          <option value="10">10</option>
+          <option value="6">6</option>
         </select>
-        <label for="NumberOfChildren" class="right child"><strong>child during</strong></label>
+        <label for="NumberOfChildren" class="right child"><strong>child for</strong></label>
         <select name="data[Gift][frequency]" class="small" id="GiftFrequency">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -29,7 +30,7 @@
           <option value="5">5</option>
         </select>
         <label for="GiftFrequency" class="right year"><strong>year</strong></label>      
-        <p style="margin-left:20px;">
+        <p style="">
           My sponsorship amount is: 
           <span class="inr"><span>INR</span><span class="amount">6000</span></span>
         </p>
