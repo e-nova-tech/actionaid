@@ -89,7 +89,8 @@ form .info:hover span:hover {
   cursor:default;
 }
 form .info {
-  background:transparent url('../img/icons/s/help.png') 5px 0 no-repeat;
+  /* background:transparent url('../img/icons/s/help.png') 5px 0 no-repeat; */
+  content: "Why email ?";
   width:30px;
   left:325px;
   margin-left:-8px;
@@ -199,7 +200,7 @@ h3.tax.note {
   font-weight:bold;
 }
 .fold .impact .small {
-  font-size:1em;
+  font-size:1.1em;
   font-weight:bold;
   color:#333;
 }
@@ -261,3 +262,8 @@ h3.tax.note {
   margin:0 0 5px 0;
   text-shadow: 1px 1px 1px #FFF;
 }
+
+ul.offline-form-list li{
+  margin-top:10px;
+}
+ul.offline-form-list li.first{ margin-top:0; }
