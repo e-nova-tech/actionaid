@@ -31,7 +31,7 @@ $config = array(
           'resource' => '/'
         ),
         'donate' => array(
-          'name'    => __('Donate'),
+          'name'    => __('Answers to your questions'),
           'url'     => '/',
           'resource' => 'gifts:add'
         ),
