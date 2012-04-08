@@ -22,33 +22,33 @@ $(function() {
   
     var content = [
       {
-        "author"  : "Eshwaramma",
-        "quote"   : "I like to help people and that makes me happy.",
-        "context" : "Eshwaramma is a campaigner for children with disabilities, winner of the International Diana Award. This 18 year old quadriplegic was also a sponsored child when she was younger. She is a perfect example of the difference you can make with a child sponsorship.",
+        "author"  : "Ramratan",
+        "quote"   : "I am now an Upsarpanch in my BalPanchayat.",
+        "context" : "Ramratan, an ActionAid supported child, hails from Sangwara village in Madhya Pradesh and is part of the Balpanchayat. This is a children parliament that among various things convinces parents to send their children to school.",
         "image"   : "slide0.jpg"
       },
       {
-        "author"  : "Rajashekar",
-        "quote"   : "I am happy I do not have to leave school and friends",
-        "context" : "Rajasekar is an active member of the children’s group is his village who were instrumental in bringing awareness in the community of the problem of migration which enabled the people to negotiate with the local government for regular employment under the NREGA.",
+        "author"  : "Shanno",
+        "quote"   : "We play hide and seek at school. It’s fun.",
+        "context" : "ActionAid intervention in her village has enabled Shanno and her friends from Dabokpura village in Dhaulpur to attend school regularly. One of the ActionAid supported children in her community, Shanno is an example of how your donations can make a difference.",
         "image"   : "slide1.jpg"
       },
       {
-        "author"  : "Kavitha",
-        "quote"   : "We stopped discrimination in our School, now we all sit, play and eat together",
-        "context" : "Kavitha is a 11 year old dalit girl from Bamini village Bhopal. She is studying in class 5. ActionAid works with the community to ensure the right to access to education to all is respected.",
+        "author"  : "Shazia",
+        "quote"   : "I want to become a teacher when I grow up.",
+        "context" : "Shazia, an ActionAid supported child hails from Banglore. Here along with BRIDGE we have been executing projects in 26 wards -39 slums, aimed at promoting community leadership & generating awareness about rights of women and children, thus making dreams of these little ones a reality.",
         "image"   : "slide2.jpg"
       },
       {
-        "author"  : "Kiran",
-        "quote"   : "I could raise my voice against the violence in our school",
-        "context" : "Public hearings organized ActionAid and Bachpan provide a platform for children like Kiran to speak out. The NCPCR (National Commission for Protection of Child rights) immediately passed an order to the education department to look into the matter. The teacher’s behavior has stopped.",
+        "author"  : "Sivraj",
+        "quote"   : "I tell them not to skip school ever. Like me.",
+        "context" : "Sivraj is one of the sponsored children in Singrai Village who is attending the nearby middle school regularly. He is a student of class five. Boys like Manoj and Banti started attending school due to the steps taken by Bal-Panchyat, where Shivraj is a member.",
         "image"   : "slide3.jpg"
       },
       {
-        "author"  : "Aneesha",
-        "quote"   : "I enjoyed drawing for our donors very much. I look forward for drawing classes in my school.",
-        "context" : "Like the message mentionned by Aneesha, a 7 year old girl living in Dyaneshwar Nagarut, you will receive messages that will keep you in touch with the community the child lives in.",
+        "author"  : "Rinki",
+        "quote"   : "I like to read Hindi subjects most.",
+        "context" : "Rinki comes from an impoverished family from Pitampura in MadhyaPradesh. ActionAid’s continuous work in her community, made possible by our donors has made school accessible to Rinki and her friends.",
         "image"   : "slide4.jpg"
       }
     ];
