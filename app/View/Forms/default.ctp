@@ -25,16 +25,16 @@
     <!--content -->
     <div class="grid_5 push_7">
       <div class="slide caption">
-        <blockquote>
-          <span class="quote">“I like to help people and that makes me happy.”</span>
-          <span class="author">Eshwaramma</span>
-        </blockquote><br/><br/>
         <span class="context">
-          Eshwaramma is a campaigner for children with 
-          disabilities, winner of the International Diana Award.
-          This 18 year old quadriplegic was also a sponsored child when she was younger.
-          She is a perfect example of the difference you can make with a child sponsorship.     
+          Ramratan, an ActionAid supported child, hails from Sangwara village in Madhya Pradesh and
+           is part of the Balpanchayat. This is a children parliament that among various things convinces
+            parents to send their children to school.     
         </span>
+        <br/><br/>
+        <blockquote>
+          <span class="quote">“I am now an Upsarpanch in my BalPanchayat.”</span>
+          <span class="author">Ramratan</span>
+        </blockquote>
       </div>
       <h2><a href="child-sponsorship" class="button donate dark-shadow"><?php echo __('Sponsor a child today!'); ?> ›</a></h2>
       <h3 class="tax note">Contributions to ActionAid are exempted from Tax under Sec 80 G of Income Tax Act 1961</h3>
@@ -55,7 +55,7 @@
   </div>
   <div class="grid_5 sidebar">
 <?php echo $this->element('Public/BudgetBreakdown', array(), $options); ?>
-<?php echo $this->element('Public/OfflineForm', array(), $options); ?>
+<?php echo $this->element('Public/OfflineFormBullet', array(), $options); ?>
 <?php echo $this->element('Public/SocialMedia'); // don't cache it use php setters ?>
   </div>
 </div>

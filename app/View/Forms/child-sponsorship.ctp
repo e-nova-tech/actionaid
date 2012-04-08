@@ -20,11 +20,11 @@
     <div class="gift form grid_5 push_7">
       <?php echo $this->MyForm->create('Gift')."\n"; ?>
       <fieldset class="gift">
-        <legend><?php echo __('Your gift details'); ?></legend>
+        <legend><?php echo __('Sponsorship Details (one or more children for one or more years)'); ?></legend>
     <?php echo $this->element('Public/GiftSelect'); ?>
       </fieldset>
       <fieldset class="contact">
-        <legend><?php echo __('Your contact details'); ?></legend>
+        <legend><?php echo __('Contact Details'); ?></legend>
     <?php echo $this->element('Public/ContactDetails'); ?>
       </fieldset>
     <p class="tax note"><?php echo __('Contributions to ActionAid Association are exempted from Tax under section 80G of Income TaxAct 1961.'); ?></p>
@@ -48,7 +48,7 @@
   </div>
   <div class="grid_5 sidebar">
   <?php echo $this->element('Public/BudgetBreakdown', array(), $options); ?>
-  <?php echo $this->element('Public/OfflineForm', array(), $options); ?>
+  <?php echo $this->element('Public/OfflineFormBullet', array(), $options); ?>
   <?php echo $this->element('Public/SocialMedia'); // don't cache it use php setters ?>
   </div>
 </div>
