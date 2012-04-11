@@ -437,7 +437,7 @@ form .inr {
 form .inr span { display:none; }
 form .inr span.amount { display:inline; }
 form .info {
-  background:transparent url('../img/icons/s/help.png') 0 0 no-repeat;
+  background:transparent url('../img/icons/s/help1.png') 0 0 no-repeat;
   position: absolute;
   width: 250px;
   left: 335px;
