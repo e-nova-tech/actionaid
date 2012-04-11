@@ -20,7 +20,7 @@
     <div class="gift form grid_5 push_7">
       <?php echo $this->MyForm->create('Gift')."\n"; ?>
       <fieldset class="gift">
-        <legend><?php echo __('Sponsorship Details (one or more children for one or more years)'); ?></legend>
+        <legend><?php echo __('Sponsorship Details (one or more children)'); ?></legend>
     <?php echo $this->element('Public/GiftSelect'); ?>
       </fieldset>
       <fieldset class="contact">

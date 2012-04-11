@@ -267,6 +267,7 @@ h1.logo span {
   list-style-type:none;
   text-align:right;
   margin:35px 15px 0 0;
+  padding:0 0 0 0;
 }
 .top.right.menu li{
   display:inline;
