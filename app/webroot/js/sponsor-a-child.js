@@ -60,7 +60,7 @@ $(function() {
       {
         "author"  : "Eshwaramma",
         "quote"   : "I like to help people. That makes me happy.",
-        "context" : "ROnce an ActionAid sponsored child, Eshwaramma,  is now a campaigner who works with children living with disability in India. She won the International Diana Award for her efforts in the field.",
+        "context" : "Once an ActionAid sponsored child, Eshwaramma,  is now a campaigner who works with children living with disability in India. She won the International Diana Award for her efforts in the field.",
         "image"   : "slide6.jpg"
       }
     ];
