@@ -14,7 +14,7 @@ $(function() {
   else{
     var slide_current = 0;
     var slide_min = 0;
-    var slide_max = 4;
+    var slide_max = 6;
     var fade_interval = 500;
     var DS = "/";
     var url_base = "img/appeals/sponsor-a-child";
