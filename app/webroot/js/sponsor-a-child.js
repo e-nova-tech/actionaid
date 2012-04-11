@@ -36,20 +36,32 @@ $(function() {
       {
         "author"  : "Shazia",
         "quote"   : "I want to become a teacher when I grow up.",
-        "context" : "Shazia, an ActionAid supported child hails from Banglore. Here along with BRIDGE we have been executing projects in 26 wards -39 slums, aimed at promoting community leadership & generating awareness about rights of women and children, thus making dreams of these little ones a reality.",
+        "context" : "Shazia, an ActionAid supported child hails from Bangalore. Here along with BRIDGE we have been executing projects in 26 wards -39 slums,  aimed at promoting community leadership & generating awareness about rights of women and children, thus making dreams of these little ones a reality.",
         "image"   : "slide2.jpg"
       },
       {
         "author"  : "Sivraj",
         "quote"   : "I tell them not to skip school ever. Like me.",
-        "context" : "Sivraj is one of the sponsored children in Singrai Village who is attending the nearby middle school regularly. He is a student of class five. Boys like Manoj and Banti started attending school due to the steps taken by Bal-Panchyat, where Shivraj is a member.",
+        "context" : "Shivraj is one of the sponsored children in Singrai village who is attending the nearby middle school regularly. He is a student of class five. Boys like Manoj and Banti started attending school due to the steps taken by Bal-Panchyat, where Shivraj is a member.",
         "image"   : "slide3.jpg"
       },
       {
         "author"  : "Rinki",
         "quote"   : "I like to read Hindi subjects most.",
-        "context" : "Rinki comes from an impoverished family from Pitampura in MadhyaPradesh. ActionAid’s continuous work in her community, made possible by our donors has made school accessible to Rinki and her friends.",
+        "context" : "Rinki comes from an impoverished family  from Pitampura in MadhyaPradesh.  ActionAid’s continuous work in her community, made possible by our donors has made school accessible to Rinki and her friends.",
         "image"   : "slide4.jpg"
+      },
+      {
+        "author"  : "Jayanti",
+        "quote"   : "I like the simple life here.",
+        "context" : "Jayanti is from Pitampura village in MadhyaPradesh. She is one of the best students in her class. ActionAid has been working in her community to promote community leadership and generating awareness about basic rights.",
+        "image"   : "slide5.jpg"
+      },
+      {
+        "author"  : "Eshwaramma",
+        "quote"   : "I like to help people. That makes me happy.",
+        "context" : "ROnce an ActionAid sponsored child, Eshwaramma,  is now a campaigner who works with children living with disability in India. She won the International Diana Award for her efforts in the field.",
+        "image"   : "slide6.jpg"
       }
     ];
   

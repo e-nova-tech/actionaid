@@ -57,8 +57,9 @@
   font-size:1.5em;
   line-height:1.8em;
   padding:5px;
-  margin-top:35px;
+  margin-top:0px;
   background:transparent url(../img/layout/FFF70.png) repeat;
+  display:block;
 }
 .slideshow a {
   font-size:1.2em;
@@ -178,6 +179,21 @@ h3.tax.note {
 .fold ul {
   padding-left:20px;
 }
+
+.fold .box{
+  width:172px;
+  margin:0 10px 0 10px;
+  float:left;
+}
+.fold .box.omega{
+  width:172px;
+  margin:0 0 0 10px;
+}
+.fold .box.alpha{
+  width:172px;
+  margin:0 10px 0 0;
+}
+
 .fold .how-is-money-spent {
 }
 .fold .impact .figure {
@@ -185,6 +201,7 @@ h3.tax.note {
   margin-bottom:10px;
   padding:5px 20px 0 0;
   border-right:1px dotted #CCC;
+  height:86px;
 }
 .fold .impact .omega .figure {
   border:0;
@@ -196,11 +213,11 @@ h3.tax.note {
   text-shadow: 2px 2px 2px #FFF;
 }
 .fold .impact .big {
-  font-size:1.6em;
+  font-size:1.4em;
   font-weight:bold;
 }
 .fold .impact .small {
-  font-size:1.1em;
+  font-size:1.0em;
   font-weight:bold;
   color:#333;
 }
