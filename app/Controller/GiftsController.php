@@ -53,6 +53,9 @@ class GiftsController extends AppController {
       $success = ($this->Gift->validates() && $success);
       if (!$success) {
           $this->Message->error(__('There are errors in the form. Please correct the errors bellow'));
+          echo "there are errorss";
+          $errors = $this->Gift->Person->invalidFields();
+          pr($errors);
       } else {
         // if person doesnt already exist save the person in db
         $conditions = Person::getFindConditions('findDuplicates',$data);
@@ -76,12 +79,12 @@ class GiftsController extends AppController {
     }
 
     // get the list of states & countries for the select lists
-    $states = $this->Gift->Person->State->getListByCountryCode(
-      Configure::read('App.gift.defaultCountry'));
+    /*$states = $this->Gift->Person->State->getListByCountryCode(
+      Configure::read('App.gift.defaultCountry'));*/
     $countries = $this->Gift->Person->Country->getListByCountryCode(
       Configure::read('App.gift.supportedCountries'));
 
-    $this->set(compact('countries','states','appeal'));
+    $this->set(compact('countries',/*'states',*/'appeal'));
     // See /Views/Form/[slug]
     $this->render('../Forms/'.$appeal['Appeal']['slug']);
   }

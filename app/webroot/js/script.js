@@ -109,22 +109,37 @@ $(function() {
   
 
   jQuery.validator.addMethod("giftamount", function() {
-    if($("#giftamount3").attr('checked') == 'checked') {
-      return /^[0-9]{4,6}$/.test($("#giftamount4").val());
+    if($("#general-donation").attr('checked') == 'checked') {
+      return /^[0-9]{1,10}$/.test($("#general-donation-amount").val());
     }
     return true;
   }, "Please specify a valid amount");
   
+  jQuery.validator.addMethod("confirmationEmail", function() { 
+    if($("#PersonCancontact").is(':checked') && $('#PersonEmail').val() == ''){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }, "Please");
+  
   // Add Below the rules and messages that CakePHP cannot return (compatibility problems)
   var hardCodedRules = {
     rules:{
-      "data[Gift][other_amount]" : {
+      "data[Gift][appeal]" : {
           giftamount : true
+      },
+      "data[Person][email]" : {
+          confirmationEmail : true
       }
     },
     messages:{
-      "data[Gift][other_amount]" : {
+      "data[Gift][appeal]" : {
           giftamount : "Please specify an amount"
+      },
+      "data[Person][email]" : {
+          confirmationEmail : "Please provide your email"
       }
     }
   }
@@ -150,6 +165,9 @@ $(function() {
           }
           else if(element.attr("id") == "giftamount0" || element.attr("id") == "giftamount1" || element.attr("id") == "giftamount2" || element.attr("id") == "giftamount3" || element.attr("id") == "giftamount4") {
             afterElt = $("#giftamount4"); 
+          }
+          else if(element.attr("id") == "child-sponsorship") {
+            afterElt = $("#general-donation-amount"); 
           }
           // delete error messages left by cakephp (in case validation was not in js last round)
           if($('div:last', afterElt.parent()).hasClass('error-message')) 

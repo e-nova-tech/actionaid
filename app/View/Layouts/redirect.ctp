@@ -25,8 +25,7 @@
 <div class="container redirect">
 <?php echo $content_for_layout; ?>
 </div>
-<?php echo $this->element('Footer'.DS.'jquery'); ?>
+<?php echo $this->element('Js'); ?>
 <script src="js/redirect.js"></script>
-<?php echo $this->element('Footer'.DS.'analytics'); ?>
 </body>
 </html>
