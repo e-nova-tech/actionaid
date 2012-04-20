@@ -96,21 +96,111 @@ class GiftsController extends AppController {
     parent::json_validation($type,$models);
   }
 
+  public function admin_search(){
+    // the page we will redirect to
+    $url['action'] = 'admin_index';
+    
+    // build a URL will all the search elements in it
+    // the resulting URL will be 
+    // example.com/cake/posts/index/Search.keywords:mykeyword/Search.tag_id:3
+    foreach ($this->data as $k=>$v){ 
+      foreach ($v as $kk=>$vv){ 
+        $url[$k.'.'.$kk]=str_replace('/', '-', $vv); 
+      } 
+    }
+
+    // redirect the user to the url
+    $this->redirect($url, null, true);
+  }
+
   /**
    * Gifts Index (Admin)
    * @return void
    * @access public
    */
   public function admin_index() {
+    // BEGIN SEARCH MANAGEMENT //
+    // Build the condition if any
+    $conditions = array();
+    $searchparams = $this->params['named'];
+    if(!empty($searchparams['Gift.timeframe'])){
+      if($searchparams['Gift.timeframe'] == 'today'){
+        $datefrom = strtotime(date('d-m-Y'));
+        $dateto = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
+      }
+      elseif($searchparams['Gift.timeframe'] == '7days'){
+        $dateto = strtotime(date('d-m-Y'));
+        $datefrom = mktime(0, 0, 0, date("m")  , date("d")-7, date("Y"));
+      }
+      elseif($searchparams['Gift.timeframe'] == '1month'){
+        $dateto = strtotime(date('d-m-Y'));
+        $datefrom = mktime(0, 0, 0, date("m")-1  , date("d"), date("Y"));
+      }
+      elseif($searchparams['Gift.timeframe'] == 'custom'){
+        $datefrom = strtotime($searchparams['Gift.datefrom']);
+        $dateto = strtotime($searchparams['Gift.dateto']);
+      }
+      $conditions[]['AND'] = array(
+        'Gift.created >=' => date('Y-m-d', $datefrom),
+        'Gift.created <=' => date('Y-m-d', $dateto)
+        );
+    }
+    if(!empty($searchparams['Gift.Name'])){
+      $conditions[] = array(
+        'OR' => array(
+          'Person.name LIKE' => "%{$searchparams['Gift.Name']}%",
+          'Person.email LIKE' => "%{$searchparams['Gift.Name']}%"
+          )
+      );
+    }
+    if(!empty($searchparams['Gift.Status'])){
+      $conditions[] = array('Gift.status'=>$searchparams['Gift.Status']);
+    }
+    if(!empty($searchparams['Gift.Amount'])){
+      $conditions[] = array('Gift.amount'=>$searchparams['Gift.Amount']);
+    }
+    
+    $this->data = array('Gift'=>array('Name'=>'Kevin'));
+    // repopulate fields according to the data posted
+    $populate = array();
+    foreach($searchparams as $key=>$param){
+      $k = str_replace('Gift.', '', $key);
+      if($k == 'datefrom' || $k == 'dateto'){
+        //$param = str_replace('-', '/', $param);
+        //$param = date('', strtotime($param));
+      }
+      $populate[$k]=$param;
+    }
+    $this->data = array('Gift'=>$populate);
+    // END SEARCH MANAGEMENT //
+    
     $this->paginate = array(
       'fields' => array('id','amount','currency','serial','status','modified'),
       'contain' => array(
-         'Person' => array('title','firstname','lastname'),
+         'Person' => array('name'),
          'Appeal' => array('title')
       ),
-      'order' => array('Gift.modified' => 'desc')
+      'order' => array('Gift.modified' => 'desc'),
+      'conditions' => $conditions
     );
-    $this->set('gifts',$this->paginate('Gift'));
+    $gifts = $this->paginate('Gift');
+    
+    $statistics = array('success'=>0, 'pending'=>0, 'failed'=>0, 'donations'=>0);
+    foreach($gifts as $gift){
+      if($gift['Gift']['status'] == 'success'){
+        $statistics['success']++;
+        $statistics['donations'] += $gift['Gift']['amount'];
+      }
+      if($gift['Gift']['status'] == 'failure'){
+        $statistics['failed']++;
+      }
+      if($gift['Gift']['status'] == 'pending'){
+        $statistics['pending']++;
+      }
+    }
+    
+    $this->set('statistics', $statistics);
+    $this->set('gifts', $gifts);
   }
 
   public function admin_view($id) {
@@ -118,7 +208,7 @@ class GiftsController extends AppController {
     $param = array(
       'fields' => array('id','amount','currency','serial','status','modified'),
       'contain' => array(
-         'Person' => array('title','firstname','lastname','address1','address2','city','pincode','state','country','email','phone','pan','dob'),
+         'Person' => array('name','address1','address2','city','pincode','state','country','email','phone','pan','dob'),
          'Appeal' => array('title','slug')
       ),
       'conditions' => array('Gift.id' => $id), //array of conditions

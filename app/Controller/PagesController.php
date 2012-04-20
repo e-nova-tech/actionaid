@@ -38,6 +38,11 @@ class PagesController extends AppController {
     'display' => '+1 hour'
   );
 
+  function beforeFilter() {
+    parent::beforeFilter();
+    $this->Auth->allow('display', 'failure');
+  }
+
   /**
    * Displays a view
    *
