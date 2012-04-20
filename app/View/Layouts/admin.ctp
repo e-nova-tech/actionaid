@@ -30,7 +30,7 @@
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
-    <div class="grid_9 alpha">
+    <div>
     <h1><?php echo $title_for_layout; ?></h1>
 <?php
   if (isset($menu_for_layout)) {
