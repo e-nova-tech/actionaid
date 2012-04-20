@@ -22,11 +22,10 @@
   </div>
   <div class='grid_3'>
     <h2><?php echo __('Person details'); ?></h2>
-    <p><strong><?php echo __('Title'); ?></strong>: <?php echo $gift['Person']['title']; ?></p>
-    <p><strong><?php echo __('Firstname'); ?></strong>: <?php echo $gift['Person']['firstname']; ?></p>
-    <p><strong><?php echo __('Lastname'); ?></strong>: <?php echo $gift['Person']['lastname']; ?></p>
-    <p><strong><?php echo __('Date of birth'); ?></strong>: <?php echo $gift['Person']['dob']; ?></p>
-    <p><strong><?php echo __('Pan'); ?></strong>: <?php echo $gift['Person']['pan']; ?></p>
+    <!-- <p><strong><?php echo __('Title'); ?></strong>: <?php echo $gift['Person']['title']; ?></p> -->
+    <p><strong><?php echo __('Firstname'); ?></strong>: <?php echo $gift['Person']['name']; ?></p>
+    <!-- <p><strong><?php echo __('Date of birth'); ?></strong>: <?php echo $gift['Person']['dob']; ?></p> -->
+    <!-- <p><strong><?php echo __('Pan'); ?></strong>: <?php echo $gift['Person']['pan']; ?></p> -->
   </div>
   <div class='grid_3'>
     <h2><?php echo __('Address'); ?></h2>
