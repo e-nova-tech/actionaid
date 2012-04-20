@@ -171,7 +171,6 @@ body {
 .header { 
   background:#FFF;
   width:100%;
-  position:absolute;
   top:0;
   z-index:99;
   -webkit-box-shadow: 0 8px 6px -6px #333;
@@ -181,7 +180,7 @@ body {
   margin-bottom:0;
 }
 .container.header_push {
-  margin-top:70px;
+  /*margin-top:70px; */
 }
 .texture {
   background: #FFF url(../img/layout/bg1.jpg) 0 0 repeat;
@@ -194,6 +193,7 @@ body {
   border-top:1px solid #E95466;
   color:#FFF;
   padding:20px 0 20px 0;
+  margin-top:20px;
 }
 /* titles */
 h1,h2,h3,h4 {
@@ -340,7 +340,7 @@ form .submit {
   float:right;
   margin:3px 0 0 10px;
 }
-form input[type="submit"] {
+form input[type="submit"], button {
   font-size:1.3em;
   padding:0.6em 1.6em 0.6em 1.6em;
 }
