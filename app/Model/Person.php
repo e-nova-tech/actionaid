@@ -13,11 +13,11 @@ class Person extends AppModel {
 
   // relationships  
   var $hasOne = array(
-    'State' => array(
+    /*'State' => array(
       'className'  => 'State',
       'foreignKey' => false,
 			'conditions' => 'Person.state = State.code'
-    ),
+    ),*/
     'Country' => array(
       'className'  => 'Country',
       'foreignKey' => false,
@@ -38,37 +38,7 @@ class Person extends AppModel {
 
   static function getValidationRules($context=null) {
      return array(
-      'title' => array(
-        'required'  => array(
-          'rule' => array('notEmpty'),
-          'required' => true,
-          'allowEmpty' => false,
-          'message' => __('Please select a title')
-        ),
-        'inlist' => array(
-          'rule' => array('inList', array('Mr','Ms','Mrs','Dr','Prof')),
-          'message' => __('Please select a valid title')
-        )
-      ),
-      'firstname' => array(
-        /*'required'  => array(
-          'rule' => array('notEmpty'),
-          'required' => true,
-          'allowEmpty' => false,
-          'message' => __('Please indicate your firstname')
-        ),*/
-        'alphaplus'  => array(
-          'required' => false,   // remove if required
-          'allowEmpty' => true,  // remove if required 
-          'rule' => array('alphaplus'),
-          'message' => __('Your firstname should not contain unecessary punctuation characters')
-        ),
-        'maxlength' => array(
-          'rule' => array('maxLength', '64'),
-          'message' => __('Your firstname should not be longer than 64 characters')
-        )
-      ),
-      'lastname' => array(
+      'name' => array(
         'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
@@ -136,7 +106,7 @@ class Person extends AppModel {
           'message' => __('A pincode should be composed of 6 digits')
         )
       ),
-      'state' => array(
+      /*'state' => array(
         'required'  => array(
           'rule' => array('notEmpty'),
           'required' => true,
@@ -151,7 +121,7 @@ class Person extends AppModel {
           'rule' => array('validateState'),
           'message' => __('Please select a valid state')
         )
-      ),
+      ),*/
       'country' => array(
         'required'  => array(
           'rule' => array('notEmpty'),
