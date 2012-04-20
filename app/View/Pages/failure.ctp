@@ -18,7 +18,7 @@
 <div id="slideshow" role="main" class="container slideshow clearfix">
   <div class="container_12">
     <div class="banner grid_5 push_7">
-    <?php echo $this->element('Public/Thankyou'); ?>
+    <?php echo $this->element('Public/Failure'); ?>
     </div>
   </div>
 </div>
