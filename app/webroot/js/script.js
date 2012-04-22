@@ -123,7 +123,7 @@ $(function() {
   }, "The amount should be at least 1000Rs.");
   
   jQuery.validator.addMethod("confirmationEmail", function() { 
-    if($("#PersonCancontact").is(':checked') && $('#PersonEmail').val() == ''){
+    if($("#GiftEmailconfirmation").is(':checked') && $('#PersonEmail').val() == ''){
       return false;
     }
     else{
