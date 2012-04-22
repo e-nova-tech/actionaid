@@ -3,6 +3,7 @@
 <?php else : ?>
   <link rel="stylesheet" href="css/grid.css">
 <?php endif; ?>
+  <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.17.custom.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/admin.css">
   <link rel="stylesheet" href="css/menu.css">
