@@ -18,6 +18,72 @@ body {
   padding:0 0 0 20px;
 }
 
+.gifts_admin_index .filters{
+  background-color:#ddd;
+  margin-bottom:10px;
+  padding:10px 0 10px 0;
+  border-radius:10px;
+  
+}
+.gifts_admin_index .filters div.submit,.gifts_admin_index .filters button{
+  display:block;
+  float:left;
+}
+
+.gifts_admin_index .separator{
+  border-bottom:1px dotted #ccc;
+  margin:20px 0 20px 0;
+  height:1px;
+}
+
+.gifts_admin_index .filters .dates-radio{ padding:0 0 0 10px; border-right:1px dotted #000; }
+
+.gifts_admin_index .filters .dates-radio label{
+  width:533px;
+  text-align:left;
+  height:22px;
+  padding-left:10px;
+}
+.gifts_admin_index .filters .dates-input{
+  margin-top: -26px;
+  margin-left: 113px;
+  position:absolute;
+}
+
+.gifts_admin_index .filters .dates-input div.input.text{
+  float:left;
+  width:212px;
+}
+.gifts_admin_index .filters .dates-input div.input.text input{
+  width:100px;
+}
+
+.gifts_admin_index .filters .generalsearch div{ border-right:1px dotted #000; }
+.gifts_admin_index .filters button{ margin-left:10px; }
+
+.gifts_admin_index .statistics{
+  margin-bottom:10px;
+  background-color:#eee;
+  border-radius:10px;
+  box-shadow: 2px 2px 5px #888;
+}
+.gifts_admin_index .statistics div.stat{
+  border-right:1px dotted #CCC;
+  margin:5px 0 5px 0;
+}
+.gifts_admin_index .statistics div.stat.last{ border:none; }
+
+.gifts_admin_index .statistics .big{
+  display:block;
+  font-size:2.5em;
+  text-align:center
+}
+.gifts_admin_index .statistics .small{
+  display:block;
+  font-size:1.2em;
+  text-align:center
+}
+
 table tr.success td.status{ color:#008000; }
 table tr.failure td.status{ color:#CC0000; }
 table tr.pending td.status{ color:#ff9110; }
@@ -31,4 +97,36 @@ hr.spacer,
   visibility:hidden;
   padding:0;
   margin:0;
+}
+
+
+
+.withinfo {
+  cursor:help;
+  border-bottom:1px dotted #000000;
+  display:inline;
+}
+.withinfo:hover span {
+  width: 150px;
+  -webkit-box-shadow: 0 1px 5px 1px #333;
+  -moz-box-shadow: 0 1px 5px 1px #333;
+  box-shadow: 0 1px 5px 1px #333;
+}
+.withinfo span {
+  display:none;
+  background:#FFF;
+  padding:10px;
+  position:absolute;
+}
+.withinfo:hover span {
+  display:block;
+  padding:10px;
+}
+.withinfo:hover span span {
+  display: inline;
+  margin-left: 0px;
+  width: auto;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }

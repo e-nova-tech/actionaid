@@ -284,3 +284,51 @@ ul.offline-form-list li{
   margin-top:10px;
 }
 ul.offline-form-list li.first{ margin-top:0; }
+
+.thank-you h2 {
+  background: #fff top center repeat;
+  display:inline;
+  padding:10px;
+  font-size:2.2em;
+}
+.thank-you h3{
+  margin-bottom:0;
+  color: white;
+  text-shadow: 1px 1px 0px black;
+}
+
+.thank-you .banner ul{
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  padding-top:1px;
+  padding-bottom:10px;
+  padding-right:10px;
+  font-size:1.3em;
+}
+.thank-you .banner ul>li{
+  margin-top:10px;
+}
+.thank-you .banner ul>li a{
+  font-size:1em;
+  text-shadow:none;
+}
+
+.thank-you .banner{ padding-top:20px; }
+.thank-you .banner a{ color:#ED1C24; }
+
+.thank-you p {
+  float:left;
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  font-size:1.3em;
+  padding:10px;
+  margin-bottom:10px;
+}
+.like.social.media ul{
+  padding-left:10px;
+  float:left;
+  width:360px;
+  background: transparent url(../img/layout/FFF70.png) top center repeat;
+  padding:10px;
+  margin-top:15px;
+  /* margin-bottom:170px; */
+}
+
