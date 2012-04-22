@@ -115,6 +115,13 @@ $(function() {
     return true;
   }, "Please specify a valid amount");
   
+  jQuery.validator.addMethod("giftMinimumAmount", function(value, element, params) {
+    if($("#general-donation").attr('checked') == 'checked') {
+      return ($("#general-donation-amount").val() >= params);
+    }
+    return true;
+  }, "The amount should be at least 1000Rs.");
+  
   jQuery.validator.addMethod("confirmationEmail", function() { 
     if($("#PersonCancontact").is(':checked') && $('#PersonEmail').val() == ''){
       return false;
@@ -127,16 +134,18 @@ $(function() {
   // Add Below the rules and messages that CakePHP cannot return (compatibility problems)
   var hardCodedRules = {
     rules:{
-      "data[Gift][appeal]" : {
-          giftamount : true
+      "data[Gift][other_amount]" : {
+          giftamount : true,
+          giftMinimumAmount : 1000
       },
       "data[Person][email]" : {
           confirmationEmail : true
       }
     },
     messages:{
-      "data[Gift][appeal]" : {
-          giftamount : "Please specify an amount"
+      "data[Gift][other_amount]" : {
+          giftamount : "Please specify an amount",
+          giftMinimumAmount : "The amount should be at least Rs. 1000/-."
       },
       "data[Person][email]" : {
           confirmationEmail : "Please provide your email"
