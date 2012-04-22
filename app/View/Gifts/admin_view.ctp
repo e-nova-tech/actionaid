@@ -19,11 +19,13 @@
     <p><strong><?php echo __('Amount'); ?></strong>: <?php echo $gift['Gift']['amount']; ?></p>
     <p><strong><?php echo __('Currency'); ?></strong>: <?php echo $gift['Gift']['currency']; ?></p>
     <p><strong><?php echo __('Appeal'); ?></strong>: <?php echo $gift['Appeal']['title']; ?></p>
+    <p><strong><?php echo __('Source'); ?></strong>: <?php echo $gift['Gift']['source']; ?></p>
   </div>
   <div class='grid_3'>
     <h2><?php echo __('Person details'); ?></h2>
     <!-- <p><strong><?php echo __('Title'); ?></strong>: <?php echo $gift['Person']['title']; ?></p> -->
-    <p><strong><?php echo __('Firstname'); ?></strong>: <?php echo $gift['Person']['name']; ?></p>
+    <p><strong><?php echo __('Name'); ?></strong>: <?php echo $gift['Person']['name']; ?></p>
+    <p><strong><?php echo __('Age range'); ?></strong>: <?php echo $gift['Person']['agerange']; ?></p>
     <!-- <p><strong><?php echo __('Date of birth'); ?></strong>: <?php echo $gift['Person']['dob']; ?></p> -->
     <!-- <p><strong><?php echo __('Pan'); ?></strong>: <?php echo $gift['Person']['pan']; ?></p> -->
   </div>
@@ -32,7 +34,7 @@
     <p><strong><?php echo __('Address'); ?></strong>: <?php echo $gift['Person']['address1']; ?></p>
     <p><strong><?php echo __('Address'); ?></strong>: <?php echo $gift['Person']['address2']; ?></p>
     <p><strong><?php echo __('City'); ?></strong>: <?php echo $gift['Person']['city']; ?></p>
-    <p><strong><?php echo __('State'); ?></strong>: <?php echo $gift['Person']['state']; ?></p>
+    <!-- <p><strong><?php echo __('State'); ?></strong>: <?php echo $gift['Person']['state']; ?></p> -->
     <p><strong><?php echo __('Country'); ?></strong>: <?php echo $gift['Person']['country']; ?></p>
   </div>
   <div class='grid_3 omega'>
@@ -45,6 +47,7 @@
     <h2><?php echo __('Transactions'); ?></h2>
     <table>
       <tr>
+        <th><?php echo $this->MyPaginator->sort('Transaction.serial',__('ID'));?></th>
         <th><?php echo $this->MyPaginator->sort('Transaction.type',__('Type'));?></th>
         <th><?php echo $this->MyPaginator->sort('Transaction.status',__('Status'));?></th>
         <th><?php echo $this->MyPaginator->sort('Gateway.name',__('Payment Gateway'));?></th>
@@ -55,8 +58,17 @@
       </tr>
       <?php foreach ($transactions as $transaction): ?>
         <tr class="<?php echo $transaction['Transaction']['status']; ?>">
+          <td><?php echo $transaction['Transaction']['serial']; ?></td>
           <td class="type <?php echo $transaction['Transaction']['type']; ?>"><span><?php echo $transaction['Transaction']['type']; ?></span></td>
-          <td class="status"><?php echo $transaction['Transaction']['status']; ?></td>
+          <td class="status">
+            <?php if($transaction['Transaction']['status'] != 'success' && isset($transaction['Transaction']['status_description'])): ?>
+              <div class="withinfo"><?php echo $transaction['Transaction']['status']; ?>
+                <span><?php echo $transaction['Transaction']['status_description'];  ?></span>
+              </div>
+            <?php else: ?>
+              <?php echo $transaction['Transaction']['status']; ?>
+            <?php endif; ?>
+          </td>
           <td><?php echo $transaction['Gateway']['name'] ?></td>
           <td><?php echo $transaction['Transaction']['created']; ?></td>
           <td><?php echo $transaction['Transaction']['modified']; ?></td>
