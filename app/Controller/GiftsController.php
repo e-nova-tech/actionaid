@@ -39,9 +39,10 @@ class GiftsController extends AppController {
       // for pre-validation transformation purposes
       $data = $this->request->data;
       // format gift data
-      if (isset($data['Gift']['otherAmount']) && isset($data['Gift']['otherAmount']) &&
-          !empty($data['Gift']['otherAmount']) && $data['Gift']['amount']=='other') {
-        $data['Gift']['amount'] = $data['Gift']['otherAmount'];
+      // If gift is other amount, then replace default value by other amount
+      if (isset($data['Gift']['other_amount']) &&
+          !empty($data['Gift']['other_amount']) && $data['Gift']['appeal']=='general-donation') {
+        $data['Gift']['amount'] = $data['Gift']['other_amount'];
       }
       $data['Gift']['appeal_id'] = $appeal['Appeal']['id'];
       $data['Gift']['status'] = 'pending';
@@ -156,6 +157,9 @@ class GiftsController extends AppController {
     if(!empty($searchparams['Gift.Status'])){
       $conditions[] = array('Gift.status'=>$searchparams['Gift.Status']);
     }
+    if(!empty($searchparams['Gift.Serial'])){
+      $conditions[] = array('Gift.serial'=>$searchparams['Gift.Serial']);
+    }
     if(!empty($searchparams['Gift.Amount'])){
       $conditions[] = array('Gift.amount'=>$searchparams['Gift.Amount']);
     }
@@ -174,7 +178,7 @@ class GiftsController extends AppController {
     $this->data = array('Gift'=>$populate);
     // END SEARCH MANAGEMENT //
     
-    $this->paginate = array(
+    $params = array(
       'fields' => array('id','amount','currency','serial','status','modified'),
       'contain' => array(
          'Person' => array('name'),
@@ -183,7 +187,9 @@ class GiftsController extends AppController {
       'order' => array('Gift.modified' => 'desc'),
       'conditions' => $conditions
     );
-    $gifts = $this->paginate('Gift');
+    $gifts = $this->Gift->find('all', $params);
+    
+    $this->paginate = $params;
     
     $statistics = array('success'=>0, 'pending'=>0, 'failed'=>0, 'donations'=>0);
     foreach($gifts as $gift){
@@ -200,22 +206,22 @@ class GiftsController extends AppController {
     }
     
     $this->set('statistics', $statistics);
-    $this->set('gifts', $gifts);
+    $this->set('gifts', $this->paginate('Gift'));
   }
 
   public function admin_view($id) {
     //TODO id = null
     $param = array(
-      'fields' => array('id','amount','currency','serial','status','modified'),
+      'fields' => array('id','amount','currency','serial','status','modified', 'source'),
       'contain' => array(
-         'Person' => array('name','address1','address2','city','pincode','state','country','email','phone','pan','dob'),
+         'Person' => array('name','address1','address2','city','pincode','state','country','email','phone','pan','dob', 'agerange'),
          'Appeal' => array('title','slug')
       ),
       'conditions' => array('Gift.id' => $id), //array of conditions
     );
     
     $this->paginate = array(
-      'fields' => array('status', 'type', 'gateway_id', 'created', 'modified', 'ip', 'data'),
+      'fields' => array('status', 'type', 'serial', 'gateway_id', 'status_code', 'created', 'modified', 'ip', 'data'),
       'contain' => array(
          'Gateway' => array('name')
       ),

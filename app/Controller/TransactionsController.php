@@ -9,9 +9,11 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
  
+App::uses('CakeEmail', 'Network/Email');
+
 class TransactionsController extends AppController {
   public $name = 'Transactions';
-  var $uses = array('Transaction', 'BillDeskTransactionResponse');
+  var $uses = array('Transaction', 'BillDeskTransactionResponse', 'Person');
 
   function beforeFilter() {
     parent::beforeFilter();
@@ -30,7 +32,7 @@ class TransactionsController extends AppController {
       $this->Gift = Common::getModel('Gift');
       $gift = $this->Gift->find('first', array(
         'contain' => array(
-          'Person' => array('id','firstname','lastname','city','pincode')
+          'Person' => array('id','name','city','pincode')
         ),  
         'conditions' => array(
           'Gift.id' => $giftId
@@ -83,7 +85,7 @@ class TransactionsController extends AppController {
       "status" => Transaction::SUCCESS, 
       "status_code" => 1,  // TODO : shall we keep 1 or put null instead
       "ip" => $this->RequestHandler->getClientIp(),
-      "data" => "dummy data" // TODO : serialize data
+      "data" => "tmp" 
     );
     if(!$this->Transaction->save($request)){
        $this->Message->error(__('Sorry something went wrong, please try again later'), array(
@@ -101,12 +103,17 @@ class TransactionsController extends AppController {
       'paymentUrl' => $pg['paymentUrl'],
       'returnUrl'  => $pg['returnUrl'],
       'extraInfo'  => array(
-        'name' => $gift['Person']['firstname'].' '.$gift['Person']['lastname'],
+        'name' => $gift['Person']['name'],
         'city' => $gift['Person']['city'],
         'pincode' => $gift['Person']['pincode']
       )
     );
-    $this->layout = 'redirect';
+    
+    $request['Transaction']['data'] = json_encode($t); // add request transaction data
+    $this->Transaction->save($request, array('fields'=>array('Transaction.data'))); // update transaction in db
+    
+    
+    //$this->layout = 'redirect';
     $this->set('transaction', $t);
   }
 
@@ -181,6 +188,19 @@ class TransactionsController extends AppController {
       }
       
       if($status == Transaction::SUCCESS){
+        if($requestM['Gift']['emailconfirmation']){
+          Controller::loadModel('Person');
+          $personM = new Person();
+          $person = $personM->findById($gift['Gift']['person_id']);
+          $this->Mailer->email = new CakeEmail(Configure::read('App.emails.delivery'));
+          $this->Mailer->email->from(Configure::read('App.emails.general.email'));
+          $this->Mailer->email->to($person['Person']['email']);
+          $this->Mailer->email->subject(__('ActionAid - Confirmation of your transaction'));
+          $this->Mailer->email->template('transaction_confirmation');
+          $this->Mailer->email->emailFormat('text'); // todo based on pref
+          $this->Mailer->email->viewVars(array('person' => $person, 'gift' => $requestM['Gift'], 'contact_email' => Configure::read('App.emails.general.email')));
+          $this->Mailer->send();
+        }
         // Redirect to thank you page
         $this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
       }
