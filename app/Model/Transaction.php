@@ -9,7 +9,8 @@
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
- 
+App::import('model','BilldeskTransactionResponse');
+
 class Transaction extends AppModel {
   public $name = 'Transaction';
   
@@ -32,6 +33,18 @@ class Transaction extends AppModel {
   public function __construct($id = false, $table = null, $ds = null) {
     parent::__construct($id, $table, $ds);
     $this->validate = Transaction::getValidationRules();
+  }
+
+  // This function formats the results to include the auth response description
+  function afterFind($results){
+    $paymentGatewayName = "Billdesk";
+    foreach($results as $k=>$r){
+      if(isset($r['Transaction']) && $r['Transaction']['type'] == 'response' && isset($r['Transaction']['status_code'])){
+        $descriptionObject = BilldeskTransactionResponse::getTransactionStatusDescription($r['Transaction']['status_code']);
+        $results[$k]['Transaction']['status_description'] = $descriptionObject['description'];
+      }
+    }
+    return $results;
   }
 
   static function getValidationRules($context=null) {

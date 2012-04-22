@@ -205,6 +205,14 @@ class Person extends AppModel {
           'rule' => array('custom', '/^[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}$/'),
           'message' => __('Please indicate a valid PAN number (ex: AAAAA9999A')
         )
+      ),
+      'agerange' => array(
+        'allowedChoice' => array(   
+          'required' => false,
+          'allowEmpty'=>true,           
+          'rule' => array('inList', array('18-24','25-34','35-50','50+')),              
+          'message' => __('Enter a value that is in the list')
+        )
       )
     );
   }

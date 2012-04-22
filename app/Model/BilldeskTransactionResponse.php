@@ -153,18 +153,6 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('BankID wrong format.')
         )
       ),
-      'BankID' => array(
-        'required'   => array(
-          'rule' => array('notEmpty'),
-          'required' => true,
-          'allowEmpty' => false,
-          'message' => __('BankID has to be provided')
-        ),
-        'pattern' => array(
-          'rule' => array('custom', '/^[A-Z0-9]+$/'),
-          'message' => __('BankID wrong format.')
-        )
-      ),
       "BankMerchantID" => array(
         'required'   => array(
           'rule' => array('notEmpty'),
@@ -461,10 +449,13 @@ class BilldeskTransactionResponse extends AppModel {
    * @param $authStatus : the status
    * @return the description if any, otherwise null
    */
-  public static function getTransactionStatusDescription($authStatus){ 
-     if(key_exists($authStatus, $this->authStatuses))
-        return $this->authStatuses[$authStatus];
-     return null;
+  public static function getTransactionStatusDescription($authStatus){
+     $me  = new BilldeskTransactionResponse();
+     if(key_exists($authStatus, $me->authStatuses))
+        return $me->authStatuses[$authStatus];
+     else{
+       return array("status"=>"unknown", "description"=>"unknown"); // if status doesn't exist, return unknown status
+     }
   }
   
   public static function getTransactionStatus($authStatus){
