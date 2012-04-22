@@ -48,12 +48,7 @@ $config = array(
           'pattern' => '#/\/home.*/iU',
           'resource' => 'pages:admin_display'
         ),
-        'appeals' => array(
-          'name'    => __('Appeals'),
-          'url'     => '/admin/appeals/index',
-          'pattern' => '#/\/appeals.*/iU',
-          'resource' => 'appeals:admin_index',
-        ),/*
+        /*
         'posts' => array(
           'name'    => __('Posts'),
           'url'     => '/admin/posts/index',
@@ -61,7 +56,7 @@ $config = array(
           'resource' => 'posts:admin_index',
         ),*/
         'gifts' => array(
-          'name'    => __('Gifts'),
+          'name'    => __('Sponsorship Details'),
           'url'     => '/admin/gifts/index',
           'pattern' => '#/\/gifts.*/iU',
           'resource' => 'gifts:admin_index',
