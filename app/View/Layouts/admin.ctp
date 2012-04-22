@@ -26,7 +26,7 @@
   </header>
 </div>
 </div>
-<div class="container main clearfix">
+<div class="container main clearfix admin">
 <div class="container_12">
   <!-- Main Content -->
   <div id="main" role="main" class="grid_12">
