@@ -5,7 +5,7 @@
     <?php /*echo $this->MyForm->input('Person.firstname', array(
       'label'=>__('Firstname'),'class'=>''
     )); ?>
-    <?php */ echo $this->MyForm->input('Person.lastname', array(
+    <?php */ echo $this->MyForm->input('Person.name', array(
       'label'=>__('Name'),'class'=>'required'
     )); ?>
     <?php echo $this->MyForm->input('Person.address1', array(
@@ -42,13 +42,15 @@
     )); ?>
     <?php echo $this->MyForm->input('Person.agerange', array(
       'type'=>'select', 'label'=> 'Age',
-      'options'=> array('How old are you?','between 18 - 24','between 25 - 34','between 35 - 50','more than 50'),
+      'options'=> array('18-24'=>'between 18 - 24','25-34'=>'between 25 - 34','35-50'=>'between 35 - 50','50+'=>'more than 50'),
+      'empty'=> 'How old are you?'
     )); ?>
     <?php echo $this->MyForm->input('Gift.source', array(
       'type'=>'select', 'label'=> 'Source',
-      'options'=> array('Where did you hear from us?','Friends','Search Engine','Newspaper','Website','Promotional Message','ActionAid Employee','I am already a donor','Other'),
+      'options'=> array('Friends'=>'Friends','Search Engine'=>'Search Engine','Newspaper'=>'Newspaper','Website'=>'Website','Promotional Message'=>'Promotional Message','ActionAid Employee'=>'ActionAid Employee','I am already a donor'=>'I am already a donor','Other'=>'Other'),
+      'empty'=> 'Where did you hear from us?'
     )); ?>
-    <?php echo $this->MyForm->input('Person.cancontact', array(
+    <?php echo $this->MyForm->input('Gift.emailconfirmation', array(
       'type'=>'checkbox', 'label'=> 'Send me a confirmation email of my transaction (recommended).',
     )); ?>
     <?php /* echo $this->MyForm->input('Person.dob', array(
