@@ -255,21 +255,21 @@ class Person extends AppModel {
     $conditions = array();
     switch($context) {
       case 'findDuplicates':
-        $conditions = array(
-          'Person.title'     => $data['Person']['title'], 
-          'Person.dob'       => $data['Person']['dob']['year'].'-'.$data['Person']['dob']['month'].'-'.$data['Person']['dob']['day'], 
-          'Person.firstname' => $data['Person']['firstname'],
-          'Person.lastname'  => $data['Person']['lastname'],
-          'Person.address1'  => $data['Person']['address1'],
-          'Person.address2'  => $data['Person']['address2'],
-          'Person.city'      => $data['Person']['city'],
-          'Person.pincode'   => $data['Person']['pincode'],
-          'Person.state'     => $data['Person']['state'],
-          'Person.country'   => $data['Person']['country'],
-          'Person.email'     => $data['Person']['email'],
-          'Person.pan'       => $data['Person']['pan'],
-          'Person.phone'     => $data['Person']['phone']
-        );
+        if(!empty($data['Person']['email'])){
+          $conditions = array(
+            'Person.email'     => $data['Person']['email']
+          );
+        }
+        else{
+          $conditions = array(
+            'Person.name'      => $data['Person']['name'],
+            'Person.address1'  => $data['Person']['address1'],
+            'Person.city'      => $data['Person']['city'],
+            'Person.pincode'   => $data['Person']['pincode'],
+            'Person.country'   => $data['Person']['country'],
+            'Person.phone'     => $data['Person']['phone']
+          );
+        }
       break;
     }
    return $conditions;
