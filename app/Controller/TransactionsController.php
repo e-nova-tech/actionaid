@@ -113,7 +113,7 @@ class TransactionsController extends AppController {
     $this->Transaction->save($request, array('fields'=>array('Transaction.data'))); // update transaction in db
     
     
-    //$this->layout = 'redirect';
+    $this->layout = 'redirect';
     $this->set('transaction', $t);
   }
 
