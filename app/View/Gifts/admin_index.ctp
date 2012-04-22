@@ -32,6 +32,7 @@
       <div class="grid_4 generalsearch">
         <div>
         <?php
+        echo $this->Form->input('Serial', array('label'=>'ID', 'type'=>'text'));
         echo $this->Form->input('Name', array('label'=>'Name / Email'));
         echo $this->Form->input('Status', array('options'=>array('failure'=>'failure', 'pending'=>'pending', 'success'=>'success'), 'label'=>'Status', 'type'=>'select', 'empty'=>'-- choose a status --'));
         echo $this->Form->input('Amount');
@@ -78,6 +79,7 @@
     <h2>Details</h2>
     <table>
       <tr>
+        <th><?php echo $this->MyPaginator->sort('serial',__('ID'));?></th>
         <th><?php echo $this->MyPaginator->sort('status',__('Status'));?></th>
         <th><?php echo $this->MyPaginator->sort('amount',__('Amount'));?></th>
         <th><?php echo $this->MyPaginator->sort('Person.name',__('Name'));?></th>
@@ -87,6 +89,7 @@
       </tr>
 <?php foreach ($gifts as $gift): ?>
       <tr class="<?php echo $gift['Gift']['status']; ?>">
+        <td><?php echo $gift['Gift']['serial']; ?></td>
         <td class="status"><?php echo $gift['Gift']['status']; ?></td>
         <td><?php echo $gift['Gift']['amount']; ?> <?php echo $gift['Gift']['currency']; ?></td>
         <td><?php echo $gift['Person']['name']; ?></td>
