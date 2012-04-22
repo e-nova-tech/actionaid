@@ -15,8 +15,9 @@
   <fieldset>
     <legend><?php echo __('User details'); ?></legend>
   <?php
-    echo $this->MyForm->input('User.username', array('label' => __('Username'), 'class' =>' required'));
+    echo $this->MyForm->input('User.username', array('label' => __('Email ID'), 'class' =>' required'));
     echo $this->MyForm->input('User.password', array('label' => __('Password'), 'class' =>' required'));
+    echo $this->MyForm->input('User.password_again', array('label' => __('Repeat password'), 'class' =>' required', 'type'=>'password'));
     echo $this->MyForm->input('User.role', array(
       'label' => __('Role'), 'class' =>' required',
       'options' => array('admin' => 'Admin')
