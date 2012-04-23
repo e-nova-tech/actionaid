@@ -136,7 +136,7 @@ $(function() {
     rules:{
       "data[Gift][other_amount]" : {
           giftamount : true,
-          giftMinimumAmount : 1000
+          giftMinimumAmount : 100
       },
       "data[Person][email]" : {
           confirmationEmail : true
