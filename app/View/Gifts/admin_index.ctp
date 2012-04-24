@@ -77,6 +77,7 @@
       </div>
     </div>
     <h2>Details</h2>
+    <a class="export-excel" href="<?php echo $this->request->url; ?>/format:xls">Export Excel</a>
     <table>
       <tr>
         <th><?php echo $this->MyPaginator->sort('serial',__('ID'));?></th>
