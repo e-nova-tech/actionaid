@@ -99,7 +99,12 @@ hr.spacer,
   margin:0;
 }
 
-
+a.export-excel{
+  background:url(../img/icons/s/excel.png) no-repeat left center;
+  padding:0 0 0 20px;
+  float:right;
+  margin-top:-33px;
+}
 
 .withinfo {
   cursor:help;
