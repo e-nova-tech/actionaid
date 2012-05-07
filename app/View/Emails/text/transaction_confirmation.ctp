@@ -1,6 +1,6 @@
 Dear <?php echo $person['Person']['name']; ?>
 
-We wish to confirm the receipt of your sponsorship amount of INR<?php echo $gift['Gift']['amount']; ?> towards ActionAid to enrich and support the lives of under-privileged children in India. The transaction ID is <?php echo $gift['Gift']['serial']; ?> and you must have received a payment confirmation from the bank as well. 
+We wish to confirm the receipt of your sponsorship amount of INR<?php echo $gift['amount']; ?> towards ActionAid to enrich and support the lives of under-privileged children in India. The transaction ID is <?php echo $gift['serial']; ?> and you must have received a payment confirmation from the bank as well. 
 
 We are delighted to welcome you to the ActionAid family and sincerely hope that this association would provide you with ample opportunities to make a difference to this world. 
       
