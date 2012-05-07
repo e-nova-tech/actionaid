@@ -207,6 +207,13 @@ class GiftsController extends AppController {
     
     $this->set('statistics', $statistics);
     $this->set('gifts', $this->paginate('Gift'));
+    
+    if(!empty($searchparams['format']) && $searchparams['format'] == 'xls'){
+      $this->set('gifts', $gifts);
+      $this->layout = 'export_xls';
+      $this->render('export_xls');
+    }
+    
   }
 
   public function admin_view($id) {
