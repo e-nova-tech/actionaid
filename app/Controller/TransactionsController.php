@@ -146,7 +146,7 @@ class TransactionsController extends AppController {
       // Get the corresponding transaction request
       $requestM = $this->Transaction->find('first', array(
         'contain' => array(
-          'Gift' => array('id', 'emailconfirmation'),
+          'Gift' => array('id', 'emailconfirmation', 'amount', 'serial'),
           'Gateway' => array('id')
         ),  
         'conditions' => array(
