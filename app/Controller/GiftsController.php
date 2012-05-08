@@ -179,9 +179,9 @@ class GiftsController extends AppController {
     // END SEARCH MANAGEMENT //
     
     $params = array(
-      'fields' => array('id','amount','currency','serial','status','modified'),
+      'fields' => array('id','amount','currency','serial','source', 'status','modified'),
       'contain' => array(
-         'Person' => array('name'),
+         'Person' => array('name', 'email', 'address1', 'city', 'agerange'),
          'Appeal' => array('title')
       ),
       'order' => array('Gift.modified' => 'desc'),
