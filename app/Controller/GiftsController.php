@@ -179,16 +179,16 @@ class GiftsController extends AppController {
     // END SEARCH MANAGEMENT //
     
     $params = array(
-      'fields' => array('id','amount','currency','serial','source', 'status','modified'),
+      'fields' => array('id','amount','currency','serial','source', 'emailconfirmation', 'status','modified'),
       'contain' => array(
-         'Person' => array('name', 'email', 'address1', 'city', 'agerange'),
+         'Person' => array('name', 'email', 'address1', 'city', 'pincode', 'agerange', 'phone'),
          'Appeal' => array('title')
       ),
       'order' => array('Gift.modified' => 'desc'),
       'conditions' => $conditions
     );
     $gifts = $this->Gift->find('all', $params);
-    
+
     $this->paginate = $params;
     
     $statistics = array('success'=>0, 'pending'=>0, 'failed'=>0, 'donations'=>0);
@@ -213,7 +213,6 @@ class GiftsController extends AppController {
       $this->layout = 'export_xls';
       $this->render('export_xls');
     }
-    
   }
 
   public function admin_view($id) {

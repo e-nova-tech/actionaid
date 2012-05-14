@@ -28,31 +28,34 @@
 		<td></td>
 	</tr>
 		<tr id="titles">
-			<td class="tableTd">Serial</td>
-			<td class="tableTd">Status</td>
-			<td class="tableTd">Amount</td>
+			<td class="tableTd">Date</td>
 			<td class="tableTd">Name</td>
-			<td class="tableTd">Email</td>
 			<td class="tableTd">Address</td>
 			<td class="tableTd">City</td>
+			<td class="tableTd">Pin code</td>
 			<td class="tableTd">Age range</td>
-			<td class="tableTd">Source</td>
-			<td class="tableTd">Appeal</td>
-			<td class="tableTd">Date</td>
+			<td class="tableTd">Email</td>
+			<td class="tableTd">Phone</td>
+			<td class="tableTd">Requested for email confirmation</td>
+			<td class="tableTd">Status</td>
+			<td class="tableTd">Amount</td>
+			
+			<td class="tableTd">Serial</td>			
 		</tr>		
 		<?php foreach($gifts as $gift):
 			echo '<tr>';
-			echo '<td class="tableTdContent">'.$gift['Gift']['serial'].'</td>';
-			echo '<td class="tableTdContent">'.$gift['Gift']['status'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Gift']['amount'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Person']['name'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Person']['email'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Person']['address1'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Person']['city'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Person']['agerange'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Gift']['source'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Appeal']['title'].'</td>';
-      echo '<td class="tableTdContent">'.$gift['Gift']['modified'].'</td>';
+			echo '<td class="tableTdContent">'.$gift['Gift']['modified'].'</td>';
+			echo '<td class="tableTdContent">'.$gift['Person']['name'].'</td>';
+			echo '<td class="tableTdContent">'.$gift['Person']['address1'].'</td>';
+			echo '<td class="tableTdContent">'.$gift['Person']['city'].'</td>';
+			echo '<td class="tableTdContent">'.$gift['Person']['agerange'].'</td>';
+			 echo '<td class="tableTdContent">'.$gift['Person']['agerange'].'</td>';
+			 echo '<td class="tableTdContent">'.$gift['Person']['email'].'</td>';
+			 echo '<td class="tableTdContent">'.$gift['Person']['phone'].'</td>';
+			 echo '<td class="tableTdContent">'.$gift['Gift']['emailconfirmation'].'</td>';
+			 echo '<td class="tableTdContent">'.$gift['Gift']['status'].'</td>';
+			 echo '<td class="tableTdContent">'.$gift['Gift']['amount'].'</td>';
+			 echo '<td class="tableTdContent">'.$gift['Gift']['serial'].'</td>';
 			echo '</tr>';
 			endforeach;
 		?>
