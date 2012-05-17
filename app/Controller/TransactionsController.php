@@ -206,7 +206,7 @@ class TransactionsController extends AppController {
       }
       else{
         // Redirect to error page
-        $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
+        $this->redirect(array('controller' => 'pages', 'action' => 'failure', 'gid'=>$requestM['Gift']['id'])); 
       }
     }
 
