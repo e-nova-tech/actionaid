@@ -206,12 +206,14 @@ class TransactionsController extends AppController {
       }
       else{
         // Redirect to error page
-        $this->redirect(array('controller' => 'pages', 'action' => 'failure')); // TODO : error page ?
+        $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
       }
     }
 
     // The line below will happen only if the response doesn't validate
     // TODO : log it somewhere in a file
-    $this->redirect(array('controller' => 'pages', 'action' => 'failure')); // TODO : error page ?
+    $this->redirect(array('controller' => 'pages', 'action' => 'failure', 'gid'=>$requestM['Gift']['id'])); 
+    
   }
+	
 }

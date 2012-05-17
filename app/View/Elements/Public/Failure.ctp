@@ -9,6 +9,7 @@
   </h3>
 
   <ul>
+  	<li>You can <a href="transactions/request/<?php echo $this->request->params['named']['gid'] ?>">try again</a></li>
     <li>You can download the <a href="files/donation-form.pdf">offline donation form</a> and donate by cheque.</li>
     <li>Or you can contact us at the following number : <strong>(number to be provided)</strong></li>
   </ul>
