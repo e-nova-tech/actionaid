@@ -212,7 +212,7 @@ class TransactionsController extends AppController {
 
     // The line below will happen only if the response doesn't validate
     // TODO : log it somewhere in a file
-    $this->redirect(array('controller' => 'pages', 'action' => 'failure', 'gid'=>$requestM['Gift']['id'])); 
+    $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
     
   }
 	
