@@ -211,9 +211,8 @@ class TransactionsController extends AppController {
     }
 
     // The line below will happen only if the response doesn't validate
-    // TODO : log it somewhere in a file
+    $this->log("Validation Error : $rspMsgTxt", 'app.debug'); // Log the error
     $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
     
   }
-	
 }
