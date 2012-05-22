@@ -125,7 +125,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('BankReferenceNo has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9\-]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9\- ]+$/'),
           'message' => __('BankReferenceNo wrong format')
         )
       ),
@@ -293,7 +293,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('AdditionalInfo2 has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
           'message' => __('AdditionalInfo2 wrong format.')
         )
       ),
@@ -305,7 +305,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('AdditionalInfo3 has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
           'message' => __('AdditionalInfo3 wrong format.')
         )
       ),
@@ -317,7 +317,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('AdditionalInfo4 has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
           'message' => __('AdditionalInfo4 wrong format.')
         )
       ),
@@ -329,7 +329,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('AdditionalInfo5 has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
           'message' => __('AdditionalInfo5 wrong format.')
         )
       ),
@@ -341,7 +341,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('AdditionalInfo6 has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
           'message' => __('AdditionalInfo6 wrong format.')
         )
       ),
@@ -353,7 +353,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('AdditionalInfo7 has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
           'message' => __('AdditionalInfo7 wrong format.')
         )
       ),

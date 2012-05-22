@@ -124,6 +124,7 @@ class TransactionsController extends AppController {
     $rspMsgTxt = $this->request->data['msg'];
     // The line below is used for debugging
     //$rspMsgTxt = "ACTIONAID|123|MSBI0412001668|NA|00002400|SBI|22270726|NA|INR|NA|NA|NA|NA|12-12-2004 16:08:56|0300|NA|DA01017224|AXPIY|NA|NA|NA|NA|NA|NA|NA|xiwLsj9pytFv";
+    //$rspMsgTxt = "ACTIONAID|IPG00000074|MCIT2741572736|075898- |00000010.00|CIT|22318552|NA|INR|DIRECT|NA|NA|NA|22-05-2012 14:20:57|0399|NA|Bernadine Rowe|Bangalore|560025|NA|NA|NA|NA|NA|Network Delay|2738836307";
     
     Controller::loadModel('BilldeskTransactionResponse');
     $rsp = new BilldeskTransactionResponse();
@@ -135,9 +136,10 @@ class TransactionsController extends AppController {
     }
     $rsp->set($deserialized);
     if(!$rsp->validates()){
-      /*$errors = $rsp->invalidFields();
-      pr($errors);
-      exit(0); // Debug */
+      $errors = $rsp->invalidFields();
+      /*pr($errors);
+      exit(0); */ // Debug 
+      
       $this->Message->error(__('Sorry something went wrong, please try again later'), array(
         'code' => 'WRONG_RESPONSE'
       ));
@@ -211,7 +213,8 @@ class TransactionsController extends AppController {
     }
 
     // The line below will happen only if the response doesn't validate
-    $this->log("Validation Error : $rspMsgTxt", 'app.debug'); // Log the error
+    $errors = print_r($errors, true);
+    $this->log("Validation Error : $rspMsgTxt\nError returned : $errors", 'app.debug'); // Log the error
     $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
     
   }
