@@ -32,7 +32,7 @@
           <h4>How does ActionAid use donations?</h4>
           <div>
             <p>
-            <img src="http://actionaid/img/appeals/piechart.png" style="float:right; margin:-10px 10px 10px 30px;" width="200"/>
+            <img src="/img/appeals/piechart.png" style="float:right; margin:-10px 10px 10px 30px;" width="200"/>
               ActionAid finance a wide range of long term and short term projects all over India working
               with marginalized communities such Dalit and indigenous people, rural and urban poor, women, children and minorities. 
               The details of ActionAid results and expenses are detailed in our annual report.
@@ -126,7 +126,7 @@
               <li>
                 We make every reasonable effort to prevent any loss, misuse, disclosure or 
                 modification of personal information, as well as any unauthorized access to 
-                personal information. Learn more by reading our <a href="actionaid.org/india/privacy">Privacy
+                personal information. Learn more by reading our <a href="http://actionaid.org/india/privacy">Privacy
                 Policy</a>
               </li>
             </ul>
