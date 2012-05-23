@@ -7,10 +7,9 @@
           <div>
           <p>
             ActionAid India has been <strong>working with poor and marginalised people</strong> in India since 1972. 
-            We work in <strong>25 states</strong> and one Union Territory reaching out to approximately 8 million people. 
-            We partner <strong>local NGOs</strong>, community based organizations and people's movements to collectively 
-            address poverty, inequality and injustice.
+            We work in <strong>25 states</strong> and one Union Territory <strong>reaching out to 6 million</strong> poor in India and also close to 13 million of the world’s poorest through 40 countries where we have our offices.
           </p>
+          <p>We partner with <strong>local NGOs</strong>, community based organizations and people's movements to collectively address poverty, inequality and injustice.</p>
           <p>
             Our focus is on the rights of India’s most marginalised communities: <strong>Dalit and indigenous 
             people, rural and urban poor, women, children and minorities</strong>. These groups face an acute 
@@ -53,7 +52,7 @@
             a child and the child’s community. When you sponsor a child you will receive:
             <ul>
               <li>A picture and story of your sponsored child.</li>
-              <li>Messages directly from your sponsored child twice a year.</li>
+              <li>Messages from your sponsored child twice a year.</li>
               <li>A newsletter twice a year or more on how your donation helps.</li>
               <li>Annual report on ActionAid’s activity across the country.</li>
             </ul>
