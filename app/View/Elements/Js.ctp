@@ -30,7 +30,6 @@
   endif;
 ?>
 <script src="js/script.js"></script>
-<script type="text/javascript" src="http://fast.fonts.com/jsapi/cfd002b4-72bb-4e9d-9540-e28e1ddba02b.js"></script>
 <script type="text/javascript">
   // Google Analytics
   var _gaq = _gaq || [];
