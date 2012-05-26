@@ -197,7 +197,7 @@ body {
 }
 /* titles */
 h1,h2,h3,h4 {
- /* font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;*/
+  font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;
   font-weight:bold;
 }
 /* quotes */
