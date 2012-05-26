@@ -35,7 +35,7 @@
   // Google Analytics
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-5596005-1']);
-  _gaq.push(['_setDomainName', 'actionaid.org']);
+  _gaq.push(['_setDomainName', 'www.actionaid.org']);
   _gaq.push(['_trackPageview']);
 
   (function() {
