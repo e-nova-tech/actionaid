@@ -18,8 +18,8 @@ $config = array(
   'App.browserTitle' => '%s | ActionAid India', // %s = title_for_layout
 
   'App.url' => array(
-    'dev'  => 'http://127.0.0.1/ActionAid/',
-    'prod' => 'https://actionaidindia.org/donate/'
+    'dev'  => 'http://182.18.157.247/sponsor/',
+    'prod' => 'https://www.actionaidindia.org/sponsor/'
   ),
 
   // Cookie's settings
@@ -95,7 +95,7 @@ $config = array(
     'billdesk_debug' => array (
       'merchantId' => 'ACTIONAID',
       'checksumKey' => 'xiwLsj9pytFv',
-      'paymentUrl' => 'billdesktest/simulatePayment',
+      'paymentUrl' => '/donate/billdesktest/simulatePayment',
       'returnUrl' => '/transactions/response'
     )
   ),
