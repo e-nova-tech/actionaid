@@ -195,12 +195,12 @@ class TransactionsController extends AppController {
           $personM = new Person();
           $person = $personM->findById($gift['Gift']['person_id']);
           $this->Mailer->email = new CakeEmail(Configure::read('App.emails.delivery'));
-          $this->Mailer->email->from(Configure::read('App.emails.general.email'));
+          $this->Mailer->email->from(Configure::read('App.emails.fundraising.email'));
           $this->Mailer->email->to($person['Person']['email']);
           $this->Mailer->email->subject(__('ActionAid - Confirmation of your transaction'));
           $this->Mailer->email->template('transaction_confirmation');
           $this->Mailer->email->emailFormat('text'); // todo based on pref
-          $this->Mailer->email->viewVars(array('person' => $person, 'gift' => $requestM['Gift'], 'contact_email' => Configure::read('App.emails.general.email')));
+          $this->Mailer->email->viewVars(array('person' => $person, 'gift' => $requestM['Gift'], 'contact_email' => Configure::read('App.emails.fundraising.email')));
           $this->Mailer->send();
         }
         // Redirect to thank you page
