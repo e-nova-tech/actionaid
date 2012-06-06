@@ -16,6 +16,9 @@
 <div class="container texture dark header_push">
 <div id="slideshow_container" class="slideshow_container container">
 <div id="slideshow" role="main" class="container slideshow clearfix">
+  <div class="slogan">
+  	<p>At just Rs.17 a day, you can do a world of good.</p>
+  </div>
   <div class="container_12">
     <div class="gift form grid_5 push_7">
       <?php echo $this->MyForm->create('Gift')."\n"; ?>

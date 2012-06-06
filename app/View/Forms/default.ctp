@@ -32,8 +32,8 @@
         </span>
         <br/><br/>
         <blockquote>
-          <span class="quote">“I am now an Upsarpanch in my BalPanchayat.”</span>
-          <span class="author">Ramratan</span>
+          <span class="quote">Your gift today could give India a bright leader tomorrow. Make a difference.</span>
+          <!-- <span class="author">Ramratan</span> -->
         </blockquote>
       </div>
       <h2><a href="child-sponsorship" class="button donate dark-shadow"><?php echo __('Sponsor a child today!'); ?> ›</a></h2>

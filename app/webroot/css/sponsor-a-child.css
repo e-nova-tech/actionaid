@@ -50,7 +50,7 @@
   font-size:1.8em;
   padding:5px;
   background:#FFF;
-  line-height:1.4em;
+  line-height:1.45em;
 }
 .slideshow .caption .context {
   display:inline;
@@ -331,4 +331,19 @@ ul.offline-form-list li.first{ margin-top:0; }
   margin-top:15px;
   /* margin-bottom:170px; */
 }
+
+div.slogan p{
+	float: left;
+	width: 520px;
+	position: absolute;
+	background-color: #C7061D;
+	margin-top: 440px;
+	font-size:16px;
+	padding: 7px;
+	color:  white;
+	font-weight: bold;
+	margin-left: 10px;
+	font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;
+	border:1px solid #7C0F1B;
+} 
 
