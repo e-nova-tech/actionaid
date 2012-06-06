@@ -197,7 +197,7 @@ body {
 }
 /* titles */
 h1,h2,h3,h4 {
- /* font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;*/
+  font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;
   font-weight:bold;
 }
 /* quotes */
@@ -207,10 +207,10 @@ blockquote {
   margin:0;
 }
 blockquote .quote {
-  /*font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;*/
+  font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;
 }
 blockquote .author {
-  /*font-family:"AmericanTypwrterITCW01- 731031",Helvetica,Helvetica Neue,Arial,sans-serif;*/
+  font-family:"AmericanTypwrterITCW01- 731031",Helvetica,Helvetica Neue,Arial,sans-serif;
   font-weight:bold;
 }
 blockquote .context {
