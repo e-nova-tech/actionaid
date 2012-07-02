@@ -26,13 +26,11 @@
     <div class="grid_5 push_7">
       <div class="slide caption">
         <span class="context">
-          Ramratan, an ActionAid supported child, hails from Sangwara village in Madhya Pradesh and
-           is part of the Balpanchayat. This is a children parliament that among various things convinces
-            parents to send their children to school.     
+          ActionAid intervention in her village has enabled Shanno and her friends from Dabokpura village in Dhaulpur to attend school regularly. One of the ActionAid supported children in her community, Shanno is an example of how your donations can make a difference.  
         </span>
         <br/><br/>
         <blockquote>
-          <span class="quote">Your gift today could give India a bright leader tomorrow. Make a difference.</span>
+          <span class="quote">You could keep that smile alive.</span>
           <!-- <span class="author">Ramratan</span> -->
         </blockquote>
       </div>

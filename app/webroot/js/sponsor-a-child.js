@@ -22,16 +22,16 @@ $(function() {
   
     var content = [
       {
+        "author"  : "Shanno",
+        "quote"   : "You could keep that smile alive.",
+        "context" : "ActionAid intervention in her village has enabled Shanno and her friends from Dabokpura village in Dhaulpur to attend school regularly. One of the ActionAid supported children in her community, Shanno is an example of how your donations can make a difference.",
+        "image"   : "slide1.jpg"
+      },
+      {
         "author"  : "Ramratan",
         "quote"   : "Your gift today could give India a bright leader tomorrow. Make a difference.",
         "context" : "Ramratan, an ActionAid supported child, hails from Sangwara village in Madhya Pradesh and is part of the Balpanchayat. This is a children parliament that among various things convinces parents to send their children to school.",
         "image"   : "slide0.jpg"
-      },
-      {
-        "author"  : "Shanno",
-        "quote"   : "You could keep that cute little smile alive.",
-        "context" : "ActionAid intervention in her village has enabled Shanno and her friends from Dabokpura village in Dhaulpur to attend school regularly. One of the ActionAid supported children in her community, Shanno is an example of how your donations can make a difference.",
-        "image"   : "slide1.jpg"
       },
       {
         "author"  : "Shazia",
