@@ -12,7 +12,6 @@
 <!doctype html>
 <html>
 <head>
-<!--<?php print_r($this); ?>-->
 <?php if(true): ?>
 	<!-- Google Analytics Content Experiment code -->
 <script>function utmx_section(){}function utmx(){}(function(){var
