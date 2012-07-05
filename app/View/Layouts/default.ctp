@@ -12,7 +12,7 @@
 <!doctype html>
 <html>
 <head>
-<?php if(true): ?>
+<?php if($this->here == '/sponsor/'): ?>
 	<!-- Google Analytics Content Experiment code -->
 <script>function utmx_section(){}function utmx(){}(function(){var
 k='60371284-0',d=document,l=d.location,c=d.cookie;
