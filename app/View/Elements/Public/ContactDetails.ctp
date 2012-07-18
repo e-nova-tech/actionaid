@@ -46,9 +46,9 @@
       'empty'=> 'How old are you?'
     )); ?>
     <?php echo $this->MyForm->input('Gift.source', array(
-      'type'=>'select', 'label'=> 'Where did you hear about us?',
+      'type'=>'select', 'label'=> 'Source',
       'options'=> array('Friends'=>'Friends','Search Engine'=>'Search Engine','Newspaper'=>'Newspaper','Website'=>'Website','Promotional Message'=>'Promotional Message','ActionAid Employee'=>'ActionAid Employee','I am already a donor'=>'I am already a donor','Other'=>'Other'),
-      'empty'=> 'Where did you hear from us?'
+      'empty'=> 'Where did you hear about us?'
     )); ?>
     <?php echo $this->MyForm->input('Gift.emailconfirmation', array(
       'type'=>'checkbox', 'label'=> 'Send me a confirmation email of my transaction (recommended).',
