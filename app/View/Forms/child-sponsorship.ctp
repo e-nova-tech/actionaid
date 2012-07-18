@@ -18,17 +18,17 @@
 <div id="slideshow" role="main" class="container slideshow clearfix">
   <div class="slogan">
   	<p>At just Rs.17 a day, you can do a world of good.</p>
-  	<em>For queries regarding filling this form please call 011 4064 0552 or email onlinesupport@actionaid.org</em>
+  	<em>For queries regarding filling this form please call 011 4064 0552 or email onlinesupport@actionaid.org. You can also SMS ASSIST to 58888.</em>
   </div>
   <div class="container_12">
     <div class="gift form grid_5 push_7">
       <?php echo $this->MyForm->create('Gift')."\n"; ?>
       <fieldset class="gift">
-        <legend><?php echo __('Choose from the below sponsoring options'); ?></legend>
+        <legend><?php echo __('Choose an option from here'); ?></legend>
     <?php echo $this->element('Public/GiftSelect'); ?>
       </fieldset>
       <fieldset class="contact">
-        <legend><?php echo __('Contact Details'); ?></legend>
+        <legend><?php echo __('Fill in your contact details'); ?></legend>
     <?php echo $this->element('Public/ContactDetails'); ?>
       </fieldset>
     <p class="tax note"><?php echo __('Contributions to ActionAid Association are exempted from Tax under section 80G of Income TaxAct 1961.'); ?></p>

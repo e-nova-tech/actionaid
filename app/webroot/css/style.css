@@ -449,7 +449,8 @@ form .info {
 form  fieldset.gift .info.donation{
   background:transparent url('../img/icons/questionmark.png') 0 0 no-repeat;
   min-height:30px;
-  margin-top:-48px;
+  margin-top:-79px;
+  margin-left:21px;
 }
 form .input.checkbox .info{
   margin-top:0;

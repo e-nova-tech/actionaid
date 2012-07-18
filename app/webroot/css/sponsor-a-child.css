@@ -354,10 +354,11 @@ div.slogan em{
 	border:1px solid #7C0F1B;
 } 
 div.slogan em{
-  margin-top:480px;
-  background-color:#e9ec43;
-  color:#000;
-  padding:2px 7px;
-  border-color:#e9ec43;
-  font-size:12px;
+  margin-top: 0px;
+  background-color: transparent;
+  color: white;
+  padding: 2px 7px;
+  border-color: transparent;
+  font-size: 12px;
+  font-style: normal;
 }
