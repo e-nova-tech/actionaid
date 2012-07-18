@@ -48,7 +48,7 @@
 			echo '<td class="tableTdContent">'.$gift['Person']['name'].'</td>';
 			echo '<td class="tableTdContent">'.$gift['Person']['address1'].'</td>';
 			echo '<td class="tableTdContent">'.$gift['Person']['city'].'</td>';
-			echo '<td class="tableTdContent">'.$gift['Person']['agerange'].'</td>';
+			echo '<td class="tableTdContent">'.$gift['Person']['pincode'].'</td>';
 			 echo '<td class="tableTdContent">'.$gift['Person']['agerange'].'</td>';
 			 echo '<td class="tableTdContent">'.$gift['Person']['email'].'</td>';
 			 echo '<td class="tableTdContent">'.$gift['Person']['phone'].'</td>';
