@@ -437,14 +437,19 @@ form .inr {
 form .inr span { display:none; }
 form .inr span.amount { display:inline; }
 form .info {
-  background:transparent url('../img/icons/s/help1.png') 0 0 no-repeat;
+  background:transparent url('../img/icons/questionmark_s.png') 0 0 no-repeat;
   position: absolute;
   width: 250px;
   left: 335px;
-  margin-top: -18px;
+  margin-top: -19px;
   padding: 0px 0px 0px 23px;
   font-size:.9em;
-  min-height:16px;
+  min-height:18px;
+}
+form  fieldset.gift .info.donation{
+  background:transparent url('../img/icons/questionmark.png') 0 0 no-repeat;
+  min-height:30px;
+  margin-top:-48px;
 }
 form .input.checkbox .info{
   margin-top:0;

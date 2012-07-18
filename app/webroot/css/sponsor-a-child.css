@@ -70,6 +70,12 @@
 .slideshow h2{
   margin-top:25px;
 }
+.slideshow .info a{
+  font-size:1em;
+  color:#000;
+  text-decoration:underline;
+  text-shadow:none;
+}
 
 /* form */
 form .info {
@@ -332,7 +338,8 @@ ul.offline-form-list li.first{ margin-top:0; }
   /* margin-bottom:170px; */
 }
 
-div.slogan p{
+div.slogan p,
+div.slogan em{
 	float: left;
 	width: 520px;
 	position: absolute;
@@ -346,4 +353,11 @@ div.slogan p{
 	font-family:"AmericanTypwrterITCW01- 731010",Helvetica,Helvetica Neue,Arial,sans-serif;
 	border:1px solid #7C0F1B;
 } 
-
+div.slogan em{
+  margin-top:480px;
+  background-color:#e9ec43;
+  color:#000;
+  padding:2px 7px;
+  border-color:#e9ec43;
+  font-size:12px;
+}
