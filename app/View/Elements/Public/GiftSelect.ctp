@@ -12,7 +12,7 @@
     <div class="radiolist">
       <div class="input radiolist-item">
         <input type="radio" name="data[Gift][appeal]" value="child-sponsorship" id="child-sponsorship" class=" gift radio" checked="checked" />
-        <label for="child-sponsorship" class="right"><strong>Yes I want to enrich their lives!</strong></label><br/>
+        <label for="child-sponsorship" class="right"><strong>I will go for annual sponsorship packages</strong></label><br/>
         I will sponsor <select name="data[Children][number]" class="small" id="NumberOfChildren" style="margin-left:20px">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -31,7 +31,7 @@
         </select>
         <label for="GiftFrequency" class="right year"><strong>year</strong></label>      
         <p style="">
-          My sponsorship amount is: 
+          Your sponsorship amount is: 
           <span class="inr"><span>INR</span><span class="amount">6000</span></span>
         </p>
         <div class="input text hidden">
@@ -40,10 +40,11 @@
       </div>
       <div class="input radiolist-item">
         <input type="radio" name="data[Gift][appeal]" value="general-donation" id="general-donation" class="other gift radio" />
-        <label for="general-donation" class="right">Let me start with</label>
+        <label for="general-donation" class="right">No, let me start with</label>
         <span class="inr"><span>INR</span></span>
         <input type="text" name="data[Gift][other_amount]" id="general-donation-amount" style="width:80px" class="other gift text"/>
       </div>
+      <p class="info donation"><span>Our annual child sponsorship amounts to Rs. 6000 for one child per year and it will be deducted at once after you make this online transaction successfully.</span></p>
       <div style="display:none;">
          <input type="text" name="data[Gift][currency]" value="INR" type="hidden"/>
       </div>
