@@ -18,12 +18,13 @@
 <div id="slideshow" role="main" class="container slideshow clearfix">
   <div class="slogan">
   	<p>At just Rs.17 a day, you can do a world of good.</p>
+  	<em>For queries regarding filling this form please call 011 4064 0552 or dial onlinesupport@actionaid.org</em>
   </div>
   <div class="container_12">
     <div class="gift form grid_5 push_7">
       <?php echo $this->MyForm->create('Gift')."\n"; ?>
       <fieldset class="gift">
-        <legend><?php echo __('Sponsorship Details (one or more children)'); ?></legend>
+        <legend><?php echo __('Choose from the below sponsoring options'); ?></legend>
     <?php echo $this->element('Public/GiftSelect'); ?>
       </fieldset>
       <fieldset class="contact">

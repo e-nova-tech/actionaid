@@ -31,7 +31,7 @@
         <br/><br/>
         <blockquote>
           <span class="quote">You could keep that smile alive.</span>
-          <!-- <span class="author">Ramratan</span> -->
+          <!-- <span class="author">Shanno</span> -->
         </blockquote>
       </div>
       <h2><a href="child-sponsorship" class="button donate dark-shadow"><?php echo __('Sponsor a child today!'); ?> ›</a></h2>
