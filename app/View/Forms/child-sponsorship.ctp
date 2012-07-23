@@ -18,7 +18,7 @@
 <div id="slideshow" role="main" class="container slideshow clearfix">
   <div class="slogan">
   	<p>At just Rs.17 a day, you can do a world of good.</p>
-  	<em>For queries regarding filling this form please call 011 4064 0552 or email onlinesupport@actionaid.org. You can also SMS ASSIST to 58888.</em>
+  	<em>For queries regarding filling this form please call 011 4064 0552 or email onlinesupport@actionaid.org</em>
   </div>
   <div class="container_12">
     <div class="gift form grid_5 push_7">
