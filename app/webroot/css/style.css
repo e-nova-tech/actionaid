@@ -353,6 +353,26 @@ form span.required {
   color:#ED1C24;
   margin:0;
 }
+
+form input.donate.submit{
+  font-size: 1.35em;
+  background: #DF0A24;
+  border: 1px solid #E5364C;
+  color: white;
+  padding: 5px 20px 5px 10px;
+  margin: 0 0 15px 0;
+  -webkit-box-shadow: 0 1px 5px 1px #AAA;
+  -moz-box-shadow: 0 1px 5px 1px #AAA;
+  box-shadow: 0 1px 5px 1px #AAA;
+  text-shadow: 1px 1px 1px black;
+  background-image: linear-gradient(bottom, #C0051B 15%, #DF0A23 80%, #DF0A23 100%);
+  background-image: -o-linear-gradient(bottom, #C0051B 15%, #DF0A23 80%, #DF0A23 100%);
+  background-image: -moz-linear-gradient(bottom, #C0051B 15%, #DF0A23 80%, #DF0A23 100%);
+  background-image: -webkit-linear-gradient(bottom, #C0051B 15%, #DF0A23 80%, #DF0A23 100%);
+  background-image: -ms-linear-gradient(bottom, #C0051B 15%, #DF0A23 80%, #DF0A23 100%);
+  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #C0051B),color-stop(0.8, #DF0A23),color-stop(1, #DF0A23));
+}
+
 form .error.input input[type=text],
 form input[type=text].form-js-error {
   border:1px solid #ED1C24;
