@@ -18,7 +18,7 @@
 <div id="slideshow" role="main" class="container slideshow clearfix">
   <div class="slogan">
   	<p>At just Rs.17 a day, you can do a world of good.</p>
-  	<em>For queries regarding filling this form please call 011 4064 0552 or email onlinesupport@actionaid.org. You can also sms <span style="color:#f7ff7f;">DONATIONASSIST</span> to 58888 for assistance.</em>
+  	<em>For queries regarding filling this form please call <span style="color:#f7ff7f;">011 4064 0552</span> or email <span style="color:#f7ff7f;">onlinesupport@actionaid.org</span>. You can also sms <span style="color:#f7ff7f;">DONATIONASSIST</span> to 58888 for assistance.</em>
   </div>
   <div class="container_12">
     <div class="gift form grid_5 push_7">
