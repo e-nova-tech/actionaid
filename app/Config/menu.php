@@ -27,7 +27,7 @@ $config = array(
       'public_default' => array(
         'why' => array(
           'name'    => __('Home'),
-          'url'     => 'https://www.actionaid.org/india',
+          'url'     => 'http://www.actionaid.org/india',
           'resource' => '/'
         ),
         'donate' => array(
