@@ -32,7 +32,7 @@ $config = array(
         ),
         'donate' => array(
           'name'    => __('Answers to your questions'),
-          'url'     => '/',
+          'url'     => '#faq',
           'resource' => 'gifts:add'
         ),
         'contact' => array(
