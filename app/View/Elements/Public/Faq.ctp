@@ -35,8 +35,6 @@
             <img src="img/appeals/piechart.png" style="float:right; margin:-10px 10px 10px 30px;" width="200"/>
               ActionAid finance a wide range of long term and short term projects all over India working
               with marginalized communities such Dalit and indigenous people, rural and urban poor, women, children and minorities. 
-              The details of ActionAid results and expenses are detailed in our annual report.
-              You can download the annual report <a href="/sites/files/actionaid/actionaid-ar-2010-new-small-size.pdf">here.</a>
             </p>
           </div>
         </li>
