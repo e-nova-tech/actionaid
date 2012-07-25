@@ -1,4 +1,5 @@
   <div class="faq-content">
+    <a name="faq" ></a>
     <h3>Frequently Asked Questions</h3>
     <div class="accordion">
       <ul class="questions">
@@ -24,14 +25,14 @@
             We also work with women, men, girls and boys who have been trafficked, displaced, or hit 
             by <strong>natural and human-made disasters</strong>.
           </p>
-          <p><a href="http://actionaid.org/india/about-us">Want to learn more about ActionAid aid?</a></p>
+          <p><a href="http://actionaid.org/india/who-we-are" target="_blank">Want to learn more about ActionAid aid?</a></p>
           </div>
         </li>
         <li>
           <h4>How does ActionAid use donations?</h4>
           <div>
             <p>
-            <img src="/img/appeals/piechart.png" style="float:right; margin:-10px 10px 10px 30px;" width="200"/>
+            <img src="img/appeals/piechart.png" style="float:right; margin:-10px 10px 10px 30px;" width="200"/>
               ActionAid finance a wide range of long term and short term projects all over India working
               with marginalized communities such Dalit and indigenous people, rural and urban poor, women, children and minorities. 
               The details of ActionAid results and expenses are detailed in our annual report.
@@ -79,7 +80,7 @@
             <ul>
               <li>
                 <strong>Credit Cards:</strong>
-                Currently you can use our <a href="/">online donation form</a> to make payment through credit
+                Currently you can use our <a href="/sponsor/child-sponsorship">online donation form</a> to make payment through credit
                 cards. 
               </li>
               <li>
@@ -88,12 +89,12 @@
               </li>
               <li>
                 <strong>By check:</strong>
-                Please download and fill up the <a href="#">check donation form</a> and send us the check with 
+                Please download and fill up the <a href="/sponsor/files/donation-form.pdf">check donation form</a> and send us the check with 
                 the designated amount in favor of ActionAid Association and send it to the address bellow.
               </li>
               <li>
                 <strong>By direct debit / bank transfer:</strong>
-                Please download and fill up the <a href="#">ECS donation form</a> and send it to the address
+                Please download and fill up the <a href="/sponsor/files/ecs-form.pdf">ECS donation form</a> and send it to the address
                 bellow.
                 <p>
                   ActionAid Association<br/>
