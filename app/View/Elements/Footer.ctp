@@ -6,7 +6,7 @@
     </div>
     <div class="grid_8 copyright">
       <?php echo Configure::read('App.copyright'); ?> - 
-      <?php echo $this->MyHtml->link(__('Privacy Policy'),array('privacy-policy'))."\n"; ?>
+      <?php //echo $this->MyHtml->link(__('Privacy Policy'),array('privacy-policy'))."\n"; ?>
     </div>
   </footer>
 <?php if (Configure::read('debug') > 1): ?>
