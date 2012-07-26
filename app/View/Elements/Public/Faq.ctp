@@ -124,8 +124,8 @@
               <li>
                 We make every reasonable effort to prevent any loss, misuse, disclosure or 
                 modification of personal information, as well as any unauthorized access to 
-                personal information. Learn more by reading our <a href="http://actionaid.org/india/privacy">Privacy
-                Policy</a>
+                personal information. <!-- Learn more by reading our <a href="http://actionaid.org/india/privacy">Privacy
+                Policy</a> -->
               </li>
             </ul>
           </p>
