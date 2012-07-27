@@ -26,7 +26,7 @@
     <div class="grid_5 push_7">
       <div class="slide caption">
         <span class="context">
-          ActionAid intervention in her village has enabled Shanno and her friends from Dabokpura village in Dhaulpur to attend school regularly. One of the ActionAid supported children in her community, Shanno is an example of how your donations can make a difference.  
+          ActionAid’s work with community partners in her village has enabled Shanno and her friends from Dabokpura village in Dhaulpur to attend school regularly. One of the ActionAid supported children in her community, Shanno is an example of how your donations can make a difference.  
         </span>
         <br/><br/>
         <blockquote>
