@@ -68,7 +68,7 @@ class Gift extends AppModel {
         'allowedChoice' => array(   
           'required' => false, 
           'allowEmpty' => true,          
-          'rule' => array('inList', array('Friends','Search Engine','Newspaper','Website','Promotional Message','ActionAid Employee','I am already a donor','Other')),              
+          'rule' => array('inList', array('Friends','Search Engine','Newspaper','Website','Promotional Message','ActionAid Employee','I am already a donor', 'Tele-Caller', 'Other')),              
           'message' => __('Enter a value that is in the list')
         )
       )
