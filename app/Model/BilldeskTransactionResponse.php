@@ -161,7 +161,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('BankMerchantID has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9_]+$/'),
           'message' => __('BankMerchantID wrong format.')
         )
       ),
@@ -377,7 +377,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('ErrorDescription has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9 ]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 \._]+$/'),
           'message' => __('ErrorDescription wrong format.')
         )
       ),
