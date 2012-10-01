@@ -28,9 +28,8 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 </script><script>utmx('url','A/B');</script>
 <!-- End of Google Analytics Content Experiment code -->
 <?php endif; ?>
+<?php echo $this->here; ?>
 <?php if($this->here == '/sponsor/' || $this->here == '/sponsor/child-sponsorship' || $this->here == '/pages/thank-you'): ?>
-<!-- Google Code for Remarketing tag -->
-<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 1002129575;
