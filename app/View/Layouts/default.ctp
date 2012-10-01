@@ -28,8 +28,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 </script><script>utmx('url','A/B');</script>
 <!-- End of Google Analytics Content Experiment code -->
 <?php endif; ?>
-<?php echo $this->here; ?>
-<?php if($this->here == '/sponsor/' || $this->here == '/sponsor/child-sponsorship' || $this->here == '/pages/thank-you'): ?>
+<?php if($this->here == '/sponsor/' || $this->here == '/sponsor/child-sponsorship' || $this->here == '/sponsor/pages/thank-you'): ?>
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 1002129575;
