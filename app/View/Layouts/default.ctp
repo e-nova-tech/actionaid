@@ -28,6 +28,24 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 </script><script>utmx('url','A/B');</script>
 <!-- End of Google Analytics Content Experiment code -->
 <?php endif; ?>
+<?php if($this->here == '/sponsor/' || $this->here == '/sponsor/child-sponsorship' || $this->here == '/pages/thank-you'): ?>
+<!-- Google Code for Remarketing tag -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1002129575;
+var google_conversion_label = "Z0RSCLHR2AMQp5Ht3QM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1002129575/?value=0&amp;label=Z0RSCLHR2AMQp5Ht3QM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<?php endif; ?>
   <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->element('Head'); ?>
 <?php echo $this->element('Css'); ?>
