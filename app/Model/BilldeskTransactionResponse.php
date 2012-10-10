@@ -137,7 +137,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('TxnAmount has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[0-9]{8}\.[0-9]{2}$/'),
+          'rule' => array('custom', '/^[0-9]{2,8}\.[0-9]{2}$/'),
           'message' => __('TxnAmount wrong format. Must be a number')
         )
       ),
@@ -149,7 +149,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('BankID has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[A-Z]{3}$/'),
+          'rule' => array('custom', '/^[A-Z0-9]{3}$/'),
           'message' => __('BankID wrong format.')
         )
       ),
