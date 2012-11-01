@@ -215,6 +215,14 @@ class TransactionsController extends AppController {
     // The line below will happen only if the response doesn't validate
     $errors = print_r($errors, true);
     $this->log("Validation Error : $rspMsgTxt\nError returned : $errors", 'app.debug'); // Log the error
+    $this->Mailer->email = new CakeEmail(Configure::read('App.emails.delivery'));
+	$this->Mailer->email->from(Configure::read('App.emails.fundraising.email'));
+	$this->Mailer->email->to(Configure::read('App.emails.sysadmin.email'));
+	$this->Mailer->email->subject(__('ActionAid - System Error in response code'));
+	$this->Mailer->email->template('transaction_system_error');
+	$this->Mailer->email->emailFormat('text'); 
+	$this->Mailer->email->viewVars(array('errors' => $errors));
+	$this->Mailer->send();
     $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
     
   }
