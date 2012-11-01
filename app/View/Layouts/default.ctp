@@ -28,19 +28,23 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 </script><script>utmx('url','A/B');</script>
 <!-- End of Google Analytics Content Experiment code -->
 <?php endif; ?>
-<?php if($this->here == '/sponsor/' || $this->here == '/sponsor/child-sponsorship' || $this->here == '/sponsor/pages/thank-you'): ?>
+<?php if(/* $this->here == '/sponsor/' || $this->here == '/sponsor/child-sponsorship' || */$this->here == '/sponsor/pages/thank-you'): ?>
+<!-- Google Code for Successful Transactions (Ad Words) Conversion Page -->
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 1002129575;
-var google_conversion_label = "Z0RSCLHR2AMQp5Ht3QM";
-var google_custom_params = window.google_tag_params;
-var google_remarketing_only = true;
+var google_conversion_language = "en";
+var google_conversion_format = "2";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "Wx9ECLnQ2AMQp5Ht3QM";
+var google_conversion_value = 0;
 /* ]]> */
 </script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+</script>
 <noscript>
 <div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1002129575/?value=0&amp;label=Z0RSCLHR2AMQp5Ht3QM&amp;guid=ON&amp;script=0"/>
+<img height="1" width="1" style="border-style:none;" alt="" src="https://www.googleadservices.com/pagead/conversion/1002129575/?value=0&amp;label=Wx9ECLnQ2AMQp5Ht3QM&amp;guid=ON&amp;script=0"/>
 </div>
 </noscript>
 <?php endif; ?>
