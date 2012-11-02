@@ -103,8 +103,8 @@ class TransactionsController extends AppController {
       'paymentUrl' => $pg['paymentUrl'],
       'returnUrl'  => $pg['returnUrl'],
       'extraInfo'  => array(
-        'name' => $gift['Person']['name'],
-        'city' => $gift['Person']['city'],
+        'name' => preg_replace("/[^A-Za-z0-9]/", "_", $gift['Person']['name']),
+        'city' => preg_replace("/[^A-Za-z0-9]/", "_", $gift['Person']['city']), // replace special characters for BillDesk (cannot handle it)
         'pincode' => $gift['Person']['pincode']
       )
     );
