@@ -221,7 +221,7 @@ class TransactionsController extends AppController {
 	$this->Mailer->email->subject(__('ActionAid - System Error in response code'));
 	$this->Mailer->email->template('transaction_system_error');
 	$this->Mailer->email->emailFormat('text'); 
-	$this->Mailer->email->viewVars(array('errors' => $errors));
+	$this->Mailer->email->viewVars(array('errors' => $rspMsgTxt."\n".$errors));
 	$this->Mailer->send();
     $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
     
