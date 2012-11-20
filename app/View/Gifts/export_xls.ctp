@@ -37,6 +37,7 @@
 			<td class="tableTd">Email</td>
 			<td class="tableTd">Phone</td>
 			<td class="tableTd">Requested for email confirmation</td>
+			<td class="tableTd">Source</td>
 			<td class="tableTd">Status</td>
 			<td class="tableTd">Amount</td>
 			
@@ -53,6 +54,7 @@
 			 echo '<td class="tableTdContent">'.$gift['Person']['email'].'</td>';
 			 echo '<td class="tableTdContent">'.$gift['Person']['phone'].'</td>';
 			 echo '<td class="tableTdContent">'.$gift['Gift']['emailconfirmation'].'</td>';
+       echo '<td class="tableTdContent">'.$gift['Gift']['source'].'</td>';
 			 echo '<td class="tableTdContent">'.$gift['Gift']['status'].'</td>';
 			 echo '<td class="tableTdContent">'.$gift['Gift']['amount'].'</td>';
 			 echo '<td class="tableTdContent">'.$gift['Gift']['serial'].'</td>';
