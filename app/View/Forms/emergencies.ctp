@@ -13,7 +13,7 @@ $this->set('title_for_layout','Emergencies!');
 <div id="container">
     <div class="header-outer">
         <div class="header">
-            <div id="logo"><img src="/img/appeals/emergencies/logo.png" alt="logo" /></div>
+            <div id="logo"><img src="img/appeals/emergencies/logo.png" alt="logo" /></div>
             <span class="title">Uttarakhand Floods - Urgent Appeal For Help</span>
             <div class="top-navigation">
                 <ul>
@@ -25,7 +25,7 @@ $this->set('title_for_layout','Emergencies!');
     </div>
     <div class="clear"></div>
     <div class="banner">
-        <img src="/img/appeals/emergencies/banner.png" alt="banner" />
+        <img src="img/appeals/emergencies/banner.png" alt="banner" />
     </div>
     <div class="clear"></div>
     <div class="main-content">
@@ -114,7 +114,7 @@ $this->set('title_for_layout','Emergencies!');
                 <?php echo $this->MyForm->end(); ?>
             </div>
             <span class="smalltext">Contribtions to ActionAid are exempted from Tax under Sec 80 G of Income Tax Act 1961</span>
-            <img src="/img/appeals/emergencies/verisign_logo.jpg" />
+            <img src="img/appeals/emergencies/verisign_logo.jpg" />
             <br/><br/>
             <h3>Other options to donate</h3>
             <div class="other-option">
