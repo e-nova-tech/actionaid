@@ -2,9 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <base href='<?php echo Common::baseurl(); ?>'>
     <title>Uttarakhand Floods - Urgent Appeal For Help</title>
-    <link rel="stylesheet" href="/css/emergencies.css" type="text/css" />
-    <link rel="stylesheet" href="/css/emergencies-form.css" type="text/css" />
+    <link rel="stylesheet" href="css/emergencies.css" type="text/css" />
+    <link rel="stylesheet" href="css/emergencies-form.css" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({publisher: "ur-516f82b5-b9fb-4749-3f83-7780d0e663fc", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
