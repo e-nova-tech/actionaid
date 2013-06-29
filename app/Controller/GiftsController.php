@@ -31,6 +31,9 @@ class GiftsController extends AppController {
   public function add($appealSlug=null) {
     // Get the requested appeal based on the slug (or the default one)
     $appeal = $this->Gift->Appeal->getBySlug($appealSlug);
+    if($appealSlug == 'emergencies'){
+        $this->layout = 'emergencies';
+    }
     
     //pr($this->request->data);
     // if some data is submited
@@ -41,7 +44,7 @@ class GiftsController extends AppController {
       // format gift data
       // If gift is other amount, then replace default value by other amount
       if (isset($data['Gift']['other_amount']) &&
-          !empty($data['Gift']['other_amount']) && $data['Gift']['appeal']=='general-donation') {
+          !empty($data['Gift']['other_amount']) && ($data['Gift']['appeal']=='general-donation' || $data['Gift']['appeal']=='emergencies')) {
         $data['Gift']['amount'] = $data['Gift']['other_amount'];
       }
       $data['Gift']['appeal_id'] = $appeal['Appeal']['id'];
@@ -54,9 +57,10 @@ class GiftsController extends AppController {
       $success = ($this->Gift->validates() && $success);
       if (!$success) {
           $this->Message->error(__('There are errors in the form. Please correct the errors bellow'));
-          echo "there are errorss";
+          //echo "there are errorss";
           $errors = $this->Gift->Person->invalidFields();
-          pr($errors);
+          $errors .= $this->Gift->invalidFields();
+          //pr($errors);
       } else {
         // if person doesnt already exist save the person in db
         $conditions = Person::getFindConditions('findDuplicates',$data);
