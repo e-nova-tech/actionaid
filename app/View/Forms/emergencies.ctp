@@ -43,8 +43,7 @@ $this->set('title_for_layout','Emergencies!');
             <div class="second_block">
                 <h3>We need your urgent help!</h3>
                 <ul>
-                    <li>We need your urgent help!</li>
-                    <li>each out to atleast 10,000 poorest and most vulnerable among the affected person</li>
+                    <li>Reach out to atleast 10,000 poorest and most vulnerable among the affected person</li>
                     <li>Spread our work immediately  to atleast 120 villages in 3 district</li>
                     <li>Provide immediate relief in forms of food, shelter, warm clothing, utensils and medicines</li>
                     <li>Rebuild schools, restore livelihoods and aid in creating permanent dignified homes.</li>
@@ -88,7 +87,7 @@ $this->set('title_for_layout','Emergencies!');
                         echo $this->MyForm->input('Person.country', array(
                         'type'=>'select', 'label'=> false,
                         'options'=> $countries, 'class'=>'required',
-                        'hint' => 'Sorry we do not support international online donations yet. If you are not residing in India please use our <a href="#">offline donation form</a> or donate <a href="http://www.actionaid.org/donate" target="_blank">ActionAid International</a>'
+                        'hint' => 'Sorry we do not support international online donations yet. If you are not residing in India please use our <a href="files/donate-uttarakhand.pdf">offline donation form</a> or donate <a href="http://www.actionaid.org/donate" target="_blank">ActionAid International</a>'
                         )); ?>
                 <?php echo $this->MyForm->input('Person.email', array(
                         'label'=>__('Email'), 'class'=> '',
@@ -127,7 +126,7 @@ $this->set('title_for_layout','Emergencies!');
                 </div>
                 <div class="important-note">
                     <b>IMPORTANT :</b>
-                    <p>Please mention ‘Uttarakhand Emergency’ on the envelope. Also <a href=""><span class="red">download the donation form</span></a> and clip it along with the cheque you will be sending. Else, mention your NAME, FULL ADDRESS, EMAIL and PHONE NUMBER on backside of your cheque, so that we can send you back the receipts!  This is important!</p>
+                    <p>Please mention ‘Uttarakhand Emergency’ on the envelope. Also <a href="files/donate-uttarakhand.pdf"><span class="red">download the donation form</span></a> and clip it along with the cheque you will be sending. Else, mention your NAME, FULL ADDRESS, EMAIL and PHONE NUMBER on backside of your cheque, so that we can send you back the receipts!  This is important!</p>
                 </div>
             </div>
         </div>
