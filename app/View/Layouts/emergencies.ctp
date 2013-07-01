@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/emergencies.css" type="text/css" />
     <link rel="stylesheet" href="css/emergencies-form.css" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({publisher: "ur-516f82b5-b9fb-4749-3f83-7780d0e663fc", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
     <script type="text/javascript">
         $(function(){
