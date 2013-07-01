@@ -25,7 +25,7 @@ $this->set('title_for_layout','Emergencies!');
     </div>
     <div class="clear"></div>
     <div class="banner">
-        <img src="img/appeals/emergencies/banner.png" alt="banner" />
+        <img src="img/appeals/emergencies/banner.jpg" alt="banner" />
     </div>
     <div class="clear"></div>
     <div class="main-content">
