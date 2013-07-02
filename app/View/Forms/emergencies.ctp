@@ -52,12 +52,12 @@ $this->set('title_for_layout','Emergencies!');
             </div>
             <div class="clear"></div>
             <div class="left-bottom">
-                <h2>About ActionAid & our Humanitarian Response to emergencies</h2>
+                <h2>ABOUT ACTIONAID & OUR HUMANITARIAN RESPONSE TO EMERGENCIES</h2>
                 <p>ActionAid is a global federation of more than 44 country affiliates. We have been working with most marginalised communities in India since 1972. With an all India presence in 23 states and  1 union territory, we have sided with the poor consistently for 41 years. We work to defeat poverty and marginalisation by building resilient and self reliant communities.</p>
                 <p>We are one of the first  movers at times of disaster and calamity. With intimate partnership with affected communities we ensure to provide not only immediate basic needs but adopt a long term rehabilitation of the affected communities. We are still active in long term rehabilitation work of earlier calamities which struck India.</p>
             </div>
             <div class="contat-info">
-                <p>For queries write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">011 4046 0552</span></p>
+                <p>For queries write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">011 4064 0511</span></p>
             </div>
             <div class="social-share">
                 <span class='st_facebook_vcount' displayText='Facebook'></span>
@@ -115,13 +115,13 @@ $this->set('title_for_layout','Emergencies!');
                 <input type="submit" class="donate submit" value="">
                 <?php echo $this->MyForm->end(); ?>
             </div>
-            <span class="smalltext">Contribtions to ActionAid are exempted from Tax under Sec 80 G of Income Tax Act 1961</span>
+            <span class="smalltext">Contributions to ActionAid are exempted from Tax under Sec 80 G of Income Tax Act 1961</span>
             <img src="img/appeals/emergencies/verisign_logo.jpg" />
             <br/><br/>
             <h3>Other options to donate</h3>
             <div class="other-option">
                 <div class="address">
-                    <p>Please make out a cheque in favour of  ActionAid Association and send it to;</p>
+                    <p>Please make a cheque in favour of  ActionAid Association and send it to;</p>
                     <p>ActionAid Association</p>
                     <p>Supporter Services Unit,</p>
                     <p>139, Richmond Road,</p>
@@ -136,7 +136,7 @@ $this->set('title_for_layout','Emergencies!');
     </div>
     <div class="footer">
         <div class="footer-content">
-            <p>ActionAid Assocation is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-6828 on the 5th of October 2006.2012 ActionAid Assocation</p>
+            <p>ActionAid Association is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-6828 on the 5th of October 2006.2012 ActionAid Association</p>
             <ul class="bottom-nav">
                 <li><a href="http://www.actionaid.org/uttarakhand">Home |</a></li>
                 <li><a href="contact">Contact Us</a></li>
