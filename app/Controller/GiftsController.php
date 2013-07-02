@@ -44,17 +44,34 @@ class GiftsController extends AppController {
       // format gift data
       // If gift is other amount, then replace default value by other amount
       if (isset($data['Gift']['other_amount']) &&
-          !empty($data['Gift']['other_amount']) && ($data['Gift']['appeal']=='general-donation' || $data['Gift']['appeal']=='emergencies')) {
-        $data['Gift']['amount'] = $data['Gift']['other_amount'];
+          !empty($data['Gift']['other_amount']) && ($data['Gift']['appeal']=='general-donation')) {
+
+            $data['Gift']['amount'] = $data['Gift']['other_amount'];
       }
+
+      if($data['Gift']['appeal']=='emergencies'){
+          if(isset($data['Gift']['amount']) && $data['Gift']['amount'] == 'other-amount' && !empty($data['Gift']['other_amount'])){
+              $data['Gift']['amount'] = $data['Gift']['other_amount'];
+          }
+      }
+
       $data['Gift']['appeal_id'] = $appeal['Appeal']['id'];
       $data['Gift']['status'] = 'pending';
       $this->Gift->Person->set($data);
       $this->Gift->set($data);
 
       // validate and save
-      $success = $this->Gift->Person->validates();
-      $success = ($this->Gift->validates() && $success);
+      //$success = $this->Gift->Person->validates();
+      $success = ($this->Gift->validates());
+
+      if($data['Gift']['appeal']=='emergencies'){
+          // Display the error message at the right place.
+          if(isset($this->Gift->validationErrors['amount'])){
+              $this->Gift->validationErrors['other_amount'] = $this->Gift->validationErrors['amount'];
+              unset($this->Gift->validationErrors['amount']);
+          }
+      }
+
       if (!$success) {
           $this->Message->error(__('There are errors in the form. Please correct the errors bellow'));
           //echo "there are errorss";
