@@ -96,18 +96,7 @@ $this->set('title_for_layout','Emergencies!');
                 <?php  echo $this->MyForm->input('Person.phone', array(
                         'label'=> __('Phone'), 'class'=>'',
                         )); ?>
-                <!--<div class="input radio">
-                    <span>Choose your amount</span>
-                    <div style="width:100px; float:left; clear:none; margin-top:10px;">
-                        <input type="radio" name="data[Gift][amount]" value="3000"><label for="pricegroup">3000</label>
-                    </div>
-                    <div style="width:100px; float:left; clear:none; margin-top:10px;">
-                        <input type="radio" name="data[Gift][amount]" value="5000"><label for="pricegroup">5000</label>
-                    </div>
-                    <div style="width:200px; float:left; clear:none; margin-top:-5px;">
-                        <input type="radio" name="data[Gift][amount]" value="other-amount"><label for="pricegroup">Other Amount</label>
-                    </div>
-                </div>-->
+
                 <div class="input radio">
                 <?php
                     echo $this->MyForm->radio('Gift.amount',
@@ -121,7 +110,7 @@ $this->set('title_for_layout','Emergencies!');
 
                 <?php
                         echo $this->MyForm->input('other_amount', array(
-                        'type' => 'text', 'label'=>__('Any other'), 'class'=> ''
+                        'type' => 'text', 'label'=>__('Enter your amount'), 'class'=> ''
                         )); ?>
                 <input type="submit" class="donate submit" value="">
                 <?php echo $this->MyForm->end(); ?>
