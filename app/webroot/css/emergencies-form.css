@@ -68,9 +68,6 @@
     visibility:visible !important;
 }
 
-.donation-form .input.radio label{
-    padding-right:59px;
-}
 
 .donation-form form .required label::after {
     content:'';
@@ -176,7 +173,18 @@
 }
 .donation-form .input.radio input,
 .donation-form .input.radio label{
-    display:inline;
+    float:left;
+    display:block;
+    width:20px;
+    height:20px;
+    margin:0;
+}
+.donation-form .input.radio label{
+    width:90px;
+    height:20px;
+}
+.donation-form .input.radio label[for=GiftAmountOtherAmount]{
+    width:60%;
 }
 
 .donation-form .input.select label{
