@@ -121,7 +121,7 @@ $this->set('title_for_layout','Emergencies!');
             <h3>Other options to donate</h3>
             <div class="other-option">
                 <div class="address">
-                    <p>Please make a cheque in favour of  ActionAid Association and send it to;</p>
+                    <p>Please make a cheque in favour of  ActionAid Association and send it to :</p>
                     <p>ActionAid Association</p>
                     <p>Supporter Services Unit,</p>
                     <p>139, Richmond Road,</p>
