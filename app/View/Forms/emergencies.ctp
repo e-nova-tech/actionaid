@@ -96,7 +96,7 @@ $this->set('title_for_layout','Emergencies!');
                 <?php  echo $this->MyForm->input('Person.phone', array(
                         'label'=> __('Phone'), 'class'=>'',
                         )); ?>
-                <div class="input radio">
+                <!--<div class="input radio">
                     <span>Choose your amount</span>
                     <div style="width:100px; float:left; clear:none; margin-top:10px;">
                         <input type="radio" name="data[Gift][amount]" value="3000"><label for="pricegroup">3000</label>
@@ -104,7 +104,21 @@ $this->set('title_for_layout','Emergencies!');
                     <div style="width:100px; float:left; clear:none; margin-top:10px;">
                         <input type="radio" name="data[Gift][amount]" value="5000"><label for="pricegroup">5000</label>
                     </div>
+                    <div style="width:200px; float:left; clear:none; margin-top:-5px;">
+                        <input type="radio" name="data[Gift][amount]" value="other-amount"><label for="pricegroup">Other Amount</label>
+                    </div>
+                </div>-->
+                <div class="input radio">
+                <?php
+                    echo $this->MyForm->radio('Gift.amount',
+                       array('5000' => '5000', '3000' => '3000', 'other-amount' => 'Other Amount'),
+                        array(
+                            'legend' => 'Choose your amount'
+                        )
+                    );
+                ?>
                 </div>
+
                 <?php
                         echo $this->MyForm->input('other_amount', array(
                         'type' => 'text', 'label'=>__('Any other'), 'class'=> ''
@@ -133,7 +147,7 @@ $this->set('title_for_layout','Emergencies!');
     </div>
     <div class="footer">
         <div class="footer-content">
-            <p>ActionAid Assocation is registered in Indea under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-6828 on the 5th of October 2006.2012 ActionAid Assocation</p>
+            <p>ActionAid Assocation is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-6828 on the 5th of October 2006.2012 ActionAid Assocation</p>
             <ul class="bottom-nav">
                 <li><a href="http://www.actionaid.org/uttarakhand">Home |</a></li>
                 <li><a href="contact">Contact Us</a></li>

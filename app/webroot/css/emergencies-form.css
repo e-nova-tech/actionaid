@@ -53,11 +53,21 @@
 
 .donation-form form div.error label{
     padding: 5px 0 5px 5px;
-    margin-top: 2px;
-    height: 16px;
-    width: 220px;
 }
 
+.donation-form .input.radio fieldset{
+    margin-bottom:-10px;
+}
+
+.donation-form .input.radio legend{
+    color:#000;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.donation-form .input.radio label{
+    padding-right:50px;
+}
 
 .donation-form form .required label::after {
     content:'';
