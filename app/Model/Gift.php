@@ -57,11 +57,11 @@ class Gift extends AppModel {
         ),
         'minimum' => array(
           'rule' => array('checkMinimum'),
-          'message' => __('Please select a valid gift amount')
+          'message' => __('Gift amount should be minimum of ' . Configure::read('App.gift.minimumAmount'))
         ),
         'maximum' => array(
           'rule' => array('checkMaximum'),
-          'message' => __('Please select a valid gift amount')
+          'message' => __('Gift amount should be maximum of ' . Configure::read('App.gift.maximumAmount'))
         )
       ),
       'source' => array(
