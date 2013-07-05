@@ -13,7 +13,7 @@ App::uses('CakeEmail', 'Network/Email');
 
 class TransactionsController extends AppController {
   public $name = 'Transactions';
-  var $uses = array('Transaction', 'BillDeskTransactionResponse', 'Person');
+  var $uses = array('Transaction', 'BillDeskTransactionResponse', 'Person', 'Appeal');
 
   function beforeFilter() {
     parent::beforeFilter();
@@ -194,11 +194,16 @@ class TransactionsController extends AppController {
           Controller::loadModel('Person');
           $personM = new Person();
           $person = $personM->findById($gift['Gift']['person_id']);
+          $appealM = new Appeal();
+          $appeal = $appealM->findById($gift['Gift']['appeal_id']);
+
+          $emailTemplate = $appeal['Appeal']['slug'] == 'emergencies' ? 'transaction_confirmation_emergencies' : 'transaction_confirmation';
+
           $this->Mailer->email = new CakeEmail(Configure::read('App.emails.delivery'));
           $this->Mailer->email->from(Configure::read('App.emails.fundraising.email'));
           $this->Mailer->email->to($person['Person']['email']);
           $this->Mailer->email->subject(__('ActionAid - Confirmation of your transaction'));
-          $this->Mailer->email->template('transaction_confirmation');
+          $this->Mailer->email->template($emailTemplate);
           $this->Mailer->email->emailFormat('text'); // todo based on pref
           $this->Mailer->email->viewVars(array('person' => $person, 'gift' => $requestM['Gift'], 'contact_email' => Configure::read('App.emails.fundraising.email')));
           $this->Mailer->send();
