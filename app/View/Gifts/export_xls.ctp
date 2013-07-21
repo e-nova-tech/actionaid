@@ -29,6 +29,7 @@
 	</tr>
 		<tr id="titles">
 			<td class="tableTd">Date</td>
+            <td class="tableTd">Appeal</td>
 			<td class="tableTd">Name</td>
 			<td class="tableTd">Address</td>
 			<td class="tableTd">City</td>
@@ -46,6 +47,7 @@
 		<?php foreach($gifts as $gift):
 			echo '<tr>';
 			echo '<td class="tableTdContent">'.$gift['Gift']['modified'].'</td>';
+            echo '<td class="tableTdContent">'.$gift['Appeal']['title'].'</td>';
 			echo '<td class="tableTdContent">'.$gift['Person']['name'].'</td>';
 			echo '<td class="tableTdContent">'.$gift['Person']['address1'].'</td>';
 			echo '<td class="tableTdContent">'.$gift['Person']['city'].'</td>';
