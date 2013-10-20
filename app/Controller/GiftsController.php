@@ -29,8 +29,14 @@ class GiftsController extends AppController {
    * @access public
    */
   public function add($appealSlug=null) {
+
     // Get the requested appeal based on the slug (or the default one)
     $appeal = $this->Gift->Appeal->getBySlug($appealSlug);
+
+	  if($appealSlug == 'emergencies-phailin'){
+		  $this->layout = 'emergencies';
+	  }
+
     if($appealSlug == 'emergencies'){
         $this->layout = 'emergencies';
     }
