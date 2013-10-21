@@ -33,13 +33,13 @@ class GiftsController extends AppController {
     // Get the requested appeal based on the slug (or the default one)
     $appeal = $this->Gift->Appeal->getBySlug($appealSlug);
 
-	  if($appealSlug == 'emergencies-phailin'){
-		  $this->layout = 'emergencies';
+	  switch($appealSlug) {
+		  case 'emergencies':
+		  case 'emergencies-phailin':
+		    $this->layout = 'emergencies';
+			break;
 	  }
 
-    if($appealSlug == 'emergencies'){
-        $this->layout = 'emergencies';
-    }
     
     //pr($this->request->data);
     // if some data is submited
@@ -55,7 +55,7 @@ class GiftsController extends AppController {
             $data['Gift']['amount'] = $data['Gift']['other_amount'];
       }
 
-      if($data['Gift']['appeal']=='emergencies'){
+      if($data['Gift']['appeal']=='emergencies' || $data['Gift']['appeal']=='emergencies-phailin'){
           if(isset($data['Gift']['amount']) && $data['Gift']['amount'] == 'other-amount' && !empty($data['Gift']['other_amount'])){
               $data['Gift']['amount'] = $data['Gift']['other_amount'];
           }
@@ -70,7 +70,7 @@ class GiftsController extends AppController {
       //$success = $this->Gift->Person->validates();
       $success = ($this->Gift->validates());
 
-      if($data['Gift']['appeal']=='emergencies'){
+      if($data['Gift']['appeal']=='emergencies' || $data['Gift']['appeal']=='emergencies-phailin'){
           // Display the error message at the right place.
           if(isset($this->Gift->validationErrors['amount'])){
               $this->Gift->validationErrors['other_amount'] = $this->Gift->validationErrors['amount'];

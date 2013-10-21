@@ -33,34 +33,21 @@ $this->set('title_for_layout','Emergencies!');
             <div class="first_block">
                 <h3>Devastation in numbers.</h3>
                 <ul>
-                    <li>More than 10 million people are affected, 15,515 villages affected. 15 deaths reported.</li>
-                    <li>In the state of Odisha, 14514 villages in and  over 80 lakh people in 12 districts of Odisha are affected and 2,34,000 kutcha houses are partially or totally damaged.</li>
-                    <li>Standing crops in 500,000 Hectares totally damaged and losses are to the tune of 2,400 crores.</li>
+                    <li>More than 10 million people’s lives have been severely disrupted, 15,515 villages affected, 30 deaths reported.</li>
                     <li>Close to 300 villages in our project areas Ganjam, Puri and Jagatsinghpur districts of Odisha are severely affected.</li>
-                    <li>350 of our children linked to Sponsorship are also affected.</li>
-	                <li>50 villages in our project area in Vishakapatanam and Srikakulam Districts of Andhra Pradesh are severely affected.</li>
-	                <li>In Srikakulam 35,000 fisher folk families have been affected and 7783 Hectares of Agricultural land has been destroyed.</li>
-	                <li>600 families in our project area in Vishakapattanam have lost their huts, boats, nets and dry fish.</li>
-	                <li>Severe damage to shelter, crops, food stock, household articles, livestock, schools and common spaces including roads.</li>
+                    <li>50 villages and 600 families  in our project area in Vishakapatanam and Srikakulam Districts of Andhra Pradesh are severely affected.</li>
                 </ul>
             </div>
             <div class="second_block">
-                <h3>ActionAid India’s response so far!</h3>
+                <h3>ActionAid India’s response – for which we need your Urgent Help!</h3>
                 <ul>
-                    <li>Rapid assessments of the damages in the worst affected districts of AP & Odisha are going on, including our project areas, despite the flood warnings being issued.</li>
-                    <li>Our focus is also in assessing the extent to which source of livelihood have been affected – for both fishing and farming communities.</li>
-                    <li>Our teams are monitoring the relief operations being carried out by the state governments & the compensations being offered and also helping the most vulnerable in accessing these relief supplies.</li>
-                    <li>Our teams are also assessing the damage to shelter, livestock, trees and farmlands.</li>
+                    <li>Reaching out most affected 7500 families in worst-affected 150 villages in Ganjam, Puri & Jagatsinhpur districts of Odisha.</li>
+                    <li>Providing immediate relief in the form of food, water and non-food items like Blankets, Utensils, women hygiene kits, bags and books to 5000 children, and first aid kits.</li>
+                    <li>Providing support for temporary shelter, health camps and also provide psycho social counselling, with special focus on women, elderly, differently-abled & children.</li>
+                    <li>Rehabilitating the communities and supporting with livelihood options & link-ups with existing state and central schemes.</li>
+	                <li>Reviving water-logged fields and also rebuilding the Kutcha houses that have been extensively damaged.</li>
+	                <li>Monitoring the relief operations being carried out by the state governments & the compensations being offered and also helping the most vulnerable in accessing these relief supplies.</li>
                 </ul>
-
-	            <h3>We need your urgent help!</h3>
-	            <ul>
-		            <li>In reaching out most affected 7500 families in worst-affected 150 villages in Ganjam, Puri & Jagatsinhpur districts of Odisha.</li>
-		            <li>In providing immediate relief in the form of food, water and non-food items like Blankets, Utensils, women hygiene kits, bags and books to 5000 children, and first aid kits.</li>
-	                <li>In providing support to temporary shelter, health camps and also provide psycho social counselling, with special focus on women, elderly, differently-abled & children.</li>
-		            <li>In rehabilitating the communities and supporting with livelihood options & link-ups with existing state and central schemes.</li>
-		            <li>In reviving water-logged fields and also rebuilding the Kutcha houses that have been extensively damaged.</li>
-	            </ul>
             </div>
             <div class="clear"></div>
             <div class="left-bottom">

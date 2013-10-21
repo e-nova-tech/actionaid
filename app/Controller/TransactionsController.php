@@ -197,6 +197,19 @@ class TransactionsController extends AppController {
           $appealM = new Appeal();
           $appeal = $appealM->findById($gift['Gift']['appeal_id']);
 
+	      $emailTemplate = 'transaction_confirmation';
+	      switch($appeal['Appeal']['slug']) {
+		      case 'emergencies':
+				  $emailTemplate = 'transaction_confirmation_emergencies';
+			      break;
+		      case 'emergencies-phailin':
+			      $emailTemplate = 'transaction_confirmation_emergencies_phailin';
+			      break;
+		      default:
+			      $emailTemplate = 'transaction_confirmation';
+			      break;
+	      }
+
           $emailTemplate = $appeal['Appeal']['slug'] == 'emergencies' ? 'transaction_confirmation_emergencies' : 'transaction_confirmation';
 
           $this->Mailer->email = new CakeEmail(Configure::read('App.emails.delivery'));
