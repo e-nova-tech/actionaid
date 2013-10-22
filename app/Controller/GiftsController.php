@@ -39,7 +39,6 @@ class GiftsController extends AppController {
 		    $this->layout = 'emergencies';
 			break;
 	  }
-
     
     //pr($this->request->data);
     // if some data is submited
@@ -105,6 +104,9 @@ class GiftsController extends AppController {
         }
     	}
     }
+
+	  // Set the title for the page
+	  $this->set('meta_title', $appeal['Appeal']['description']);
 
     // get the list of states & countries for the select lists
     /*$states = $this->Gift->Person->State->getListByCountryCode(

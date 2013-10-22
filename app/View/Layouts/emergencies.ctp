@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <base href='<?php echo Common::baseurl(); ?>'>
-    <title>Uttarakhand Floods - Urgent Appeal For Help</title>
+    <title><?php echo  $meta_title ?></title>
     <link rel="stylesheet" href="css/emergencies.css" type="text/css" />
     <link rel="stylesheet" href="css/emergencies-form.css" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

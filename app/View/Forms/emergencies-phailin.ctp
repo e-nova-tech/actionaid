@@ -37,6 +37,7 @@ $this->set('title_for_layout','Emergencies!');
                     <li>Close to 300 villages in our project areas Ganjam, Puri and Jagatsinghpur districts of Odisha are severely affected.</li>
                     <li>50 villages and 600 families  in our project area in Vishakapatanam and Srikakulam Districts of Andhra Pradesh are severely affected.</li>
                 </ul>
+	            <img src="img/appeals/emergencies/devastation.jpg" style="border:3px solid #fff;" />
             </div>
             <div class="second_block">
                 <h3>ActionAid India’s response – for which we need your Urgent Help!</h3>
