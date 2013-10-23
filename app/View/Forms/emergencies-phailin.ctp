@@ -33,7 +33,7 @@ $this->set('title_for_layout','Emergencies!');
             <div class="first_block">
                 <h3>Devastation in numbers.</h3>
                 <ul>
-                    <li>More than 10 million people’s lives have been severely disrupted, 15,515 villages affected, 30 deaths reported.</li>
+                    <li>More than 10 million people’s lives have been severely disrupted, 18,257  villages affected and  21 deaths reported from cyclone and 23 from floods.</li>
                     <li>Close to 300 villages in our project areas Ganjam, Puri and Jagatsinghpur districts of Odisha are severely affected.</li>
                     <li>50 villages and 600 families  in our project area in Vishakapatanam and Srikakulam Districts of Andhra Pradesh are severely affected.</li>
                 </ul>
@@ -115,7 +115,7 @@ $this->set('title_for_layout','Emergencies!');
                 <input type="submit" class="donate submit" value="">
                 <?php echo $this->MyForm->end(); ?>
             </div>
-            <span class="smalltext">Contributions to ActionAid are exempted from Tax under Sec 80 G of Income Tax Act 1961</span>
+            <span class="smalltext">Contributions to ActionAid Association are exempted from Tax under Sec 80 G of Income Tax Act 1961</span>
             <img src="img/appeals/emergencies/verisign_logo.jpg" />
             <br/><br/>
             <h3>Other options to donate</h3>
@@ -136,7 +136,7 @@ $this->set('title_for_layout','Emergencies!');
     </div>
     <div class="footer">
         <div class="footer-content">
-            <p>ActionAid Association is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-6828 on the 5th of October 2006.2012 ActionAid Association</p>
+            <p>ActionAid Association is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-6828 on the 5th of October 2006.</p>
             <ul class="bottom-nav">
                 <li><a href="http://www.actionaid.org/uttarakhand">Home |</a></li>
                 <li><a href="contact">Contact Us</a></li>
