@@ -17,7 +17,9 @@ $this->set('title_for_layout','Emergencies!');
             <span class="title">Cyclone Phailin - Urgent Appeal For Help</span>
             <div class="top-navigation">
                 <ul>
-                    <li><a href="http://www.actionaid.org/uttarakhand">Home |</a></li>
+                    <li>
+	                    <a href="http://www.actionaid.org/uttarakhand">Home |</a>
+                    </li>
                     <li><a href="contact">Contact Us</a></li>
                 </ul>
             </div>
