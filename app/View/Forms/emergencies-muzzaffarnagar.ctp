@@ -18,7 +18,7 @@ $this->set('title_for_layout','Emergencies!');
       <div class="top-navigation">
         <ul>
           <li>
-            <a href="http://www.actionaid.org/uttarakhand">Home |</a>
+            <a href="http://www.actionaid.org">Home |</a>
           </li>
           <li><a href="contact">Contact Us</a></li>
         </ul>
