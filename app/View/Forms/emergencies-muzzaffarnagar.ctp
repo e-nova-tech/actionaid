@@ -35,41 +35,42 @@ $this->set('title_for_layout','Emergencies!');
       <div class="first_block">
         <h3>The Situation.</h3>
         <ul>
-          <li>Riots in its first two weeks left 48 dead, 93 injured and displaced 70,000 people.</li>
-          <li>At present 40,000 people estimated to be in camps of Muzaffarnagar, Shamli and Baghpat.</li>
-          <li>40 children died in December due to extreme winter & unsafe conditions in the camp.</li>
+          <li>Riots in their first two weeks left 48 dead and 93 injured besides-displacing 70,000 people.</li>
+          <li>At present, 40,000 people are estimated to be in camps of Muzaffarnagar, Shamli and Baghpat.</li>
+          <li>40 children died in December due to extreme winter and unsafe conditions in camps.</li>
           <li>Children forced to miss school.</li>
-          <li>Dismal hygiene and sanitary conditions at the camp.</li>
-          <li>Safety,  Security and privacy issues for girls, women and children a matter of concern .</li>
+          <li>Dismal health, hygiene and sanitary conditions in camps.</li>
+          <li>Safety, security and privacy for girls, women and children a matter of concern.</li>
         </ul>
         <h3>ActionAid India’s Response till date</h3>
         <ul>
-          <li>ActionAid India is Working in 14 out of the 17 camps in Shamli District.</li>
-          <li>Relief materials from ActionAid India has reached 2658 families so far.</li>
-          <li>Food & Ration kits supplied to 900 families, quilt and mattresses to 300 familes.</li>
+          <li>ActionAid India is working in 14 out of the 17 camps in Shamli district.</li>
+          <li>Relief materials from ActionAid India have reached 2658 families so far.</li>
+          <li>Food and ration kits supplied to 900 families, and quilts and mattresses to 300 families.</li>
           <li>400 women and 1152 children were supplied woollen clothes in December.</li>
-          <li>9 education centres for children in the district, so that they don’t miss their curriculum.</li>
+          <li>9 education centres for children in the district so that they don’t miss their curriculum.</li>
           <li>26 volunteers employed to coordinate relief efforts.</li>
         </ul>
       </div>
       <div class="second_block">
         <h3>We need your urgent help!</h3>
         <ul>
-          <li>To continue the relief efforts in the 14 camps of Shamli for 6 months.</li>
-          <li>In advocating for support with state officials for livelihood support.</li>
-          <li>In advocating for support with state officials for shelter support.</li>
-          <li>In continuing psycho social care through our volunteers.</li>
+          <li>To continue relief efforts in the 14 camps of Shamli for 6 months.</li>
+          <li>To provide livelihood support to most vulnerable affected families living in camps.</li>
+          <li>To provide shelter support  to most vulnerable affected families living in camps.</li>
+          <li>In continuing psycho-social  counselling through our volunteers.</li>
           <li>In continuing and expanding our support through educational centres.</li>
+          <li>Advocating in accessing government schemes and entitlements.</li>
         </ul>
       </div>
       <div class="clear"></div>
       <div class="left-bottom">
         <h2>ABOUT ACTIONAID & OUR HUMANITARIAN RESPONSE TO EMERGENCIES</h2>
-        <p>ActionAid is a global federation of more than 44 country affiliates. We have been working with most marginalised communities in India since 1972. With an all India presence in 23 states and  1 union territory, we have sided with the poor consistently for 41 years. We work to defeat poverty and marginalisation by building resilient and self reliant communities.</p>
-        <p>We are one of the first  movers at times of disaster and calamity. With intimate partnership with affected communities we ensure to provide not only immediate basic needs but adopt a long term rehabilitation of the affected communities. We are still active in long term rehabilitation work of earlier calamities which struck India.</p>
+        <p>ActionAid is a global federation of more than 44 country affiliates. We have been working with most marginalised communities in India since 1972. With an all India presence in 23 states and 1 union territory, we have sided with the poor consistently for 41 years. We work to defeat poverty and marginalisation by building resilient and self-reliant communities.</p>
+        <p>We are one of the first movers in times of disaster and calamity. With intimate partnership with affected communities, we, besides providing for the immediate basic needs, also adopt long-term strategies for rehabilitation of- affected communities. We are still very much active in long-term rehabilitation work taking place in response to the earlier calamities -that struck India.</p>
       </div>
       <div class="contat-info">
-        <p>For queries write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">011 4064 0511</span></p>
+        <p>In case of any queries, please feel free to write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">011 4064 0511</span></p>
       </div>
       <div class="social-share">
         <span class='st_facebook_vcount' displayText='Facebook'></span>
