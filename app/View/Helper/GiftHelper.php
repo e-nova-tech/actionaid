@@ -7,7 +7,7 @@ class GiftHelper extends AppHelper {
 
   function __construct(View $view, $settings = array()) {
     $settings = array_merge(Configure::read('App.gift'), $settings);
-    $this->init(&$view->request->data, $settings);
+    $this->init($view->request->data, $settings);
     parent::__construct($view, $settings);
   }
 

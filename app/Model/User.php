@@ -157,7 +157,7 @@ class User extends AppModel {
    */
   static function getFindOptions($case,&$data = null) {
     return array_merge(
-      User::getFindConditions($case,&$data),
+      User::getFindConditions($case,$data),
       User::getFindFields($case)
     );
   }

@@ -32,10 +32,10 @@
         <label for="GiftFrequency" class="right year"><strong>year</strong></label>      
         <p style="">
           Your sponsorship amount is: 
-          <span class="inr"><span>INR</span><span class="amount">6000</span></span>
+          <span class="inr"><span>INR</span><span class="amount">7200</span></span>
         </p>
         <div class="input text hidden">
-          <input type="hidden" name="data[Gift][amount]" value="6000" id="giftamount"  />
+          <input type="hidden" name="data[Gift][amount]" value="7200" id="giftamount"  />
         </div>
       </div>
       <div class="input radiolist-item">
@@ -44,7 +44,7 @@
         <span class="inr"><span>INR</span></span>
         <input type="text" name="data[Gift][other_amount]" id="general-donation-amount" style="width:80px" class="other gift text"/>
       </div>
-      <p class="info donation"><span>Our annual child sponsorship amounts to Rs. 6000 for one child per year and it will be deducted at once after you make this online transaction successfully.</span></p>
+      <p class="info donation"><span>Our annual child sponsorship amounts to Rs. 7200 for one child per year and it will be deducted at once after you make this online transaction successfully.</span></p>
       <div style="display:none;">
          <input type="text" name="data[Gift][currency]" value="INR" type="hidden"/>
       </div>

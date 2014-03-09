@@ -17,7 +17,7 @@
 <div id="slideshow_container" class="slideshow_container container">
 <div id="slideshow" role="main" class="container slideshow clearfix">
   <div class="slogan">
-  	<p>At just Rs.17 a day, you can do a world of good.</p>
+  	<p>At just Rs.20 a day, you can do a world of good.</p>
   	<em>For queries regarding filling this form please call <span style="color:#f7ff7f;">011 4064 0552</span> or email <span style="color:#f7ff7f;">onlinesupport@actionaid.org</span>.</em>
   </div>
   <div class="container_12">

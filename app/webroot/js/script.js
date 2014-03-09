@@ -31,7 +31,7 @@ $(function() {
 
   // Select behavior for child sponsorship
   if($('select#NumberOfChildren').length){
-    var factor = 6000; // cost per children
+    var factor = 7200; // cost per children
     $('select#NumberOfChildren,select#GiftFrequency').change(function() {
       var str = "";
       $("select#NumberOfChildren option:selected").each(function () {

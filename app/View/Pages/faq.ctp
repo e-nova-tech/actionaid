@@ -59,7 +59,7 @@
           <div>
           <p>
             Your gift provides a better future for your sponsored child, the child’s family and the community. 
-            Your annual contribution of Rs 6000 translates to Rs 500 per month only. Child sponsorship is a 
+            Your annual contribution of Rs 7200 translates to Rs 600 per month only. Child sponsorship is a
             very unique relationship. All our sponsors confess they receive much more than they give!
           </p>
           <p>
