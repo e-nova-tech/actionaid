@@ -251,7 +251,7 @@ class TransactionsController extends AppController {
     $this->Mailer->email->from(Configure::read('App.emails.fundraising.email'));
     $this->Mailer->email->to('kevin@enova-tech.net');
     $this->Mailer->email->subject(__('ActionAid - Confirmation of your transaction'));
-    $this->Mailer->email->template('transaction_confirmation_emergencies');
+    $this->Mailer->email->template('transaction_confirmation_emergencies1');
     $this->Mailer->email->emailFormat('text');
     $this->Mailer->email->viewVars(array('person' => null, 'gift' => null, 'contact_email' => Configure::read('App.emails.fundraising.email')));
     $this->Mailer->send();
