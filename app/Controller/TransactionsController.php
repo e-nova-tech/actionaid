@@ -255,5 +255,6 @@ class TransactionsController extends AppController {
     $this->Mailer->email->emailFormat('text');
     $this->Mailer->email->viewVars(array('person' => null, 'gift' => null, 'contact_email' => Configure::read('App.emails.fundraising.email')));
     $this->Mailer->send();
+    die();
   }
 }
