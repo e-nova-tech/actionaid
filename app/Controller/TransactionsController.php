@@ -17,7 +17,7 @@ class TransactionsController extends AppController {
 
   function beforeFilter() {
     parent::beforeFilter();
-    $this->Auth->allow('response', 'request');
+    $this->Auth->allow('response', 'request', 'sendEmailTest');
   }
   
   /**
@@ -243,5 +243,17 @@ class TransactionsController extends AppController {
 	$this->Mailer->send();
     $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
     
+  }
+
+  public function sendEmailTest() {
+    print_r(Configure::read('App.emails.delivery'));
+    $this->Mailer->email = new CakeEmail(Configure::read('App.emails.delivery'));
+    $this->Mailer->email->from(Configure::read('App.emails.fundraising.email'));
+    $this->Mailer->email->to('kevin@enova-tech.net');
+    $this->Mailer->email->subject(__('ActionAid - Confirmation of your transaction'));
+    $this->Mailer->email->template('transaction_confirmation_emergencies');
+    $this->Mailer->email->emailFormat('text');
+    $this->Mailer->email->viewVars(array('person' => null, 'gift' => null, 'contact_email' => Configure::read('App.emails.fundraising.email')));
+    $this->Mailer->send();
   }
 }
