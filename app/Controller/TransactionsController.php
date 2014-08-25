@@ -17,7 +17,7 @@ class TransactionsController extends AppController {
 
   function beforeFilter() {
     parent::beforeFilter();
-    $this->Auth->allow('response', 'request');
+    $this->Auth->allow('response', 'request', 'sendEmailTest');
   }
   
   /**
@@ -219,16 +219,7 @@ class TransactionsController extends AppController {
           $this->Mailer->email->template($emailTemplate);
           $this->Mailer->email->emailFormat('text'); // todo based on pref
           $this->Mailer->email->viewVars(array('person' => $person, 'gift' => $requestM['Gift'], 'contact_email' => Configure::read('App.emails.fundraising.email')));
-          try {
-            $this->Mailer->send();
-          }
-          catch(Exception $e) {
-            // In case of exception, log everything.
-            $errors = $e->getTraceAsString();
-            $errors = "\n" . $e->getCode() . '\n' . $e->getMessage();
-            $errors = "\n" . $emailTemplate . "\n" . print_r($person, true) . "n" . $requestM['Gift'];
-            $this->log("Mail error\nDebug : $errors", 'app.debug'); // Log the error
-          }
+          $this->Mailer->send();
         }
         // Redirect to thank you page
         $this->redirect(array('controller' => 'pages', 'action' => 'thank-you'));
@@ -252,5 +243,18 @@ class TransactionsController extends AppController {
 	$this->Mailer->send();
     $this->redirect(array('controller' => 'pages', 'action' => 'failure')); 
     
+  }
+
+  public function sendEmailTest() {
+    print_r(Configure::read('App.emails.delivery'));
+    $this->Mailer->email = new CakeEmail(Configure::read('App.emails.delivery'));
+    $this->Mailer->email->from(Configure::read('App.emails.fundraising.email'));
+    $this->Mailer->email->to('kevin@enova-tech.net');
+    $this->Mailer->email->subject(__('ActionAid - Confirmation of your transaction'));
+    $this->Mailer->email->template('transaction_confirmation_emergencies1');
+    $this->Mailer->email->emailFormat('text');
+    $this->Mailer->email->viewVars(array('person' => null, 'gift' => null, 'contact_email' => Configure::read('App.emails.fundraising.email')));
+    $this->Mailer->send();
+    die();
   }
 }
