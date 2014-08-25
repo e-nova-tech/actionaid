@@ -14,10 +14,10 @@ $this->set('title_for_layout','Emergencies!');
     <div class="header-outer">
         <div class="header">
             <div id="logo"><img src="img/appeals/emergencies/logo.png" alt="logo" /></div>
-            <span class="title">Uttarakhand Floods - Urgent Appeal For Help</span>
+            <span class="title">Emergency Relief: Floods and Devastation - Urgent Appeal For Help</span>
             <div class="top-navigation">
                 <ul>
-                    <li><a href="http://www.actionaid.org/uttarakhand">Home |</a></li>
+                    <li><a href="http://www.actionaid.org/india">Home |</a></li>
                     <li><a href="contact">Contact Us</a></li>
                 </ul>
             </div>
@@ -25,7 +25,7 @@ $this->set('title_for_layout','Emergencies!');
     </div>
     <div class="clear"></div>
     <div class="banner">
-        <img src="img/appeals/emergencies/banner.jpg" alt="banner" />
+        <img src="img/appeals/emergencies/banner1.jpg" alt="banner" />
     </div>
     <div class="clear"></div>
     <div class="main-content">
@@ -129,16 +129,16 @@ $this->set('title_for_layout','Emergencies!');
                 </div>
                 <div class="important-note">
                     <b>IMPORTANT :</b>
-                    <p>Please mention ‘Uttarakhand Emergency’ on the envelope. Also <a href="files/donate-uttarakhand.pdf"><span class="red">download the donation form</span></a> and clip it along with the cheque you will be sending. Else, mention your NAME, FULL ADDRESS, EMAIL and PHONE NUMBER on backside of your cheque, so that we can send you back the receipts!  This is important!</p>
+                    <p>Please mention ‘Uttarakhand Emergency’ on the envelope. Also <a href="files/donate.pdf"><span class="red">download the donation form</span></a> and clip it along with the cheque you will be sending. Else, mention your NAME, FULL ADDRESS, EMAIL and PHONE NUMBER on backside of your cheque, so that we can send you back the receipts!  This is important!</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="footer">
         <div class="footer-content">
-            <p>ActionAid Association is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-6828 on the 5th of October 2006.2012 ActionAid Association</p>
+            <p>ActionAid Association is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-56828 of 2006.</p>
             <ul class="bottom-nav">
-                <li><a href="http://www.actionaid.org/uttarakhand">Home |</a></li>
+                <li><a href="http://www.actionaid.org/india">Home |</a></li>
                 <li><a href="contact">Contact Us</a></li>
             </ul>
         </div>
