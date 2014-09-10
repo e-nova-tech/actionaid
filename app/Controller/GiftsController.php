@@ -37,6 +37,7 @@ class GiftsController extends AppController {
 		  case 'emergencies':
 		  case 'emergencies-phailin':
       case 'emergencies-muzzaffarnagar':
+      case 'emergencies-kashmir':
 		    $this->layout = 'emergencies';
 			break;
 	  }
@@ -57,7 +58,8 @@ class GiftsController extends AppController {
 
       if($data['Gift']['appeal']=='emergencies'
         || $data['Gift']['appeal']=='emergencies-phailin'
-        || $data['Gift']['appeal']=='emergencies-muzzaffarnagar'){
+        || $data['Gift']['appeal']=='emergencies-muzzaffarnagar'
+        || $data['Gift']['appeal']=='emergencies-kashmir'){
           if(isset($data['Gift']['amount']) && $data['Gift']['amount'] == 'other-amount' && !empty($data['Gift']['other_amount'])){
               $data['Gift']['amount'] = $data['Gift']['other_amount'];
           }
@@ -75,6 +77,7 @@ class GiftsController extends AppController {
       if($data['Gift']['appeal']=='emergencies'
         || $data['Gift']['appeal']=='emergencies-phailin'
         || $data['Gift']['appeal']=='emergencies-muzzaffarnagar'
+        || $data['Gift']['appeal']=='emergencies-kashmir'
       ){
           // Display the error message at the right place.
           if(isset($this->Gift->validationErrors['amount'])){

@@ -205,6 +205,9 @@ class TransactionsController extends AppController {
 		      case 'emergencies-phailin':
 			      $emailTemplate = 'transaction_confirmation_emergencies_phailin';
 			      break;
+          case 'emergencies-kashmir':
+            $emailTemplate = 'transaction_confirmation_emergencies_kashmir';
+            break;
 		      default:
 			      $emailTemplate = 'transaction_confirmation';
 			      break;
