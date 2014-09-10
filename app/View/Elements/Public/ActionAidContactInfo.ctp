@@ -8,7 +8,7 @@
       </p>
       <p>
         <h3><?php echo __('Give us a ring'); ?>:</h3>
-        Tel:&nbsp; +91 11 40640500 <br/>
+        Tel:&nbsp; +91 - 80- 25586293<br/>
         Fax: +91 11 41641891
       </p>
       <p>

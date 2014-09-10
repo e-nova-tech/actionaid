@@ -70,7 +70,7 @@ $this->set('title_for_layout','Emergencies!');
         <p>We are one of the first movers in times of disaster and calamity. With intimate partnership with affected communities, we, besides providing for the immediate basic needs, also adopt long-term strategies for rehabilitation of- affected communities. We are still very much active in long-term rehabilitation work taking place in response to the earlier calamities -that struck India.</p>
       </div>
       <div class="contat-info">
-        <p>In case of any queries, please feel free to write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">011 4064 0511</span></p>
+        <p>In case of any queries, please feel free to write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">080- 25586293</span></p>
       </div>
       <div class="social-share">
         <span class='st_facebook_vcount' displayText='Facebook'></span>

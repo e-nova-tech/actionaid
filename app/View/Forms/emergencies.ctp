@@ -100,7 +100,7 @@ At the moment we are focusing on shelter, water and sanitation. Food and clothin
                 <p>We are one of the first movers at times of disaster and calamity. With intimate partnership with affected communities we ensure to provide not only immediate basic needs but adopt a long term rehabilitation of the affected communities. We are still active in long term rehabilitation work of earlier calamities, like Uttarakhand Floods, Cyclone Phailin, which struck India.</p>
             </div>
             <div class="contat-info">
-                <p>For queries write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">011 4064 0511</span></p>
+                <p>For queries write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">080- 25586293</span></p>
             </div>
             <div class="social-share">
                 <span class='st_facebook_vcount' displayText='Facebook'></span>
