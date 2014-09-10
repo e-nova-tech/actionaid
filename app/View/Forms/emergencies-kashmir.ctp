@@ -30,7 +30,7 @@ $this->set('title_for_layout','Kashmir Floods!');
     <img src="img/appeals/emergencies/banner-kashmir.jpg" alt="banner" />
   </div>
   <div class="clear"></div>
-  <div class="main-content">
+ <div class="main-content">
     <div class="left-part">
       <div class="first_block">
         <h3>The Situation.</h3>
@@ -57,7 +57,7 @@ $this->set('title_for_layout','Kashmir Floods!');
         <p>We are one of the first movers in times of disaster and calamity. With intimate partnership with affected communities, we, besides providing for the immediate basic needs, also adopt long-term strategies for rehabilitation of- affected communities. We are still very much active in long-term rehabilitation work taking place in response to the earlier calamities -that struck India.</p>
       </div>
       <div class="contat-info">
-        <p>In case of any queries, please feel free to write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">011 4064 0511</span></p>
+        <p>In case of any queries, please feel free to write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">080-25586293</span></p>
       </div>
       <div class="social-share">
         <span class='st_facebook_vcount' displayText='Facebook'></span>
@@ -119,7 +119,7 @@ $this->set('title_for_layout','Kashmir Floods!');
       <img src="img/appeals/emergencies/verisign_logo.jpg" />
       <br/><br/>
     </div>
-  </div>
+ </div>
   <div class="footer">
     <div class="footer-content">
       <p>ActionAid Association is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-56828 on the 5th of October 2006.</p>
