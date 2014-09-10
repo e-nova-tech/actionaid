@@ -377,7 +377,7 @@ class BilldeskTransactionResponse extends AppModel {
           'message' => __('ErrorDescription has to be provided')
         ),
         'pattern' => array(
-          'rule' => array('custom', '/^[a-zA-Z0-9 \._]+$/'),
+          'rule' => array('custom', '/^[a-zA-Z0-9 \._\-]+$/'),
           'message' => __('ErrorDescription wrong format.')
         )
       ),
