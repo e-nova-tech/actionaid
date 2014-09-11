@@ -46,8 +46,8 @@ $this->set('title_for_layout','Kashmir Floods!');
         <h3>We need your urgent help!</h3>
         <ul>
           <li>To provide drinking water, chlorinated tablets, food and medicines </li>
-          <li>To provide tarpolin sheets, dry food rations, non-food items and utensils</li>
-          <li>To provide hygine kit to women and girls</li>
+          <li>To provide tarpaulin sheets, dry food rations, non-food items and utensils</li>
+          <li>To provide hygiene kit to women and girls</li>
          </ul>
       </div>
       <div class="clear"></div>
@@ -56,7 +56,7 @@ $this->set('title_for_layout','Kashmir Floods!');
         <p>ActionAid is a global federation of more than 44 country affiliates. We have been working with most marginalised communities in India since 1972. With an all India presence in 25 states and 1 union territory, we have sided with the poor consistently for 41 years. We work to defeat poverty and marginalisation by building resilient and self-reliant communities.</p>
         <p>We are one of the first movers in times of disaster and calamity. With intimate partnership with affected communities, we, besides providing for the immediate basic needs, also adopt long-term strategies for rehabilitation of- affected communities. We are still very much active in long-term rehabilitation work taking place in response to the earlier calamities -that struck India.</p>
       </div>
-      <div class="contat-info">
+      <div class="contact-info">
         <p>In case of any queries, please feel free to write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">080-25586293</span></p>
       </div>
       <div class="social-share">
@@ -87,7 +87,7 @@ $this->set('title_for_layout','Kashmir Floods!');
         echo $this->MyForm->input('Person.country', array(
             'type'=>'select', 'label'=> false,
             'options'=> $countries, 'class'=>'required',
-            'hint' => 'Sorry we do not support international online donations yet. If you are not residing in India please use our <a href="files/donate-uttarakhand.pdf">offline donation form</a> or donate <a href="http://www.actionaid.org/donate" target="_blank">ActionAid International</a>'
+            'hint' => 'Sorry we do not support international online donations yet. If you are not residing in India please use our <a href="files/donate-J&K-floods.pdf">offline donation form</a> or donate <a href="http://www.actionaid.org/donate" target="_blank">ActionAid International</a>'
           )); ?>
         <?php echo $this->MyForm->input('Person.email', array(
             'label'=>__('Email'), 'class'=> '',
