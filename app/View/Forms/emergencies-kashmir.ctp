@@ -30,7 +30,7 @@ $this->set('title_for_layout','Kashmir Floods!');
     <img src="img/appeals/emergencies/banner-kashmir.jpg" alt="banner" />
   </div>
   <div class="clear"></div>
- <div class="main-content">
+  <div class="main-content">
     <div class="left-part">
       <div class="first_block">
         <h3>The Situation.</h3>
@@ -56,8 +56,13 @@ $this->set('title_for_layout','Kashmir Floods!');
         <p>ActionAid is a global federation of more than 44 country affiliates. We have been working with most marginalised communities in India since 1972. With an all India presence in 25 states and 1 union territory, we have sided with the poor consistently for 41 years. We work to defeat poverty and marginalisation by building resilient and self-reliant communities.</p>
         <p>We are one of the first movers in times of disaster and calamity. With intimate partnership with affected communities, we, besides providing for the immediate basic needs, also adopt long-term strategies for rehabilitation of- affected communities. We are still very much active in long-term rehabilitation work taking place in response to the earlier calamities -that struck India.</p>
       </div>
+<<<<<<< HEAD
       <div class="contact-info">
         <p>In case of any queries, please feel free to write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">080-25586293</span></p>
+=======
+      <div class="contat-info">
+        <p>In case of any queries, please feel free to write to <a href="mailto:fundindia@actionaid.org"><span class="red">fundindia@actionaid.org</span></a> or call <span class="red">080- 25586293</span></p>
+>>>>>>> origin/master
       </div>
       <div class="social-share">
         <span class='st_facebook_vcount' displayText='Facebook'></span>
@@ -119,7 +124,7 @@ $this->set('title_for_layout','Kashmir Floods!');
       <img src="img/appeals/emergencies/verisign_logo.jpg" />
       <br/><br/>
     </div>
- </div>
+  </div>
   <div class="footer">
     <div class="footer-content">
       <p>ActionAid Association is registered in India under the Societies Registration Act of 1860 with its registered office at New Delhi. Registration number S-56828 on the 5th of October 2006.</p>
